@@ -23,7 +23,7 @@ export type NavItem = NavLink & {
 export const STARTUP_VILLAGE_SUBMENU: NavLink[] = [
   { label: "Présentation", href: "/presentation" },
   { label: "Startup Village Menzah", href: "/startup-village-menzah" },
-  { label: "Startup Village Charguia", href: "/charguia" },
+  { label: "Startup Village Charguia", href: "/startup-village-charguia" },
   { label: "Responsabilités", href: "/responsabilites" },
   { label: "Partenaires", href: "/partenaires" },
 ];
