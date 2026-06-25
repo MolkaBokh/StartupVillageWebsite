@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Espace de Vie page (route: /espace-de-vie) — token & font binding
+   --------------------------------------------------------------------------
+   The source app reproduces the Startup Village palette with its OWN sv-*
+   values (which differ from the Partenaires page) and uses Poppins. Because
+   these are global Tailwind utilities, we re-bind the sv-* CSS variables and
+   the font ONLY within `.espace-de-vie-page`, so the page stays visually
+   identical to its source while the shared Header/Footer and other pages keep
+   their own values.
+   ========================================================================== */
+
+.espace-de-vie-page {
+  --color-sv-green: #6fa83c;
+  --color-sv-blue: #2bb3e0;
+  --color-sv-magenta: #e0205f;
+  --color-sv-navy: #1a2238;
+  --color-sv-grey: #555555;
+  --font-sans: var(--ev-sans), "Montserrat", system-ui, sans-serif;
+
+  color: var(--color-sv-grey);
+  font-family: var(--font-sans);
+}
+
+/* Headings inherit the page sans font (Poppins) in the source — re-assert it
+   here so the global base heading font does not leak in. Colors come from the
+   page's Tailwind text utilities. */
+.espace-de-vie-page :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-sans);
+}

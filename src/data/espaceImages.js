@@ -1,0 +1,29 @@
+// Espace de Vie page image map — assets imported locally from the source
+// repository into the shared asset store.
+const BASE = '/assets/images/espace-de-vie'
+
+export const images = {
+  hero: `${BASE}/Hero.jpg`,
+  avantPremiere1: `${BASE}/Avant-premiere-1.jpg`,
+  avantPremiere2: `${BASE}/Avant-premiere-2.png`,
+  avantPremiere3: `${BASE}/Avant-premiere-3.png`,
+  avantPremiere4: `${BASE}/Avant-premiere-4.jpg`,
+  avantPremiereYoga: `${BASE}/Avant-premiere-yoga.png`,
+  terrasse1: `${BASE}/Terrasse-1.png`,
+  terrasse2: `${BASE}/Terrasse-2.png`,
+  terrasse3: `${BASE}/Terrasse-3.png`,
+  reunion1: `${BASE}/Reunion-1.png`,
+  reunion2: `${BASE}/Reunion-2.png`,
+  reunion3: `${BASE}/Reunion-3.png`,
+  reunion4: `${BASE}/Reunion-4.png`,
+  studio1: `${BASE}/Studio-1.png`,
+  studio2: `${BASE}/Studio-2.png`,
+  artisanat: `${BASE}/Artisanat.jpg`,
+  coChef: `${BASE}/CoChef.png`,
+  basketCorridor: `${BASE}/Basket-Corridor.jpg`,
+  networking: `${BASE}/Networking.jpg`,
+  expositionArtistique: `${BASE}/espace-exposition-artistique.png`,
+  galerieArtCouloir: `${BASE}/galerie-art-couloir.png`,
+  coinDetenteIndustriel: `${BASE}/coin-detente-industriel.png`,
+  movieNight: `${BASE}/movie-night.png`,
+}

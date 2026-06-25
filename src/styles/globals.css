@@ -59,12 +59,17 @@
   --color-brand-cream: #f8f7f4;
 
   /* Canonical "sv-*" brand palette — used by the Partenaires page (and any
-     other page that reproduces the original Tailwind sv-* utility classes). */
+     other page that reproduces the original Tailwind sv-* utility classes).
+     Pages that need different sv-* values (e.g. Espace de Vie) re-bind these
+     CSS variables locally on their own wrapper. */
   --color-sv-cyan: #25afe0;
   --color-sv-yellow: #f5b339;
   --color-sv-pink: #e21c57;
   --color-sv-green: #77b457;
   --color-sv-navy: #0f2748;
+  --color-sv-blue: #2bb3e0;
+  --color-sv-magenta: #e0205f;
+  --color-sv-grey: #555555;
 
   /* Custom container width (max-w-content) used by the Partenaires page. */
   --container-content: 1180px;

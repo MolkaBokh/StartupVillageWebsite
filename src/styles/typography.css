@@ -48,8 +48,11 @@
   h4,
   h5,
   h6 {
+    /* No explicit color here: bare headings inherit the body color (which is
+       the same navy), while headings that rely on an inherited color (e.g. a
+       white hero heading inside a dark parent) or a Tailwind text-* utility
+       render correctly instead of being forced to navy. */
     font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
-    color: var(--color-brand-navy, #10243e);
     margin: 0;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
