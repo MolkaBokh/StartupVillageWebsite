@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Startups page (route: /startups) — token binding
+   --------------------------------------------------------------------------
+   The source page uses the same Plus Jakarta Sans font as this site, so no
+   font binding is needed. Its sv-navy is #10243E (vs the global #0f2748); we
+   re-bind it locally so the page stays visually identical while other pages
+   keep their own value. The other sv-* tokens (cyan/yellow/pink/green) and
+   shadow-soft already match the global theme.
+   ========================================================================== */
+
+.startups-page {
+  --color-sv-navy: #10243e;
+}
