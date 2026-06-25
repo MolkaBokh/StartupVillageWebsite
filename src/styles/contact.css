@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Contact page (route: /contact) — typography binding
+   --------------------------------------------------------------------------
+   The Contact source uses Inter and the same navy/primary/accent theme tokens
+   this project already defines, so its Tailwind classes work as-is. We bind
+   Inter locally (via next/font as --contact-sans) only within `.contact-page`
+   so the shared Header/Footer keep the site font while the page stays
+   visually identical to its source.
+   ========================================================================== */
+
+.contact-page {
+  --font-sans: var(--contact-sans), "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.contact-page :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-sans);
+}
