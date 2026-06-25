@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Layout — reference: Startup-Village-Homepage
+   --------------------------------------------------------------------------
+   Container width and the vertical-rhythm / section spacing philosophy that
+   the rest of the site builds on. The Homepage centres content in a 72rem
+   container with px-6 gutters; sections breathe with generous vertical
+   padding. These classes give every page a single, consistent skeleton.
+   ========================================================================== */
+
+:root {
+  --container-max: 72rem; /* matches Homepage max-w-6xl */
+  --container-pad: 1.5rem; /* px-6 */
+  --section-y: clamp(3.5rem, 7vw, 5.5rem);
+  --section-y-tight: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+/* Centered page container */
+.sv-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* Wide variant (logo walls, full-bleed grids) */
+.sv-container--wide {
+  max-width: 80rem;
+}
+
+/* Vertical section rhythm */
+.sv-section {
+  padding-block: var(--section-y);
+}
+
+.sv-section--tight {
+  padding-block: var(--section-y-tight);
+}
+
+/* Page shell: header / main / footer column so the footer sticks to bottom */
+.sv-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-shell > main {
+  flex: 1 1 auto;
+}
