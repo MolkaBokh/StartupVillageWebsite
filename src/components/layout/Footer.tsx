@@ -35,7 +35,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-white">
+    <footer className="sv-footer bg-navy-950 text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
         {/* Column 1 — Contact */}
         <div className="space-y-5">

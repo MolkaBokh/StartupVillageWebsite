@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import PagePlaceholder from "@/components/ui/PagePlaceholder";
+import HomeContent from "@/components/home/HomeContent";
 
 export const metadata: Metadata = {
-  title: "Startup Village",
+  title: "Startup Village Tunisia — Là où l'innovation prend vie",
+  description:
+    "Startup Village est l'écosystème entrepreneurial tunisien qui réunit startups, entrepreneurs, entreprises, investisseurs et créateurs autour d'espaces de coworking, d'événements, de formation et de collaboration à Menzah et Charguia.",
 };
 
 export default function Page() {
-  return <PagePlaceholder title="Présentation" source="Startup-Village-Homepage (home) + Home-page-SV" />;
+  return <HomeContent />;
 }

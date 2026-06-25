@@ -71,6 +71,14 @@
   color: var(--color-primary-700, #1a719c);
 }
 
+/* Footer ------------------------------------------------------------------ */
+/* The shared footer sits on a dark-navy band, so its section titles must be
+   pure white. The global base style colors all headings brand-navy; this
+   unlayered, more-specific rule guarantees the footer titles stay white. */
+.sv-footer h3 {
+  color: #ffffff;
+}
+
 /* Thin brand divider ------------------------------------------------------ */
 .sv-divider {
   height: 3px;
