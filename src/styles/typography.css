@@ -35,7 +35,7 @@
    are unlayered and still override these defaults as before. */
 @layer base {
   body {
-    font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+    font-family: var(--font-inter), "Segoe UI", system-ui, sans-serif;
     font-weight: 400;
     line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
@@ -52,7 +52,7 @@
        the same navy), while headings that rely on an inherited color (e.g. a
        white hero heading inside a dark parent) or a Tailwind text-* utility
        render correctly instead of being forced to navy. */
-    font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+    font-family: var(--font-inter), "Segoe UI", system-ui, sans-serif;
     margin: 0;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);

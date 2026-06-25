@@ -15,10 +15,8 @@
   --color-sv-magenta: #e0205f;
   --color-sv-navy: #1a2238;
   --color-sv-grey: #555555;
-  --font-sans: var(--ev-sans), "Montserrat", system-ui, sans-serif;
 
   color: var(--color-sv-grey);
-  font-family: var(--font-sans);
 }
 
 /* Headings inherit the page sans font (Poppins) in the source — re-assert it

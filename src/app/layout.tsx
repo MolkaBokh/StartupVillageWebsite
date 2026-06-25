@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 /**
- * Typeface — Plus Jakarta Sans (startup-startups-page reference).
- * Exposed as --font-jakarta and consumed by the typography layer.
+ * Site typeface — Inter (the Contact-page reference font), used consistently
+ * across every page. Exposed as --font-inter and consumed site-wide.
  */
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -26,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${jakarta.variable} antialiased`}>
+    <html lang="fr" className={`${inter.variable} antialiased`}>
       <body className="sv-shell bg-white text-[#10243e]">
         <Header />
         <main>{children}</main>

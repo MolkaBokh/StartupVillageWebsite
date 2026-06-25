@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Fraunces, Inter } from "next/font/google";
 import PartnerLogo from "@/components/partenaires/PartnerLogo";
 import { getPartners } from "@/lib/getPartners";
 import "@/styles/partenaires.css";
-
-// Serif éditorial premium — même personnalité typographique que la source.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--pt-serif",
-  display: "swap",
-  axes: ["opsz"],
-});
-
-// Sans pour la navigation, les labels et les boutons.
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--pt-sans",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Partenaires & Écosystème — Startup Village",
@@ -61,7 +45,7 @@ export default function PartenairesPage() {
   const partners = getPartners();
 
   return (
-    <div className={`${fraunces.variable} ${inter.variable} partenaires-page font-serif bg-white`}>
+    <div className="partenaires-page bg-white">
       <main>
         {/* SECTION 1 — HERO IMAGE */}
         <section className="relative isolate overflow-hidden">

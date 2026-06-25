@@ -30,7 +30,7 @@ export default function Header() {
     <header className="border-b border-navy-950/10 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Left — logo only */}
-        <Logo height={40} />
+        <Logo height={56} />
 
         {/* Center — desktop navigation */}
         <nav className="hidden items-center gap-7 md:flex">
@@ -57,20 +57,26 @@ export default function Header() {
                 </button>
 
                 {dropdownOpen && (
-                  <div className="absolute left-0 top-full z-20 mt-2 w-60 rounded-xl border border-navy-950/10 bg-white py-2 shadow-lg">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className={`block px-4 py-2 text-sm font-medium transition ${
-                          isActive(child.href)
-                            ? "text-accent-500"
-                            : "text-navy-950/80 hover:bg-navy-950/5 hover:text-accent-500"
-                        }`}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                  // The outer wrapper starts flush with the trigger (top-full,
+                  // no margin) and uses pt-2 as an invisible "hover bridge" so
+                  // the cursor never crosses a dead gap between the trigger and
+                  // the panel — keeping the dropdown open and its links clickable.
+                  <div className="absolute left-0 top-full z-20 pt-2">
+                    <div className="w-60 rounded-xl border border-navy-950/10 bg-white py-2 shadow-lg">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className={`block px-4 py-2 text-sm font-medium transition ${
+                            isActive(child.href)
+                              ? "text-accent-500"
+                              : "text-navy-950/80 hover:bg-navy-950/5 hover:text-accent-500"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
