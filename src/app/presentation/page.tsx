@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import PagePlaceholder from "@/components/ui/PagePlaceholder";
+import PresentationContent from "@/components/presentation/PresentationContent";
 
 export const metadata: Metadata = {
-  title: "Présentation | Startup Village",
+  title: "Le Concept — Startup Village",
+  description:
+    "Startup Village, l'espace de travail collaboratif qui vous ressemble et vous rassemble. Découvrez notre concept, notre mission et notre vision.",
 };
 
 export default function Page() {
-  return <PagePlaceholder title="Présentation" source="presentation" />;
+  return <PresentationContent />;
 }
