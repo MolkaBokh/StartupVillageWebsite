@@ -9,14 +9,5 @@
    visually identical to its source.
    ========================================================================== */
 
-.partenaires-page {
-  --font-serif: var(--pt-serif), Georgia, "Times New Roman", serif;
-  --font-sans: var(--pt-sans), system-ui, sans-serif;
-}
-
-/* Headings have no explicit font utility in the source — they inherit the
-   serif body font. Re-assert that here so the global base heading font does
-   not leak in. */
-.partenaires-page :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--font-serif);
-}
+/* Typography is normalized site-wide to Inter (see globals.css), so this page
+   no longer rebinds its own serif/sans fonts. */

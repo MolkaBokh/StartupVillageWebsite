@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import SupportBox from "@/components/contact/SupportBox";
 import InfoPanel from "@/components/contact/InfoPanel";
 import ContactForm from "@/components/contact/ContactForm";
 import MapSection from "@/components/contact/MapSection";
 import "@/styles/contact.css";
-
-// Police de la page source (Contact).
-const inter = Inter({ subsets: ["latin"], variable: "--contact-sans", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Contact — Startup Village",
@@ -17,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className={`${inter.variable} contact-page`}>
+    <div className="contact-page">
       <section className="bg-white pt-10 pb-6 sm:pt-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-3 lg:px-10">
           <div className="lg:col-span-2">

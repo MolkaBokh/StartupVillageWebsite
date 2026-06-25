@@ -29,9 +29,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Fonts — single typeface system (Startups page reference) */
-  --font-sans: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
-  --font-display: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+  /* Fonts — single typeface system (Inter, the Contact-page reference). */
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-inter), "Segoe UI", system-ui, sans-serif;
 
   /* Brand navy / chrome palette (header, footer) */
   --color-navy-950: #0a1733;
@@ -87,4 +87,16 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* --------------------------------------------------------------------------
+   Global typography normalization
+   Unifies the entire site on the Contact-page font (Inter). This single rule
+   intentionally overrides every per-page font declaration so all pages —
+   titles, body, buttons, nav, footer, cards, labels — share one typeface,
+   without redesigning any page. Per-page weights/sizes are preserved; only
+   the font family is normalized.
+   -------------------------------------------------------------------------- */
+* {
+  font-family: var(--font-inter), "Segoe UI", system-ui, sans-serif !important;
 }
