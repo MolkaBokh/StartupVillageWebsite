@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Reusable component classes
+   --------------------------------------------------------------------------
+   Small, framework-agnostic building blocks shared across pages. Combines the
+   Homepage chrome palette with the Startups page rounded / soft-shadow style.
+   Page-specific styling stays in the page itself — only truly shared
+   primitives live here.
+   ========================================================================== */
+
+/* Buttons ----------------------------------------------------------------- */
+.sv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.sv-btn:hover {
+  transform: translateY(-2px);
+}
+
+.sv-btn--primary {
+  background: var(--color-brand-blue, #25afe0);
+  color: #fff;
+  box-shadow: 0 14px 30px -12px rgba(37, 175, 224, 0.7);
+}
+
+.sv-btn--accent {
+  background: var(--color-accent-500, #e0245e);
+  color: #fff;
+  box-shadow: 0 14px 30px -12px rgba(224, 36, 94, 0.6);
+}
+
+.sv-btn--ghost {
+  background: transparent;
+  color: var(--color-brand-navy, #10243e);
+  border: 1px solid rgba(16, 36, 62, 0.15);
+}
+
+/* Card -------------------------------------------------------------------- */
+.sv-card {
+  background: #fff;
+  border-radius: var(--radius-card, 20px);
+  box-shadow: var(--shadow-soft, 0 8px 30px rgba(16, 36, 62, 0.06));
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.sv-card:hover {
+  box-shadow: var(--shadow-soft-hover, 0 16px 40px rgba(16, 36, 62, 0.12));
+}
+
+/* Chip / pill ------------------------------------------------------------- */
+.sv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: var(--color-primary-50, #eaf7fd);
+  color: var(--color-primary-700, #1a719c);
+}
+
+/* Thin brand divider ------------------------------------------------------ */
+.sv-divider {
+  height: 3px;
+  width: 64px;
+  border-radius: 999px;
+  background: var(--color-brand-pink, #e21c57);
+}

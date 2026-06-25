@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Startup Village — Global stylesheet (entry point)
+   --------------------------------------------------------------------------
+   Loads Tailwind, declares the design tokens (@theme), then pulls in the
+   rest of the CSS architecture:
+     - typography.css  → font family, heading hierarchy, weights (ref: Startups page)
+     - layout.css      → containers & section spacing philosophy (ref: Homepage)
+     - components.css  → reusable component classes (buttons, cards, chips…)
+   ========================================================================== */
+
+@import "tailwindcss";
+
+@import "./typography.css";
+@import "./layout.css";
+@import "./components.css";
+
+/* --------------------------------------------------------------------------
+   Design tokens
+   Color system ported from Startup-Village-Homepage so the shared chrome
+   (header / footer) stays visually identical. Typography token (--font-sans)
+   comes from the Startups page reference: Plus Jakarta Sans.
+   -------------------------------------------------------------------------- */
+:root {
+  --background: #ffffff;
+  --foreground: #10243e; /* Startups page navy ink */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts — single typeface system (Startups page reference) */
+  --font-sans: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+
+  /* Brand navy / chrome palette (header, footer) */
+  --color-navy-950: #0a1733;
+  --color-navy-900: #0d1c40;
+  --color-navy-800: #142854;
+
+  /* Primary (cyan) */
+  --color-primary-50: #eaf7fd;
+  --color-primary-100: #cdeefb;
+  --color-primary-400: #4cbcec;
+  --color-primary-500: #2aa7dd;
+  --color-primary-600: #1f8cc0;
+  --color-primary-700: #1a719c;
+
+  /* Accent (magenta / pink) */
+  --color-accent-500: #e0245e;
+  --color-accent-600: #c01c4f;
+
+  /* Full Startup Village brand palette */
+  --color-brand-navy: #10243e;
+  --color-brand-blue: #25afe0;
+  --color-brand-yellow: #f5b339;
+  --color-brand-pink: #e21c57;
+  --color-brand-green: #77b457;
+  --color-brand-cream: #f8f7f4;
+
+  /* Shared radii & shadows (spacing/elevation philosophy) */
+  --radius-card: 20px;
+  --shadow-soft: 0 8px 30px rgba(16, 36, 62, 0.06);
+  --shadow-soft-hover: 0 16px 40px rgba(16, 36, 62, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="232" height="48" viewBox="0 0 232 48" fill="none" role="img" aria-label="Startup Village">
+  <!-- Mark: three rounded "village" peaks in the brand palette -->
+  <g>
+    <path d="M9 38 L20 13 a5 5 0 0 1 8 0 L39 38 Z" fill="#77B457"/>
+    <path d="M20 38 L31 9 a5 5 0 0 1 8 0 L50 38 Z" fill="#25AFE0"/>
+    <path d="M32 38 L42 16 a5 5 0 0 1 8 0 L60 38 Z" fill="#E21C57"/>
+    <circle cx="46" cy="11" r="4" fill="#F5B339"/>
+    <rect x="6" y="38" width="58" height="4" rx="2" fill="#10243E"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="74" y="23" font-family="'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif" font-size="17" font-weight="500" letter-spacing="0.5" fill="#10243E">startup</text>
+  <text x="74" y="41" font-family="'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif" font-size="18" font-weight="800" letter-spacing="0.2" fill="#10243E">VILLAGE</text>
+</svg>
