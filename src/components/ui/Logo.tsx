@@ -2,24 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 
 type LogoProps = {
-  /** Rendered height in px (width scales automatically). */
+  /** Rendered height in px (width scales with the source aspect ratio). */
   height?: number;
   className?: string;
   /** Wrap in a link to home. Defaults to true. */
   href?: string | null;
 };
 
+/* Source logo intrinsic dimensions (logo.png is square, 225×225). */
+const LOGO_W = 225;
+const LOGO_H = 225;
+
 /**
  * Startup Village brand logo (image only — no text node).
- * Source asset lives at /assets/logos/startup-village-logo.svg.
+ * Uses the uploaded brand asset at /assets/logos/logo.png.
  */
-export default function Logo({ height = 40, className = "", href = "/" }: LogoProps) {
+export default function Logo({ height = 44, className = "", href = "/" }: LogoProps) {
   const img = (
     <Image
-      src="/assets/logos/startup-village-logo.svg"
+      src="/assets/logos/logo.png"
       alt="Startup Village"
       height={height}
-      width={Math.round((232 / 48) * height)}
+      width={Math.round((LOGO_W / LOGO_H) * height)}
       priority
       className={className}
     />
