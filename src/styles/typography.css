@@ -28,50 +28,57 @@
   --tracking-wide: 0.04em;
 }
 
-body {
-  font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
-  font-weight: 400;
-  line-height: var(--leading-body);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+/* Base element defaults live in the `base` layer so Tailwind utility classes
+   (text-white, text-4xl, font-serif… in the utilities layer) correctly override
+   them. Unlayered rules would otherwise win over utilities in Tailwind v4
+   regardless of specificity. Page-scoped stylesheets (.home-page, .menzah-page…)
+   are unlayered and still override these defaults as before. */
+@layer base {
+  body {
+    font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
-  color: var(--color-brand-navy, #10243e);
-  margin: 0;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-jakarta), "Segoe UI", system-ui, sans-serif;
+    color: var(--color-brand-navy, #10243e);
+    margin: 0;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
 
-h1 {
-  font-size: var(--text-h1);
-  font-weight: 800;
-}
+  h1 {
+    font-size: var(--text-h1);
+    font-weight: 800;
+  }
 
-h2 {
-  font-size: var(--text-h2);
-  font-weight: 700;
-}
+  h2 {
+    font-size: var(--text-h2);
+    font-weight: 700;
+  }
 
-h3 {
-  font-size: var(--text-h3);
-  font-weight: 700;
-}
+  h3 {
+    font-size: var(--text-h3);
+    font-weight: 700;
+  }
 
-h4 {
-  font-size: var(--text-h4);
-  font-weight: 600;
-}
+  h4 {
+    font-size: var(--text-h4);
+    font-weight: 600;
+  }
 
-p {
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
+  p {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
 }
 
 /* Reusable type utilities ------------------------------------------------- */
