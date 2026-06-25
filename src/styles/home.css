@@ -1,0 +1,389 @@
+/* ==========================================================================
+   Home page (route: /) — content styles
+   --------------------------------------------------------------------------
+   Ported verbatim from the source repository `Home-page-SV` (css/style.css).
+   Every selector is scoped under `.home-page` so the page renders visually
+   identical to the original while the shared Header / Footer (which live
+   outside this wrapper) keep the site-wide design system.
+
+   Header / footer / mobile-nav rules from the source are intentionally NOT
+   included here — those are provided by the shared components.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============ Tokens (scoped) ============ */
+.home-page {
+  --navy: #1e2a4a;
+  --navy-deep: #161e36;
+  --blue: #29abe0;
+  --blue-dark: #1c8fbe;
+  --green: #74b843;
+  --pink: #ec1e79;
+  --cream: #f8f7f4;
+  --white: #ffffff;
+  --ink: #1e2a4a;
+  --text-muted: #5b6478;
+
+  --logo-blue: #36a9e1;
+  --logo-yellow: #f5b325;
+  --logo-pink: #e91e79;
+  --logo-green: #7ac143;
+
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 8px;
+  --radius-lg: 14px;
+  --max-width: 1280px;
+  --section-pad: 100px;
+
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+  .home-page { --section-pad: 56px; }
+}
+
+.home-page img { max-width: 100%; display: block; }
+.home-page a { text-decoration: none; color: inherit; }
+
+.home-page .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ============ Buttons ============ */
+.home-page .btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.875rem;
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+.home-page .btn:hover { transform: translateY(-2px); }
+.home-page .btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+.home-page .btn-primary:hover { background: var(--blue-dark); }
+.home-page .btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.home-page .btn-ghost:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ============ Hero ============ */
+.home-page .hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.home-page .hero-media {
+  position: absolute;
+  inset: 0;
+}
+.home-page .hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 30%;
+}
+.home-page .hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 30, 54, 0.35) 0%, rgba(22, 30, 54, 0.5) 45%, rgba(22, 30, 54, 0.82) 100%);
+}
+
+@media (max-width: 860px) {
+  .home-page .hero-media img { object-position: 18% 18%; }
+}
+.home-page .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+.home-page .hero h1 {
+  color: var(--white);
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  line-height: 1.08;
+  margin-bottom: 24px;
+}
+.home-page .hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.home-page .cta-group {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============ Sections generic ============ */
+.home-page .section { padding: var(--section-pad) 0; }
+.home-page .section-white { background: var(--white); }
+.home-page .section-light { background: var(--cream); }
+.home-page .section-cream { background: var(--cream); }
+
+.home-page .eyebrow {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: var(--blue-dark);
+  margin: 0 0 12px;
+}
+.home-page .section-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-bottom: 16px;
+}
+.home-page .section-lead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.home-page .center { text-align: center; }
+.home-page .section-cta { margin-top: 48px; }
+
+/* ============ Stats ============ */
+.home-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 56px;
+}
+.home-page .stat-item {
+  text-align: center;
+  padding: 8px 12px;
+}
+.home-page .stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue-dark);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(30, 42, 74, 0.08);
+}
+.home-page .stat-icon svg { width: 26px; height: 26px; }
+.home-page .stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--navy);
+}
+.home-page .stat-label {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ============ Nos univers ============ */
+.home-page .univers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.home-page .univers-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 28px rgba(30, 42, 74, 0.08);
+  transition: transform 0.25s ease;
+}
+.home-page .univers-card:hover { transform: translateY(-6px); }
+.home-page .univers-media { overflow: hidden; height: 200px; }
+.home-page .univers-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.home-page .univers-card:hover .univers-media img { transform: scale(1.05); }
+.home-page .univers-body {
+  padding: 22px 20px;
+  flex: 1;
+  color: var(--white);
+}
+.home-page .univers-body h3 {
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.home-page .univers-body p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.home-page .accent-blue .univers-body { background: var(--logo-blue); }
+.home-page .accent-yellow .univers-body { background: var(--logo-yellow); }
+.home-page .accent-pink .univers-body { background: var(--logo-pink); }
+.home-page .accent-green .univers-body { background: var(--logo-green); }
+
+/* ============ La vie au village (story blocks) ============ */
+.home-page .story-block {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-top: 64px;
+}
+.home-page .story-block:first-of-type { margin-top: 56px; }
+.home-page .story-block.reverse .story-media { order: 2; }
+.home-page .story-block.reverse .story-text { order: 1; }
+.home-page .story-media img {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+.home-page .story-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.home-page .story-text p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+/* ============ Partners ============ */
+.home-page .partners-wall {
+  margin-top: 8px;
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+}
+.home-page .partners-wall img {
+  margin: 0 auto;
+  max-height: 220px;
+  width: auto;
+}
+
+/* ============ Events ============ */
+.home-page .section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.home-page .events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+.home-page .event-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(30, 42, 74, 0.07);
+}
+.home-page .event-media { position: relative; height: 200px; overflow: hidden; }
+.home-page .event-media img { width: 100%; height: 100%; object-fit: cover; }
+.home-page .event-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--pink);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+.home-page .event-body { padding: 22px 22px 26px; }
+.home-page .event-body h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.home-page .event-body p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; margin: 0; }
+
+/* ============ Final CTA ============ */
+.home-page .cta-final {
+  background: var(--white);
+  text-align: center;
+}
+.home-page .cta-final-content {
+  padding: 120px 24px;
+}
+.home-page .cta-final-content h2 {
+  color: var(--navy);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin-bottom: 18px;
+}
+.home-page .cta-final-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .home-page .univers-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-page .events-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .home-page .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-page .univers-grid { grid-template-columns: 1fr; }
+  .home-page .events-grid { grid-template-columns: 1fr; }
+  .home-page .story-block,
+  .home-page .story-block.reverse {
+    grid-template-columns: 1fr;
+  }
+  .home-page .story-block.reverse .story-media,
+  .home-page .story-block.reverse .story-text { order: initial; }
+  .home-page .story-media img { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .home-page .stats-grid { grid-template-columns: 1fr 1fr; }
+  .home-page .cta-group { flex-direction: column; width: 100%; }
+  .home-page .cta-group .btn { width: 100%; text-align: center; }
+}
