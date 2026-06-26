@@ -22,6 +22,16 @@ const T = {
     email: "Email",
     cta: "Book a visit",
   },
+  ar: {
+    menzah: "ستارتب فيليج المنزه",
+    menzahAddr: ["عمارة الصادي، برج C-D، الميزانين", "10 ديسمبر، شارع الحبيب بورقيبة", "تونس 1004"],
+    charguia: "ستارتب فيليج الشرقية",
+    charguiaAddr: "العنوان متاح على خرائط Google",
+    phone: "الهاتف",
+    phoneVal: "+216 XX XXX XXX",
+    email: "البريد الإلكتروني",
+    cta: "احجز زيارة",
+  },
 } as const;
 
 export default function InfoPanel({ lang = "fr" }: { lang?: Lang }) {

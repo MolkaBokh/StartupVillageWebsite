@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import HtmlLangDir from "@/components/layout/HtmlLangDir";
 
 /**
- * Site typeface — Inter (the Contact-page reference font), used consistently
- * across every page. Exposed as --font-inter and consumed site-wide.
+ * Site typeface — Inter (the Contact-page reference font), used across the
+ * French and English versions. Cairo is loaded for the Arabic (RTL) version
+ * and applied to any dir="rtl" subtree (see globals.css).
  */
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -25,8 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} antialiased`}>
+    <html lang="fr" className={`${inter.variable} ${cairo.variable} antialiased`}>
       <body className="sv-shell bg-white text-[#10243e]">
+        <HtmlLangDir />
         <Header />
         <main>{children}</main>
         <Footer />

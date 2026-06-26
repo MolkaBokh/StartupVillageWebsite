@@ -39,6 +39,23 @@ const T = {
     requestTypes: ['Book a visit', 'Join the Startup Village Club', 'Request a private office', 'Book a room', 'Host an event', 'Drop off my stock', 'Join Market & Co', 'Request information', 'Other'],
     sites: ['Startup Village Menzah', 'Startup Village Charguia', 'No preference'],
   },
+  ar: {
+    title: 'مكانك في انتظارك في القرية',
+    intro: 'احجز زيارة، اطلب عرض سعر أو تحدّث مع فريقنا للعثور على الفضاء المناسب لاحتياجك.',
+    name: 'الاسم الكامل*',
+    type: 'نوع الطلب*',
+    select: 'اختر',
+    org: 'المؤسسة',
+    phone: 'الهاتف*',
+    email: 'البريد الإلكتروني*',
+    site: 'الموقع المفضّل*',
+    people: 'عدد الأشخاص',
+    message: 'الرسالة',
+    consent: 'أوافق على تلقّي أخبار ستارتب فيليج وشركائه عبر البريد الإلكتروني: نشرات حصرية ودعوات إلى الفعاليات واستبيانات رقمية. وفقًا للائحة حماية البيانات (RGPD)، يمكنك إلغاء الاشتراك في أي وقت.',
+    submit: 'أرسل طلبي',
+    requestTypes: ['طلب زيارة', 'الانضمام إلى نادي ستارتب فيليج', 'طلب مكتب خاص', 'حجز قاعة', 'تنظيم فعالية', 'إيداع مخزوني', 'الانضمام إلى Market & Co', 'طلب معلومات', 'أخرى'],
+    sites: ['ستارتب فيليج المنزه', 'ستارتب فيليج الشرقية', 'لا تفضيل'],
+  },
 }
 
 export default function ContactSection({ lang = 'fr' }) {

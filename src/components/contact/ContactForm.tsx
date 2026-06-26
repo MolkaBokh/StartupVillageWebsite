@@ -20,15 +20,15 @@ import {
 const CONTACT_EMAIL = "molkaboukhris224@gmail.com";
 
 const REQUEST_TYPES = [
-  { key: "visit", icon: <VisitIcon />, fr: "Demander une visite", en: "Book a visit" },
-  { key: "club", icon: <ClubIcon />, fr: "Rejoindre le Club Startup Village", en: "Join the Startup Village Club" },
-  { key: "office", icon: <OfficeIcon />, fr: "Demander un bureau privé", en: "Request a private office" },
-  { key: "room", icon: <MeetingRoomIcon />, fr: "Réserver une salle", en: "Book a room" },
-  { key: "event", icon: <EventIcon />, fr: "Organiser un événement", en: "Host an event" },
-  { key: "stock", icon: <StockIcon />, fr: "Déposer mon stock", en: "Drop off my stock" },
-  { key: "market", icon: <MarketIcon />, fr: "Intégrer Market & Co", en: "Join Market & Co" },
-  { key: "info", icon: <InfoIcon />, fr: "Demande d'information", en: "Request information" },
-  { key: "other", icon: <OtherIcon />, fr: "Autre", en: "Other" },
+  { key: "visit", icon: <VisitIcon />, fr: "Demander une visite", en: "Book a visit", ar: "طلب زيارة" },
+  { key: "club", icon: <ClubIcon />, fr: "Rejoindre le Club Startup Village", en: "Join the Startup Village Club", ar: "الانضمام إلى نادي ستارتب فيليج" },
+  { key: "office", icon: <OfficeIcon />, fr: "Demander un bureau privé", en: "Request a private office", ar: "طلب مكتب خاص" },
+  { key: "room", icon: <MeetingRoomIcon />, fr: "Réserver une salle", en: "Book a room", ar: "حجز قاعة" },
+  { key: "event", icon: <EventIcon />, fr: "Organiser un événement", en: "Host an event", ar: "تنظيم فعالية" },
+  { key: "stock", icon: <StockIcon />, fr: "Déposer mon stock", en: "Drop off my stock", ar: "إيداع مخزوني" },
+  { key: "market", icon: <MarketIcon />, fr: "Intégrer Market & Co", en: "Join Market & Co", ar: "الانضمام إلى Market & Co" },
+  { key: "info", icon: <InfoIcon />, fr: "Demande d'information", en: "Request information", ar: "طلب معلومات" },
+  { key: "other", icon: <OtherIcon />, fr: "Autre", en: "Other", ar: "أخرى" },
 ] as const;
 
 // URL ?type=… maps to a request-type key, pre-selected when the form opens.
@@ -88,6 +88,33 @@ const T = {
     sites: ["Startup Village Menzah", "Startup Village Charguia", "I don't know yet"],
     subject: "New request",
     fields: { name: "Full name", email: "Email", phone: "Phone", org: "Organisation", type: "Request type", site: "Preferred site", people: "Number of people", date: "Preferred date", message: "Message" },
+  },
+  ar: {
+    successTitle: "شكرًا على طلبك!",
+    successText: "سيتواصل معك فريقنا قريبًا جدًا لتنظيم زيارتك.",
+    needTitle: "ما هي حاجتك؟",
+    infoTitle: "معلوماتك",
+    fullName: "الاسم الكامل",
+    fullNamePh: "اسمك ولقبك",
+    email: "البريد الإلكتروني",
+    emailPh: "you@example.com",
+    phone: "رقم الهاتف",
+    phonePh: "+216 XX XXX XXX",
+    org: "المؤسسة",
+    orgPh: "اسم شركتك",
+    requestType: "نوع الطلب",
+    site: "الموقع المفضّل",
+    select: "اختر",
+    people: "عدد الأشخاص",
+    peoplePh: "مثال: 4",
+    date: "التاريخ المفضّل",
+    message: "الرسالة",
+    messagePh: "أخبرنا عن مشروعك أو احتياجاتك الخاصة",
+    consent: "أوافق على أن يرسل لي ستارتب فيليج تحديثات وعروضًا واستبيانات مفيدة حول منتجاته وخدماته. وفقًا للائحة حماية البيانات (RGPD)، يمكنك إلغاء الاشتراك في أي وقت.",
+    submit: "أرسل طلبي",
+    sites: ["ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "لا أعرف بعد"],
+    subject: "طلب جديد",
+    fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", phone: "الهاتف", org: "المؤسسة", type: "نوع الطلب", site: "الموقع المفضّل", people: "عدد الأشخاص", date: "التاريخ المفضّل", message: "الرسالة" },
   },
 } as const;
 

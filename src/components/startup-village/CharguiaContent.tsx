@@ -96,6 +96,41 @@ const T = {
     benefits: ["Comfort", "High-speed internet", "Access to a diverse community of entrepreneurs and creatives"],
     villageoisBtn: "I'm joining the community",
   },
+  ar: {
+    heroSub: "فضاء الابتكار المخصّص للتجارة الإلكترونية",
+    heroBtn: "احجز فضاءً",
+    introTitle: "ستارتب فيليج الشرقية – الفضاء الهجين للتجارة الإلكترونية والابتكار",
+    introSub: "فصل جديد في مسيرة ستارتب فيليج",
+    introP1: "يتوسّع ستارتب فيليج ويختار الشرقية لافتتاح موقع ثانٍ، في موضع استراتيجي بقلب المنطقة الصناعية، على بُعد خطوات من المطار والمحاور اللوجستية الكبرى.",
+    introP2: "وُلِد هذا المكان الجديد من الرغبة في المضيّ أبعد، وهو يجسّد رؤيتنا لعمل أكثر سلاسة وإنسانية وارتباطًا بالعالم.",
+    introP3a: "في ستارتب فيليج الشرقية، لا تأتي للعمل فحسب.",
+    introP3b: "تأتي للإبداع والتخزين والشحن والتعاون والإنتاج… والتنفّس.",
+    statsTitle: ["فضاء استراتيجي", "لاستخدامات ملموسة"],
+    statsP: "هنا، صُمِّم كلّ شيء لمواكبة الممارسات المهنية اليوم: هجينة وسريعة ومترابطة.",
+    stats: [
+      { h: "17 مكتبًا خاصًا", s: "+120 مقعدًا" },
+      { h: "فضاءان للعمل المشترك", s: "+90 مقعدًا" },
+      { h: "3 قاعات اجتماعات", s: "+20 مقعدًا" },
+      { h: "قاعة متعدّدة الأغراض", s: "+70 مقعدًا" },
+    ],
+    galleryBand: "اكتشف فضاءاتنا",
+    spaceAlt: "فضاء",
+    coStorageTitle: "Co-Storage",
+    coStorageSub: "خدمات لوجستية مدمجة، مصمّمة للعلامات الرشيقة",
+    coStorageP: [
+      "في الشرقية، مستودع بمساحة 1000 م³ مدمج مباشرة في فضاء العمل.",
+      "نهج سلس ومترابط يقرّب الفرق من عملياتها، بالاعتماد على خبرة تتجاوز 10 سنوات في إدارة المخزون، ونظام ERP مخصّص، وغرفة تبريد لحفظ غذائي خاص.",
+      "حلّ مرن لتجّار التجارة الإلكترونية والمبدعين الذين يراهنون على الاستقلالية وسرعة الاستجابة.",
+    ],
+    coStorageBtn: "أودِع مخزوني",
+    strip: ["إدارة محسّنة للمخزون", "تحضير الطلبات في الموقع", "تتبّع الحركات والجرد", "دعم لوجستي وتوزيع مستقل"],
+    marketBtn: "أنضمّ إلى المفهوم",
+    logosTitle: "هم هنا بالفعل",
+    villageoisTitle: "لماذا تصبح من سكان القرية؟",
+    villageoisLead: "كن عضوًا!",
+    benefits: ["الراحة", "إنترنت عالي السرعة", "الوصول إلى مجتمع متنوّع من روّاد الأعمال والمبدعين"],
+    villageoisBtn: "أنضمّ إلى المجتمع",
+  },
 } as const;
 
 const MARKET: Record<Lang, { sub: ReactNode; p1: ReactNode; p2: ReactNode }> = {
@@ -109,6 +144,11 @@ const MARKET: Record<Lang, { sub: ReactNode; p1: ReactNode; p2: ReactNode }> = {
     p1: (<><b>Market &amp; Co</b> is a <b>multi-brand concept store</b> set at the heart of <b>Startup Village Charguia</b>. Designed as a <b>shared boutique</b>, it brings together in one place a diversity of products: <b>crafts, design, art, food, natural cosmetics, accessories</b> and much more.</>),
     p2: (<>The goal is to <b>make access to physical retail easier</b> for <b>entrepreneurs, artisans, producers and creators</b>, while offering the public a <b>local, varied and authentic</b> shopping experience.</>),
   },
+  ar: {
+    sub: (<><b>المتجر التشاركي للمفاهيم</b> في ستارتب فيليج الشرقية</>),
+    p1: (<><b>Market &amp; Co</b> هو <b>متجر مفاهيم متعدّد العلامات</b> يقع بقلب <b>ستارتب فيليج الشرقية</b>. صُمِّم كـ<b>متجر مشترك</b>، يجمع في مكان واحد تنوّعًا من المنتجات: <b>الحرف اليدوية والتصميم والفنّ والغذاء ومستحضرات التجميل الطبيعية والإكسسوارات</b> وغير ذلك الكثير.</>),
+    p2: (<>الهدف هو <b>تيسير الوصول إلى البيع المباشر</b> لـ<b>روّاد الأعمال والحرفيين والمنتجين والمبدعين</b>، مع تقديم تجربة <b>استهلاك محلّي متنوّع وأصيل</b> للجمهور.</>),
+  },
 };
 
 export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
@@ -117,7 +157,7 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
   const contact = withLang("/contact", lang);
 
   return (
-    <div className="charguia-page">
+    <div className="charguia-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <style>{CHARGUIA_STYLES}</style>
 
       {/* HERO */}

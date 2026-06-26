@@ -1,12 +1,12 @@
 /**
  * Central navigation model for the final Startup Village website.
  *
- * Bilingual: the French site lives at the root (/...) and the English site
- * under /en/.... The same component tree renders both; only labels, hrefs
- * (prefixed with /en for English) and text content differ.
+ * Trilingual: French at the root (/...), English under /en/..., Arabic under
+ * /ar/... (RTL). The same component tree renders all three; only labels, hrefs
+ * (prefixed per language) and text content differ.
  */
 
-export type Lang = "fr" | "en";
+export type Lang = "fr" | "en" | "ar";
 
 export type NavLink = {
   label: string;
@@ -18,28 +18,35 @@ export type NavItem = NavLink & {
   children?: NavLink[];
 };
 
-/** Prefix a root-relative path with the language base (/en for English). */
+const PREFIX: Record<Lang, string> = { fr: "", en: "/en", ar: "/ar" };
+
+/** Prefix a root-relative path with the language base. */
 export function withLang(path: string, lang: Lang): string {
-  if (lang === "fr") return path;
-  if (path === "/") return "/en";
-  return `/en${path}`;
+  const base = PREFIX[lang];
+  if (!base) return path;
+  if (path === "/") return base;
+  return `${base}${path}`;
 }
 
 /** The current language inferred from a pathname. */
 export function langFromPath(pathname: string): Lang {
-  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "fr";
+  if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
+  if (pathname === "/ar" || pathname.startsWith("/ar/")) return "ar";
+  return "fr";
 }
 
 /** Same route in the other language, used by the language switcher. */
 export function toLang(pathname: string, lang: Lang): string {
-  const stripped =
-    pathname === "/en" ? "/" : pathname.startsWith("/en/") ? pathname.slice(3) : pathname;
+  const current = langFromPath(pathname);
+  // Strip the existing language prefix ("/en" or "/ar"), keeping the rest.
+  const stripped = current === "fr" ? pathname : pathname.slice(3) || "/";
   return withLang(stripped || "/", lang);
 }
 
 const SUBMENU_LABELS: Record<Lang, string[]> = {
   fr: ["Présentation", "Startup Village Menzah", "Startup Village Charguia", "Responsabilités", "Partenaires"],
   en: ["Overview", "Startup Village Menzah", "Startup Village Charguia", "Responsibility", "Partners"],
+  ar: ["نبذة", "ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "المسؤولية المجتمعية", "الشركاء"],
 };
 
 const SUBMENU_PATHS = [
@@ -53,6 +60,7 @@ const SUBMENU_PATHS = [
 const NAV_LABELS: Record<Lang, string[]> = {
   fr: ["Startup Village", "Espace de Vie", "Startups", "Actualités", "Contact"],
   en: ["Startup Village", "Life at the Village", "Startups", "News", "Contact"],
+  ar: ["ستارتب فيليج", "فضاءات العيش", "الشركات الناشئة", "الأخبار", "اتصل بنا"],
 };
 
 const NAV_PATHS = ["/presentation", "/espace-de-vie", "/startups", "/actualites", "/contact"];
@@ -78,4 +86,5 @@ export function getNavItems(lang: Lang): NavItem[] {
 export const LANGUAGES = [
   { code: "fr", label: "FR" },
   { code: "en", label: "ENG" },
+  { code: "ar", label: "AR" },
 ] as const;

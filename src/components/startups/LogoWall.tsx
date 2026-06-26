@@ -42,6 +42,12 @@ const T = {
     wallTitle: "They're part of the Village",
     wallText: "A selection of resident startups and partners who contribute to the ecosystem's momentum.",
   },
+  ar: {
+    title: "منظومة للابتكار والتعاون",
+    text: "يجمع ستارتب فيليج روّاد الأعمال والشركات الناشئة والشركاء في بيئة مصمّمة لتحفيز اللقاءات وتبادل الخبرات ودفع النمو.",
+    wallTitle: "هم جزء من القرية",
+    wallText: "مجموعة مختارة من الشركات الناشئة المقيمة والشركاء الذين يساهمون في ديناميكية المنظومة.",
+  },
 } as const;
 
 export default function LogoWall({ lang = "fr" }: { lang?: Lang }) {
