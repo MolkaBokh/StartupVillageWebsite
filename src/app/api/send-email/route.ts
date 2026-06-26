@@ -32,7 +32,11 @@ function escapeHtml(s: string): string {
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
+  // Strip whitespace and any non-printable/non-ASCII characters that can sneak
+  // in when the key is pasted into the host's env settings. Such characters
+  // make Resend's `new Headers({ Authorization: ... })` throw
+  // "Cannot convert argument to a ByteString".
+  const apiKey = process.env.RESEND_API_KEY?.replace(/[^\x21-\x7E]/g, "");
   if (!apiKey) {
     return NextResponse.json(
       { error: "Email service is not configured (missing RESEND_API_KEY)." },
