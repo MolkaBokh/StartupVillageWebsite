@@ -74,8 +74,8 @@ export default function HomeContent() {
           <h1>L&apos;un des plus grands espaces de coworking en Afrique !</h1>
           <p className="hero-subtitle">Le village des créatifs responsables !</p>
           <div className="cta-group">
-            <a href="#contact" className="btn btn-primary">Réserver une visite</a>
-            <a href="#nos-univers" className="btn btn-ghost">Découvrir nos espaces</a>
+            <a href="/contact" className="btn btn-primary">Réserver une visite</a>
+            <a href="/espace-de-vie" className="btn btn-ghost">Découvrir nos espaces</a>
           </div>
         </div>
       </section>
@@ -176,7 +176,7 @@ export default function HomeContent() {
             </article>
           </div>
           <div className="section-cta center">
-            <a href="#contact" className="btn btn-primary">Explorer tous nos espaces</a>
+            <a href="/espace-de-vie" className="btn btn-primary">Explorer tous nos espaces</a>
           </div>
         </div>
       </section>
@@ -218,7 +218,7 @@ export default function HomeContent() {
           </div>
 
           <div className="section-cta center">
-            <a href="#contact" className="btn btn-primary">Réserver une visite</a>
+            <a href="/contact" className="btn btn-primary">Réserver une visite</a>
           </div>
         </div>
       </section>
@@ -277,7 +277,7 @@ export default function HomeContent() {
             </article>
           </div>
           <div className="section-cta center">
-            <a href="#contact" className="btn btn-primary">Découvrir tous les événements</a>
+            <a href="/actualites" className="btn btn-primary">Découvrir tous les événements</a>
           </div>
         </div>
       </section>
@@ -287,7 +287,7 @@ export default function HomeContent() {
         <div className="container cta-final-content">
           <h2>Prêt à rejoindre l&apos;écosystème Startup Village ?</h2>
           <p>Réservez une visite et découvrez nos espaces, nos événements et notre communauté.</p>
-          <a href="mailto:contact@startupvillage.tn" className="btn btn-primary">Réserver une visite</a>
+          <a href="/contact" className="btn btn-primary">Réserver une visite</a>
         </div>
       </section>
     </div>

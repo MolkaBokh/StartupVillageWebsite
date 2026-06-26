@@ -187,7 +187,7 @@ export default function StartupVillageCharguiaPage() {
         <div className="hero__inner">
           <h1>Startup Village - Charguia</h1>
           <p>{"L'espace d'innovation dédié à l'e-commerce"}</p>
-          <a href="#contact" className="btn btn--blue">RÉSERVER UN ESPACE</a>
+          <a href="/contact" className="btn btn--blue">RÉSERVER UN ESPACE</a>
         </div>
       </section>
 
@@ -275,7 +275,7 @@ export default function StartupVillageCharguiaPage() {
               <p>{"À Charguia, un entrepôt de 1000 m³ est intégré directement à l'espace de travail."}</p>
               <p>{"Une approche fluide et connectée, pour rapprocher les équipes de leurs opérations grâce à une expertise de plus de 10 années dans la gestion de stock, un ERP dédié et une chambre froide pour une conservation alimentaire spécifique."}</p>
               <p>{"Une solution souple, pour les e-commerçants et créateurs qui misent sur l'autonomie et la réactivité."}</p>
-              <a href="#contact" className="btn btn--yellow">Je dépose mon stock</a>
+              <a href="/contact?type=stock" className="btn btn--yellow">Je dépose mon stock</a>
             </div>
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function StartupVillageCharguiaPage() {
               <span className="sub"><b>Le concept store collaboratif</b> du Startup Village Charguia</span>
               <p><b>Market &amp; Co</b> est un <b>concept store multi-enseignes</b> installé au cœur de <b>Startup Village Charguia</b>. Pensé comme une <b>boutique partagée</b>, il réunit en un seul lieu une diversité de produits : <b>artisanat, design, art, alimentation, cosmétique naturelle, accessoires</b> et bien plus encore.</p>
               <p>{"L'objectif est de "}<b>faciliter l&apos;accès à la vente physique</b> pour les <b>entrepreneurs, artisans, producteurs et créateurs</b>, tout en offrant au public une expérience de <b>consommation locale, variée et authentique</b>.</p>
-              <a href="#contact" className="btn btn--yellow">Je rejoins le concept</a>
+              <a href="/contact?type=market" className="btn btn--yellow">Je rejoins le concept</a>
             </div>
           </div>
         </div>
@@ -344,7 +344,7 @@ export default function StartupVillageCharguiaPage() {
               <h3>{"Accès à une communauté diversifiée d'entrepreneurs et de créatifs"}</h3>
             </div>
           </div>
-          <a href="#contact" className="btn btn--green">Je rejoins la communauté</a>
+          <a href="/contact" className="btn btn--green">Je rejoins la communauté</a>
         </div>
       </section>
 

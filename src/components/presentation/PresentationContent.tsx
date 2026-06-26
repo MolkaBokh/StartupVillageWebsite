@@ -229,7 +229,7 @@ export default function PresentationContent() {
       {/* CTA FINAL */}
       <section className="cta-final">
         <h2>Je rejoins l&apos;aventure Startup Village</h2>
-        <a href="#" className="btn">Je rejoins l&apos;aventure Startup Village</a>
+        <a href="/contact" className="btn">Je rejoins l&apos;aventure Startup Village</a>
       </section>
     </div>
   );

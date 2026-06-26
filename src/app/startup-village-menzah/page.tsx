@@ -150,7 +150,7 @@ export default function StartupVillageMenzahPage() {
         <div className="hero__inner">
           <h1>Startup Village Menzah</h1>
           <p>{"L'écosystème de l'innovation, des médias et de l'entrepreneuriat"}</p>
-          <a href="#contact" className="btn btn--blue">RÉSERVER UN ESPACE</a>
+          <a href="/contact" className="btn btn--blue">RÉSERVER UN ESPACE</a>
         </div>
       </section>
 
@@ -270,7 +270,7 @@ export default function StartupVillageMenzahPage() {
             </div>
           </div>
           <div className="poles-cta">
-            <a href="#contact" className="btn btn--green">Je rejoins la communauté</a>
+            <a href="/contact" className="btn btn--green">Je rejoins la communauté</a>
           </div>
         </div>
       </section>

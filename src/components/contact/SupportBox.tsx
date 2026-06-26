@@ -3,7 +3,7 @@ import Link from "next/link";
 const LINKS = [
   { label: "Nous contacter directement", href: "mailto:contact@startupvillage.tn" },
   { label: "Découvrir nos espaces", href: "/espace-de-vie" },
-  { label: "Voir nos événements", href: "/concept" },
+  { label: "Voir nos événements", href: "/actualites" },
 ];
 
 export default function SupportBox() {
