@@ -25,14 +25,11 @@ const ICONS = {
   ),
 }
 
-const BENEFITS = [
-  { icon: 'flex', title: 'Espaces flexibles' },
-  { icon: 'community', title: 'Communauté active' },
-  { icon: 'events', title: "Événements toute l'année" },
-  { icon: 'pin', title: 'Deux adresses stratégiques' },
-]
+const ICON_ORDER = ['flex', 'community', 'events', 'pin']
 
-export default function BenefitsGrid({ title }) {
+const DEFAULT_ITEMS = ['Espaces flexibles', 'Communauté active', "Événements toute l'année", 'Deux adresses stratégiques']
+
+export default function BenefitsGrid({ title, items = DEFAULT_ITEMS }) {
   return (
     <section className="bg-white px-6 py-12 md:py-16">
       <div className="mx-auto max-w-[1200px]">
@@ -40,10 +37,10 @@ export default function BenefitsGrid({ title }) {
           {title}
         </h2>
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {BENEFITS.map((b) => (
-            <div key={b.title} className="flex flex-col items-center gap-2 text-center">
-              <span className="text-sv-blue">{ICONS[b.icon]}</span>
-              <span className="text-sm font-bold text-sv-navy">{b.title}</span>
+          {items.map((label, i) => (
+            <div key={label} className="flex flex-col items-center gap-2 text-center">
+              <span className="text-sv-blue">{ICONS[ICON_ORDER[i]]}</span>
+              <span className="text-sm font-bold text-sv-navy">{label}</span>
             </div>
           ))}
         </div>

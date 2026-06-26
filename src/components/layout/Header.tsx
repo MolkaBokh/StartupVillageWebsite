@@ -5,36 +5,41 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/components/ui/Logo";
 import LanguageSelector from "@/components/ui/LanguageSelector";
-import { NAV_ITEMS, STARTUP_VILLAGE_SUBMENU } from "@/config/navigation";
+import { getNavItems, getSubmenu, langFromPath, toLang, withLang } from "@/config/navigation";
 
 /**
- * Shared site header.
+ * Shared site header (bilingual).
  *
- * Visual structure follows the Startup-Village-Homepage header: a clean white
- * bar, the same 72rem container, px-6 / py-4 proportions and bottom hairline.
- * The navigation model follows the Startup Village Menzah page: a left logo
- * (image only), a centered nav with a "Startup Village" dropdown, and the
- * FR / ENG language selector on the right. Includes a responsive mobile menu.
+ * Clean white bar with a left logo (image only), a centered nav with a
+ * "Startup Village" dropdown, and the FR / ENG language selector on the right.
+ * The current language is inferred from the pathname (/en/... = English), so
+ * nav links, the home link and the language switcher always target the right
+ * language version of the current page. Includes a responsive mobile menu.
  */
 export default function Header() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+  const lang = langFromPath(pathname);
+  const navItems = getNavItems(lang);
+  const submenu = getSubmenu(lang);
+  const home = withLang("/", lang);
 
-  const startupVillageActive = STARTUP_VILLAGE_SUBMENU.some((item) => isActive(item.href));
+  const isActive = (href: string) =>
+    href === home ? pathname === home : pathname === href || pathname.startsWith(`${href}/`);
+
+  const startupVillageActive = submenu.some((item) => isActive(item.href));
 
   return (
     <header className="border-b border-navy-950/10 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Left — logo only */}
-        <Logo height={56} />
+        <Logo height={56} href={home} />
 
         {/* Center — desktop navigation */}
         <nav className="hidden items-center gap-7 md:flex">
-          {NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.children ? (
               <div
                 key={item.label}
@@ -96,7 +101,12 @@ export default function Header() {
 
         {/* Right — language selector (desktop) + burger (mobile) */}
         <div className="flex items-center gap-3">
-          <LanguageSelector className="hidden md:flex" />
+          <LanguageSelector
+            lang={lang}
+            frHref={toLang(pathname, "fr")}
+            enHref={toLang(pathname, "en")}
+            className="hidden md:flex"
+          />
 
           <button
             type="button"
@@ -119,7 +129,7 @@ export default function Header() {
             <p className="px-2 pt-1 text-xs font-bold uppercase tracking-wide text-navy-950/40">
               Startup Village
             </p>
-            {STARTUP_VILLAGE_SUBMENU.map((child) => (
+            {submenu.map((child) => (
               <Link
                 key={child.label}
                 href={child.href}
@@ -134,7 +144,7 @@ export default function Header() {
 
             <div className="my-2 h-px bg-navy-950/10" />
 
-            {NAV_ITEMS.filter((item) => !item.children).map((item) => (
+            {navItems.filter((item) => !item.children).map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
@@ -147,7 +157,12 @@ export default function Header() {
               </Link>
             ))}
 
-            <LanguageSelector className="mt-3 px-3" />
+            <LanguageSelector
+              lang={lang}
+              frHref={toLang(pathname, "fr")}
+              enHref={toLang(pathname, "en")}
+              className="mt-3 px-3"
+            />
           </div>
         </nav>
       )}

@@ -4,9 +4,9 @@ import MenzahContent from "@/components/startup-village/MenzahContent";
 export const metadata: Metadata = {
   title: "Startup Village Menzah",
   description:
-    "Startup Village Menzah — L'écosystème de l'innovation, des médias et de l'entrepreneuriat.",
+    "Startup Village Menzah — The ecosystem of innovation, media and entrepreneurship.",
 };
 
 export default function Page() {
-  return <MenzahContent lang="fr" />;
+  return <MenzahContent lang="en" />;
 }

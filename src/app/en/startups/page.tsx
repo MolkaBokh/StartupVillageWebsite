@@ -7,15 +7,15 @@ import "@/styles/startups.css";
 export const metadata: Metadata = {
   title: "Startups | Startup Village",
   description:
-    "Les startups, entrepreneurs et innovateurs qui font vivre l'écosystème Startup Village.",
+    "The startups, entrepreneurs and innovators who bring the Startup Village ecosystem to life.",
 };
 
 export default function StartupsPage() {
   return (
     <div className="startups-page">
-      <Hero lang="fr" />
-      <LogoWall lang="fr" />
-      <FinalCta lang="fr" />
+      <Hero lang="en" />
+      <LogoWall lang="en" />
+      <FinalCta lang="en" />
     </div>
   );
 }

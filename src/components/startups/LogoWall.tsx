@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { startups, type Startup } from "@/data/startups";
+import { type Lang } from "@/config/navigation";
 
 function LogoItem({ startup }: { startup: Startup }) {
   const [errored, setErrored] = useState(false);
@@ -28,7 +29,23 @@ function LogoItem({ startup }: { startup: Startup }) {
   );
 }
 
-export default function LogoWall() {
+const T = {
+  fr: {
+    title: "Un écosystème d'innovation et de collaboration",
+    text: "Startup Village rassemble entrepreneurs, startups et partenaires dans un environnement pensé pour favoriser les rencontres, le partage d'expertise et la croissance.",
+    wallTitle: "Ils font partie du Village",
+    wallText: "Une sélection de startups résidentes et partenaires qui contribuent à la dynamique de l'écosystème.",
+  },
+  en: {
+    title: "An ecosystem of innovation and collaboration",
+    text: "Startup Village brings together entrepreneurs, startups and partners in an environment designed to spark connections, share expertise and drive growth.",
+    wallTitle: "They're part of the Village",
+    wallText: "A selection of resident startups and partners who contribute to the ecosystem's momentum.",
+  },
+} as const;
+
+export default function LogoWall({ lang = "fr" }: { lang?: Lang }) {
+  const t = T[lang];
   return (
     <section className="bg-white pb-14 pt-6 md:pb-16 md:pt-8">
       <div className="mx-auto max-w-7xl px-6">
@@ -41,22 +58,19 @@ export default function LogoWall() {
             <span className="flex-1 bg-sv-green" />
           </div>
           <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-sv-navy md:text-4xl">
-            Un écosystème d&apos;innovation et de collaboration
+            {t.title}
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-sv-navy/65">
-            Startup Village rassemble entrepreneurs, startups et partenaires dans
-            un environnement pensé pour favoriser les rencontres, le partage
-            d&apos;expertise et la croissance.
+            {t.text}
           </p>
         </div>
 
         {/* Logo wall heading */}
         <h3 className="mt-12 text-2xl font-extrabold tracking-tight text-sv-navy md:text-3xl">
-          Ils font partie du Village
+          {t.wallTitle}
         </h3>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-sv-navy/65">
-          Une sélection de startups résidentes et partenaires qui contribuent à
-          la dynamique de l&apos;écosystème.
+          {t.wallText}
         </p>
 
         <div className="mt-8 grid grid-cols-2 border-l border-t border-[#E5E7EB] sm:grid-cols-3 lg:grid-cols-5">

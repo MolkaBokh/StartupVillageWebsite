@@ -4,9 +4,9 @@ import ContactContent from "@/components/contact/ContactContent";
 export const metadata: Metadata = {
   title: "Contact — Startup Village",
   description:
-    "Réservez une visite, demandez un devis ou échangez avec notre équipe pour trouver l'espace adapté à votre besoin.",
+    "Book a visit, request a quote or talk to our team to find the space that fits your needs.",
 };
 
 export default function ContactPage() {
-  return <ContactContent lang="fr" />;
+  return <ContactContent lang="en" />;
 }
