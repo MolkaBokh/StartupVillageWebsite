@@ -93,13 +93,14 @@ export default function Footer() {
             <p>Immeuble Essadi Tour C-D, Mezzanine</p>
             <p>10 Décembre, Av. Habib Bourguiba</p>
             <p>Tunis 1004</p>
-          </div>
-
-          <div className="space-y-1 text-sm leading-relaxed text-white">
-            <p className="font-semibold">Startup Village Charguia</p>
-            <p>28 Rue 8612, 1035 Charguia, Tunis</p>
+            <p className="font-semibold">{t.phone}</p>
+            <p>
+              <Link href="tel:+21620953953" className="text-white hover:text-primary-400">
+                +216 20 953 953
+              </Link>
+            </p>
             <Link
-              href="https://maps.app.goo.gl/ZHzpDADjBXtsDvAV6"
+              href="https://maps.app.goo.gl/8pfJj7eS4TVL5f4aA"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-medium text-white underline underline-offset-2 hover:text-primary-400"
@@ -109,17 +110,22 @@ export default function Footer() {
           </div>
 
           <div className="space-y-1 text-sm leading-relaxed text-white">
+            <p className="font-semibold">Startup Village Charguia</p>
+            <p>28 Rue 8612, 1035 Charguia, Tunis</p>
             <p className="font-semibold">{t.phone}</p>
-            <p>
-              <Link href="tel:+21620953953" className="text-white hover:text-primary-400">
-                +216 20 953 953
-              </Link>
-            </p>
             <p>
               <Link href="tel:+21698798027" className="text-white hover:text-primary-400">
                 +216 98 798 027
               </Link>
             </p>
+            <Link
+              href="https://maps.app.goo.gl/ZHzpDADjBXtsDvAV6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-medium text-white underline underline-offset-2 hover:text-primary-400"
+            >
+              {t.maps}
+            </Link>
           </div>
 
           <div className="space-y-1 text-sm leading-relaxed text-white">
