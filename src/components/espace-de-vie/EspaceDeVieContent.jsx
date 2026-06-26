@@ -16,8 +16,8 @@ export default function EspaceDeVieContent() {
         alt="Hall en marbre du Startup Village avec totem signalétique Startup et Medianet"
         title="Là où l'innovation prend vie"
         subtitle="Un bâtiment historique. Une communauté vivante. Le quotidien tunisien de l'innovation."
-        primaryCta={{ label: 'Réserver un espace', href: '#contact' }}
-        secondaryCta={{ label: 'Visiter le village', href: '#espaces' }}
+        primaryCta={{ label: 'Réserver un espace', href: '/contact' }}
+        secondaryCta={{ label: 'Visiter le village', href: '/contact?type=stock' }}
       />
 
       {/* S1B — Pourquoi choisir Startup Village */}
@@ -36,7 +36,7 @@ export default function EspaceDeVieContent() {
         subtitle="Un espace qui s'adapte à votre événement, et non l'inverse."
         body="De 10 à plus de 60 personnes, Avant-Première se transforme selon vos besoins : conférence, workshop, projection, formation, théâtre, team building, lancement produit ou événement privé."
         ctaLabel="En savoir plus"
-        ctaHref="#contact"
+        ctaHref="/contact"
         autoplay
         autoplayInterval={5500}
         images={[
@@ -56,7 +56,7 @@ export default function EspaceDeVieContent() {
         subtitle="Un espace de détente et d'interaction en pleine ville."
         body="Ouvertes sur la ville, les Terrasses Exchanges ont été conçues comme un lieu de détente, d'échange et de convivialité pour les villageois. Elles peuvent également être privatisées pour des événements, workshops ou team buildings."
         ctaLabel="En savoir plus"
-        ctaHref="#contact"
+        ctaHref="/contact"
         reverse
         images={[
           { src: images.terrasse2, alt: 'Les Terrasses Exchanges, vue panoramique' },
@@ -73,7 +73,7 @@ export default function EspaceDeVieContent() {
         subtitle="Des espaces pensés pour un usage précis."
         body="Au Startup Village, nous ne proposons pas des salles standardisées. Chaque espace est conçu autour d'un besoin : réfléchir, collaborer, former, présenter ou avancer sur un projet dans un environnement fonctionnel et inspirant."
         ctaLabel="En savoir plus"
-        ctaHref="#contact"
+        ctaHref="/contact"
         autoplay
         autoplayInterval={5500}
         images={[
@@ -91,7 +91,7 @@ export default function EspaceDeVieContent() {
         title="Studio d'enregistrement"
         body="Un espace équipé pour enregistrer podcasts, interviews, formations en ligne, vidéos et contenus de marque dans des conditions professionnelles."
         ctaLabel="En savoir plus"
-        ctaHref="#contact"
+        ctaHref="/contact"
         reverse
         images={[
           { src: images.studio1, alt: "Studio d'enregistrement, vue 1" },

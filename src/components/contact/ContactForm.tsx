@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input, Label, Select, Textarea } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import SpaceTypeCard from "@/components/contact/SpaceTypeCard";
@@ -34,12 +34,55 @@ const SITES = [
   "Je ne sais pas encore",
 ];
 
+// Adresse de réception du formulaire de contact.
+const CONTACT_EMAIL = "molkaboukhris224@gmail.com";
+
+// Mappe le paramètre d'URL ?type=… vers le type de demande pré-sélectionné,
+// pour les CTA qui ouvrent le formulaire sur un besoin précis.
+const TYPE_PARAM_MAP: Record<string, string> = {
+  stock: "Déposer mon stock",
+  market: "Intégrer Market & Co",
+};
+
 export default function ContactForm() {
   const [requestType, setRequestType] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  // Pré-sélection du type de demande depuis l'URL (?type=stock | market …).
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get("type");
+    if (param && TYPE_PARAM_MAP[param]) {
+      setRequestType(TYPE_PARAM_MAP[param]);
+    }
+  }, []);
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    // Construit un email pré-rempli avec les informations du formulaire et
+    // l'ouvre dans le client mail de l'utilisateur.
+    const data = new FormData(e.currentTarget);
+    const value = (key: string) => (data.get(key) ?? "").toString().trim();
+
+    const subject = `Nouvelle demande${requestType ? ` — ${requestType}` : ""}`;
+    const body = [
+      `Nom complet : ${value("full_name")}`,
+      `Email : ${value("email")}`,
+      `Téléphone : ${value("phone")}`,
+      `Organisation : ${value("organisation")}`,
+      `Type de demande : ${value("request_type") || requestType}`,
+      `Site souhaité : ${value("site")}`,
+      `Nombre de personnes : ${value("people_count")}`,
+      `Date souhaitée : ${value("desired_date")}`,
+      "",
+      "Message :",
+      value("message"),
+    ].join("\n");
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   }
 

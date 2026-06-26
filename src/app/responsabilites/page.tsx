@@ -218,7 +218,7 @@ export default function ResponsabilitesPage() {
             <h2 className="cta__title">
               {"Construire l'innovation de demain, de manière responsable."}
             </h2>
-            <a href="/" className="cta__button">Découvrir Startup Village</a>
+            <a href="/contact" className="cta__button">Découvrir Startup Village</a>
           </div>
         </section>
       </main>
