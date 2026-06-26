@@ -9,39 +9,40 @@ const IMG = "/assets/images/actualites/";
 
 type CatKey = "tech" | "entr" | "events" | "spaces" | "art";
 
-const CATEGORIES: Record<CatKey, { color: string; fr: string; en: string }> = {
-  tech: { color: "#25afe0", fr: "IA & Tech", en: "AI & Tech" },
-  entr: { color: "#e21c57", fr: "Entrepreneuriat", en: "Entrepreneurship" },
-  events: { color: "#f5b339", fr: "Événements", en: "Events" },
-  spaces: { color: "#77b457", fr: "Espaces", en: "Spaces" },
-  art: { color: "#0b2545", fr: "Art & Design", en: "Art & Design" },
+const CATEGORIES: Record<CatKey, { color: string; fr: string; en: string; ar: string }> = {
+  tech: { color: "#25afe0", fr: "IA & Tech", en: "AI & Tech", ar: "الذكاء الاصطناعي والتقنية" },
+  entr: { color: "#e21c57", fr: "Entrepreneuriat", en: "Entrepreneurship", ar: "ريادة الأعمال" },
+  events: { color: "#f5b339", fr: "Événements", en: "Events", ar: "فعاليات" },
+  spaces: { color: "#77b457", fr: "Espaces", en: "Spaces", ar: "الفضاءات" },
+  art: { color: "#0b2545", fr: "Art & Design", en: "Art & Design", ar: "الفنّ والتصميم" },
 };
 
 const FILTER_KEYS: ("all" | CatKey)[] = ["all", "tech", "entr", "events", "spaces", "art"];
 
+type Loc = { fr: string; en: string; ar: string };
 type Article = {
-  date: { fr: string; en: string };
-  title: { fr: string; en: string };
+  date: Loc;
+  title: Loc;
   cat: CatKey;
   img: string;
   link: string;
 };
 
 const ARTICLES: Article[] = [
-  { date: { fr: "12 Jun 2026", en: "12 Jun 2026" }, title: { fr: "Startup Village donne vie à ses statues sur Pinterest", en: "Startup Village brings its statues to life on Pinterest" }, cat: "art", img: `${IMG}statues-pinterest.jpg`, link: "#" },
-  { date: { fr: "Mai 2026", en: "May 2026" }, title: { fr: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble", en: "Innovation Talks: Italy–Tunisia, building innovation together" }, cat: "entr", img: `${IMG}innovation-talks.png`, link: "#" },
-  { date: { fr: "05 May 2026", en: "05 May 2026" }, title: { fr: "Quels sont les services pour les entrepreneurs en Tunisie ?", en: "What services are available for entrepreneurs in Tunisia?" }, cat: "entr", img: `${IMG}services-entrepreneurs.webp`, link: "#" },
-  { date: { fr: "20 Apr 2026", en: "20 Apr 2026" }, title: { fr: "Quels sont les meilleurs espaces de travail collaboratif ?", en: "What are the best collaborative workspaces?" }, cat: "spaces", img: `${IMG}meilleurs-espaces.jpg`, link: "#" },
-  { date: { fr: "16 Apr 2026", en: "16 Apr 2026" }, title: { fr: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie", en: "Maher Lahmer at Startup Village: AI, LLMs and startup strategy in Tunisia" }, cat: "tech", img: `${IMG}maher-lahmer.png`, link: "/actualites/maher-lahmer" },
-  { date: { fr: "13 Apr 2026", en: "13 Apr 2026" }, title: { fr: "Nabil Ben Saidane à Startup Village : l'Agentic AI en pratique", en: "Nabil Ben Saidane at Startup Village: Agentic AI in practice" }, cat: "tech", img: `${IMG}nabil-ben-saidane.png`, link: "#" },
-  { date: { fr: "17 Jun 2025", en: "17 Jun 2025" }, title: { fr: "Startup Village s'agrandit : Charguia, nouveau hub de l'entrepreneuriat", en: "Startup Village expands: Charguia, a new entrepreneurship hub" }, cat: "entr", img: `${IMG}charguia-hub.png`, link: "#" },
-  { date: { fr: "02 May 2025", en: "02 May 2025" }, title: { fr: "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens", en: "Imed Zitouni, Google: Artificial intelligence, innovation and Tunisian talent" }, cat: "tech", img: `${IMG}imed-zitouni.png`, link: "#" },
-  { date: { fr: "11 Apr 2025", en: "11 Apr 2025" }, title: { fr: "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale", en: "The Decisive Leap: Karim Beguir, African AI on the global stage" }, cat: "tech", img: `${IMG}karim-beguir.png`, link: "#" },
-  { date: { fr: "2024", en: "2024" }, title: { fr: "Lancement de la Deuxième Édition d'Upcycl'Art", en: "Launch of the second edition of Upcycl'Art" }, cat: "art", img: `${IMG}upcyclart.jpg`, link: "#" },
-  { date: { fr: "24 May 2023", en: "24 May 2023" }, title: { fr: "Startup Village en collaboration avec l'ATD lance un appel à candidature pour une exposition Upcycling", en: "Startup Village, in partnership with ATD, launches a call for applications for an Upcycling exhibition" }, cat: "art", img: `${IMG}atd-upcycling.jpg`, link: "#" },
-  { date: { fr: "12 Jul 2022", en: "12 Jul 2022" }, title: { fr: "Startup Village : Une histoire qui commence", en: "Startup Village: A story that begins" }, cat: "events", img: `${IMG}histoire-qui-commence.jpg`, link: "#" },
-  { date: { fr: "28 Jun 2022", en: "28 Jun 2022" }, title: { fr: "Kids Day : Les coulisses du Marketing Digital", en: "Kids Day: Behind the scenes of Digital Marketing" }, cat: "events", img: `${IMG}kids-day.png`, link: "#" },
-  { date: { fr: "28 Jun 2022", en: "28 Jun 2022" }, title: { fr: "Une journée aux couleurs du Design Thinking", en: "A day in the colors of Design Thinking" }, cat: "events", img: `${IMG}design-thinking.png`, link: "#" },
+  { date: { fr: "12 Jun 2026", en: "12 Jun 2026", ar: "12 يونيو 2026" }, title: { fr: "Startup Village donne vie à ses statues sur Pinterest", en: "Startup Village brings its statues to life on Pinterest", ar: "ستارتب فيليج يبعث الحياة في منحوتاته على Pinterest" }, cat: "art", img: `${IMG}statues-pinterest.jpg`, link: "#" },
+  { date: { fr: "Mai 2026", en: "May 2026", ar: "مايو 2026" }, title: { fr: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble", en: "Innovation Talks: Italy–Tunisia, building innovation together", ar: "Innovation Talks: إيطاليا–تونس، نبني الابتكار معًا" }, cat: "entr", img: `${IMG}innovation-talks.png`, link: "#" },
+  { date: { fr: "05 May 2026", en: "05 May 2026", ar: "05 مايو 2026" }, title: { fr: "Quels sont les services pour les entrepreneurs en Tunisie ?", en: "What services are available for entrepreneurs in Tunisia?", ar: "ما هي الخدمات المتاحة لروّاد الأعمال في تونس؟" }, cat: "entr", img: `${IMG}services-entrepreneurs.webp`, link: "#" },
+  { date: { fr: "20 Apr 2026", en: "20 Apr 2026", ar: "20 أبريل 2026" }, title: { fr: "Quels sont les meilleurs espaces de travail collaboratif ?", en: "What are the best collaborative workspaces?", ar: "ما هي أفضل فضاءات العمل المشترك؟" }, cat: "spaces", img: `${IMG}meilleurs-espaces.jpg`, link: "#" },
+  { date: { fr: "16 Apr 2026", en: "16 Apr 2026", ar: "16 أبريل 2026" }, title: { fr: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie", en: "Maher Lahmer at Startup Village: AI, LLMs and startup strategy in Tunisia", ar: "ماهر لحمر في ستارتب فيليج: الذكاء الاصطناعي ونماذج اللغة الكبيرة واستراتيجية الشركات الناشئة في تونس" }, cat: "tech", img: `${IMG}maher-lahmer.png`, link: "/actualites/maher-lahmer" },
+  { date: { fr: "13 Apr 2026", en: "13 Apr 2026", ar: "13 أبريل 2026" }, title: { fr: "Nabil Ben Saidane à Startup Village : l'Agentic AI en pratique", en: "Nabil Ben Saidane at Startup Village: Agentic AI in practice", ar: "نبيل بن سعيدان في ستارتب فيليج: الذكاء الاصطناعي الوكيل عمليًا" }, cat: "tech", img: `${IMG}nabil-ben-saidane.png`, link: "#" },
+  { date: { fr: "17 Jun 2025", en: "17 Jun 2025", ar: "17 يونيو 2025" }, title: { fr: "Startup Village s'agrandit : Charguia, nouveau hub de l'entrepreneuriat", en: "Startup Village expands: Charguia, a new entrepreneurship hub", ar: "ستارتب فيليج يتوسّع: الشرقية، قطب جديد لريادة الأعمال" }, cat: "entr", img: `${IMG}charguia-hub.png`, link: "#" },
+  { date: { fr: "02 May 2025", en: "02 May 2025", ar: "02 مايو 2025" }, title: { fr: "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens", en: "Imed Zitouni, Google: Artificial intelligence, innovation and Tunisian talent", ar: "عماد زيتوني من Google: الذكاء الاصطناعي والابتكار والمواهب التونسية" }, cat: "tech", img: `${IMG}imed-zitouni.png`, link: "#" },
+  { date: { fr: "11 Apr 2025", en: "11 Apr 2025", ar: "11 أبريل 2025" }, title: { fr: "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale", en: "The Decisive Leap: Karim Beguir, African AI on the global stage", ar: "القفزة الحاسمة: كريم بقير، الذكاء الاصطناعي الإفريقي على الساحة العالمية" }, cat: "tech", img: `${IMG}karim-beguir.png`, link: "#" },
+  { date: { fr: "2024", en: "2024", ar: "2024" }, title: { fr: "Lancement de la Deuxième Édition d'Upcycl'Art", en: "Launch of the second edition of Upcycl'Art", ar: "إطلاق النسخة الثانية من Upcycl'Art" }, cat: "art", img: `${IMG}upcyclart.jpg`, link: "#" },
+  { date: { fr: "24 May 2023", en: "24 May 2023", ar: "24 مايو 2023" }, title: { fr: "Startup Village en collaboration avec l'ATD lance un appel à candidature pour une exposition Upcycling", en: "Startup Village, in partnership with ATD, launches a call for applications for an Upcycling exhibition", ar: "ستارتب فيليج بالتعاون مع ATD يطلق دعوة للترشّح لمعرض إعادة التدوير" }, cat: "art", img: `${IMG}atd-upcycling.jpg`, link: "#" },
+  { date: { fr: "12 Jul 2022", en: "12 Jul 2022", ar: "12 يوليو 2022" }, title: { fr: "Startup Village : Une histoire qui commence", en: "Startup Village: A story that begins", ar: "ستارتب فيليج: حكاية تبدأ" }, cat: "events", img: `${IMG}histoire-qui-commence.jpg`, link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022", ar: "28 يونيو 2022" }, title: { fr: "Kids Day : Les coulisses du Marketing Digital", en: "Kids Day: Behind the scenes of Digital Marketing", ar: "Kids Day: كواليس التسويق الرقمي" }, cat: "events", img: `${IMG}kids-day.png`, link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022", ar: "28 يونيو 2022" }, title: { fr: "Une journée aux couleurs du Design Thinking", en: "A day in the colors of Design Thinking", ar: "يوم بألوان التفكير التصميمي" }, cat: "events", img: `${IMG}design-thinking.png`, link: "#" },
 ];
 
 const T = {
@@ -73,6 +74,20 @@ const T = {
     eventLoc: "Startup Village Menzah",
     register: "Register",
   },
+  ar: {
+    label: "الأخبار",
+    title: "أخبار وفعاليات القرية",
+    intro: "اكتشف أبرز اللحظات والمقالات واللقاءات والفعاليات التي تنبض بها حياة ستارتب فيليج.",
+    tabArticles: "المقالات",
+    tabEvents: "الفعاليات القادمة",
+    all: "الكل",
+    empty: "لا توجد مقالات في هذه الفئة.",
+    readMore: "اقرأ المزيد",
+    eventAvail: "أماكن متاحة",
+    eventSpeaker: "مع ناثانيال ويلسون، موظف في السلك الدبلوماسي، وزارة الخارجية الأمريكية",
+    eventLoc: "ستارتب فيليج المنزه",
+    register: "سجّل",
+  },
 } as const;
 
 const Arrow = () => (
@@ -99,7 +114,7 @@ export default function ActualitesContent({ lang = "fr" }: { lang?: Lang }) {
   const filterLabel = (key: "all" | CatKey) => (key === "all" ? t.all : CATEGORIES[key][lang]);
 
   return (
-    <div className="actualites-page">
+    <div className="actualites-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* ===== Hero ===== */}
       <section className="hero">
         <div className="container">

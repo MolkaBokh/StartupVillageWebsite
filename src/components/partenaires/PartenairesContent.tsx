@@ -49,6 +49,25 @@ const T = {
     finalCta: "Contact us",
     heroAlt: "The Startup Village ecosystem: encounters, events and networking",
   },
+  ar: {
+    eyebrow: "الشركاء والمنظومة",
+    title: "شبكة تُسرّع المشاريع",
+    intro: "يلتقي روّاد الأعمال والمستثمرون والخبراء ووسائل الإعلام والمؤسسات داخل منظومة واحدة لدفع الأفكار إلى الأمام بسرعة أكبر.",
+    badges: ["الخبرة", "التمويل", "المرافقة", "الظهور"],
+    wallTitle: "شبكة مبنية حول الابتكار",
+    wallText: "يعتمد ستارتب فيليج على شبكة من الشركاء الملتزمين لمرافقة روّاد الأعمال في تحدّياتهم الاستراتيجية والتكنولوجية والمالية والإعلامية.",
+    valueTitle: "ما تقدّمه المنظومة لروّاد الأعمال",
+    cards: [
+      { title: "الخبرة", text: "إرشاد استراتيجي وتكنولوجي وتشغيلي لهيكلة المشاريع ودفعها قدمًا." },
+      { title: "التمويل", text: "روابط مع مستثمرين وشركاء ماليين وفاعلين قادرين على دعم النمو." },
+      { title: "الظهور", text: "فرص إعلامية وفعاليات ومحتوى لإبراز مبادرات القرية." },
+      { title: "الشبكة", text: "ربط بروّاد الأعمال وصنّاع القرار والمرشدين والمؤسسات." },
+    ],
+    finalTitle: "انضمّ إلى منظومة تدفع المشاريع إلى الأمام.",
+    finalText: "يربط ستارتب فيليج روّاد الأعمال بالموارد والخبرات والفرص التي يحتاجونها للنموّ.",
+    finalCta: "اتصل بنا",
+    heroAlt: "منظومة ستارتب فيليج: لقاءات وفعاليات وتواصل",
+  },
 } as const;
 
 const BADGE_COLORS = ["bg-sv-cyan", "bg-sv-green", "bg-sv-yellow", "bg-sv-pink"];
@@ -59,7 +78,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
 
   return (
-    <div className="partenaires-page bg-white">
+    <div className="partenaires-page bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <main>
         {/* SECTION 1 — HERO IMAGE */}
         <section className="relative isolate overflow-hidden">

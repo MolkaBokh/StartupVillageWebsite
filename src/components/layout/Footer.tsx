@@ -46,6 +46,18 @@ const T = {
     subscribe: "Subscribe",
     follow: "Follow us",
   },
+  ar: {
+    contact: "اتصل بنا",
+    phone: "الهاتف",
+    email: "البريد الإلكتروني",
+    maps: "عرض على خرائط Google",
+    newsletter: "النشرة البريدية",
+    newsletterText: "تابع آخر أخبار القرية مباشرة في بريدك الإلكتروني.",
+    emailPlaceholder: "you@email.com",
+    emailAria: "عنوان بريدك الإلكتروني",
+    subscribe: "اشترك",
+    follow: "تابعنا",
+  },
 } as const;
 
 const SOCIALS = [
@@ -68,7 +80,7 @@ export default function Footer() {
   const t = T[lang];
 
   return (
-    <footer className="sv-footer bg-navy-950 text-white">
+    <footer className="sv-footer bg-navy-950 text-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
         {/* Column 1 — Contact */}
         <div className="space-y-5">

@@ -100,3 +100,11 @@ body {
 * {
   font-family: var(--font-inter), "Segoe UI", system-ui, sans-serif !important;
 }
+
+/* Arabic (RTL) uses Cairo. The higher-specificity selector overrides the
+   global Inter normalization above for any dir="rtl" subtree (Arabic Header,
+   Footer and pages), without affecting the French/English versions. */
+[dir="rtl"],
+[dir="rtl"] * {
+  font-family: var(--font-cairo), "Cairo", "Noto Sans Arabic", system-ui, sans-serif !important;
+}

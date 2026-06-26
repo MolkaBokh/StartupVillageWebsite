@@ -17,6 +17,14 @@ const T = {
     charguiaPrefix: "Address available on ",
     maps: "Google Maps",
   },
+  ar: {
+    title: "موقعنا",
+    menzah: "ستارتب فيليج المنزه",
+    menzahAddr: "عمارة الصادي، برج C-D، الميزانين، 10 ديسمبر، شارع الحبيب بورقيبة، تونس 1004",
+    charguia: "ستارتب فيليج الشرقية",
+    charguiaPrefix: "العنوان متاح على ",
+    maps: "خرائط Google",
+  },
 } as const;
 
 export default function MapSection({ lang = "fr" }: { lang?: Lang }) {

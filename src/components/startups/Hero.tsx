@@ -19,6 +19,14 @@ const T = {
     cta2: "Explore our spaces",
     alt: "Community of entrepreneurs collaborating at Startup Village",
   },
+  ar: {
+    eyebrow: "الشركات الناشئة",
+    title: "الشركات الناشئة التي تنبض بها القرية",
+    text: "روّاد أعمال ومبدعون ومبتكرون يتخيّلون ويختبرون ويطوّرون حلولهم داخل ستارتب فيليج.",
+    cta1: "انضمّ إلى القرية",
+    cta2: "اكتشف فضاءاتنا",
+    alt: "مجتمع من روّاد الأعمال يتعاون في ستارتب فيليج",
+  },
 } as const;
 
 export default function Hero({ lang = "fr" }: { lang?: Lang }) {

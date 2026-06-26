@@ -14,12 +14,16 @@ const T = {
     title: "Let's talk about your needs",
     intro: "Tell us what you're looking for and our team will guide you to the most suitable solution.",
   },
+  ar: {
+    title: "لنتحدّث عن حاجتك",
+    intro: "أخبرنا بما تبحث عنه وسيرشدك فريقنا إلى الحلّ الأنسب.",
+  },
 } as const;
 
 export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   return (
-    <div className="contact-page">
+    <div className="contact-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <section className="bg-white pt-10 pb-6 sm:pt-12">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-3 lg:px-10">
           <div className="lg:col-span-2">

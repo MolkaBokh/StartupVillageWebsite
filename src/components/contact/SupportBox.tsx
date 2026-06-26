@@ -18,6 +18,14 @@ const T = {
       { label: "See our events", href: "/actualites" },
     ],
   },
+  ar: {
+    title: "هل تحتاج مساعدة؟",
+    links: [
+      { label: "اتصل بنا مباشرة", href: "mailto:contact@startupvillage.tn" },
+      { label: "اكتشف فضاءاتنا", href: "/espace-de-vie" },
+      { label: "شاهد فعالياتنا", href: "/actualites" },
+    ],
+  },
 } as const;
 
 export default function SupportBox({ lang = "fr" }: { lang?: Lang }) {

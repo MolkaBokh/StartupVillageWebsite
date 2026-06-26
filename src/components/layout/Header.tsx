@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/components/ui/Logo";
 import LanguageSelector from "@/components/ui/LanguageSelector";
-import { getNavItems, getSubmenu, langFromPath, toLang, withLang } from "@/config/navigation";
+import { getNavItems, getSubmenu, langFromPath, toLang, withLang, type Lang } from "@/config/navigation";
 
 /**
  * Shared site header (bilingual).
@@ -25,6 +25,11 @@ export default function Header() {
   const navItems = getNavItems(lang);
   const submenu = getSubmenu(lang);
   const home = withLang("/", lang);
+  const langHrefs: Record<Lang, string> = {
+    fr: toLang(pathname, "fr"),
+    en: toLang(pathname, "en"),
+    ar: toLang(pathname, "ar"),
+  };
 
   const isActive = (href: string) =>
     href === home ? pathname === home : pathname === href || pathname.startsWith(`${href}/`);
@@ -32,7 +37,7 @@ export default function Header() {
   const startupVillageActive = submenu.some((item) => isActive(item.href));
 
   return (
-    <header className="border-b border-navy-950/10 bg-white">
+    <header className="border-b border-navy-950/10 bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Left — logo only */}
         <Logo height={56} href={home} />
@@ -101,12 +106,7 @@ export default function Header() {
 
         {/* Right — language selector (desktop) + burger (mobile) */}
         <div className="flex items-center gap-3">
-          <LanguageSelector
-            lang={lang}
-            frHref={toLang(pathname, "fr")}
-            enHref={toLang(pathname, "en")}
-            className="hidden md:flex"
-          />
+          <LanguageSelector lang={lang} hrefs={langHrefs} className="hidden md:flex" />
 
           <button
             type="button"
@@ -124,10 +124,10 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav className="border-t border-navy-950/10 bg-white px-6 py-4 md:hidden">
+        <nav className="border-t border-navy-950/10 bg-white px-6 py-4 md:hidden" dir={lang === "ar" ? "rtl" : "ltr"}>
           <div className="flex flex-col gap-1">
             <p className="px-2 pt-1 text-xs font-bold uppercase tracking-wide text-navy-950/40">
-              Startup Village
+              {navItems[0].label}
             </p>
             {submenu.map((child) => (
               <Link
@@ -157,12 +157,7 @@ export default function Header() {
               </Link>
             ))}
 
-            <LanguageSelector
-              lang={lang}
-              frHref={toLang(pathname, "fr")}
-              enHref={toLang(pathname, "en")}
-              className="mt-3 px-3"
-            />
+            <LanguageSelector lang={lang} hrefs={langHrefs} className="mt-3 px-3" />
           </div>
         </nav>
       )}

@@ -12,6 +12,11 @@ const T = {
     text: "Join an environment built to accelerate connections, collaborations and ambitious projects.",
     cta: "Contact us",
   },
+  ar: {
+    title: "لشركتك الناشئة مكان هنا.",
+    text: "انضمّ إلى بيئة مصمّمة لتسريع اللقاءات والتعاون والمشاريع الطموحة.",
+    cta: "اتصل بنا",
+  },
 } as const;
 
 export default function FinalCta({ lang = "fr" }: { lang?: Lang }) {
