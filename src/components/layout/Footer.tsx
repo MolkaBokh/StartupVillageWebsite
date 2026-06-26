@@ -100,7 +100,7 @@ export default function Footer() {
               </Link>
             </p>
             <Link
-              href="https://maps.app.goo.gl/8pfJj7eS4TVL5f4aA"
+              href="https://maps.app.goo.gl/uHsWdk464XSp1oXU7"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-medium text-white underline underline-offset-2 hover:text-primary-400"
