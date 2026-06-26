@@ -19,8 +19,13 @@ const T = {
     message: 'Message',
     consent: "J'accepte de recevoir par email les actualités de Startup Village et de ses partenaires : newsletters exclusives, invitations à des événements et enquêtes digitales. Conformément à la réglementation RGPD, vous pouvez vous désinscrire à tout moment.",
     submit: 'Envoyer ma demande',
+    sending: 'Envoi en cours…',
+    successTitle: 'Merci pour votre demande !',
+    successText: 'Notre équipe vous recontactera très prochainement.',
+    errorText: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
     requestTypes: ['Demander une visite', 'Rejoindre le Club Startup Village', 'Demander un bureau privé', 'Réserver une salle', 'Organiser un événement', 'Déposer mon stock', 'Intégrer Market & Co', "Demande d'information", 'Autre'],
     sites: ['Startup Village Menzah', 'Startup Village Charguia', 'Peu importe'],
+    fields: { name: 'Nom et prénom', type: 'Type de demande', org: 'Organisation', phone: 'Téléphone', email: 'Email', site: 'Site souhaité', people: 'Nombre de personnes', message: 'Message' },
   },
   en: {
     title: 'Your place is waiting at the village',
@@ -36,8 +41,13 @@ const T = {
     message: 'Message',
     consent: 'I agree to receive Startup Village and partner news by email: exclusive newsletters, event invitations and digital surveys. In accordance with GDPR, you can unsubscribe at any time.',
     submit: 'Send my request',
+    sending: 'Sending…',
+    successTitle: 'Thank you for your request!',
+    successText: 'Our team will get back to you very soon.',
+    errorText: 'Something went wrong while sending. Please try again.',
     requestTypes: ['Book a visit', 'Join the Startup Village Club', 'Request a private office', 'Book a room', 'Host an event', 'Drop off my stock', 'Join Market & Co', 'Request information', 'Other'],
     sites: ['Startup Village Menzah', 'Startup Village Charguia', 'No preference'],
+    fields: { name: 'Full name', type: 'Request type', org: 'Organisation', phone: 'Phone', email: 'Email', site: 'Preferred site', people: 'Number of people', message: 'Message' },
   },
   ar: {
     title: 'مكانك في انتظارك في القرية',
@@ -53,8 +63,13 @@ const T = {
     message: 'الرسالة',
     consent: 'أوافق على تلقّي أخبار ستارتب فيليج وشركائه عبر البريد الإلكتروني: نشرات حصرية ودعوات إلى الفعاليات واستبيانات رقمية. وفقًا للائحة حماية البيانات (RGPD)، يمكنك إلغاء الاشتراك في أي وقت.',
     submit: 'أرسل طلبي',
+    sending: 'جارٍ الإرسال…',
+    successTitle: 'شكرًا على طلبك!',
+    successText: 'سيتواصل معك فريقنا قريبًا جدًا.',
+    errorText: 'حدث خطأ أثناء الإرسال. يُرجى المحاولة مرة أخرى.',
     requestTypes: ['طلب زيارة', 'الانضمام إلى نادي ستارتب فيليج', 'طلب مكتب خاص', 'حجز قاعة', 'تنظيم فعالية', 'إيداع مخزوني', 'الانضمام إلى Market & Co', 'طلب معلومات', 'أخرى'],
     sites: ['ستارتب فيليج المنزه', 'ستارتب فيليج الشرقية', 'لا تفضيل'],
+    fields: { name: 'الاسم الكامل', type: 'نوع الطلب', org: 'المؤسسة', phone: 'الهاتف', email: 'البريد الإلكتروني', site: 'الموقع المفضّل', people: 'عدد الأشخاص', message: 'الرسالة' },
   },
 }
 
@@ -63,14 +78,44 @@ export default function ContactSection({ lang = 'fr' }) {
   const [form, setForm] = useState({
     name: '', requestType: '', organisation: '', phone: '', email: '', site: '', people: '', message: '', consent: false,
   })
+  const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
   const update = (field) => (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
     setForm((f) => ({ ...f, [field]: value }))
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
+    const f = t.fields
+    const fields = [
+      { label: f.name, value: form.name },
+      { label: f.type, value: form.requestType },
+      { label: f.org, value: form.organisation },
+      { label: f.phone, value: form.phone },
+      { label: f.email, value: form.email },
+      { label: f.site, value: form.site },
+      { label: f.people, value: form.people },
+      { label: f.message, value: form.message },
+    ]
+
+    setError(false)
+    setSending(true)
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields, replyTo: form.email }),
+      })
+      if (!res.ok) throw new Error('send failed')
+      setSubmitted(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -83,6 +128,12 @@ export default function ContactSection({ lang = 'fr' }) {
           <p className="mt-4 text-base leading-relaxed text-sv-grey">{t.intro}</p>
         </div>
 
+        {submitted ? (
+          <div className="mx-auto mt-12 max-w-[760px] rounded-2xl border border-sv-grey/20 bg-sv-navy/5 p-12 text-center">
+            <h3 className="text-2xl font-bold text-sv-navy">{t.successTitle}</h3>
+            <p className="mt-3 text-sv-grey">{t.successText}</p>
+          </div>
+        ) : (
         <form onSubmit={onSubmit} className="mx-auto mt-12 grid max-w-[760px] grid-cols-1 gap-5 md:grid-cols-2">
           <div className="md:col-span-1">
             <label htmlFor="contact-name" className="mb-1 block text-sm font-bold text-sv-navy">{t.name}</label>
@@ -135,10 +186,15 @@ export default function ContactSection({ lang = 'fr' }) {
             <label htmlFor="contact-consent" className="text-sm leading-relaxed text-sv-grey">{t.consent}</label>
           </div>
 
+          {error && (
+            <p className="md:col-span-2 text-center text-sm font-medium text-red-600">{t.errorText}</p>
+          )}
+
           <div className="md:col-span-2 flex justify-center">
-            <Button type="submit" variant="primary" className="mt-2 w-full sm:w-auto">{t.submit}</Button>
+            <Button type="submit" variant="primary" disabled={sending} className="mt-2 w-full disabled:opacity-60 sm:w-auto">{sending ? t.sending : t.submit}</Button>
           </div>
         </form>
+        )}
       </Container>
     </section>
   )

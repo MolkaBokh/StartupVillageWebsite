@@ -17,8 +17,6 @@ import {
   VisitIcon,
 } from "@/components/contact/icons";
 
-const CONTACT_EMAIL = "molkaboukhris224@gmail.com";
-
 const REQUEST_TYPES = [
   { key: "visit", icon: <VisitIcon />, fr: "Demander une visite", en: "Book a visit", ar: "طلب زيارة" },
   { key: "club", icon: <ClubIcon />, fr: "Rejoindre le Club Startup Village", en: "Join the Startup Village Club", ar: "الانضمام إلى نادي ستارتب فيليج" },
@@ -58,6 +56,8 @@ const T = {
     messagePh: "Parlez-nous de votre projet ou de vos besoins spécifiques",
     consent: "J'accepte que Startup Village m'envoie des mises à jour, des offres et des enquêtes intéressantes sur ses produits et services. Conformément au RGPD, vous pouvez vous désabonner à tout moment.",
     submit: "Envoyer ma demande",
+    sending: "Envoi en cours…",
+    errorText: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
     sites: ["Startup Village Menzah", "Startup Village Charguia", "Je ne sais pas encore"],
     subject: "Nouvelle demande",
     fields: { name: "Nom complet", email: "Email", phone: "Téléphone", org: "Organisation", type: "Type de demande", site: "Site souhaité", people: "Nombre de personnes", date: "Date souhaitée", message: "Message" },
@@ -85,6 +85,8 @@ const T = {
     messagePh: "Tell us about your project or your specific needs",
     consent: "I agree that Startup Village may send me updates, offers and interesting surveys about its products and services. In accordance with GDPR, you can unsubscribe at any time.",
     submit: "Send my request",
+    sending: "Sending…",
+    errorText: "Something went wrong while sending. Please try again.",
     sites: ["Startup Village Menzah", "Startup Village Charguia", "I don't know yet"],
     subject: "New request",
     fields: { name: "Full name", email: "Email", phone: "Phone", org: "Organisation", type: "Request type", site: "Preferred site", people: "Number of people", date: "Preferred date", message: "Message" },
@@ -112,6 +114,8 @@ const T = {
     messagePh: "أخبرنا عن مشروعك أو احتياجاتك الخاصة",
     consent: "أوافق على أن يرسل لي ستارتب فيليج تحديثات وعروضًا واستبيانات مفيدة حول منتجاته وخدماته. وفقًا للائحة حماية البيانات (RGPD)، يمكنك إلغاء الاشتراك في أي وقت.",
     submit: "أرسل طلبي",
+    sending: "جارٍ الإرسال…",
+    errorText: "حدث خطأ أثناء الإرسال. يُرجى المحاولة مرة أخرى.",
     sites: ["ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "لا أعرف بعد"],
     subject: "طلب جديد",
     fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", phone: "الهاتف", org: "المؤسسة", type: "نوع الطلب", site: "الموقع المفضّل", people: "عدد الأشخاص", date: "التاريخ المفضّل", message: "الرسالة" },
@@ -122,6 +126,8 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const [requestType, setRequestType] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get("type");
@@ -130,27 +136,38 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
     if (match) setRequestType(match[lang]);
   }, [lang]);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const value = (key: string) => (data.get(key) ?? "").toString().trim();
     const f = t.fields;
-    const subject = `${t.subject}${requestType ? ` — ${requestType}` : ""}`;
-    const body = [
-      `${f.name} : ${value("full_name")}`,
-      `${f.email} : ${value("email")}`,
-      `${f.phone} : ${value("phone")}`,
-      `${f.org} : ${value("organisation")}`,
-      `${f.type} : ${value("request_type") || requestType}`,
-      `${f.site} : ${value("site")}`,
-      `${f.people} : ${value("people_count")}`,
-      `${f.date} : ${value("desired_date")}`,
-      "",
-      `${f.message} :`,
-      value("message"),
-    ].join("\n");
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    const fields = [
+      { label: f.name, value: value("full_name") },
+      { label: f.email, value: value("email") },
+      { label: f.phone, value: value("phone") },
+      { label: f.org, value: value("organisation") },
+      { label: f.type, value: value("request_type") || requestType },
+      { label: f.site, value: value("site") },
+      { label: f.people, value: value("people_count") },
+      { label: f.date, value: value("desired_date") },
+      { label: f.message, value: value("message") },
+    ];
+
+    setError(false);
+    setSending(true);
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fields, replyTo: value("email") }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -241,7 +258,13 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
         <span className="text-sm text-navy-950/70">{t.consent}</span>
       </label>
 
-      <Button type="submit">{t.submit}</Button>
+      {error && (
+        <p className="text-sm font-medium text-red-600">{t.errorText}</p>
+      )}
+
+      <Button type="submit" disabled={sending} className="disabled:opacity-60">
+        {sending ? t.sending : t.submit}
+      </Button>
     </form>
   );
 }
