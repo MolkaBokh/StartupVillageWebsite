@@ -3,39 +3,77 @@
 
 import { useMemo, useState } from "react";
 import "@/styles/actualites.css";
+import { withLang, type Lang } from "@/config/navigation";
 
 const IMG = "/assets/images/actualites/";
 
-const CAT_COLORS: Record<string, string> = {
-  "IA & Tech": "#25afe0",
-  Entrepreneuriat: "#e21c57",
-  Événements: "#f5b339",
-  Espaces: "#77b457",
-  "Art & Design": "#0b2545",
+type CatKey = "tech" | "entr" | "events" | "spaces" | "art";
+
+const CATEGORIES: Record<CatKey, { color: string; fr: string; en: string }> = {
+  tech: { color: "#25afe0", fr: "IA & Tech", en: "AI & Tech" },
+  entr: { color: "#e21c57", fr: "Entrepreneuriat", en: "Entrepreneurship" },
+  events: { color: "#f5b339", fr: "Événements", en: "Events" },
+  spaces: { color: "#77b457", fr: "Espaces", en: "Spaces" },
+  art: { color: "#0b2545", fr: "Art & Design", en: "Art & Design" },
 };
 
-type Article = { date: string; title: string; cat: string; img: string; link: string };
+const FILTER_KEYS: ("all" | CatKey)[] = ["all", "tech", "entr", "events", "spaces", "art"];
 
-// Data (most recent → oldest), ported verbatim; image paths localized and the
-// Maher Lahmer card pointed at its integrated detail route.
+type Article = {
+  date: { fr: string; en: string };
+  title: { fr: string; en: string };
+  cat: CatKey;
+  img: string;
+  link: string;
+};
+
 const ARTICLES: Article[] = [
-  { date: "12 Jun 2026", title: "Startup Village donne vie à ses statues sur Pinterest", cat: "Art & Design", img: `${IMG}statues-pinterest.jpg`, link: "#" },
-  { date: "Mai 2026", title: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble", cat: "Entrepreneuriat", img: `${IMG}innovation-talks.png`, link: "#" },
-  { date: "05 May 2026", title: "Quels sont les services pour les entrepreneurs en Tunisie ?", cat: "Entrepreneuriat", img: `${IMG}services-entrepreneurs.webp`, link: "#" },
-  { date: "20 Apr 2026", title: "Quels sont les meilleurs espaces de travail collaboratif ?", cat: "Espaces", img: `${IMG}meilleurs-espaces.jpg`, link: "#" },
-  { date: "16 Apr 2026", title: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie", cat: "IA & Tech", img: `${IMG}maher-lahmer.png`, link: "/actualites/maher-lahmer" },
-  { date: "13 Apr 2026", title: "Nabil Ben Saidane à Startup Village : l'Agentic AI en pratique", cat: "IA & Tech", img: `${IMG}nabil-ben-saidane.png`, link: "#" },
-  { date: "17 Jun 2025", title: "Startup Village s'agrandit : Charguia, nouveau hub de l'entrepreneuriat", cat: "Entrepreneuriat", img: `${IMG}charguia-hub.png`, link: "#" },
-  { date: "02 May 2025", title: "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens", cat: "IA & Tech", img: `${IMG}imed-zitouni.png`, link: "#" },
-  { date: "11 Apr 2025", title: "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale", cat: "IA & Tech", img: `${IMG}karim-beguir.png`, link: "#" },
-  { date: "2024", title: "Lancement de la Deuxième Édition d'Upcycl'Art", cat: "Art & Design", img: `${IMG}upcyclart.jpg`, link: "#" },
-  { date: "24 May 2023", title: "Startup Village en collaboration avec l'ATD lance un appel à candidature pour une exposition Upcycling", cat: "Art & Design", img: `${IMG}atd-upcycling.jpg`, link: "#" },
-  { date: "12 Jul 2022", title: "Startup Village : Une histoire qui commence", cat: "Événements", img: `${IMG}histoire-qui-commence.jpg`, link: "#" },
-  { date: "28 Jun 2022", title: "Kids Day : Les coulisses du Marketing Digital", cat: "Événements", img: `${IMG}kids-day.png`, link: "#" },
-  { date: "28 Jun 2022", title: "Une journée aux couleurs du Design Thinking", cat: "Événements", img: `${IMG}design-thinking.png`, link: "#" },
+  { date: { fr: "12 Jun 2026", en: "12 Jun 2026" }, title: { fr: "Startup Village donne vie à ses statues sur Pinterest", en: "Startup Village brings its statues to life on Pinterest" }, cat: "art", img: `${IMG}statues-pinterest.jpg`, link: "#" },
+  { date: { fr: "Mai 2026", en: "May 2026" }, title: { fr: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble", en: "Innovation Talks: Italy–Tunisia, building innovation together" }, cat: "entr", img: `${IMG}innovation-talks.png`, link: "#" },
+  { date: { fr: "05 May 2026", en: "05 May 2026" }, title: { fr: "Quels sont les services pour les entrepreneurs en Tunisie ?", en: "What services are available for entrepreneurs in Tunisia?" }, cat: "entr", img: `${IMG}services-entrepreneurs.webp`, link: "#" },
+  { date: { fr: "20 Apr 2026", en: "20 Apr 2026" }, title: { fr: "Quels sont les meilleurs espaces de travail collaboratif ?", en: "What are the best collaborative workspaces?" }, cat: "spaces", img: `${IMG}meilleurs-espaces.jpg`, link: "#" },
+  { date: { fr: "16 Apr 2026", en: "16 Apr 2026" }, title: { fr: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie", en: "Maher Lahmer at Startup Village: AI, LLMs and startup strategy in Tunisia" }, cat: "tech", img: `${IMG}maher-lahmer.png`, link: "/actualites/maher-lahmer" },
+  { date: { fr: "13 Apr 2026", en: "13 Apr 2026" }, title: { fr: "Nabil Ben Saidane à Startup Village : l'Agentic AI en pratique", en: "Nabil Ben Saidane at Startup Village: Agentic AI in practice" }, cat: "tech", img: `${IMG}nabil-ben-saidane.png`, link: "#" },
+  { date: { fr: "17 Jun 2025", en: "17 Jun 2025" }, title: { fr: "Startup Village s'agrandit : Charguia, nouveau hub de l'entrepreneuriat", en: "Startup Village expands: Charguia, a new entrepreneurship hub" }, cat: "entr", img: `${IMG}charguia-hub.png`, link: "#" },
+  { date: { fr: "02 May 2025", en: "02 May 2025" }, title: { fr: "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens", en: "Imed Zitouni, Google: Artificial intelligence, innovation and Tunisian talent" }, cat: "tech", img: `${IMG}imed-zitouni.png`, link: "#" },
+  { date: { fr: "11 Apr 2025", en: "11 Apr 2025" }, title: { fr: "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale", en: "The Decisive Leap: Karim Beguir, African AI on the global stage" }, cat: "tech", img: `${IMG}karim-beguir.png`, link: "#" },
+  { date: { fr: "2024", en: "2024" }, title: { fr: "Lancement de la Deuxième Édition d'Upcycl'Art", en: "Launch of the second edition of Upcycl'Art" }, cat: "art", img: `${IMG}upcyclart.jpg`, link: "#" },
+  { date: { fr: "24 May 2023", en: "24 May 2023" }, title: { fr: "Startup Village en collaboration avec l'ATD lance un appel à candidature pour une exposition Upcycling", en: "Startup Village, in partnership with ATD, launches a call for applications for an Upcycling exhibition" }, cat: "art", img: `${IMG}atd-upcycling.jpg`, link: "#" },
+  { date: { fr: "12 Jul 2022", en: "12 Jul 2022" }, title: { fr: "Startup Village : Une histoire qui commence", en: "Startup Village: A story that begins" }, cat: "events", img: `${IMG}histoire-qui-commence.jpg`, link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022" }, title: { fr: "Kids Day : Les coulisses du Marketing Digital", en: "Kids Day: Behind the scenes of Digital Marketing" }, cat: "events", img: `${IMG}kids-day.png`, link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022" }, title: { fr: "Une journée aux couleurs du Design Thinking", en: "A day in the colors of Design Thinking" }, cat: "events", img: `${IMG}design-thinking.png`, link: "#" },
 ];
 
-const FILTERS = ["Tous", "IA & Tech", "Entrepreneuriat", "Événements", "Espaces", "Art & Design"];
+const T = {
+  fr: {
+    label: "ACTUALITÉS",
+    title: "Actualités & événements du Village",
+    intro: "Retrouvez les temps forts, articles, rencontres et événements qui rythment la vie de Startup Village.",
+    tabArticles: "Articles",
+    tabEvents: "Upcoming Events",
+    all: "Tous",
+    empty: "Aucun article dans cette catégorie.",
+    readMore: "Lire la suite",
+    eventAvail: "Places disponibles",
+    eventSpeaker: "Avec Nathaniel Wilson, Foreign Service Officer, U.S. Department of State",
+    eventLoc: "Startup Village Menzah",
+    register: "S'inscrire",
+  },
+  en: {
+    label: "NEWS",
+    title: "Village news & events",
+    intro: "Discover the highlights, articles, encounters and events that shape life at Startup Village.",
+    tabArticles: "Articles",
+    tabEvents: "Upcoming Events",
+    all: "All",
+    empty: "No articles in this category.",
+    readMore: "Read more",
+    eventAvail: "Seats available",
+    eventSpeaker: "With Nathaniel Wilson, Foreign Service Officer, U.S. Department of State",
+    eventLoc: "Startup Village Menzah",
+    register: "Register",
+  },
+} as const;
 
 const Arrow = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
@@ -43,12 +81,13 @@ const Arrow = () => (
   </svg>
 );
 
-export default function ActualitesContent() {
+export default function ActualitesContent({ lang = "fr" }: { lang?: Lang }) {
+  const t = T[lang];
   const [activeTab, setActiveTab] = useState<"articles" | "events">("articles");
-  const [activeFilter, setActiveFilter] = useState("Tous");
+  const [activeFilter, setActiveFilter] = useState<"all" | CatKey>("all");
 
   const list = useMemo(
-    () => ARTICLES.filter((a) => activeFilter === "Tous" || a.cat === activeFilter),
+    () => ARTICLES.filter((a) => activeFilter === "all" || a.cat === activeFilter),
     [activeFilter]
   );
 
@@ -57,14 +96,16 @@ export default function ActualitesContent() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const filterLabel = (key: "all" | CatKey) => (key === "all" ? t.all : CATEGORIES[key][lang]);
+
   return (
     <div className="actualites-page">
       {/* ===== Hero ===== */}
       <section className="hero">
         <div className="container">
-          <span className="label">ACTUALITÉS</span>
-          <h1>Actualités &amp; événements du Village</h1>
-          <p>Retrouvez les temps forts, articles, rencontres et événements qui rythment la vie de Startup Village.</p>
+          <span className="label">{t.label}</span>
+          <h1>{t.title}</h1>
+          <p>{t.intro}</p>
         </div>
       </section>
 
@@ -72,19 +113,11 @@ export default function ActualitesContent() {
       <div className="tabs-wrap">
         <div className="container">
           <div className="tabs" role="tablist">
-            <button
-              className={`tab${activeTab === "articles" ? " active" : ""}`}
-              role="tab"
-              onClick={() => switchTab("articles")}
-            >
-              Articles<span className="count">{ARTICLES.length}</span>
+            <button className={`tab${activeTab === "articles" ? " active" : ""}`} role="tab" onClick={() => switchTab("articles")}>
+              {t.tabArticles}<span className="count">{ARTICLES.length}</span>
             </button>
-            <button
-              className={`tab${activeTab === "events" ? " active" : ""}`}
-              role="tab"
-              onClick={() => switchTab("events")}
-            >
-              Upcoming Events<span className="count">1</span>
+            <button className={`tab${activeTab === "events" ? " active" : ""}`} role="tab" onClick={() => switchTab("events")}>
+              {t.tabEvents}<span className="count">1</span>
             </button>
           </div>
         </div>
@@ -94,36 +127,32 @@ export default function ActualitesContent() {
         {/* ===== Articles panel ===== */}
         <section className={`panel${activeTab === "articles" ? " active" : ""}`}>
           <div className="filters">
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                className={`chip${f === activeFilter ? " active" : ""}`}
-                onClick={() => setActiveFilter(f)}
-              >
-                {f}
+            {FILTER_KEYS.map((key) => (
+              <button key={key} className={`chip${key === activeFilter ? " active" : ""}`} onClick={() => setActiveFilter(key)}>
+                {filterLabel(key)}
               </button>
             ))}
           </div>
           <div className="grid">
             {list.map((a) => (
-              <article className="card" key={a.title}>
-                <a className="thumb" href={a.link}>
-                  <span className="cat-badge" style={{ background: CAT_COLORS[a.cat] }}>
-                    {a.cat}
+              <article className="card" key={a.title.en}>
+                <a className="thumb" href={a.link === "#" ? "#" : withLang(a.link, lang)}>
+                  <span className="cat-badge" style={{ background: CATEGORIES[a.cat].color }}>
+                    {CATEGORIES[a.cat][lang]}
                   </span>
-                  <img src={a.img} alt={a.title} loading="lazy" />
+                  <img src={a.img} alt={a.title[lang]} loading="lazy" />
                 </a>
                 <div className="body">
-                  <div className="date">{a.date}</div>
-                  <h3>{a.title}</h3>
-                  <a className="more" href={a.link}>
-                    Lire la suite <Arrow />
+                  <div className="date">{a.date[lang]}</div>
+                  <h3>{a.title[lang]}</h3>
+                  <a className="more" href={a.link === "#" ? "#" : withLang(a.link, lang)}>
+                    {t.readMore} <Arrow />
                   </a>
                 </div>
               </article>
             ))}
           </div>
-          {list.length === 0 && <div className="empty">Aucun article dans cette catégorie.</div>}
+          {list.length === 0 && <div className="empty">{t.empty}</div>}
         </section>
 
         {/* ===== Events panel ===== */}
@@ -132,12 +161,12 @@ export default function ActualitesContent() {
             <article className="event-card">
               <div className="event-cover">
                 <img src={`${IMG}beyond-ai.png`} alt="Beyond AI: Technologies & Trends Shaping the Future of Entrepreneurship" loading="lazy" />
-                <span className="avail">Places disponibles</span>
+                <span className="avail">{t.eventAvail}</span>
               </div>
               <div className="event-body">
                 <div className="day">24 June 2026</div>
                 <h3>Beyond AI: Technologies &amp; Trends Shaping the Future of Entrepreneurship</h3>
-                <p className="speaker">Avec Nathaniel Wilson, Foreign Service Officer, U.S. Department of State</p>
+                <p className="speaker">{t.eventSpeaker}</p>
                 <div className="event-meta">
                   <span className="m">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
@@ -149,11 +178,11 @@ export default function ActualitesContent() {
                   </span>
                   <span className="m">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
-                    Startup Village Menzah
+                    {t.eventLoc}
                   </span>
                 </div>
                 <a className="btn-register" href="https://luma.com/5kycidm1" target="_blank" rel="noopener">
-                  S&apos;inscrire
+                  {t.register}
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
               </div>

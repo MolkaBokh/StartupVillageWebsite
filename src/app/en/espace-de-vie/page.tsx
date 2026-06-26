@@ -3,15 +3,15 @@ import EspaceDeVieContent from "@/components/espace-de-vie/EspaceDeVieContent";
 import "@/styles/espace-de-vie.css";
 
 export const metadata: Metadata = {
-  title: "Espace de Vie — Startup Village",
+  title: "Life at the Village — Startup Village",
   description:
-    "Là où l'innovation prend vie : un bâtiment historique, une communauté vivante et le quotidien tunisien de l'innovation.",
+    "Where innovation comes to life: a historic building, a living community and the everyday home of Tunisian innovation.",
 };
 
 export default function Page() {
   return (
     <div className="espace-de-vie-page">
-      <EspaceDeVieContent lang="fr" />
+      <EspaceDeVieContent lang="en" />
     </div>
   );
 }

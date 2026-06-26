@@ -1,39 +1,42 @@
-"use client";
-
-import { useState } from "react";
-import { LANGUAGES } from "@/config/navigation";
+import Link from "next/link";
+import type { Lang } from "@/config/navigation";
 
 type LanguageSelectorProps = {
+  lang: Lang;
+  /** Link to the French version of the current page. */
+  frHref: string;
+  /** Link to the English version of the current page. */
+  enHref: string;
   className?: string;
 };
 
 /**
  * FR / ENG language selector.
  *
- * Foundation-only: switches the visually-active language locally. Real i18n
- * routing is wired up in a later step — this just establishes the control and
- * its placement in the header (right side).
+ * Each label links to the same page in the other language; the active language
+ * is highlighted. The current language and target hrefs are computed by the
+ * Header from the pathname.
  */
-export default function LanguageSelector({ className = "" }: LanguageSelectorProps) {
-  const [active, setActive] = useState<string>(LANGUAGES[0].code);
+export default function LanguageSelector({ lang, frHref, enHref, className = "" }: LanguageSelectorProps) {
+  const items: { code: Lang; label: string; href: string }[] = [
+    { code: "fr", label: "FR", href: frHref },
+    { code: "en", label: "ENG", href: enHref },
+  ];
 
   return (
     <div className={`flex items-center gap-1 ${className}`}>
-      {LANGUAGES.map((lang, i) => (
-        <span key={lang.code} className="flex items-center">
+      {items.map((item, i) => (
+        <span key={item.code} className="flex items-center">
           {i > 0 && <span className="mx-1 text-navy-950/25" aria-hidden>|</span>}
-          <button
-            type="button"
-            onClick={() => setActive(lang.code)}
-            aria-pressed={active === lang.code}
+          <Link
+            href={item.href}
+            aria-current={lang === item.code ? "true" : undefined}
             className={`text-sm font-semibold tracking-wide transition ${
-              active === lang.code
-                ? "text-accent-500"
-                : "text-navy-950/60 hover:text-navy-950"
+              lang === item.code ? "text-accent-500" : "text-navy-950/60 hover:text-navy-950"
             }`}
           >
-            {lang.label}
-          </button>
+            {item.label}
+          </Link>
         </span>
       ))}
     </div>
