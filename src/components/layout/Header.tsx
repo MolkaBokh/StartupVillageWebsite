@@ -37,7 +37,7 @@ export default function Header() {
   const startupVillageActive = submenu.some((item) => isActive(item.href));
 
   return (
-    <header className="border-b border-navy-950/10 bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
+    <header className="sticky top-0 z-50 border-b border-navy-950/10 bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Left — logo only */}
         <Logo height={56} href={home} />
