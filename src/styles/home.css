@@ -10,7 +10,6 @@
    included here — those are provided by the shared components.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 /* ============ Tokens (scoped) ============ */
 .home-page {
@@ -197,7 +196,7 @@
   background: var(--white);
   color: var(--blue-dark);
   margin-bottom: 16px;
-  box-shadow: 0 4px 16px rgba(30, 42, 74, 0.08);
+  border: 1px solid rgba(30, 42, 74, 0.08);
 }
 .home-page .stat-icon svg { width: 26px; height: 26px; }
 .home-page .stat-number {
@@ -226,10 +225,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 28px rgba(30, 42, 74, 0.08);
-  transition: transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
-.home-page .univers-card:hover { transform: translateY(-6px); }
+.home-page .univers-card:hover { transform: translateY(-4px); }
 .home-page .univers-media { overflow: hidden; height: 200px; }
 .home-page .univers-media img {
   width: 100%;
@@ -247,14 +245,12 @@
   font-size: 1.05rem;
   color: var(--white);
   margin-bottom: 10px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 .home-page .univers-body p {
   font-size: 0.9rem;
   line-height: 1.55;
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .home-page .accent-blue .univers-body { background: var(--logo-blue); }
 .home-page .accent-yellow .univers-body { background: var(--logo-yellow); }
@@ -321,7 +317,7 @@
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(30, 42, 74, 0.07);
+  border: 1px solid rgba(30, 42, 74, 0.08);
 }
 .home-page .event-media { position: relative; height: 200px; overflow: hidden; }
 .home-page .event-media img { width: 100%; height: 100%; object-fit: cover; }

@@ -307,7 +307,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
     <div className="presentation-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* 1. HERO */}
       <section className="hero">
-        <img src="/assets/images/concept-hero.jpg" alt="Startup Village" />
+        <img src="/assets/images/concept-hero.jpg" alt="Startup Village" loading="eager" />
         <div className="hero-caption">
           <div className="container">
             <span className="hero-eyebrow">{t.heroEyebrow}</span>
@@ -331,7 +331,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
       <section className="split">
         <div className="container">
           <div className="media-col">
-            <img src="/assets/images/notre-mission.png" alt={t.missionTitle} />
+            <img src="/assets/images/notre-mission.png" alt={t.missionTitle} loading="lazy" />
           </div>
           <div className="text-col">
             <span className="kicker">{t.missionKicker}</span>
@@ -354,14 +354,14 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
             <p>{prose.visionP2}</p>
           </div>
           <div className="media-col">
-            <img src="/assets/images/notre-vision.png" alt={t.visionTitle} />
+            <img src="/assets/images/notre-vision.png" alt={t.visionTitle} loading="lazy" />
           </div>
         </div>
       </section>
 
       {/* 5. NOS PILIERS FONDATEURS */}
       <section className="piliers">
-        <img className="bg" src="/assets/images/nos-piliers.jpg" alt="" aria-hidden="true" />
+        <img className="bg" src="/assets/images/nos-piliers.jpg" alt="" aria-hidden="true" loading="lazy" />
         <div className="container">
           <h2>{t.pillarsTitle}</h2>
           <div className="accent-bar"></div>
@@ -380,7 +380,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
       <section className="split">
         <div className="container">
           <div className="media-col">
-            <img src="/assets/images/etre-villageois.jpg" alt={t.villageoisKicker} />
+            <img src="/assets/images/etre-villageois.jpg" alt={t.villageoisKicker} loading="lazy" />
           </div>
           <div className="text-col">
             <span className="kicker">{t.villageoisKicker}</span>
@@ -412,8 +412,8 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
         <div className="container">
           <div className="carousel" id="carousel">
             <div className="carousel-track" id="carouselTrack" style={{ transform: `translateX(-${index * 100}%)` }}>
-              {CAROUSEL_IMAGES.map((img) => (
-                <img key={img.src} src={img.src} alt={img.alt} />
+              {CAROUSEL_IMAGES.map((img, i) => (
+                <img key={img.src} src={img.src} alt={img.alt} loading={i === 0 ? "eager" : "lazy"} />
               ))}
             </div>
             <button className="carousel-btn prev" aria-label="Prev" onClick={prev}>‹</button>
