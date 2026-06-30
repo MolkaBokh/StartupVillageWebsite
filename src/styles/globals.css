@@ -75,9 +75,9 @@
   --container-content: 1180px;
 
   /* Shared radii & shadows (spacing/elevation philosophy) */
-  --radius-card: 20px;
-  --shadow-soft: 0 8px 30px rgba(16, 36, 62, 0.06);
-  --shadow-soft-hover: 0 16px 40px rgba(16, 36, 62, 0.12);
+  --radius-card: 16px;
+  --shadow-soft: 0 4px 12px rgba(16, 36, 62, 0.06);
+  --shadow-soft-hover: 0 8px 20px rgba(16, 36, 62, 0.1);
 }
 
 html {

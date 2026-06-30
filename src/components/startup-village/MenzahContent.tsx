@@ -200,10 +200,10 @@ export default function MenzahContent({ lang = "fr" }: { lang?: Lang }) {
           <div className="marquee">
             <div className="marquee__track">
               {LOGOS.map((logo) => (
-                <img key={logo.file} src={`${IMG}${logo.file}`} alt={logo.name} />
+                <img key={logo.file} src={`${IMG}${logo.file}`} alt={logo.name} loading="lazy" />
               ))}
               {LOGOS.map((logo) => (
-                <img key={`${logo.file}-dup`} src={`${IMG}${logo.file}`} alt="" />
+                <img key={`${logo.file}-dup`} src={`${IMG}${logo.file}`} alt="" loading="lazy" />
               ))}
             </div>
           </div>

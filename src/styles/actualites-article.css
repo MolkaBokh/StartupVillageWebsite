@@ -5,7 +5,6 @@
    Scoped under `.article-page`; source header/footer/nav omitted (shared).
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 .article-page {
   --navy: #0b2545;

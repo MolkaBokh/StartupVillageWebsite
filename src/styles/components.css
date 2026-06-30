@@ -13,7 +13,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: 0.01em;
@@ -21,7 +20,7 @@
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 
 .sv-btn:hover {
@@ -31,31 +30,42 @@
 .sv-btn--primary {
   background: var(--color-brand-blue, #25afe0);
   color: #fff;
-  box-shadow: 0 14px 30px -12px rgba(37, 175, 224, 0.7);
+}
+
+.sv-btn--primary:hover {
+  background: var(--color-primary-600, #1f8cc0);
 }
 
 .sv-btn--accent {
   background: var(--color-accent-500, #e0245e);
   color: #fff;
-  box-shadow: 0 14px 30px -12px rgba(224, 36, 94, 0.6);
+}
+
+.sv-btn--accent:hover {
+  background: var(--color-accent-600, #c01c4f);
 }
 
 .sv-btn--ghost {
   background: transparent;
   color: var(--color-brand-navy, #10243e);
-  border: 1px solid rgba(16, 36, 62, 0.15);
+  border: 1px solid rgba(16, 36, 62, 0.2);
+}
+
+.sv-btn--ghost:hover {
+  background: rgba(16, 36, 62, 0.05);
 }
 
 /* Card -------------------------------------------------------------------- */
 .sv-card {
   background: #fff;
   border-radius: var(--radius-card, 20px);
-  box-shadow: var(--shadow-soft, 0 8px 30px rgba(16, 36, 62, 0.06));
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(16, 36, 62, 0.07);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .sv-card:hover {
-  box-shadow: var(--shadow-soft-hover, 0 16px 40px rgba(16, 36, 62, 0.12));
+  transform: translateY(-4px);
+  border-color: rgba(16, 36, 62, 0.12);
 }
 
 /* Chip / pill ------------------------------------------------------------- */
