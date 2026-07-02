@@ -239,7 +239,7 @@
 .home-page .univers-body {
   padding: 22px 20px;
   flex: 1;
-  color: var(--white);
+  color: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,19 +247,19 @@
 }
 .home-page .univers-body h3 {
   font-size: 1.05rem;
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 10px;
 }
 .home-page .univers-body p {
   font-size: 0.9rem;
   line-height: 1.55;
   margin: 0;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--navy);
 }
 .home-page .accent-blue .univers-body,
 .home-page .accent-yellow .univers-body,
 .home-page .accent-pink .univers-body,
-.home-page .accent-green .univers-body { background: var(--blue); }
+.home-page .accent-green .univers-body { background: var(--cream); }
 
 /* ---- Home news panel: 3-col grid ---- */
 .home-page .home-actualites-panel .grid {
