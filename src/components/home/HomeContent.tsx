@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/home.css";
+import "@/styles/actualites.css";
 import { withLang, type Lang } from "@/config/navigation";
 
 /**
@@ -12,11 +13,51 @@ import { withLang, type Lang } from "@/config/navigation";
  * differ. Styling lives in src/styles/home.css (scoped under `.home-page`).
  */
 
+/* ---- Article data (mirrors ActualitesContent, latest 4 shown on home) ---- */
+type CatKey = "tech" | "entr" | "events" | "spaces" | "art";
+const IMG_ACT = "/assets/images/actualites/";
+
+const CATEGORIES: Record<CatKey, { color: string; fr: string; en: string; ar: string }> = {
+  tech:   { color: "#25afe0", fr: "IA & Tech",       en: "AI & Tech",        ar: "الذكاء الاصطناعي والتقنية" },
+  entr:   { color: "#e21c57", fr: "Entrepreneuriat", en: "Entrepreneurship",  ar: "ريادة الأعمال" },
+  events: { color: "#f5b339", fr: "Événements",      en: "Events",           ar: "فعاليات" },
+  spaces: { color: "#77b457", fr: "Espaces",         en: "Spaces",           ar: "الفضاءات" },
+  art:    { color: "#0b2545", fr: "Art & Design",    en: "Art & Design",     ar: "الفنّ والتصميم" },
+};
+
+const FILTER_KEYS: ("all" | CatKey)[] = ["all", "tech", "entr", "events", "spaces", "art"];
+
+type Loc = { fr: string; en: string; ar: string };
+type Article = { date: Loc; title: Loc; cat: CatKey; img: string; link: string };
+
+const ARTICLES: Article[] = [
+  { date: { fr: "12 Jun 2026", en: "12 Jun 2026", ar: "12 يونيو 2026" }, title: { fr: "Startup Village donne vie à ses statues sur Pinterest", en: "Startup Village brings its statues to life on Pinterest", ar: "ستارتب فيليج يبعث الحياة في منحوتاته على Pinterest" }, cat: "art",    img: `${IMG_ACT}statues-pinterest.jpg`,          link: "#" },
+  { date: { fr: "Mai 2026",    en: "May 2026",    ar: "مايو 2026"       }, title: { fr: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble", en: "Innovation Talks: Italy–Tunisia, building innovation together", ar: "Innovation Talks: إيطاليا–تونس، نبني الابتكار معًا" }, cat: "entr",   img: `${IMG_ACT}innovation-talks.png`,            link: "#" },
+  { date: { fr: "05 May 2026", en: "05 May 2026", ar: "05 مايو 2026"    }, title: { fr: "Quels sont les services pour les entrepreneurs en Tunisie ?", en: "What services are available for entrepreneurs in Tunisia?", ar: "ما هي الخدمات المتاحة لروّاد الأعمال في تونس؟" }, cat: "entr",   img: `${IMG_ACT}services-entrepreneurs.webp`,     link: "#" },
+  { date: { fr: "20 Apr 2026", en: "20 Apr 2026", ar: "20 أبريل 2026"  }, title: { fr: "Quels sont les meilleurs espaces de travail collaboratif ?", en: "What are the best collaborative workspaces?", ar: "ما هي أفضل فضاءات العمل المشترك؟" }, cat: "spaces", img: `${IMG_ACT}meilleurs-espaces.jpg`,           link: "#" },
+  { date: { fr: "16 Apr 2026", en: "16 Apr 2026", ar: "16 أبريل 2026"  }, title: { fr: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie", en: "Maher Lahmer at Startup Village: AI, LLMs and startup strategy in Tunisia", ar: "ماهر لحمر في ستارتب فيليج: الذكاء الاصطناعي ونماذج اللغة الكبيرة واستراتيجية الشركات الناشئة في تونس" }, cat: "tech",   img: `${IMG_ACT}maher-lahmer.png`,                link: "/actualites/maher-lahmer" },
+  { date: { fr: "13 Apr 2026", en: "13 Apr 2026", ar: "13 أبريل 2026"  }, title: { fr: "Nabil Ben Saidane à Startup Village : l'Agentic AI en pratique", en: "Nabil Ben Saidane at Startup Village: Agentic AI in practice", ar: "نبيل بن سعيدان في ستارتب فيليج: الذكاء الاصطناعي الوكيل عمليًا" }, cat: "tech",   img: `${IMG_ACT}nabil-ben-saidane.png`,           link: "#" },
+  { date: { fr: "17 Jun 2025", en: "17 Jun 2025", ar: "17 يونيو 2025"  }, title: { fr: "Startup Village s'agrandit : Charguia, nouveau hub de l'entrepreneuriat", en: "Startup Village expands: Charguia, a new entrepreneurship hub", ar: "ستارتب فيليج يتوسّع: الشرقية، قطب جديد لريادة الأعمال" }, cat: "entr",   img: `${IMG_ACT}charguia-hub.png`,                link: "#" },
+  { date: { fr: "02 May 2025", en: "02 May 2025", ar: "02 مايو 2025"   }, title: { fr: "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens", en: "Imed Zitouni, Google: Artificial intelligence, innovation and Tunisian talent", ar: "عماد زيتوني من Google: الذكاء الاصطناعي والابتكار والمواهب التونسية" }, cat: "tech",   img: `${IMG_ACT}imed-zitouni.png`,                link: "#" },
+  { date: { fr: "11 Apr 2025", en: "11 Apr 2025", ar: "11 أبريل 2025"  }, title: { fr: "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale", en: "The Decisive Leap: Karim Beguir, African AI on the global stage", ar: "القفزة الحاسمة: كريم بقير، الذكاء الاصطناعي الإفريقي على الساحة العالمية" }, cat: "tech",   img: `${IMG_ACT}karim-beguir.png`,                link: "#" },
+  { date: { fr: "2024",        en: "2024",        ar: "2024"             }, title: { fr: "Lancement de la Deuxième Édition d'Upcycl'Art", en: "Launch of the second edition of Upcycl'Art", ar: "إطلاق النسخة الثانية من Upcycl'Art" }, cat: "art",    img: `${IMG_ACT}upcyclart.jpg`,                   link: "#" },
+  { date: { fr: "24 May 2023", en: "24 May 2023", ar: "24 مايو 2023"   }, title: { fr: "Startup Village en collaboration avec l'ATD lance un appel à candidature pour une exposition Upcycling", en: "Startup Village, in partnership with ATD, launches a call for applications for an Upcycling exhibition", ar: "ستارتب فيليج بالتعاون مع ATD يطلق دعوة للترشّح لمعرض إعادة التدوير" }, cat: "art",    img: `${IMG_ACT}atd-upcycling.jpg`,               link: "#" },
+  { date: { fr: "12 Jul 2022", en: "12 Jul 2022", ar: "12 يوليو 2022"  }, title: { fr: "Startup Village : Une histoire qui commence", en: "Startup Village: A story that begins", ar: "ستارتب فيليج: حكاية تبدأ" }, cat: "events", img: `${IMG_ACT}histoire-qui-commence.jpg`,     link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022", ar: "28 يونيو 2022"  }, title: { fr: "Kids Day : Les coulisses du Marketing Digital", en: "Kids Day: Behind the scenes of Digital Marketing", ar: "Kids Day: كواليس التسويق الرقمي" }, cat: "events", img: `${IMG_ACT}kids-day.png`,                   link: "#" },
+  { date: { fr: "28 Jun 2022", en: "28 Jun 2022", ar: "28 يونيو 2022"  }, title: { fr: "Une journée aux couleurs du Design Thinking", en: "A day in the colors of Design Thinking", ar: "يوم بألوان التفكير التصميمي" }, cat: "events", img: `${IMG_ACT}design-thinking.png`,            link: "#" },
+];
+
+const Arrow = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
+
 const T = {
   fr: {
     heroTitle: "L'un des plus grands espaces de coworking en Afrique !",
     heroSubtitle: "Le village des créatifs responsables !",
-    ctaVisit: "Réserver une visite",
+    ctaVisit: "Devenir Villageois",
     ctaDiscover: "Découvrir nos espaces",
     statsEyebrow: "Chiffres clés",
     statsTitle: "Un écosystème qui a de l'impact",
@@ -24,39 +65,40 @@ const T = {
     universEyebrow: "Nos univers",
     universTitle: "Nos espaces & services",
     univers: [
-      { h: "Coworking & bureaux privés", p: "Postes flexibles, bureaux privés et espaces de coworking pensés pour les startups et entreprises qui veulent évoluer au cœur d'un écosystème actif à Menzah comme à Charguia." },
-      { h: "Événements & networking", p: "Conférences, meetups et soirées networking qui rythment la vie du village toute l'année, en salle comme en terrasse, pour multiplier les rencontres entre entrepreneurs." },
-      { h: "Studio & création de contenu", p: "Un studio podcast et vidéo équipé pour produire des contenus professionnels : interviews, formations en ligne et capsules de marque, sans quitter le village." },
-      { h: "Réunions & formations", p: "Des salles lumineuses et modulables pour réunions d'équipe, ateliers et formations, du brainstorming intime au séminaire complet." },
+      { h: "Coworking & Bureaux Privés",              p: "Postes flexibles, bureaux privés et espaces de coworking pensés pour les startups et entreprises qui veulent évoluer au cœur d'un écosystème actif à Menzah comme à Charguia." },
+      { h: "Événements & Membership",                 p: "Conférences, meetups et soirées networking qui rythment la vie du village toute l'année, en salle comme en terrasse, pour multiplier les rencontres entre entrepreneurs." },
+      { h: "Studio & Création de contenu",            p: "Un studio podcast et vidéo équipé pour produire des contenus professionnels : interviews, formations en ligne et capsules de marque, sans quitter le village." },
+      { h: "Incubateur Culinaire & Catering Cochef",  p: "Cochef est l'incubateur culinaire du village : cuisine professionnelle, traiteur on-demand et espace de création pour les entrepreneurs du food." },
+      { h: "Market & Co",                             p: "Un espace de vente et d'exposition dédié aux créateurs, artisans et marques locales qui souhaitent rencontrer leur public au cœur du village." },
+      { h: "CoStorage",                               p: "Des solutions de stockage flexibles et sécurisées pour les entrepreneurs, startups et e-commerçants qui ont besoin d'un espace logistique au village." },
+      { h: "Réunions, Formations & Team Building",    p: "Des salles lumineuses et modulables pour réunions d'équipe, ateliers et formations, du brainstorming intime au séminaire complet." },
+      { h: "Incubation",                              p: "Un programme d'incubation pour accompagner les startups de l'idée au lancement, avec mentoring, accès aux réseaux et ressources du village." },
     ],
     universCta: "Explorer tous nos espaces",
     lifeEyebrow: "La vie au village",
-    lifeTitle: "Un quotidien qui se vit, pas seulement un lieu de travail",
+    lifeTitle: "Un espace, plusieurs vies",
     stories: [
       { h: "Un environnement qui donne envie de créer", p: "Couleurs, sculptures et recoins inattendus : dès l'entrée, le village installe un cadre de travail différent, pensé pour stimuler la créativité au quotidien des villageois." },
       { h: "Des espaces qui rassemblent la communauté", p: "Expositions, œuvres et lieux de passage deviennent des points de rencontre entre villageois — l'occasion d'échanger, de collaborer et de tisser des liens au-delà du travail." },
       { h: "Conçu pour la rencontre et la collaboration", p: "Postes partagés, coins informels et espaces ouverts favorisent les échanges spontanés entre entrepreneurs, startups et créateurs qui composent le quotidien du village." },
     ],
-    lifeCta: "Réserver une visite",
+    lifeCta: "Devenir Villageois",
     partnersEyebrow: "Ils nous font confiance",
     partnersTitle: "Des partenaires qui font grandir l'écosystème",
     partnersLead: "Des partenaires, médias, entreprises et acteurs de l'écosystème accompagnent Startup Village dans son développement.",
     eventsEyebrow: "Événements & actualités",
     eventsTitle: "La vie du village en mouvement",
-    events: [
-      { tag: "Conférence", h: "Conférence annuelle Startup Village", p: "L'écosystème tunisien réuni pour une journée de keynotes, de rencontres et de partage entre startups et investisseurs." },
-      { tag: "Networking", h: "Soirée networking entrepreneurs", p: "Un rendez-vous régulier pour connecter villageois, partenaires et porteurs de projets autour d'un moment convivial." },
-      { tag: "Presse", h: "Startup Village dans les médias", p: "Retrouvez les interviews et reportages qui racontent l'évolution de l'écosystème entrepreneurial tunisien." },
-    ],
-    eventsCta: "Découvrir tous les événements",
+    eventsAll: "Tous",
+    eventsReadMore: "Lire la suite",
+    eventsCta: "Plus d'actualités",
     finalTitle: "Prêt à rejoindre l'écosystème Startup Village ?",
-    finalText: "Réservez une visite et découvrez nos espaces, nos événements et notre communauté.",
-    finalCta: "Réserver une visite",
+    finalText: "Rejoignez notre communauté et découvrez nos espaces, nos événements et nos services.",
+    finalCta: "Devenir Villageois",
   },
   en: {
     heroTitle: "One of the largest coworking spaces in Africa!",
     heroSubtitle: "The village of responsible creators.",
-    ctaVisit: "Book a visit",
+    ctaVisit: "Become a Villager",
     ctaDiscover: "Explore our spaces",
     statsEyebrow: "Key figures",
     statsTitle: "An ecosystem that makes an impact",
@@ -64,39 +106,40 @@ const T = {
     universEyebrow: "Our worlds",
     universTitle: "Our spaces & services",
     univers: [
-      { h: "Coworking & private offices", p: "Flexible desks, private offices and coworking spaces designed for startups and companies that want to grow at the heart of an active ecosystem, in Menzah and Charguia alike." },
-      { h: "Events & networking", p: "Conferences, meetups and networking evenings that pace village life all year long, indoors and on the terrace, multiplying connections between entrepreneurs." },
-      { h: "Studio & content creation", p: "A fully equipped podcast and video studio to produce professional content: interviews, online courses and brand stories, without leaving the village." },
-      { h: "Meetings & training", p: "Bright, modular rooms for team meetings, workshops and training — from intimate brainstorms to full-scale seminars." },
+      { h: "Coworking & Private Offices",              p: "Flexible desks, private offices and coworking spaces designed for startups and companies that want to grow at the heart of an active ecosystem, in Menzah and Charguia alike." },
+      { h: "Events & Membership",                      p: "Conferences, meetups and networking evenings that pace village life all year long, indoors and on the terrace, multiplying connections between entrepreneurs." },
+      { h: "Studio & Content Creation",                p: "A fully equipped podcast and video studio to produce professional content: interviews, online courses and brand stories, without leaving the village." },
+      { h: "Culinary Incubator & Catering Cochef",     p: "Cochef is the village's culinary incubator: professional kitchen, on-demand catering and a creative space for food entrepreneurs." },
+      { h: "Market & Co",                              p: "A dedicated sales and exhibition space for creators, artisans and local brands who want to meet their audience at the heart of the village." },
+      { h: "CoStorage",                                p: "Flexible and secure storage solutions for entrepreneurs, startups and e-commerce businesses that need logistics space at the village." },
+      { h: "Meetings, Training & Team Building",       p: "Bright, modular rooms for team meetings, workshops and training — from intimate brainstorms to full-scale seminars." },
+      { h: "Incubation",                               p: "An incubation programme to support startups from idea to launch, with mentoring, access to networks and village resources." },
     ],
     universCta: "Explore all our spaces",
     lifeEyebrow: "Life at the village",
-    lifeTitle: "A daily experience to live, not just a place to work",
+    lifeTitle: "One space, many lives",
     stories: [
       { h: "An environment that makes you want to create", p: "Colors, sculptures and unexpected corners: from the entrance, the village sets a different kind of workspace, designed to spark the villagers' everyday creativity." },
       { h: "Spaces that bring the community together", p: "Exhibitions, artworks and shared passageways become meeting points between villagers — a chance to exchange, collaborate and build bonds beyond work." },
       { h: "Designed for connection and collaboration", p: "Shared desks, informal corners and open spaces encourage spontaneous exchanges between the entrepreneurs, startups and creators who make up daily village life." },
     ],
-    lifeCta: "Book a visit",
+    lifeCta: "Become a Villager",
     partnersEyebrow: "They trust us",
     partnersTitle: "Partners who help the ecosystem grow",
     partnersLead: "Partners, media, companies and ecosystem players support Startup Village in its development.",
     eventsEyebrow: "Events & news",
     eventsTitle: "Village life in motion",
-    events: [
-      { tag: "Conference", h: "Startup Village annual conference", p: "The Tunisian ecosystem gathered for a day of keynotes, encounters and exchange between startups and investors." },
-      { tag: "Networking", h: "Entrepreneurs networking evening", p: "A regular get-together connecting villagers, partners and project owners around a friendly moment." },
-      { tag: "Press", h: "Startup Village in the media", p: "Discover the interviews and reports telling the story of Tunisia's growing entrepreneurial ecosystem." },
-    ],
-    eventsCta: "Discover all events",
+    eventsAll: "All",
+    eventsReadMore: "Read more",
+    eventsCta: "More news",
     finalTitle: "Ready to join the Startup Village ecosystem?",
-    finalText: "Book a visit and discover our spaces, our events and our community.",
-    finalCta: "Book a visit",
+    finalText: "Join our community and discover our spaces, events and services.",
+    finalCta: "Become a Villager",
   },
   ar: {
     heroTitle: "أحد أكبر فضاءات العمل المشترك في إفريقيا!",
     heroSubtitle: "قرية المبدعين المسؤولين.",
-    ctaVisit: "احجز زيارة",
+    ctaVisit: "كن من سكان القرية",
     ctaDiscover: "اكتشف فضاءاتنا",
     statsEyebrow: "أرقام رئيسية",
     statsTitle: "منظومة ذات أثر حقيقي",
@@ -104,34 +147,35 @@ const T = {
     universEyebrow: "عوالمنا",
     universTitle: "فضاءاتنا وخدماتنا",
     univers: [
-      { h: "عمل مشترك ومكاتب خاصة", p: "مكاتب مرنة ومكاتب خاصة وفضاءات عمل مشترك مصمَّمة للشركات الناشئة والمؤسسات الراغبة في النمو داخل منظومة نشطة، في المنزه والشرقية على حد سواء." },
-      { h: "فعاليات وتواصل", p: "مؤتمرات ولقاءات وأمسيات تواصل تنبض بها القرية على مدار السنة، داخل القاعات وعلى الشرفات، لمضاعفة فرص اللقاء بين روّاد الأعمال." },
-      { h: "استوديو وصناعة المحتوى", p: "استوديو مجهّز للبودكاست والفيديو لإنتاج محتوى احترافي: مقابلات ودورات عبر الإنترنت ومحتوى للعلامات التجارية، دون مغادرة القرية." },
-      { h: "اجتماعات وتكوين", p: "قاعات مضيئة وقابلة للتعديل لاجتماعات الفرق وورش العمل والتكوين، من العصف الذهني المصغّر إلى الندوات الكاملة." },
+      { h: "عمل مشترك ومكاتب خاصة",           p: "مكاتب مرنة ومكاتب خاصة وفضاءات عمل مشترك مصمَّمة للشركات الناشئة والمؤسسات الراغبة في النمو داخل منظومة نشطة، في المنزه والشرقية على حد سواء." },
+      { h: "فعاليات وعضوية",                   p: "مؤتمرات ولقاءات وأمسيات تواصل تنبض بها القرية على مدار السنة، داخل القاعات وعلى الشرفات، لمضاعفة فرص اللقاء بين روّاد الأعمال." },
+      { h: "استوديو وصناعة المحتوى",            p: "استوديو مجهّز للبودكاست والفيديو لإنتاج محتوى احترافي: مقابلات ودورات عبر الإنترنت ومحتوى للعلامات التجارية، دون مغادرة القرية." },
+      { h: "حاضنة الطهي والتموين كوشيف",       p: "كوشيف هي حاضنة الطهي في القرية: مطبخ احترافي وخدمات تموين عند الطلب وفضاء إبداعي لروّاد أعمال قطاع الغذاء." },
+      { h: "ماركت & كو",                        p: "فضاء مخصّص للبيع والعرض للمبدعين والحرفيين والعلامات التجارية المحلية الراغبين في لقاء جمهورهم في قلب القرية." },
+      { h: "كوستوريج",                          p: "حلول تخزين مرنة وآمنة للمقاولين والشركات الناشئة وتجّار الإنترنت الذين يحتاجون إلى فضاء لوجستي في القرية." },
+      { h: "اجتماعات وتكوين وبناء الفريق",     p: "قاعات مضيئة وقابلة للتعديل لاجتماعات الفرق وورش العمل والتكوين، من العصف الذهني المصغّر إلى الندوات الكاملة." },
+      { h: "حضانة الشركات الناشئة",             p: "برنامج احتضان لمرافقة الشركات الناشئة من الفكرة حتى الإطلاق، مع التوجيه والوصول إلى شبكات وموارد القرية." },
     ],
     universCta: "اكتشف جميع فضاءاتنا",
     lifeEyebrow: "الحياة في القرية",
-    lifeTitle: "تجربة يومية تُعاش، وليست مجرّد مكان للعمل",
+    lifeTitle: "فضاء واحد، حيوات متعددة",
     stories: [
       { h: "بيئة تُلهم الإبداع", p: "ألوان ومنحوتات وزوايا غير متوقعة: منذ المدخل، تهيّئ القرية إطار عمل مختلفًا، مصمَّمًا لتحفيز إبداع سكان القرية يوميًا." },
       { h: "فضاءات تجمع المجتمع", p: "تتحوّل المعارض والأعمال الفنية وممرّات المرور إلى نقاط لقاء بين سكان القرية — فرصة للتبادل والتعاون ونسج العلاقات إلى ما هو أبعد من العمل." },
       { h: "مصمَّمة للقاء والتعاون", p: "مكاتب مشتركة وزوايا غير رسمية وفضاءات مفتوحة تشجّع على التبادل العفوي بين روّاد الأعمال والشركات الناشئة والمبدعين الذين يصنعون الحياة اليومية للقرية." },
     ],
-    lifeCta: "احجز زيارة",
+    lifeCta: "كن من سكان القرية",
     partnersEyebrow: "هم يثقون بنا",
     partnersTitle: "شركاء يساهمون في نمو المنظومة",
     partnersLead: "شركاء ووسائل إعلام وشركات وفاعلون في المنظومة يرافقون ستارتب فيليج في مسيرة تطوّرها.",
     eventsEyebrow: "فعاليات وأخبار",
     eventsTitle: "حياة القرية في حركة دائمة",
-    events: [
-      { tag: "مؤتمر", h: "المؤتمر السنوي لستارتب فيليج", p: "المنظومة التونسية تجتمع في يوم من الكلمات الرئيسية واللقاءات والتبادل بين الشركات الناشئة والمستثمرين." },
-      { tag: "تواصل", h: "أمسية تواصل لروّاد الأعمال", p: "موعد دوري يربط سكان القرية والشركاء وأصحاب المشاريع في أجواء ودّية." },
-      { tag: "صحافة", h: "ستارتب فيليج في وسائل الإعلام", p: "اكتشف المقابلات والتقارير التي تروي تطوّر المنظومة الريادية التونسية." },
-    ],
-    eventsCta: "اكتشف جميع الفعاليات",
+    eventsAll: "الكل",
+    eventsReadMore: "اقرأ المزيد",
+    eventsCta: "المزيد من الأخبار",
     finalTitle: "هل أنت مستعدّ للانضمام إلى منظومة ستارتب فيليج؟",
-    finalText: "احجز زيارة واكتشف فضاءاتنا وفعالياتنا ومجتمعنا.",
-    finalCta: "احجز زيارة",
+    finalText: "انضم إلى مجتمعنا واكتشف فضاءاتنا وفعالياتنا وخدماتنا.",
+    finalCta: "كن من سكان القرية",
   },
 } as const;
 
@@ -139,6 +183,16 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const t = T[lang];
   const href = (p: string) => withLang(p, lang);
+
+  const [activeFilter, setActiveFilter] = useState<"all" | CatKey>("all");
+
+  const visibleArticles = useMemo(
+    () => ARTICLES.filter((a) => activeFilter === "all" || a.cat === activeFilter).slice(0, 4),
+    [activeFilter]
+  );
+
+  const filterLabel = (key: "all" | CatKey) =>
+    key === "all" ? t.eventsAll : CATEGORIES[key][lang];
 
   // Stat count-up on scroll into view (ported from js/main.js)
   useEffect(() => {
@@ -199,21 +253,22 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     <svg key="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" /></svg>,
     <svg key="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z" /><circle cx="12" cy="10" r="3" /></svg>,
   ];
+
   const UNIVERS_IMG = [
-    { src: "/assets/images/02-coworking-cothinking-space.jpg", accent: "accent-blue" },
-    { src: "/assets/images/03-events-terrace-conference.png", accent: "accent-yellow" },
+    { src: "/assets/images/02-coworking-cothinking-space.jpg", accent: "accent-blue"   },
+    { src: "/assets/images/03-events-terrace-conference.png",   accent: "accent-yellow" },
     { src: "/assets/images/04-studio-podcast-content-creation.png", accent: "accent-pink" },
-    { src: "/assets/images/05-training-meeting-room.png", accent: "accent-green" },
+    { src: "/assets/images/cochef-homepage.png",                accent: "accent-green"  },
+    { src: "/assets/images/market-homepage.jpg",                accent: "accent-blue"   },
+    { src: "/assets/images/costorage-homepage.png",             accent: "accent-yellow" },
+    { src: "/assets/images/05-training-meeting-room.png",       accent: "accent-pink"   },
+    { src: "/assets/images/incubation-homepage.png",            accent: "accent-green"  },
   ];
+
   const STORY_IMG = [
     "/assets/images/06-village-figurines-hallway.png",
     "/assets/images/07-village-art-gallery.png",
     "/assets/images/08-village-creative-workspace.jpg",
-  ];
-  const EVENT_IMG = [
-    "/assets/images/10-events-main-conference.png",
-    "/assets/images/11-events-networking-reception.png",
-    "/assets/images/12-events-media-interview.png",
   ];
 
   return (
@@ -251,7 +306,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
-      {/* 3. NOS UNIVERS */}
+      {/* 3. NOS UNIVERS — 8 cards (2 rows × 4 col) */}
       <section className="section section-white" id="nos-univers">
         <div className="container">
           <p className="eyebrow center">{t.universEyebrow}</p>
@@ -305,35 +360,54 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="eyebrow center">{t.partnersEyebrow}</p>
           <h2 className="section-title center">{t.partnersTitle}</h2>
           <p className="section-lead center">{t.partnersLead}</p>
-          <div className="partners-wall">
+          <div className="partners-logo-wrap">
             <img src="/assets/images/09-partners-logo-wall.png" alt="Startup Village partners" loading="lazy" />
           </div>
         </div>
       </section>
 
-      {/* 6. ÉVÉNEMENTS & ACTUALITÉS */}
-      <section className="section section-cream" id="startups">
+      {/* 6. ACTUALITÉS — article cards with category filters */}
+      <section className="section section-cream" id="actualites">
         <div className="container">
-          <div className="section-header-row">
-            <div>
-              <p className="eyebrow">{t.eventsEyebrow}</p>
-              <h2 className="section-title">{t.eventsTitle}</h2>
+          <p className="eyebrow">{t.eventsEyebrow}</p>
+          <h2 className="section-title">{t.eventsTitle}</h2>
+
+          {/* Category filter chips — reuse actualites-page styles */}
+          <div className="actualites-page home-actualites-panel">
+            <div className="filters">
+              {FILTER_KEYS.map((key) => (
+                <button
+                  key={key}
+                  className={`chip${key === activeFilter ? " active" : ""}`}
+                  onClick={() => setActiveFilter(key)}
+                >
+                  {filterLabel(key)}
+                </button>
+              ))}
+            </div>
+
+            {/* Article cards grid */}
+            <div className="grid">
+              {visibleArticles.map((a) => (
+                <article className="card" key={a.title.en}>
+                  <a className="thumb" href={a.link === "#" ? "#" : withLang(a.link, lang)}>
+                    <span className="cat-badge" style={{ background: CATEGORIES[a.cat].color }}>
+                      {CATEGORIES[a.cat][lang]}
+                    </span>
+                    <img src={a.img} alt={a.title[lang]} loading="lazy" />
+                  </a>
+                  <div className="body">
+                    <div className="date">{a.date[lang]}</div>
+                    <h3>{a.title[lang]}</h3>
+                    <a className="more" href={a.link === "#" ? "#" : withLang(a.link, lang)}>
+                      {t.eventsReadMore} <Arrow />
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-          <div className="events-grid">
-            {t.events.map((e, i) => (
-              <article className="event-card" key={i}>
-                <div className="event-media">
-                  <img src={EVENT_IMG[i]} alt={e.h} loading="lazy" />
-                  <span className="event-tag">{e.tag}</span>
-                </div>
-                <div className="event-body">
-                  <h3>{e.h}</h3>
-                  <p>{e.p}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+
           <div className="section-cta center">
             <a href={href("/actualites")} className="btn btn-primary">{t.eventsCta}</a>
           </div>
