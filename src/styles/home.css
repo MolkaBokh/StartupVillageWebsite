@@ -240,6 +240,10 @@
   padding: 22px 20px;
   flex: 1;
   color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .home-page .univers-body h3 {
   font-size: 1.05rem;
@@ -255,7 +259,7 @@
 .home-page .accent-blue .univers-body,
 .home-page .accent-yellow .univers-body,
 .home-page .accent-pink .univers-body,
-.home-page .accent-green .univers-body { background: var(--navy); }
+.home-page .accent-green .univers-body { background: var(--blue); }
 
 /* ---- Home news panel: 3-col grid ---- */
 .home-page .home-actualites-panel .grid {
