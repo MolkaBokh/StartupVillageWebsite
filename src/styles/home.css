@@ -252,10 +252,25 @@
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
 }
-.home-page .accent-blue .univers-body { background: var(--logo-blue); }
-.home-page .accent-yellow .univers-body { background: var(--logo-yellow); }
-.home-page .accent-pink .univers-body { background: var(--logo-pink); }
-.home-page .accent-green .univers-body { background: var(--logo-green); }
+.home-page .accent-blue .univers-body,
+.home-page .accent-yellow .univers-body,
+.home-page .accent-pink .univers-body,
+.home-page .accent-green .univers-body { background: var(--navy); }
+
+/* ---- Home news panel: 3-col grid ---- */
+.home-page .home-actualites-panel .grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 860px) {
+  .home-page .home-actualites-panel .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .home-page .home-actualites-panel .grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ============ La vie au village (story blocks) ============ */
 .home-page .story-block {

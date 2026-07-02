@@ -186,9 +186,21 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
 
   const [activeFilter, setActiveFilter] = useState<"all" | CatKey>("all");
 
+  const HOME_ARTICLE_TITLES = [
+    "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble",
+    "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale",
+    "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens",
+  ];
+  const homeArticles = useMemo(
+    () => ARTICLES.filter((a) => HOME_ARTICLE_TITLES.includes(a.title.fr)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   const visibleArticles = useMemo(
-    () => ARTICLES.filter((a) => activeFilter === "all" || a.cat === activeFilter).slice(0, 4),
-    [activeFilter]
+    () => activeFilter === "all"
+      ? homeArticles
+      : homeArticles.filter((a) => a.cat === activeFilter),
+    [activeFilter, homeArticles]
   );
 
   const filterLabel = (key: "all" | CatKey) =>
@@ -259,7 +271,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     { src: "/assets/images/03-events-terrace-conference.png",   accent: "accent-yellow" },
     { src: "/assets/images/04-studio-podcast-content-creation.png", accent: "accent-pink" },
     { src: "/assets/images/cochef-homepage.png",                accent: "accent-green"  },
-    { src: "/assets/images/market-homepage.jpg",                accent: "accent-blue"   },
+    { src: "/assets/images/market-homepage.png",                accent: "accent-blue"   },
     { src: "/assets/images/costorage-homepage.png",             accent: "accent-yellow" },
     { src: "/assets/images/05-training-meeting-room.png",       accent: "accent-pink"   },
     { src: "/assets/images/incubation-homepage.png",            accent: "accent-green"  },
