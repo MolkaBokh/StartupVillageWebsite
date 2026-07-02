@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import "@/styles/home.css";
 import "@/styles/actualites.css";
 import { withLang, type Lang } from "@/config/navigation";
@@ -25,7 +25,6 @@ const CATEGORIES: Record<CatKey, { color: string; fr: string; en: string; ar: st
   art:    { color: "#0b2545", fr: "Art & Design",    en: "Art & Design",     ar: "الفنّ والتصميم" },
 };
 
-const FILTER_KEYS: ("all" | CatKey)[] = ["all", "tech", "entr", "events", "spaces", "art"];
 
 type Loc = { fr: string; en: string; ar: string };
 type Article = { date: Loc; title: Loc; cat: CatKey; img: string; link: string };
@@ -184,27 +183,16 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const href = (p: string) => withLang(p, lang);
 
-  const [activeFilter, setActiveFilter] = useState<"all" | CatKey>("all");
-
   const HOME_ARTICLE_TITLES = [
     "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble",
     "Le Saut Décisif : Karim Beguir, l'IA africaine à l'échelle mondiale",
     "Imed Zitouni Google : Intelligence artificielle, innovation et talents tunisiens",
   ];
-  const homeArticles = useMemo(
+  const visibleArticles = useMemo(
     () => ARTICLES.filter((a) => HOME_ARTICLE_TITLES.includes(a.title.fr)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-  const visibleArticles = useMemo(
-    () => activeFilter === "all"
-      ? homeArticles
-      : homeArticles.filter((a) => a.cat === activeFilter),
-    [activeFilter, homeArticles]
-  );
-
-  const filterLabel = (key: "all" | CatKey) =>
-    key === "all" ? t.eventsAll : CATEGORIES[key][lang];
 
   // Stat count-up on scroll into view (ported from js/main.js)
   useEffect(() => {
@@ -271,7 +259,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     { src: "/assets/images/03-events-terrace-conference.png",   accent: "accent-yellow" },
     { src: "/assets/images/04-studio-podcast-content-creation.png", accent: "accent-pink" },
     { src: "/assets/images/cochef-homepage.png",                accent: "accent-green"  },
-    { src: "/assets/images/market-homepage.png",                accent: "accent-blue"   },
+    { src: "/assets/images/market-co-homepage.png",             accent: "accent-blue"   },
     { src: "/assets/images/costorage-homepage.png",             accent: "accent-yellow" },
     { src: "/assets/images/05-training-meeting-room.png",       accent: "accent-pink"   },
     { src: "/assets/images/incubation-homepage.png",            accent: "accent-green"  },
@@ -331,7 +319,6 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
                 </div>
                 <div className="univers-body">
                   <h3>{c.h}</h3>
-                  <p>{c.p}</p>
                 </div>
               </article>
             ))}
@@ -384,20 +371,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="eyebrow">{t.eventsEyebrow}</p>
           <h2 className="section-title">{t.eventsTitle}</h2>
 
-          {/* Category filter chips — reuse actualites-page styles */}
           <div className="actualites-page home-actualites-panel">
-            <div className="filters">
-              {FILTER_KEYS.map((key) => (
-                <button
-                  key={key}
-                  className={`chip${key === activeFilter ? " active" : ""}`}
-                  onClick={() => setActiveFilter(key)}
-                >
-                  {filterLabel(key)}
-                </button>
-              ))}
-            </div>
-
             {/* Article cards grid */}
             <div className="grid">
               {visibleArticles.map((a) => (
