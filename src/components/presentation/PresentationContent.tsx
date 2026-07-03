@@ -12,6 +12,20 @@ import { withLang, type Lang } from "@/config/navigation";
  * fragments so the visual emphasis is preserved exactly.
  */
 
+/* Outline icons for the 5 founding pillars (inline SVG, Lucide-style) */
+const PILLAR_ICONS = [
+  /* Incubation & Accélération — rocket */
+  <svg key="rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.5-1.5 4 0 4s2.5-2.5 4-4l-4 0Z"/><path d="M9.5 14.5 4.5 19.5"/><path d="M12 2C6.5 2 4 7 4 12c0 1.4.3 2.7.8 3.9L16 4.8A9.8 9.8 0 0 0 12 2Z"/><path d="M12 2c5.5 0 8 5 8 10 0 1.4-.3 2.7-.8 3.9L8 4.8A9.8 9.8 0 0 1 12 2Z"/><circle cx="12" cy="12" r="2"/></svg>,
+  /* Soft Landing & Internationalisation — globe */
+  <svg key="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  /* Communauté & Collaboration — users */
+  <svg key="users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  /* Innovation & Création — lightbulb */
+  <svg key="bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>,
+  /* Croissance & Opportunités — trending up */
+  <svg key="trending" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+];
+
 const CAROUSEL_IMAGES = [
   { src: "/assets/images/carousel-1.png", alt: "Startup Village — 1" },
   { src: "/assets/images/carousel-2.png", alt: "Startup Village — 2" },
@@ -367,15 +381,15 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
 
       {/* 5. NOS PILIERS FONDATEURS */}
       <section className="piliers">
-        <img className="bg" src="/assets/images/nos-piliers.jpg" alt="" aria-hidden="true" loading="lazy" />
         <div className="container">
           <h2>{t.pillarsTitle}</h2>
           <div className="accent-bar"></div>
-          <div className="cards">
-            {t.pillars.map((c, i) => (
-              <div className="card" key={i}>
-                <h3>{c.h}</h3>
-                <p>{c.p}</p>
+          <div className="pillars-row">
+            {PILLAR_ICONS.map((icon, i) => (
+              <div className="pillar" key={i}>
+                <span className="pillar-icon">{icon}</span>
+                <h3>{t.pillars[i].h}</h3>
+                <p>{t.pillars[i].p}</p>
               </div>
             ))}
           </div>
