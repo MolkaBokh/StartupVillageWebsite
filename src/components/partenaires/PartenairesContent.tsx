@@ -27,7 +27,7 @@ const T = {
     ],
     finalTitle: "Rejoignez un écosystème qui fait avancer les projets.",
     finalText: "Startup Village connecte les entrepreneurs aux ressources, expertises et opportunités dont ils ont besoin pour grandir.",
-    finalCta: "Nous contacter",
+    finalCta: "Devenir partenaire",
     heroAlt: "L'écosystème Startup Village : rencontres, événements et networking",
   },
   en: {
@@ -46,7 +46,7 @@ const T = {
     ],
     finalTitle: "Join an ecosystem that moves projects forward.",
     finalText: "Startup Village connects entrepreneurs to the resources, expertise and opportunities they need to grow.",
-    finalCta: "Contact us",
+    finalCta: "Become a partner",
     heroAlt: "The Startup Village ecosystem: encounters, events and networking",
   },
   ar: {
@@ -65,7 +65,7 @@ const T = {
     ],
     finalTitle: "انضمّ إلى منظومة تدفع المشاريع إلى الأمام.",
     finalText: "يربط ستارتب فيليج روّاد الأعمال بالموارد والخبرات والفرص التي يحتاجونها للنموّ.",
-    finalCta: "اتصل بنا",
+    finalCta: "كن شريكًا",
     heroAlt: "منظومة ستارتب فيليج: لقاءات وفعاليات وتواصل",
   },
 } as const;
@@ -98,7 +98,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
               <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-sv-pink drop-shadow-[0_1px_6px_rgba(15,39,72,0.6)]">
                 {t.eyebrow}
               </span>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-[3.5rem]">
+              <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-[3.5rem]">
                 {t.title}
               </h1>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/85">{t.intro}</p>
@@ -122,7 +122,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
         <section className="border-t border-slate-100 bg-slate-50/60">
           <div className="mx-auto max-w-content px-6 py-12 lg:px-8 lg:py-16">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-semibold tracking-tight text-sv-navy sm:text-4xl">{t.wallTitle}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-sv-navy sm:text-4xl">{t.wallTitle}</h2>
               <p className="mt-3 text-lg leading-relaxed text-sv-navy/60">{t.wallText}</p>
             </div>
 
@@ -136,7 +136,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
 
         {/* SECTION 3 — VALUE */}
         <section className="mx-auto max-w-content px-6 py-12 lg:px-8 lg:py-16">
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-sv-navy sm:text-4xl">{t.valueTitle}</h2>
+          <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-sv-navy sm:text-4xl">{t.valueTitle}</h2>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {t.cards.map((card, i) => (
@@ -145,7 +145,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
                 className="rounded-2xl border border-slate-100 bg-white p-6 transition-shadow hover:shadow-[0_14px_30px_-20px_rgba(15,39,72,0.2)]"
               >
                 <span className={`block h-1.5 w-9 rounded-full ${CARD_COLORS[i]}`} />
-                <h3 className="mt-4 text-lg font-semibold text-sv-navy">{card.title}</h3>
+                <h3 className="mt-4 text-lg font-bold text-sv-navy">{card.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-sv-navy/60">{card.text}</p>
               </div>
             ))}
@@ -162,7 +162,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
             <div className="mt-8">
               <Link
                 href={withLang("/contact", lang)}
-                className="font-sans inline-flex items-center gap-2 rounded-full bg-sv-cyan px-7 py-3.5 text-base font-bold text-white transition-transform hover:scale-[1.03] hover:bg-[#1c9fce]"
+                className="font-sans inline-flex items-center gap-2 rounded-full bg-sv-cyan px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1c9fce]"
               >
                 {t.finalCta}
                 <span aria-hidden>→</span>
