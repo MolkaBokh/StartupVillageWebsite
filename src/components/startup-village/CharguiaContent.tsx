@@ -29,7 +29,8 @@ const T = {
   fr: {
     heroSub: "L'espace d'innovation dédié à l'e-commerce",
     heroBtn: "RÉSERVER UN ESPACE",
-    introTitle: "Startup Village Charguia – L'espace hybride du e-commerce et de l'innovation",
+    introTitle: "Startup Village Charguia",
+    introTitleSub: "L'espace hybride du e-commerce et de l'innovation",
     introSub: "Un nouveau chapitre dans l'aventure Startup Village",
     introP1: "Startup Village s'agrandit et choisit Charguia pour ouvrir un deuxième site, dans un emplacement stratégique au cœur de la zone industrielle, à deux pas de l'aéroport et des grands axes logistiques.",
     introP2: "Né de l'envie d'aller plus loin, ce nouveau lieu incarne notre vision d'un travail plus fluide, plus humain, et encore plus connecté au monde.",
@@ -38,10 +39,10 @@ const T = {
     statsTitle: ["Un espace stratégique", "pour des usages concrets"],
     statsP: "Ici, tout a été pensé pour accompagner les pratiques professionnelles d'aujourd'hui : hybrides, rapides et connectées.",
     stats: [
-      { h: "17 bureaux privatifs", s: "+120 positions" },
-      { h: "2 espaces Coworking", s: "+90 positions" },
-      { h: "3 salles de réunions", s: "+20 positions" },
-      { h: "1 salle polyvalente", s: "+70 positions" },
+      { h: "17 bureaux privatifs", s: "+120 postes" },
+      { h: "2 espaces Coworking", s: "+90 postes" },
+      { h: "3 salles de réunions", s: "+20 postes" },
+      { h: "1 salle polyvalente", s: "+70 postes" },
     ],
     galleryBand: "DÉCOUVREZ NOS ESPACES",
     spaceAlt: "Espace",
@@ -64,7 +65,8 @@ const T = {
   en: {
     heroSub: "The innovation hub dedicated to e-commerce",
     heroBtn: "BOOK A SPACE",
-    introTitle: "Startup Village Charguia – The hybrid hub of e-commerce and innovation",
+    introTitle: "Startup Village Charguia",
+    introTitleSub: "The hybrid hub of e-commerce and innovation",
     introSub: "A new chapter in the Startup Village story",
     introP1: "Startup Village is growing and has chosen Charguia to open a second site, in a strategic location at the heart of the industrial zone, just steps from the airport and major logistics routes.",
     introP2: "Born from the desire to go further, this new place embodies our vision of work that is more fluid, more human and even more connected to the world.",
@@ -99,7 +101,8 @@ const T = {
   ar: {
     heroSub: "فضاء الابتكار المخصّص للتجارة الإلكترونية",
     heroBtn: "احجز فضاءً",
-    introTitle: "ستارتب فيليج الشرقية – الفضاء الهجين للتجارة الإلكترونية والابتكار",
+    introTitle: "ستارتب فيليج الشرقية",
+    introTitleSub: "الفضاء الهجين للتجارة الإلكترونية والابتكار",
     introSub: "فصل جديد في مسيرة ستارتب فيليج",
     introP1: "يتوسّع ستارتب فيليج ويختار الشرقية لافتتاح موقع ثانٍ، في موضع استراتيجي بقلب المنطقة الصناعية، على بُعد خطوات من المطار والمحاور اللوجستية الكبرى.",
     introP2: "وُلِد هذا المكان الجديد من الرغبة في المضيّ أبعد، وهو يجسّد رؤيتنا لعمل أكثر سلاسة وإنسانية وارتباطًا بالعالم.",
@@ -165,27 +168,29 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
         <div className="hero__bg"></div>
         <div className="hero__overlay"></div>
         <div className="hero__inner">
-          <h1>Startup Village - Charguia</h1>
+          <h1>Startup Village Charguia</h1>
           <p>{t.heroSub}</p>
           <a href={contact} className="btn btn--blue">{t.heroBtn}</a>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="section section--pb-tight" id="concept">
-        <div className="container intro">
-          <div className="intro__media">
-            <div className="intro__card">
-              <h2>{t.introTitle}</h2>
-              <span className="sub">{t.introSub}</span>
-              <p>{t.introP1}</p>
-              <p>{t.introP2}</p>
-              <p>
-                {t.introP3a}
-                <br />
-                {t.introP3b}
-              </p>
-            </div>
+      <section className="section intro-section" id="concept">
+        <div className="container intro-split">
+          <div className="intro-split__media">
+            <img src={`${IMG}2-sv-charguia.png`} alt={t.introTitle} loading="lazy" />
+          </div>
+          <div className="intro-split__text">
+            <h2>{t.introTitle}</h2>
+            <p className="intro-split__subtitle">{t.introTitleSub}</p>
+            <p className="intro-split__eyebrow">{t.introSub}</p>
+            <p>{t.introP1}</p>
+            <p>{t.introP2}</p>
+            <p>
+              {t.introP3a}
+              <br />
+              {t.introP3b}
+            </p>
           </div>
         </div>
       </section>
@@ -287,7 +292,7 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* LOGOS */}
-      <section className="section section--tight logos-wrap">
+      <section className="section section--tight logos-wrap logos-white">
         <div className="container logos">
           <div className="logos__title">
             <h2>{t.logosTitle}</h2>
@@ -324,7 +329,7 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
               <h3>{t.benefits[2]}</h3>
             </div>
           </div>
-          <a href={contact} className="btn btn--green">{t.villageoisBtn}</a>
+          <a href={contact} className="btn btn--blue">{t.villageoisBtn}</a>
         </div>
       </section>
 
