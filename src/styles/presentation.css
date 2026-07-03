@@ -211,7 +211,7 @@
 .presentation-page .piliers .accent-bar { margin-bottom: 46px; }
 .presentation-page .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 26px;
 }
 .presentation-page .card {
@@ -223,9 +223,11 @@
   border-top: 5px solid var(--blue);
   transition: transform 0.25s ease;
 }
-.presentation-page .card:nth-child(1) { border-top-color: var(--magenta); }
-.presentation-page .card:nth-child(2) { border-top-color: var(--yellow); }
-.presentation-page .card:nth-child(3) { border-top-color: var(--green); }
+.presentation-page .card:nth-child(1) { border-top-color: var(--blue); }
+.presentation-page .card:nth-child(2) { border-top-color: var(--blue); }
+.presentation-page .card:nth-child(3) { border-top-color: var(--blue); }
+.presentation-page .card:nth-child(4) { border-top-color: var(--blue); }
+.presentation-page .card:nth-child(5) { border-top-color: var(--blue); }
 .presentation-page .card:hover { transform: translateY(-4px); }
 .presentation-page .card h3 {
   color: var(--navy);
@@ -256,11 +258,7 @@
   border: 3px solid #fff;
   outline: 2px solid rgba(37, 175, 224, 0.3);
 }
-/* Startup Village cycle: Blue -> Yellow -> Pink -> Green, repeated */
-.presentation-page .villageois-list li:nth-child(4n+1)::before { background: #25afe0; outline-color: rgba(37, 175, 224, 0.3); }
-.presentation-page .villageois-list li:nth-child(4n+2)::before { background: #f5b339; outline-color: rgba(245, 179, 57, 0.3); }
-.presentation-page .villageois-list li:nth-child(4n+3)::before { background: #e21c57; outline-color: rgba(226, 28, 87, 0.25); }
-.presentation-page .villageois-list li:nth-child(4n)::before   { background: #77b457; outline-color: rgba(119, 180, 87, 0.25); }
+.presentation-page .villageois-list li::before { background: var(--blue); outline-color: rgba(37, 175, 224, 0.3); }
 .presentation-page .villageois-list b { color: var(--navy); font-weight: 600; }
 
 /* ============ COMMUNAUTÉ (banner) ============ */
@@ -376,7 +374,7 @@
   }
   .presentation-page .split.reverse .text-col { order: 2; }
   .presentation-page .split.reverse .media-col { order: 1; }
-  .presentation-page .cards { grid-template-columns: 1fr; }
+  .presentation-page .cards { grid-template-columns: repeat(2, 1fr); }
   .presentation-page .media-col img,
   .presentation-page .carousel-track img { height: 320px; }
 }
@@ -386,6 +384,7 @@
   .presentation-page .intro { padding: 56px 0 44px; }
   .presentation-page .split { padding: 44px 0; }
   .presentation-page .hero { height: 64vh; }
+  .presentation-page .cards { grid-template-columns: 1fr; }
   .presentation-page .media-col img,
   .presentation-page .carousel-track img { height: 250px; }
 }
