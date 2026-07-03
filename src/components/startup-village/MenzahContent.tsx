@@ -25,7 +25,7 @@ const LOGOS = [
 
 const T = {
   fr: {
-    heroSub: "L'écosystème de l'innovation, des médias et de l'entrepreneuriat",
+    heroSub: "L'écosystème de l'innovation, des médias, de l'entrepreneuriat et du Hub IA",
     heroBtn: "RÉSERVER UN ESPACE",
     introTitle: "Startup Village Menzah – Là où tout a commencé",
     introP1: "Le 20 novembre 2021, Startup Village Menzah a ouvert ses portes, donnant naissance à un écosystème d'innovation et de co-création inédit en Tunisie. Niché dans un bâtiment historique conçu par le célèbre architecte Olivier Clément Cacoub, cet espace unique a été imaginé et transformé grâce à un travail collaboratif de 10 mois, réunissant villageois, architectes et scénographes autour d'un projet commun.",
@@ -33,10 +33,10 @@ const T = {
     statsTitle: ["Un espace stratégique", "pour des usages pratiques"],
     statsP: "Ici, tout a été pensé pour accompagner les pratiques professionnelles d'aujourd'hui : hybrides, rapides et connectées.",
     stats: [
-      { h: "17 bureaux privatifs", s: "+120 positions" },
-      { h: "2 espaces Coworking", s: "+90 positions" },
-      { h: "4 salles de réunions", s: "+40 positions" },
-      { h: "1 salle polyvalente", s: "+70 positions" },
+      { h: "17 bureaux privatifs", s: "+120 postes" },
+      { h: "2 espaces Coworking", s: "+90 postes" },
+      { h: "4 salles de réunions", s: "+40 postes" },
+      { h: "1 salle polyvalente", s: "+70 postes" },
     ],
     galleryBand: "DÉCOUVREZ NOS ESPACES",
     spaceAlt: "Espace",
@@ -127,14 +127,15 @@ export default function MenzahContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* INTRO */}
-      <section className="section section--pb-tight" id="concept">
-        <div className="container intro">
-          <div className="intro__media" style={{ backgroundImage: `url('${IMG}la-ou-tout-a-commence.jpg')` }}>
-            <div className="intro__card">
-              <h2>{t.introTitle}</h2>
-              <p>{t.introP1}</p>
-              <p>{t.introP2}</p>
-            </div>
+      <section className="section intro-section" id="concept">
+        <div className="container intro-split">
+          <div className="intro-split__media">
+            <img src={`${IMG}la-ou-tout-a-commence.jpg`} alt={t.introTitle} loading="lazy" />
+          </div>
+          <div className="intro-split__text">
+            <h2>{t.introTitle}</h2>
+            <p>{t.introP1}</p>
+            <p>{t.introP2}</p>
           </div>
         </div>
       </section>
@@ -231,7 +232,7 @@ export default function MenzahContent({ lang = "fr" }: { lang?: Lang }) {
             </div>
           </div>
           <div className="poles-cta">
-            <a href={contact} className="btn btn--green">{t.polesCta}</a>
+            <a href={contact} className="btn btn--blue">{t.polesCta}</a>
           </div>
         </div>
       </section>

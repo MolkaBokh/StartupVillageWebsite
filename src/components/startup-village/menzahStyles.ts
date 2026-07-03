@@ -37,14 +37,14 @@ export const MENZAH_STYLES = `
 .menzah-page .hero h1 { color:#fff; font-size:clamp(34px,6vw,66px); font-weight:800; letter-spacing:.01em; }
 .menzah-page .hero p { font-size:clamp(16px,2.4vw,22px); font-weight:400; margin:18px 0 34px; opacity:.96; }
 
-/* INTRO */
-.menzah-page .intro { position:relative; }
-.menzah-page .intro__media { position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-height:560px; background-position:center; background-size:cover; background-repeat:no-repeat; display:flex; align-items:center; justify-content:flex-start; }
-.menzah-page .intro__media::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,42,74,.12), rgba(11,42,74,.35)); }
-.menzah-page .intro__card { position:relative; z-index:2; margin:40px; max-width:640px; background:rgba(11,42,74,.92); color:#fff; padding:44px 46px; border-radius:var(--radius); box-shadow:var(--shadow); }
-.menzah-page .intro__card h2 { color:#fff; font-size:clamp(24px,3.2vw,34px); font-weight:700; }
-.menzah-page .intro__card p { color:rgba(255,255,255,.9); font-size:15.5px; margin:18px 0 14px; }
-.menzah-page .intro__card p:last-child { margin-bottom:0; }
+/* INTRO — split layout (image left, text right) */
+.menzah-page .intro-section { background:#fff; }
+.menzah-page .intro-split { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.menzah-page .intro-split__media { border-radius:var(--radius); overflow:hidden; }
+.menzah-page .intro-split__media img { width:100%; height:100%; object-fit:cover; display:block; max-height:520px; }
+.menzah-page .intro-split__text h2 { font-size:clamp(22px,2.8vw,32px); font-weight:700; margin-bottom:24px; color:var(--navy); line-height:1.2; }
+.menzah-page .intro-split__text p { color:var(--muted); font-size:16px; line-height:1.7; margin:0 0 16px; }
+.menzah-page .intro-split__text p:last-child { margin-bottom:0; }
 
 /* STATS */
 .menzah-page .head-center { text-align:center; max-width:760px; margin:0 auto 56px; }
@@ -99,11 +99,12 @@ export const MENZAH_STYLES = `
   .menzah-page .stats { grid-template-columns:repeat(2,1fr); }
   .menzah-page .poles { grid-template-columns:1fr; }
   .menzah-page .logos { grid-template-columns:1fr; gap:28px; text-align:center; }
+  .menzah-page .intro-split { grid-template-columns:1fr; gap:36px; }
+  .menzah-page .intro-split__media img { max-height:360px; }
 }
 @media (max-width:640px) {
   .menzah-page .section { padding:56px 0; }
   .menzah-page .gallery { grid-template-columns:1fr; }
   .menzah-page .stats { grid-template-columns:1fr; }
-  .menzah-page .intro__card { margin:16px; padding:32px 26px; }
 }
 `;
