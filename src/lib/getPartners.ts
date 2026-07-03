@@ -57,12 +57,26 @@ export function getPartners(): Partner[] {
     return [];
   }
 
-  return files
+  const ORDER = [
+    "medianet", "qualipro", "express", "africinvest", "gourmandise",
+    "magic-hotels", "masmoudi", "carthagene", "cotub", "royal-asbu",
+  ];
+
+  const slugs = files
     .filter((file) => IMAGE_EXT.has(path.extname(file).toLowerCase()))
     .map((file) => path.parse(file).name)
-    .filter((slug) => !EXCLUDE.has(slug))
-    .sort((a, b) => a.localeCompare(b, "fr"))
-    .map((slug) => ({
+    .filter((slug) => !EXCLUDE.has(slug));
+
+  slugs.sort((a, b) => {
+    const ai = ORDER.indexOf(a);
+    const bi = ORDER.indexOf(b);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return a.localeCompare(b, "fr");
+  });
+
+  return slugs.map((slug) => ({
       name: prettify(slug),
       logo: `/assets/images/partenaires/${slug}${getExt(files, slug)}`,
     }));
