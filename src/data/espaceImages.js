@@ -26,4 +26,10 @@ export const images = {
   galerieArtCouloir: `${BASE}/galerie-art-couloir.png`,
   coinDetenteIndustriel: `${BASE}/coin-detente-industriel.png`,
   movieNight: `${BASE}/movie-night.png`,
+  galerie1: `${BASE}/Networking.jpg`,
+  galerie2: `${BASE}/Basket-Corridor.jpg`,
+  galerie3: `${BASE}/coin-detente-industriel.png`,
+  galerie4: `${BASE}/espace-exposition-artistique.png`,
+  galerie5: `${BASE}/galerie-art-couloir.png`,
+  galerie6: `${BASE}/movie-night.png`,
 }

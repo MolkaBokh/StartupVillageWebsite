@@ -2,34 +2,26 @@ import HeroFullBleed from './HeroFullBleed'
 import BenefitsGrid from './BenefitsGrid'
 import MagentaDivider from './MagentaDivider'
 import RoomCarousel from './RoomCarousel'
-import CraftGrid from './CraftGrid'
-import CommunityCard from './CommunityCard'
 import ContactSection from './ContactSection'
 import { images } from '@/data/espaceImages'
 import { withLang } from '@/config/navigation'
-
-/**
- * Espace de Vie page body (bilingual). Identical markup, components, images,
- * carousels and styling for both languages; only text and CTA hrefs differ.
- */
 
 const T = {
   fr: {
     heroAlt: 'Hall en marbre du Startup Village avec totem signalétique Startup et Medianet',
     heroTitle: "Là où l'innovation prend vie",
     heroSubtitle: "Un bâtiment historique. Une communauté vivante. Le quotidien tunisien de l'innovation.",
-    ctaPrimary: 'Réserver un espace',
-    ctaSecondary: 'Visiter le village',
+    ctaPrimary: 'Devenir membre',
     benefitsTitle: 'Pourquoi choisir Startup Village ?',
     benefits: ['Espaces flexibles', 'Communauté active', "Événements toute l'année", 'Deux adresses stratégiques'],
     divider: 'Découvrez nos espaces',
     learnMore: 'En savoir plus',
     rooms: [
       {
-        eyebrow: 'Salle Avant-Première', title: 'Salle Avant-Première',
+        eyebrow: 'Salle polyvalente', title: 'Salle polyvalente',
         subtitle: "Un espace qui s'adapte à votre événement, et non l'inverse.",
-        body: "De 10 à plus de 60 personnes, Avant-Première se transforme selon vos besoins : conférence, workshop, projection, formation, théâtre, team building, lancement produit ou événement privé.",
-        alts: ['Salle Avant-Première, vue projection', 'Salle Avant-Première, public assis', 'Salle Avant-Première, scène', 'Salle Avant-Première, ambiance', 'Salle Avant-Première, séance de yoga'],
+        body: "De 10 à plus de 60 personnes, la salle polyvalente se transforme selon vos besoins : conférence, workshop, projection, formation, théâtre, team building, lancement produit ou événement privé.",
+        alts: ['Salle polyvalente, vue projection', 'Salle polyvalente, public assis', 'Salle polyvalente, scène', 'Salle polyvalente, ambiance', 'Salle polyvalente, séance de yoga'],
       },
       {
         eyebrow: 'Les Terrasses Exchanges', title: 'Les Terrasses Exchanges',
@@ -37,46 +29,26 @@ const T = {
         body: "Ouvertes sur la ville, les Terrasses Exchanges ont été conçues comme un lieu de détente, d'échange et de convivialité pour les villageois. Elles peuvent également être privatisées pour des événements, workshops ou team buildings.",
         alts: ['Les Terrasses Exchanges, vue panoramique', 'Les Terrasses Exchanges, espace assis', 'Les Terrasses Exchanges, soirée'],
       },
-      {
-        eyebrow: 'Réunion · Formation', title: 'Salles de réunion & formation',
-        subtitle: 'Des espaces pensés pour un usage précis.',
-        body: "Au Startup Village, nous ne proposons pas des salles standardisées. Chaque espace est conçu autour d'un besoin : réfléchir, collaborer, former, présenter ou avancer sur un projet dans un environnement fonctionnel et inspirant.",
-        alts: ['Salle de réunion 1', 'Salle de réunion 2', 'Salle de réunion 3', 'Salle de réunion 4'],
-      },
-      {
-        eyebrow: 'Studio', title: "Studio d'enregistrement", subtitle: null,
-        body: "Un espace équipé pour enregistrer podcasts, interviews, formations en ligne, vidéos et contenus de marque dans des conditions professionnelles.",
-        alts: ["Studio d'enregistrement, vue 1", "Studio d'enregistrement, vue 2"],
-      },
     ],
-    craftTitle: "Plus qu'un espace de travail",
-    craftCaption: "Des espaces pensés pour travailler, échanger, déjeuner, créer et se retrouver. Ici, chaque lieu participe à l'expérience : les espaces communs, les lieux de passage, les terrasses et les moments partagés.",
-    craftAlts: ['Espace cuisine partagé CoChef', 'Corridor du Startup Village', 'Détail décoratif du Startup Village', "Espace d'exposition artistique du Startup Village", "Galerie d'art dans un couloir du Startup Village", 'Coin détente au style industriel du Startup Village'],
-    communityTitle: 'Une communauté en mouvement',
-    community: [
-      { title: 'Networking & rencontres', body: 'Des rencontres spontanées entre startups, mentors et partenaires au cœur du village.', alt: 'Moment de networking entre entrepreneurs' },
-      { title: 'Bien-être & équilibre', body: 'Yoga, sport et rituels qui rythment la vie quotidienne des villageois.', alt: 'Séance de yoga collective au village' },
-      { title: 'Culture & expériences', body: 'Projections, soirées et événements qui font vivre la communauté autrement.', alt: 'Soirée Movie Night organisée au village' },
-      { title: 'Création de contenu', body: "Podcasts, interviews et formations en ligne dans un studio équipé et prêt à l'emploi.", alt: 'Création de contenu en studio' },
-    ],
-    eventsBtn: 'Découvrir les événements',
+    cochefTitle: 'CoChef – La cantine du Startup Village',
+    cochefBody: "CoChef est l'espace de restauration du Startup Village. Plus qu'une cantine, c'est un lieu de rencontre où les villageois se retrouvent autour d'un café, d'un déjeuner ou d'un brunch.",
+    galleryTitle: 'Un espace, plusieurs vies',
   },
   en: {
     heroAlt: 'Marble lobby of Startup Village with Startup and Medianet signage totem',
     heroTitle: 'Where innovation comes to life',
     heroSubtitle: 'A historic building. A living community. The everyday home of Tunisian innovation.',
-    ctaPrimary: 'Book a space',
-    ctaSecondary: 'Visit the village',
+    ctaPrimary: 'Become a member',
     benefitsTitle: 'Why choose Startup Village?',
     benefits: ['Flexible spaces', 'Active community', 'Events all year round', 'Two strategic locations'],
     divider: 'Discover our spaces',
     learnMore: 'Learn more',
     rooms: [
       {
-        eyebrow: 'Avant-Première Room', title: 'Avant-Première Room',
+        eyebrow: 'Multipurpose Room', title: 'Multipurpose Room',
         subtitle: 'A space that adapts to your event, not the other way around.',
-        body: 'From 10 to over 60 people, Avant-Première transforms to fit your needs: conference, workshop, screening, training, theatre, team building, product launch or private event.',
-        alts: ['Avant-Première Room, screening view', 'Avant-Première Room, seated audience', 'Avant-Première Room, stage', 'Avant-Première Room, atmosphere', 'Avant-Première Room, yoga session'],
+        body: 'From 10 to over 60 people, the multipurpose room transforms to fit your needs: conference, workshop, screening, training, theatre, team building, product launch or private event.',
+        alts: ['Multipurpose Room, screening view', 'Multipurpose Room, seated audience', 'Multipurpose Room, stage', 'Multipurpose Room, atmosphere', 'Multipurpose Room, yoga session'],
       },
       {
         eyebrow: 'The Terrasses Exchanges', title: 'The Terrasses Exchanges',
@@ -84,46 +56,26 @@ const T = {
         body: 'Open to the city, the Terrasses Exchanges were designed as a place to relax, exchange and socialize for villagers. They can also be privatized for events, workshops or team buildings.',
         alts: ['The Terrasses Exchanges, panoramic view', 'The Terrasses Exchanges, seating area', 'The Terrasses Exchanges, evening'],
       },
-      {
-        eyebrow: 'Meetings · Training', title: 'Meeting & training rooms',
-        subtitle: 'Spaces designed for a specific purpose.',
-        body: "At Startup Village, we don't offer one-size-fits-all rooms. Each space is built around a need: to think, collaborate, train, present or move a project forward in a functional and inspiring environment.",
-        alts: ['Meeting room 1', 'Meeting room 2', 'Meeting room 3', 'Meeting room 4'],
-      },
-      {
-        eyebrow: 'Studio', title: 'Recording studio', subtitle: null,
-        body: 'A space equipped to record podcasts, interviews, online courses, videos and brand content in professional conditions.',
-        alts: ['Recording studio, view 1', 'Recording studio, view 2'],
-      },
     ],
-    craftTitle: 'More than a workspace',
-    craftCaption: 'Spaces designed to work, exchange, have lunch, create and come together. Here, every place is part of the experience: the common areas, the passageways, the terraces and the shared moments.',
-    craftAlts: ['CoChef shared kitchen space', 'Startup Village corridor', 'Decorative detail of Startup Village', 'Art exhibition space at Startup Village', 'Art gallery in a Startup Village corridor', 'Industrial-style lounge corner at Startup Village'],
-    communityTitle: 'A community in motion',
-    community: [
-      { title: 'Networking & encounters', body: 'Spontaneous encounters between startups, mentors and partners at the heart of the village.', alt: 'Networking moment between entrepreneurs' },
-      { title: 'Well-being & balance', body: "Yoga, sport and rituals that pace the villagers' daily life.", alt: 'Group yoga session at the village' },
-      { title: 'Culture & experiences', body: 'Screenings, parties and events that bring the community to life in a different way.', alt: 'Movie Night event at the village' },
-      { title: 'Content creation', body: 'Podcasts, interviews and online courses in a fully equipped, ready-to-use studio.', alt: 'Content creation in the studio' },
-    ],
-    eventsBtn: 'Discover events',
+    cochefTitle: 'CoChef – The Startup Village Canteen',
+    cochefBody: 'CoChef is the dining space of Startup Village. More than a canteen, it\'s a meeting place where villagers come together over a coffee, lunch or brunch.',
+    galleryTitle: 'One space, many lives',
   },
   ar: {
     heroAlt: 'بهو رخامي في ستارتب فيليج مع لافتة Startup وMedianet',
     heroTitle: 'حيث تنبض الحياة في الابتكار',
     heroSubtitle: 'مبنى تاريخي. مجتمع نابض بالحياة. الموطن اليومي للابتكار التونسي.',
-    ctaPrimary: 'احجز فضاءً',
-    ctaSecondary: 'زُر القرية',
+    ctaPrimary: 'انضمّ إلينا',
     benefitsTitle: 'لماذا تختار ستارتب فيليج؟',
     benefits: ['فضاءات مرنة', 'مجتمع نشط', 'فعاليات على مدار السنة', 'موقعان استراتيجيان'],
     divider: 'اكتشف فضاءاتنا',
     learnMore: 'اعرف المزيد',
     rooms: [
       {
-        eyebrow: 'قاعة Avant-Première', title: 'قاعة Avant-Première',
+        eyebrow: 'القاعة متعددة الاستخدامات', title: 'القاعة متعددة الاستخدامات',
         subtitle: 'فضاء يتكيّف مع فعاليتك، لا العكس.',
-        body: 'من 10 إلى أكثر من 60 شخصًا، تتحوّل قاعة Avant-Première حسب احتياجاتك: مؤتمر، ورشة، عرض، تكوين، مسرح، بناء فرق، إطلاق منتج أو فعالية خاصة.',
-        alts: ['قاعة Avant-Première، منظر العرض', 'قاعة Avant-Première، جمهور جالس', 'قاعة Avant-Première، المنصة', 'قاعة Avant-Première، الأجواء', 'قاعة Avant-Première، حصة يوغا'],
+        body: 'من 10 إلى أكثر من 60 شخصًا، تتحوّل القاعة متعددة الاستخدامات حسب احتياجاتك: مؤتمر، ورشة، عرض، تكوين، مسرح، بناء فرق، إطلاق منتج أو فعالية خاصة.',
+        alts: ['القاعة متعددة الاستخدامات، منظر العرض', 'القاعة متعددة الاستخدامات، جمهور جالس', 'القاعة متعددة الاستخدامات، المنصة', 'القاعة متعددة الاستخدامات، الأجواء', 'القاعة متعددة الاستخدامات، حصة يوغا'],
       },
       {
         eyebrow: 'شرفات Terrasses Exchanges', title: 'شرفات Terrasses Exchanges',
@@ -131,51 +83,23 @@ const T = {
         body: 'مفتوحة على المدينة، صُمِّمت شرفات Terrasses Exchanges كمكان للاسترخاء والتبادل والألفة لسكان القرية. كما يمكن خصخصتها للفعاليات وورش العمل وأنشطة بناء الفرق.',
         alts: ['شرفات Terrasses Exchanges، منظر بانورامي', 'شرفات Terrasses Exchanges، منطقة جلوس', 'شرفات Terrasses Exchanges، أمسية'],
       },
-      {
-        eyebrow: 'اجتماعات · تكوين', title: 'قاعات اجتماعات وتكوين',
-        subtitle: 'فضاءات مصمّمة لغرض محدّد.',
-        body: 'في ستارتب فيليج، لا نقدّم قاعات نمطية. كلّ فضاء مصمَّم حول حاجة: التفكير، التعاون، التكوين، التقديم أو إنجاز مشروع في بيئة عملية وملهمة.',
-        alts: ['قاعة اجتماعات 1', 'قاعة اجتماعات 2', 'قاعة اجتماعات 3', 'قاعة اجتماعات 4'],
-      },
-      {
-        eyebrow: 'استوديو', title: 'استوديو تسجيل', subtitle: null,
-        body: 'فضاء مجهّز لتسجيل البودكاست والمقابلات والدورات عبر الإنترنت والفيديوهات ومحتوى العلامات التجارية في ظروف احترافية.',
-        alts: ['استوديو تسجيل، منظر 1', 'استوديو تسجيل، منظر 2'],
-      },
     ],
-    craftTitle: 'أكثر من مجرّد فضاء عمل',
-    craftCaption: 'فضاءات مصمّمة للعمل والتبادل وتناول الغداء والإبداع واللقاء. هنا، يساهم كلّ مكان في التجربة: الفضاءات المشتركة وممرّات المرور والشرفات واللحظات المشتركة.',
-    craftAlts: ['فضاء المطبخ المشترك CoChef', 'ممرّ ستارتب فيليج', 'تفصيل زخرفي في ستارتب فيليج', 'فضاء العرض الفنّي في ستارتب فيليج', 'رواق فنّي في أحد ممرّات ستارتب فيليج', 'ركن استرخاء بطابع صناعي في ستارتب فيليج'],
-    communityTitle: 'مجتمع في حركة دائمة',
-    community: [
-      { title: 'تواصل ولقاءات', body: 'لقاءات عفوية بين الشركات الناشئة والمرشدين والشركاء في قلب القرية.', alt: 'لحظة تواصل بين روّاد الأعمال' },
-      { title: 'رفاهية وتوازن', body: 'يوغا ورياضة وطقوس تنظّم الحياة اليومية لسكان القرية.', alt: 'حصة يوغا جماعية في القرية' },
-      { title: 'ثقافة وتجارب', body: 'عروض وأمسيات وفعاليات تُحيي المجتمع بطريقة مختلفة.', alt: 'أمسية Movie Night في القرية' },
-      { title: 'صناعة المحتوى', body: 'بودكاست ومقابلات ودورات عبر الإنترنت في استوديو مجهّز وجاهز للاستخدام.', alt: 'صناعة محتوى في الاستوديو' },
-    ],
-    eventsBtn: 'اكتشف الفعاليات',
+    cochefTitle: 'CoChef – مطعم ستارتب فيليج',
+    cochefBody: 'CoChef هو فضاء الإطعام في ستارتب فيليج. أكثر من مجرّد مطعم، إنّه مكان لقاء يجتمع فيه السكان حول قهوة أو غداء أو برانش.',
+    galleryTitle: 'فضاء واحد، حيوات متعدّدة',
   },
 }
 
 const ROOM_META = [
   { eyebrowColor: '#6FA83C', imgs: ['avantPremiere1', 'avantPremiere2', 'avantPremiere3', 'avantPremiere4', 'avantPremiereYoga'], autoplay: true, reverse: false },
   { eyebrowColor: '#2BB3E0', imgs: ['terrasse2', 'terrasse1', 'terrasse3'], autoplay: false, reverse: true },
-  { eyebrowColor: '#E0205F', imgs: ['reunion1', 'reunion2', 'reunion3', 'reunion4'], autoplay: true, reverse: false },
-  { eyebrowColor: '#1A2238', imgs: ['studio1', 'studio2'], autoplay: false, reverse: true },
 ]
-const CRAFT_IMGS = ['coChef', 'basketCorridor', 'artisanat', 'expositionArtistique', 'galerieArtCouloir', 'coinDetenteIndustriel']
-const COMMUNITY_META = [
-  { img: 'networking', color: 'blue' },
-  { img: 'avantPremiereYoga', color: 'green' },
-  { img: 'movieNight', color: 'magenta' },
-  { img: 'studio1', color: 'navy' },
-]
+
+const GALLERY_KEYS = ['galerie1', 'galerie2', 'galerie3', 'galerie4', 'galerie5', 'galerie6']
 
 export default function EspaceDeVieContent({ lang = 'fr' }) {
   const t = T[lang]
   const contact = withLang('/contact', lang)
-  const contactStock = withLang('/contact?type=stock', lang)
-  const news = withLang('/actualites', lang)
 
   return (
     <>
@@ -186,18 +110,17 @@ export default function EspaceDeVieContent({ lang = 'fr' }) {
         title={t.heroTitle}
         subtitle={t.heroSubtitle}
         primaryCta={{ label: t.ctaPrimary, href: contact }}
-        secondaryCta={{ label: t.ctaSecondary, href: contactStock }}
       />
 
-      {/* S1B — Benefits */}
+      {/* S1 — Benefits */}
       <BenefitsGrid title={t.benefitsTitle} items={t.benefits} />
 
-      {/* S2 — Green divider */}
+      {/* S2 — Divider */}
       <div id="espaces">
         <MagentaDivider title={t.divider} color="green" />
       </div>
 
-      {/* S3 — Room carousels */}
+      {/* S3 — Room carousels (Salle polyvalente + Terrasses) */}
       {t.rooms.map((room, i) => (
         <RoomCarousel
           key={i}
@@ -215,43 +138,48 @@ export default function EspaceDeVieContent({ lang = 'fr' }) {
         />
       ))}
 
-      {/* S4 — Craft grid */}
-      <CraftGrid
-        title={t.craftTitle}
-        caption={t.craftCaption}
-        images={CRAFT_IMGS.map((key, i) => ({ src: images[key], alt: t.craftAlts[i] }))}
-      />
-
-      {/* S5 — Une communauté en mouvement */}
-      <section className="bg-white py-14 md:py-20">
+      {/* S4 — CoChef */}
+      <section className="bg-[#f5f8fb] py-14 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <h2 className="text-center text-2xl font-bold uppercase tracking-[2px] text-sv-navy md:text-[34px]">
-            {t.communityTitle}
-          </h2>
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
-            {t.community.map((c, i) => (
-              <CommunityCard
-                key={i}
-                image={images[COMMUNITY_META[i].img]}
-                alt={c.alt}
-                color={COMMUNITY_META[i].color}
-                title={c.title}
-                body={c.body}
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
+            <div className="overflow-hidden rounded-xl">
+              <img
+                src={images.coChef}
+                alt={t.cochefTitle}
+                className="h-full w-full object-cover"
+                loading="lazy"
               />
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <a
-              href={news}
-              className="inline-flex items-center justify-center rounded bg-sv-blue px-8 py-3.5 text-base font-bold uppercase tracking-wide text-white transition-colors duration-200 hover:bg-[#1f9bc4]"
-            >
-              {t.eventsBtn}
-            </a>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-sv-navy md:text-[30px]">{t.cochefTitle}</h2>
+              <p className="mt-4 text-base leading-relaxed text-sv-grey">{t.cochefBody}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* S6 — Contact form */}
+      {/* S5 — Gallery: Un espace, plusieurs vies */}
+      <section className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <h2 className="mb-10 text-center text-2xl font-bold uppercase tracking-[2px] text-sv-navy md:text-[34px]">
+            {t.galleryTitle}
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {GALLERY_KEYS.map((key, i) => (
+              <div key={key} className="aspect-[4/3] overflow-hidden rounded-xl">
+                <img
+                  src={images[key]}
+                  alt={`${t.galleryTitle} ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* S6 — Contact */}
       <ContactSection lang={lang} />
     </>
   )
