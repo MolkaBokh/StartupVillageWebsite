@@ -58,12 +58,12 @@ const SUBMENU_PATHS = [
 ];
 
 const NAV_LABELS: Record<Lang, string[]> = {
-  fr: ["Startup Village", "Espace de Vie", "Startups", "Actualités", "Contact"],
-  en: ["Startup Village", "Life at the Village", "Startups", "News", "Contact"],
-  ar: ["ستارتب فيليج", "فضاءات العيش", "الشركات الناشئة", "الأخبار", "اتصل بنا"],
+  fr: ["Startup Village", "Offres & Services", "Espace de Vie", "Startups", "Actualités", "Contact"],
+  en: ["Startup Village", "Offers & Services", "Life at the Village", "Startups", "News", "Contact"],
+  ar: ["ستارتب فيليج", "العروض والخدمات", "فضاءات العيش", "الشركات الناشئة", "الأخبار", "اتصل بنا"],
 };
 
-const NAV_PATHS = ["/presentation", "/espace-de-vie", "/startups", "/actualites", "/contact"];
+const NAV_PATHS = ["/presentation", "/offres-services", "/espace-de-vie", "/startups", "/actualites", "/contact"];
 
 /** Build the localized "Startup Village ▼" dropdown contents. */
 export function getSubmenu(lang: Lang): NavLink[] {
