@@ -21,13 +21,13 @@ const T = {
         eyebrow: 'Salle polyvalente', title: 'Salle polyvalente',
         subtitle: "Un espace qui s'adapte à votre événement, et non l'inverse.",
         body: "De 10 à plus de 60 personnes, la salle polyvalente se transforme selon vos besoins : conférence, workshop, projection, formation, théâtre, team building, lancement produit ou événement privé.",
-        alts: ['Salle polyvalente, vue projection', 'Salle polyvalente, public assis', 'Salle polyvalente, scène', 'Salle polyvalente, ambiance', 'Salle polyvalente, séance de yoga'],
+        alts: ['Salle polyvalente, vue projection', 'Salle polyvalente, public assis', 'Salle polyvalente, scène', 'Salle polyvalente, ambiance'],
       },
       {
         eyebrow: 'Les Terrasses Exchanges', title: 'Les Terrasses Exchanges',
         subtitle: "Un espace de détente et d'interaction en pleine ville.",
         body: "Ouvertes sur la ville, les Terrasses Exchanges ont été conçues comme un lieu de détente, d'échange et de convivialité pour les villageois. Elles peuvent également être privatisées pour des événements, workshops ou team buildings.",
-        alts: ['Les Terrasses Exchanges, vue panoramique', 'Les Terrasses Exchanges, espace assis', 'Les Terrasses Exchanges, soirée'],
+        alts: ['Les Terrasses Exchanges, vue panoramique', 'Les Terrasses Exchanges, espace assis', 'Les Terrasses Exchanges, soirée', 'Les Terrasses Exchanges, détail', 'Les Terrasses Exchanges, ambiance'],
       },
     ],
     cochefTitle: 'CoChef – La cantine du Startup Village',
@@ -48,13 +48,13 @@ const T = {
         eyebrow: 'Multipurpose Room', title: 'Multipurpose Room',
         subtitle: 'A space that adapts to your event, not the other way around.',
         body: 'From 10 to over 60 people, the multipurpose room transforms to fit your needs: conference, workshop, screening, training, theatre, team building, product launch or private event.',
-        alts: ['Multipurpose Room, screening view', 'Multipurpose Room, seated audience', 'Multipurpose Room, stage', 'Multipurpose Room, atmosphere', 'Multipurpose Room, yoga session'],
+        alts: ['Multipurpose Room, screening view', 'Multipurpose Room, seated audience', 'Multipurpose Room, stage', 'Multipurpose Room, atmosphere'],
       },
       {
         eyebrow: 'The Terrasses Exchanges', title: 'The Terrasses Exchanges',
         subtitle: 'A space to relax and connect in the heart of the city.',
         body: 'Open to the city, the Terrasses Exchanges were designed as a place to relax, exchange and socialize for villagers. They can also be privatized for events, workshops or team buildings.',
-        alts: ['The Terrasses Exchanges, panoramic view', 'The Terrasses Exchanges, seating area', 'The Terrasses Exchanges, evening'],
+        alts: ['The Terrasses Exchanges, panoramic view', 'The Terrasses Exchanges, seating area', 'The Terrasses Exchanges, evening', 'The Terrasses Exchanges, detail', 'The Terrasses Exchanges, atmosphere'],
       },
     ],
     cochefTitle: 'CoChef – The Startup Village Canteen',
@@ -75,13 +75,13 @@ const T = {
         eyebrow: 'القاعة متعددة الاستخدامات', title: 'القاعة متعددة الاستخدامات',
         subtitle: 'فضاء يتكيّف مع فعاليتك، لا العكس.',
         body: 'من 10 إلى أكثر من 60 شخصًا، تتحوّل القاعة متعددة الاستخدامات حسب احتياجاتك: مؤتمر، ورشة، عرض، تكوين، مسرح، بناء فرق، إطلاق منتج أو فعالية خاصة.',
-        alts: ['القاعة متعددة الاستخدامات، منظر العرض', 'القاعة متعددة الاستخدامات، جمهور جالس', 'القاعة متعددة الاستخدامات، المنصة', 'القاعة متعددة الاستخدامات، الأجواء', 'القاعة متعددة الاستخدامات، حصة يوغا'],
+        alts: ['القاعة متعددة الاستخدامات، منظر العرض', 'القاعة متعددة الاستخدامات، جمهور جالس', 'القاعة متعددة الاستخدامات، المنصة', 'القاعة متعددة الاستخدامات، الأجواء'],
       },
       {
         eyebrow: 'شرفات Terrasses Exchanges', title: 'شرفات Terrasses Exchanges',
         subtitle: 'فضاء للاسترخاء والتفاعل في قلب المدينة.',
         body: 'مفتوحة على المدينة، صُمِّمت شرفات Terrasses Exchanges كمكان للاسترخاء والتبادل والألفة لسكان القرية. كما يمكن خصخصتها للفعاليات وورش العمل وأنشطة بناء الفرق.',
-        alts: ['شرفات Terrasses Exchanges، منظر بانورامي', 'شرفات Terrasses Exchanges، منطقة جلوس', 'شرفات Terrasses Exchanges، أمسية'],
+        alts: ['شرفات Terrasses Exchanges، منظر بانورامي', 'شرفات Terrasses Exchanges، منطقة جلوس', 'شرفات Terrasses Exchanges، أمسية', 'شرفات Terrasses Exchanges، تفصيل', 'شرفات Terrasses Exchanges، أجواء'],
       },
     ],
     cochefTitle: 'CoChef – مطعم ستارتب فيليج',
@@ -91,8 +91,8 @@ const T = {
 }
 
 const ROOM_META = [
-  { eyebrowColor: '#6FA83C', imgs: ['avantPremiere1', 'avantPremiere2', 'avantPremiere3', 'avantPremiere4', 'avantPremiereYoga'], autoplay: true, reverse: false },
-  { eyebrowColor: '#2BB3E0', imgs: ['terrasse2', 'terrasse1', 'terrasse3'], autoplay: false, reverse: true },
+  { eyebrowColor: '#6FA83C', imgs: ['avantPremiere1', 'avantPremiere2', 'avantPremiere3', 'avantPremiere4'], autoplay: true, reverse: false },
+  { eyebrowColor: '#2BB3E0', imgs: ['terrasse1', 'terrasse2', 'terrasse3', 'terrasse4', 'terrasse5'], autoplay: false, reverse: true },
 ]
 
 const GALLERY_KEYS = ['galerie1', 'galerie2', 'galerie3', 'galerie4', 'galerie5', 'galerie6']
