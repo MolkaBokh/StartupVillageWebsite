@@ -1,4 +1,5 @@
 import HeroFullBleed from './HeroFullBleed'
+import Button from './Button'
 import BenefitsGrid from './BenefitsGrid'
 import MagentaDivider from './MagentaDivider'
 import RoomCarousel from './RoomCarousel'
@@ -153,6 +154,9 @@ export default function EspaceDeVieContent({ lang = 'fr' }) {
             <div>
               <h2 className="text-2xl font-bold text-sv-navy md:text-[30px]">{t.cochefTitle}</h2>
               <p className="mt-4 text-base leading-relaxed text-sv-grey">{t.cochefBody}</p>
+              <Button variant="primary" href={contact} className="mt-8">
+                {t.learnMore}
+              </Button>
             </div>
           </div>
         </div>
