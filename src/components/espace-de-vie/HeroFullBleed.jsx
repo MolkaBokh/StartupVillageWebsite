@@ -24,9 +24,11 @@ export default function HeroFullBleed({ image, alt, title, subtitle, primaryCta,
           <Button variant="primary" href={primaryCta.href} className="w-full sm:w-auto">
             {primaryCta.label}
           </Button>
-          <Button variant="ghost" href={secondaryCta.href} className="w-full sm:w-auto">
-            {secondaryCta.label}
-          </Button>
+          {secondaryCta && (
+            <Button variant="ghost" href={secondaryCta.href} className="w-full sm:w-auto">
+              {secondaryCta.label}
+            </Button>
+          )}
         </div>
       </div>
     </section>
