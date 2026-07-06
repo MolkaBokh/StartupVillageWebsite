@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Logo from "@/components/ui/Logo";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 import { getNavItems, getSubmenu, langFromPath, toLang, withLang, type Lang } from "@/config/navigation";
@@ -20,6 +20,7 @@ export default function Header() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
 
   const lang = langFromPath(pathname);
   const navItems = getNavItems(lang);
@@ -43,7 +44,7 @@ export default function Header() {
         <Logo height={56} href={home} />
 
         {/* Center — desktop navigation */}
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav aria-label={lang === "ar" ? "التنقل الرئيسي" : lang === "en" ? "Main navigation" : "Navigation principale"} className="hidden items-center gap-7 md:flex">
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -53,15 +54,23 @@ export default function Header() {
                 onMouseLeave={() => setDropdownOpen(false)}
               >
                 <button
+                  ref={dropdownTriggerRef}
                   type="button"
                   onClick={() => setDropdownOpen((v) => !v)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") {
+                      setDropdownOpen(false);
+                      dropdownTriggerRef.current?.focus();
+                    }
+                  }}
                   aria-expanded={dropdownOpen}
+                  aria-haspopup="true"
                   className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition ${
                     startupVillageActive ? "text-accent-500" : "text-navy-950/80 hover:text-accent-500"
                   }`}
                 >
                   {item.label}
-                  <svg viewBox="0 0 12 8" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg viewBox="0 0 12 8" className="h-3 w-3" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M1 1l5 5 5-5" />
                   </svg>
                 </button>
@@ -72,11 +81,22 @@ export default function Header() {
                   // the cursor never crosses a dead gap between the trigger and
                   // the panel — keeping the dropdown open and its links clickable.
                   <div className="absolute left-0 top-full z-20 pt-2">
-                    <div className="w-60 rounded-xl border border-navy-950/10 bg-white py-2 shadow-lg">
+                    <div
+                      role="menu"
+                      className="w-60 rounded-xl border border-navy-950/10 bg-white py-2 shadow-lg"
+                      onKeyDown={(e) => {
+                        if (e.key === "Escape") {
+                          setDropdownOpen(false);
+                          dropdownTriggerRef.current?.focus();
+                        }
+                      }}
+                    >
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
+                          role="menuitem"
+                          onClick={() => setDropdownOpen(false)}
                           className={`block px-4 py-2 text-sm font-medium transition ${
                             isActive(child.href)
                               ? "text-accent-500"
@@ -110,8 +130,9 @@ export default function Header() {
 
           <button
             type="button"
-            aria-label="Menu"
+            aria-label={mobileOpen ? (lang === "ar" ? "إغلاق القائمة" : lang === "en" ? "Close menu" : "Fermer le menu") : (lang === "ar" ? "فتح القائمة" : lang === "en" ? "Open menu" : "Ouvrir le menu")}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMobileOpen((v) => !v)}
             className="inline-flex items-center justify-center rounded-lg p-2 text-navy-950 md:hidden"
           >
@@ -124,7 +145,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav className="border-t border-navy-950/10 bg-white px-6 py-4 md:hidden" dir={lang === "ar" ? "rtl" : "ltr"}>
+        <nav id="mobile-menu" aria-label={lang === "ar" ? "القائمة المحمولة" : lang === "en" ? "Mobile menu" : "Menu mobile"} className="border-t border-navy-950/10 bg-white px-6 py-4 md:hidden" dir={lang === "ar" ? "rtl" : "ltr"}>
           <div className="flex flex-col gap-1">
             <p className="px-2 pt-1 text-xs font-bold uppercase tracking-wide text-navy-950/40">
               {navItems[0].label}

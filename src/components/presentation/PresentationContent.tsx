@@ -315,6 +315,8 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
   const contactHref = withLang("/contact", lang);
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
     const timer = setInterval(() => setIndex((i) => (i + 1) % slides), 5000);
     return () => clearInterval(timer);
   }, [index, slides]);
@@ -430,17 +432,29 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
       {/* 8. UN LIEU HUMAIN ET RESPONSABLE (carousel) */}
       <section className="split carousel-row alt">
         <div className="container">
-          <div className="carousel" id="carousel">
+          <div
+            className="carousel"
+            id="carousel"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label={t.engagementTitle}
+          >
             <div className="carousel-track" id="carouselTrack" style={{ transform: `translateX(-${index * 100}%)` }}>
               {CAROUSEL_IMAGES.map((img, i) => (
-                <img key={img.src} src={img.src} alt={img.alt} loading={i === 0 ? "eager" : "lazy"} />
+                <img key={img.src} src={img.src} alt={img.alt} loading={i === 0 ? "eager" : "lazy"} aria-hidden={i !== index} />
               ))}
             </div>
-            <button className="carousel-btn prev" aria-label="Prev" onClick={prev}>‹</button>
-            <button className="carousel-btn next" aria-label="Next" onClick={next}>›</button>
+            <button className="carousel-btn prev" aria-label={lang === "ar" ? "صورة سابقة" : lang === "en" ? "Previous image" : "Image précédente"} onClick={prev}><span aria-hidden>‹</span></button>
+            <button className="carousel-btn next" aria-label={lang === "ar" ? "صورة تالية" : lang === "en" ? "Next image" : "Image suivante"} onClick={next}><span aria-hidden>›</span></button>
             <div className="carousel-dots" id="carDots">
               {CAROUSEL_IMAGES.map((img, i) => (
-                <button key={img.src} className={i === index ? "active" : undefined} aria-label={`${i + 1}`} onClick={() => go(i)} />
+                <button
+                  key={img.src}
+                  className={i === index ? "active" : undefined}
+                  aria-label={lang === "ar" ? `الصورة ${i + 1} من ${slides}` : lang === "en" ? `Image ${i + 1} of ${slides}` : `Image ${i + 1} sur ${slides}`}
+                  aria-current={i === index}
+                  onClick={() => go(i)}
+                />
               ))}
             </div>
           </div>
