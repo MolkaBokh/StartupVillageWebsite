@@ -1,6 +1,6 @@
 export const MENZAH_STYLES = `
 .menzah-page {
-  --navy:#0B2A4A; --blue:#25AFE0; --yellow:#F5B339; --pink:#E21C57; --green:#77B457;
+  --navy:#0B2A4A; --blue:#1478A0; --yellow:#F5B339; --pink:#E21C57; --green:#77B457;
   --ink:#14233a; --muted:#5a6b80; --soft:#f5f8fb;
   --radius:16px; --radius-sm:12px;
   --shadow:0 4px 16px rgba(11,42,74,.08);
@@ -25,7 +25,7 @@ export const MENZAH_STYLES = `
 .menzah-page .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; font-size:15px; letter-spacing:.02em; padding:15px 30px; border-radius:999px; border:none; cursor:pointer; transition:transform .18s ease, background .18s ease; }
 .menzah-page .btn:hover { transform:translateY(-2px); }
 .menzah-page .btn--blue { background:var(--blue); color:#fff; }
-.menzah-page .btn--blue:hover { background:#1f8cc0; }
+.menzah-page .btn--blue:hover { background:#116080; }
 .menzah-page .btn--green { background:var(--green); color:#fff; font-size:17px; padding:18px 40px; }
 .menzah-page .btn--green:hover { background:#5d9340; }
 

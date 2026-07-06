@@ -9,7 +9,7 @@
 
 .actualites-page {
   --navy: #0b2545;
-  --blue: #25afe0;
+  --blue: #1478a0;
   --magenta: #e21c57;
   --yellow: #f5b339;
   --green: #77b457;
@@ -124,11 +124,11 @@
 .actualites-page .event-meta .m { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--navy); }
 .actualites-page .event-meta .m svg { flex: none; color: var(--blue); width: 16px; height: 16px; }
 .actualites-page .btn-register {
-  display: inline-flex; align-items: center; gap: 10px; background: var(--magenta); color: #fff;
+  display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff;
   font-weight: 700; font-size: 14.5px; padding: 12px 24px; border-radius: 999px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
-.actualites-page .btn-register:hover { background: var(--navy); transform: translateY(-2px); }
+.actualites-page .btn-register:hover { background: #116080; transform: translateY(-2px); }
 
 /* ===== Mobile ===== */
 @media (max-width: 640px) {

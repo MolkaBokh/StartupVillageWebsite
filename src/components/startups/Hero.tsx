@@ -44,7 +44,7 @@ export default function Hero({ lang = "fr" }: { lang?: Lang }) {
         <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center">
           <Link
             href={withLang("/contact", lang)}
-            className="inline-flex items-center justify-center rounded-full bg-sv-pink px-7 py-3.5 text-sm font-bold text-white transition hover:bg-sv-pink/90"
+            className="inline-flex items-center justify-center rounded-full bg-sv-cyan-btn px-7 py-3.5 text-sm font-bold text-white transition hover:bg-sv-cyan-btn-hover"
           >
             {t.cta1}
           </Link>
