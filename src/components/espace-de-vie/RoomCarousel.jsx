@@ -40,7 +40,7 @@ export default function RoomCarousel({
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
           <div
-            className={`relative h-[280px] w-full overflow-hidden md:h-[440px] ${reverse ? 'md:order-2' : ''}`}
+            className={`relative h-[280px] w-full overflow-hidden rounded-xl md:h-[440px] ${reverse ? 'md:order-2' : ''}`}
             role="region"
             aria-roledescription="carousel"
             aria-label={title}

@@ -17,7 +17,7 @@ export default function Button({
   return (
     <Tag
       href={href}
-      className={`inline-flex items-center justify-center rounded px-8 py-3.5 text-base font-bold uppercase tracking-wide transition-colors duration-200 ${VARIANTS[variant]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-xl px-8 py-3.5 text-base font-bold uppercase tracking-wide transition-colors duration-200 ${VARIANTS[variant]} ${className}`}
       {...props}
     >
       {children}
