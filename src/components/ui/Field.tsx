@@ -6,14 +6,17 @@ const baseFieldClasses =
 export function Label({
   children,
   required,
+  htmlFor,
 }: {
   children: React.ReactNode;
   required?: boolean;
+  htmlFor?: string;
 }) {
   return (
-    <label className="mb-2 block text-sm font-bold text-navy-950">
+    <label htmlFor={htmlFor} className="mb-2 block text-sm font-bold text-navy-950">
       {children}
-      {required && <span className="text-accent-500"> *</span>}
+      {required && <span className="text-accent-500" aria-hidden="true"> *</span>}
+      {required && <span className="sr-only"> (obligatoire)</span>}
     </label>
   );
 }

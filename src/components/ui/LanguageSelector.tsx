@@ -15,14 +15,18 @@ type LanguageSelectorProps = {
  * language is highlighted. Targets are computed by the Header from the pathname.
  */
 export default function LanguageSelector({ lang, hrefs, className = "" }: LanguageSelectorProps) {
+  const ariaLabel =
+    lang === "ar" ? "اختيار اللغة" : lang === "en" ? "Select language" : "Choisir la langue";
   return (
-    <div className={`flex items-center gap-1 ${className}`}>
+    <nav aria-label={ariaLabel} className={`flex items-center gap-1 ${className}`}>
       {LANGUAGES.map((item, i) => (
         <span key={item.code} className="flex items-center">
           {i > 0 && <span className="mx-1 text-navy-950/25" aria-hidden>|</span>}
           <Link
             href={hrefs[item.code]}
-            aria-current={lang === item.code ? "true" : undefined}
+            aria-label={`${item.label}${lang === item.code ? (lang === "ar" ? " (اللغة الحالية)" : lang === "en" ? " (current language)" : " (langue actuelle)") : ""}`}
+            aria-current={lang === item.code ? "page" : undefined}
+            hrefLang={item.code}
             className={`text-sm font-semibold tracking-wide transition ${
               lang === item.code ? "text-accent-500" : "text-navy-950/60 hover:text-navy-950"
             }`}
@@ -31,6 +35,6 @@ export default function LanguageSelector({ lang, hrefs, className = "" }: Langua
           </Link>
         </span>
       ))}
-    </div>
+    </nav>
   );
 }

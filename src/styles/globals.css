@@ -108,3 +108,35 @@ body {
 [dir="rtl"] * {
   font-family: var(--font-cairo), "Cairo", "Noto Sans Arabic", system-ui, sans-serif !important;
 }
+
+/* --------------------------------------------------------------------------
+   Accessibility — focus-visible
+   Provide a clear, brand-consistent focus ring on ALL interactive elements
+   for keyboard-only and switch-access users. Using :focus-visible so the ring
+   only appears during keyboard/AT navigation, not on mouse clicks.
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500, #2aa7dd);
+  outline-offset: 2px;
+}
+
+/* Remove default :focus outline when :focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility — prefers-reduced-motion
+   Disable CSS transitions and animations for users who request it.
+   JS-driven carousel autoplay is handled per-component via useEffect.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

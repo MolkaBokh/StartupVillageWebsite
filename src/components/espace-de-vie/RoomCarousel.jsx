@@ -3,6 +3,18 @@
 import { useEffect, useState } from 'react'
 import Button from './Button'
 
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReduced(mq.matches)
+    const handler = (e) => setReduced(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+  return reduced
+}
+
 export default function RoomCarousel({
   images,
   eyebrow,
@@ -19,6 +31,7 @@ export default function RoomCarousel({
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const total = images.length
+  const reducedMotion = usePrefersReducedMotion()
 
   const goTo = (i) => setIndex(((i % total) + total) % total)
 
@@ -28,12 +41,12 @@ export default function RoomCarousel({
   }
 
   useEffect(() => {
-    if (!autoplay || paused || total <= 1) return
+    if (!autoplay || paused || total <= 1 || reducedMotion) return
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % total)
     }, autoplayInterval)
     return () => clearInterval(id)
-  }, [autoplay, paused, total, autoplayInterval])
+  }, [autoplay, paused, total, autoplayInterval, reducedMotion])
 
   return (
     <section className="bg-white py-14 md:py-20">

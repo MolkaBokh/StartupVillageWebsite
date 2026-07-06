@@ -172,7 +172,12 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-black/10 bg-primary-50 p-12 text-center">
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="rounded-2xl border border-black/10 bg-primary-50 p-12 text-center"
+      >
         <h3 className="text-2xl font-bold text-navy-950">{t.successTitle}</h3>
         <p className="mt-3 text-navy-950/70">{t.successText}</p>
       </div>
@@ -180,10 +185,10 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-12">
+    <form onSubmit={handleSubmit} noValidate className="space-y-12" aria-label={t.needTitle}>
       <div>
-        <h3 className="text-xl font-bold text-navy-950">{t.needTitle}</h3>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <h3 id="contact-need-heading" className="text-xl font-bold text-navy-950">{t.needTitle}</h3>
+        <div role="group" aria-labelledby="contact-need-heading" className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {REQUEST_TYPES.map((type) => (
             <SpaceTypeCard
               key={type.key}
@@ -200,24 +205,24 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
         <h3 className="text-xl font-bold text-navy-950">{t.infoTitle}</h3>
         <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <Label required>{t.fullName}</Label>
-            <Input type="text" name="full_name" required placeholder={t.fullNamePh} />
+            <Label htmlFor="cf-full_name" required>{t.fullName}</Label>
+            <Input id="cf-full_name" type="text" name="full_name" required placeholder={t.fullNamePh} aria-required="true" />
           </div>
           <div>
-            <Label required>{t.email}</Label>
-            <Input type="email" name="email" required placeholder={t.emailPh} />
+            <Label htmlFor="cf-email" required>{t.email}</Label>
+            <Input id="cf-email" type="email" name="email" required placeholder={t.emailPh} aria-required="true" />
           </div>
           <div>
-            <Label required>{t.phone}</Label>
-            <Input type="tel" name="phone" required placeholder={t.phonePh} />
+            <Label htmlFor="cf-phone" required>{t.phone}</Label>
+            <Input id="cf-phone" type="tel" name="phone" required placeholder={t.phonePh} aria-required="true" />
           </div>
           <div>
-            <Label>{t.org}</Label>
-            <Input type="text" name="organisation" placeholder={t.orgPh} />
+            <Label htmlFor="cf-organisation">{t.org}</Label>
+            <Input id="cf-organisation" type="text" name="organisation" placeholder={t.orgPh} />
           </div>
           <div>
-            <Label required>{t.requestType}</Label>
-            <Select name="request_type" required value={requestType} onChange={(e) => setRequestType(e.target.value)}>
+            <Label htmlFor="cf-request_type" required>{t.requestType}</Label>
+            <Select id="cf-request_type" name="request_type" required value={requestType} onChange={(e) => setRequestType(e.target.value)} aria-required="true">
               <option value="" disabled>{t.select}</option>
               {REQUEST_TYPES.map((r) => (
                 <option key={r.key} value={r[lang]}>{r[lang]}</option>
@@ -225,8 +230,8 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
             </Select>
           </div>
           <div>
-            <Label required>{t.site}</Label>
-            <Select name="site" required defaultValue="">
+            <Label htmlFor="cf-site" required>{t.site}</Label>
+            <Select id="cf-site" name="site" required defaultValue="" aria-required="true">
               <option value="" disabled>{t.select}</option>
               {t.sites.map((s) => (
                 <option key={s} value={s}>{s}</option>
@@ -234,16 +239,16 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
             </Select>
           </div>
           <div>
-            <Label>{t.people}</Label>
-            <Input type="number" name="people_count" min={1} placeholder={t.peoplePh} />
+            <Label htmlFor="cf-people_count">{t.people}</Label>
+            <Input id="cf-people_count" type="number" name="people_count" min={1} placeholder={t.peoplePh} />
           </div>
           <div>
-            <Label>{t.date}</Label>
-            <Input type="date" name="desired_date" />
+            <Label htmlFor="cf-desired_date">{t.date}</Label>
+            <Input id="cf-desired_date" type="date" name="desired_date" />
           </div>
           <div className="sm:col-span-2">
-            <Label>{t.message}</Label>
-            <Textarea name="message" placeholder={t.messagePh} />
+            <Label htmlFor="cf-message">{t.message}</Label>
+            <Textarea id="cf-message" name="message" placeholder={t.messagePh} />
           </div>
         </div>
       </div>
@@ -253,14 +258,17 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
           type="checkbox"
           name="rgpd"
           required
+          aria-required="true"
           className="mt-1 h-4 w-4 rounded border-black/20 text-primary-500 focus:ring-primary-500"
         />
         <span className="text-sm text-navy-950/70">{t.consent}</span>
       </label>
 
-      {error && (
-        <p className="text-sm font-medium text-red-600">{t.errorText}</p>
-      )}
+      <div aria-live="assertive" aria-atomic="true">
+        {error && (
+          <p role="alert" className="text-sm font-medium text-red-600">{t.errorText}</p>
+        )}
+      </div>
 
       <Button type="submit" disabled={sending} className="disabled:opacity-60">
         {sending ? t.sending : t.submit}
