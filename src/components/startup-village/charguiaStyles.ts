@@ -1,7 +1,7 @@
 const IMG = "/assets/images/charguia/";
 export const CHARGUIA_STYLES = `
 .charguia-page {
-  --navy:#0B2A4A; --blue:#25AFE0; --yellow:#F5B339; --pink:#E21C57; --green:#77B457;
+  --navy:#0B2A4A; --blue:#1478A0; --yellow:#F5B339; --pink:#E21C57; --green:#77B457;
   --ink:#14233a; --muted:#5a6b80; --bg:#ffffff; --soft:#f5f8fb;
   --radius:16px; --radius-sm:12px;
   --shadow:0 4px 16px rgba(11,42,74,.08);
@@ -28,7 +28,7 @@ export const CHARGUIA_STYLES = `
 .charguia-page .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; font-weight:600; font-size:15px; letter-spacing:.02em; padding:15px 30px; border-radius:999px; border:none; cursor:pointer; transition:transform .18s ease, background .18s ease; }
 .charguia-page .btn:hover { transform:translateY(-2px); }
 .charguia-page .btn--blue { background:var(--blue); color:#fff; }
-.charguia-page .btn--blue:hover { background:#1f8cc0; }
+.charguia-page .btn--blue:hover { background:#116080; }
 .charguia-page .btn--yellow { background:var(--yellow); color:var(--navy); }
 .charguia-page .btn--yellow:hover { background:#d99b27; }
 .charguia-page .btn--green { background:var(--green); color:#fff; font-size:17px; padding:18px 40px; }

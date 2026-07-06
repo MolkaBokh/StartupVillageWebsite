@@ -159,7 +159,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="w-full rounded-md bg-brand-blue px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-blue/90 sm:w-auto"
+              className="w-full rounded-full bg-[#1478a0] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[#116080] sm:w-auto"
             >
               {t.subscribe}
             </button>

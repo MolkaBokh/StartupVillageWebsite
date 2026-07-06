@@ -1,7 +1,7 @@
 const IMG = "/assets/images/responsabilites/";
 export const RESPONSABILITES_STYLES = `
 .responsabilites-page {
-  --sv-blue:#25AFE0; --sv-yellow:#F5B339; --sv-pink:#E21C57; --sv-green:#77B457; --sv-navy:#0F2748;
+  --sv-blue:#1478A0; --sv-yellow:#F5B339; --sv-pink:#E21C57; --sv-green:#77B457; --sv-navy:#0F2748;
   --sv-ink:#0F2748; --sv-muted:#5a6b80; --sv-line:#e7ebf1; --sv-bg:#ffffff; --sv-bg-soft:#f7f9fc;
   --maxw:1180px; --radius:16px; --ease:cubic-bezier(0.22, 0.61, 0.36, 1);
   font-family:'Inter', system-ui, -apple-system, sans-serif;
@@ -70,7 +70,7 @@ export const RESPONSABILITES_STYLES = `
 .responsabilites-page .cta { background:var(--sv-navy); padding:72px 0; text-align:center; }
 .responsabilites-page .cta__title { color:#fff; font-size:clamp(1.9rem, 3.8vw, 2.9rem); font-weight:700; max-width:20ch; margin:0 auto 32px; text-wrap:balance; }
 .responsabilites-page .cta__button { display:inline-block; text-decoration:none; background:var(--sv-blue); color:#fff; font-weight:600; font-size:1.05rem; padding:16px 38px; border-radius:999px; transition:transform 0.2s var(--ease), background 0.2s var(--ease); }
-.responsabilites-page .cta__button:hover { background:#1f8cc0; transform:translateY(-2px); }
+.responsabilites-page .cta__button:hover { background:#116080; transform:translateY(-2px); }
 
 /* RESPONSIVE */
 @media (min-width:720px) {
