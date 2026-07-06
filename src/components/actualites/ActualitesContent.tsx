@@ -159,7 +159,7 @@ export default function ActualitesContent({ lang = "fr" }: { lang?: Lang }) {
                 </a>
                 <div className="body">
                   <div className="date">{a.date[lang]}</div>
-                  <h3>{a.title[lang]}</h3>
+                  <h2 className="text-base font-bold text-navy-950">{a.title[lang]}</h2>
                   <a className="more" href={a.link === "#" ? "#" : withLang(a.link, lang)}>
                     {t.readMore} <Arrow />
                   </a>
@@ -180,7 +180,7 @@ export default function ActualitesContent({ lang = "fr" }: { lang?: Lang }) {
               </div>
               <div className="event-body">
                 <div className="day">24 June 2026</div>
-                <h3>Beyond AI: Technologies &amp; Trends Shaping the Future of Entrepreneurship</h3>
+                <h2 className="text-base font-bold text-navy-950">Beyond AI: Technologies &amp; Trends Shaping the Future of Entrepreneurship</h2>
                 <p className="speaker">{t.eventSpeaker}</p>
                 <div className="event-meta">
                   <span className="m">

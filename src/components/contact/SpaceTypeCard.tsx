@@ -19,7 +19,7 @@ export default function SpaceTypeCard({ label, icon, selected, onSelect }: Props
     >
       <span
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-          selected ? "bg-primary-500 text-white" : "bg-primary-50 text-primary-600"
+          selected ? "bg-[#1478a0] text-white" : "bg-primary-50 text-primary-600"
         }`}
       >
         {icon}

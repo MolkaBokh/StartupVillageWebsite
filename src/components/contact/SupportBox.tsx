@@ -34,7 +34,7 @@ export default function SupportBox({ lang = "fr" }: { lang?: Lang }) {
 
   return (
     <div className="rounded-2xl border border-black/10 bg-primary-50 p-8">
-      <h3 className="text-lg font-bold text-navy-950">{t.title}</h3>
+      <h2 className="text-lg font-bold text-navy-950">{t.title}</h2>
       <ul className="mt-5 space-y-4">
         {t.links.map((link) => (
           <li key={link.label}>
