@@ -26,6 +26,8 @@ const T = {
       { img: "1.png", alt: "Œuvre d'art réalisée à partir de matériaux récupérés au Village", index: "01", title: "L'art au service de l'écoresponsabilité", text: "Au Village, l'art raconte une autre histoire de la matière. Les œuvres naissent d'objets récupérés et détournés, transformés en créations singulières. Chaque pièce rappelle qu'un déchet peut devenir beauté et que la créativité est un puissant levier écologique." },
       { img: "2.jpg", alt: "Atelier de création et d'innovation autour de l'économie circulaire", index: "02", title: "Création et innovation au service de l'économie circulaire", text: "L'innovation guide notre manière de produire et de consommer. Dans les ateliers du Village, ressources et savoir-faire se réinventent pour prolonger la vie des matériaux. Une approche concrète où l'économie circulaire devient un moteur de progrès partagé." },
     ],
+    a11yTitle: "Un site accessible à tous",
+    a11yText: "Le site Startup Village a été conçu selon les bonnes pratiques internationales d'accessibilité numérique (WCAG) afin d'offrir une expérience inclusive. Navigation au clavier, compatibilité avec les lecteurs d'écran, contrastes adaptés, structure sémantique et prise en compte des besoins des personnes en situation de handicap permettent au plus grand nombre d'accéder facilement à nos contenus et services.",
     manifeste: "Chaque détail du Village reflète notre volonté de créer autrement.",
     ctaTitle: "Construire l'innovation de demain, de manière responsable.",
     ctaBtn: "Découvrir Startup Village",
@@ -46,6 +48,8 @@ const T = {
       { img: "1.png", alt: "Artwork made from materials salvaged at the Village", index: "01", title: "Art in service of eco-responsibility", text: "At the Village, art tells another story of matter. The works are born from salvaged and repurposed objects, transformed into singular creations. Each piece is a reminder that waste can become beauty and that creativity is a powerful ecological lever." },
       { img: "2.jpg", alt: "Creation and innovation workshop around the circular economy", index: "02", title: "Creation and innovation in service of the circular economy", text: "Innovation guides the way we produce and consume. In the Village's workshops, resources and know-how reinvent themselves to extend the life of materials. A concrete approach where the circular economy becomes a driver of shared progress." },
     ],
+    a11yTitle: "A site accessible to everyone",
+    a11yText: "The Startup Village website has been designed in accordance with international digital accessibility best practices (WCAG) to provide an inclusive experience. Keyboard navigation, screen reader compatibility, adapted contrasts, semantic structure and consideration for the needs of people with disabilities allow as many people as possible to easily access our content and services.",
     manifeste: "Every detail of the Village reflects our determination to create differently.",
     ctaTitle: "Building tomorrow's innovation, responsibly.",
     ctaBtn: "Discover Startup Village",
@@ -66,6 +70,8 @@ const T = {
       { img: "1.png", alt: "عمل فنّي مصنوع من مواد مُستعادة في القرية", index: "01", title: "الفنّ في خدمة المسؤولية البيئية", text: "في القرية، يروي الفنّ حكاية أخرى للمادة. تُولد الأعمال من أشياء مُستعادة ومعاد توظيفها، تتحوّل إلى إبداعات فريدة. كلّ قطعة تذكّر بأنّ النفاية يمكن أن تصبح جمالًا وأنّ الإبداع رافعة بيئية قوية." },
       { img: "2.jpg", alt: "ورشة إبداع وابتكار حول الاقتصاد الدائري", index: "02", title: "الإبداع والابتكار في خدمة الاقتصاد الدائري", text: "يوجّه الابتكار طريقتنا في الإنتاج والاستهلاك. في ورش القرية، تتجدّد الموارد والمهارات لإطالة عمر المواد. نهج ملموس يصبح فيه الاقتصاد الدائري محرّكًا لتقدّم مشترك." },
     ],
+    a11yTitle: "موقع في متناول الجميع",
+    a11yText: "صُمِّم موقع ستارتب فيليج وفق أفضل الممارسات الدولية لإمكانية الوصول الرقمي (WCAG) لتقديم تجربة شاملة للجميع. التنقّل بلوحة المفاتيح، والتوافق مع قارئات الشاشة، والتباينات الملائمة، والبنية الدلالية، ومراعاة احتياجات الأشخاص في وضعية إعاقة — كلّ ذلك يُمكّن أكبر عدد ممكن من الوصول بسهولة إلى محتوياتنا وخدماتنا.",
     manifeste: "كلّ تفصيل في القرية يعكس إرادتنا في الإبداع بشكل مختلف.",
     ctaTitle: "نبني ابتكار الغد بمسؤولية.",
     ctaBtn: "اكتشف ستارتب فيليج",
@@ -111,6 +117,14 @@ export default function ResponsabilitesContent({ lang = "fr" }: { lang?: Lang })
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ACCESSIBILITÉ NUMÉRIQUE */}
+        <section className="engagements section--pb-tight">
+          <div className="container">
+            <h2 className="section-title">{t.a11yTitle}</h2>
+            <p className="engagement-card__text">{t.a11yText}</p>
           </div>
         </section>
 

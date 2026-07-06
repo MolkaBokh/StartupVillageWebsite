@@ -29,7 +29,7 @@ const T = {
     heroBtn: "RÉSERVER UN ESPACE",
     introTitle: "Startup Village Menzah – Là où tout a commencé",
     introP1: "Le 20 novembre 2021, Startup Village Menzah a ouvert ses portes, donnant naissance à un écosystème d'innovation et de co-création inédit en Tunisie. Niché dans un bâtiment historique conçu par le célèbre architecte Olivier Clément Cacoub, cet espace unique a été imaginé et transformé grâce à un travail collaboratif de 10 mois, réunissant villageois, architectes et scénographes autour d'un projet commun.",
-    introP2: "Plus qu'un simple espace de coworking à Tunis, Startup Village Menzah est un lieu de vie chaleureux, pensé pour favoriser l'émergence d'idées novatrices, le développement de projets entrepreneuriaux et l'épanouissement des talents tunisiens. Il offre un cadre stimulant pour les startups, freelances, créateurs et porteurs de projets, alliant créativité, convivialité et collaboration.",
+    introP2: "Plus qu'un simple espace de coworking à Tunis, Startup Village Menzah est un lieu de vie chaleureux, pensé pour favoriser l'émergence d'idées novatrices, le développement de projets entrepreneuriaux et l'épanouissement des talents tunisiens. Il offre un cadre stimulant pour les startups, freelances, créateurs et porteurs de projets, alliant créativité, convivialité et collaboration. Le site est entièrement accessible aux personnes à mobilité réduite (PMR), avec des accès adaptés facilitant les déplacements et l'utilisation de l'ensemble des espaces.",
     statsTitle: ["Un espace stratégique", "pour des usages pratiques"],
     statsP: "Ici, tout a été pensé pour accompagner les pratiques professionnelles d'aujourd'hui : hybrides, rapides et connectées.",
     stats: [
@@ -56,7 +56,7 @@ const T = {
     heroBtn: "BOOK A SPACE",
     introTitle: "Startup Village Menzah – Where it all began",
     introP1: "On 20 November 2021, Startup Village Menzah opened its doors, giving rise to an innovation and co-creation ecosystem unlike any other in Tunisia. Set within a historic building designed by the renowned architect Olivier Clément Cacoub, this unique space was imagined and transformed through 10 months of collaborative work, bringing together villagers, architects and set designers around a shared project.",
-    introP2: "More than just a coworking space in Tunis, Startup Village Menzah is a warm place to belong, designed to nurture the emergence of innovative ideas, the growth of entrepreneurial projects and the development of Tunisian talent. It offers a stimulating setting for startups, freelancers, creators and project leaders, blending creativity, conviviality and collaboration.",
+    introP2: "More than just a coworking space in Tunis, Startup Village Menzah is a warm place to belong, designed to nurture the emergence of innovative ideas, the growth of entrepreneurial projects and the development of Tunisian talent. It offers a stimulating setting for startups, freelancers, creators and project leaders, blending creativity, conviviality and collaboration. The site is fully accessible to people with reduced mobility (PRM), with adapted access facilitating movement and use of all spaces.",
     statsTitle: ["A strategic space", "for practical, everyday uses"],
     statsP: "Everything here is designed to support today's professional practices: hybrid, fast and connected.",
     stats: [
@@ -83,7 +83,7 @@ const T = {
     heroBtn: "احجز فضاءً",
     introTitle: "ستارتب فيليج المنزه – حيث بدأ كلّ شيء",
     introP1: "في 20 نوفمبر 2021، فتح ستارتب فيليج المنزه أبوابه، ليولد منظومة للابتكار والإبداع المشترك غير مسبوقة في تونس. داخل مبنى تاريخي صمّمه المهندس المعماري الشهير أوليفييه كليمون كاكوب، وُلِد هذا الفضاء الفريد من تصوّر وتحويل استمرّا عشرة أشهر من العمل التعاوني، جمعت سكان القرية والمعماريين ومصمّمي المشاهد حول مشروع مشترك.",
-    introP2: "أكثر من مجرّد فضاء عمل مشترك في تونس، ستارتب فيليج المنزه مكان حياة دافئ، مصمَّم لاحتضان الأفكار المبتكرة وتطوير المشاريع الريادية وازدهار المواهب التونسية. يوفّر إطارًا محفّزًا للشركات الناشئة والمستقلّين والمبدعين وأصحاب المشاريع، يجمع بين الإبداع والألفة والتعاون.",
+    introP2: "أكثر من مجرّد فضاء عمل مشترك في تونس، ستارتب فيليج المنزه مكان حياة دافئ، مصمَّم لاحتضان الأفكار المبتكرة وتطوير المشاريع الريادية وازدهار المواهب التونسية. يوفّر إطارًا محفّزًا للشركات الناشئة والمستقلّين والمبدعين وأصحاب المشاريع، يجمع بين الإبداع والألفة والتعاون. الموقع متاح بالكامل للأشخاص ذوي الإعاقات الحركية (PMR)، مع مداخل مهيّأة تُيسّر التنقّل واستخدام جميع الفضاءات.",
     statsTitle: ["فضاء استراتيجي", "لاستخدامات عملية"],
     statsP: "هنا، صُمِّم كلّ شيء لمواكبة الممارسات المهنية اليوم: هجينة وسريعة ومترابطة.",
     stats: [
