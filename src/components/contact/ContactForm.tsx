@@ -178,7 +178,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
         aria-atomic="true"
         className="rounded-2xl border border-black/10 bg-primary-50 p-12 text-center"
       >
-        <h3 className="text-2xl font-bold text-navy-950">{t.successTitle}</h3>
+        <h2 className="text-2xl font-bold text-navy-950">{t.successTitle}</h2>
         <p className="mt-3 text-navy-950/70">{t.successText}</p>
       </div>
     );
@@ -187,7 +187,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-12" aria-label={t.needTitle}>
       <div>
-        <h3 id="contact-need-heading" className="text-xl font-bold text-navy-950">{t.needTitle}</h3>
+        <h2 id="contact-need-heading" className="text-xl font-bold text-navy-950">{t.needTitle}</h2>
         <div role="group" aria-labelledby="contact-need-heading" className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {REQUEST_TYPES.map((type) => (
             <SpaceTypeCard
@@ -202,7 +202,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-navy-950">{t.infoTitle}</h3>
+        <h2 className="text-xl font-bold text-navy-950">{t.infoTitle}</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <Label htmlFor="cf-full_name" required>{t.fullName}</Label>

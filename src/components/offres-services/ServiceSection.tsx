@@ -10,6 +10,7 @@ type Props = {
   title: string
   body: string
   ctaLabel: string
+  ctaAriaLabel?: string
   ctaHref: string
   images: Image[]
   reverse?: boolean
@@ -32,6 +33,7 @@ export default function ServiceSection({
   title,
   body,
   ctaLabel,
+  ctaAriaLabel,
   ctaHref,
   images,
   reverse = false,
@@ -123,10 +125,11 @@ export default function ServiceSection({
               style={{ background: eyebrowColor }}
             />
             <h2 className="mt-4 text-2xl font-bold text-sv-navy md:text-[26px]">{title}</h2>
-            <p className="mt-4 text-base leading-relaxed text-sv-navy/60">{body}</p>
+            <p className="mt-4 text-base leading-relaxed text-sv-navy/70">{body}</p>
             <Link
               href={ctaHref}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-sv-cyan px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1c9fce]"
+              aria-label={ctaAriaLabel ?? ctaLabel}
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {ctaLabel}
               <span aria-hidden="true">→</span>

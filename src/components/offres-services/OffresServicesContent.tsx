@@ -187,7 +187,7 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
           <div className="mt-9">
             <a
               href="#services"
-              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1c9fce]"
+              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.heroCta}
               <span aria-hidden>↓</span>
@@ -205,6 +205,7 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
               title={service.title}
               body={service.body}
               ctaLabel={t.learnMore}
+              ctaAriaLabel={`${t.learnMore} — ${service.title}`}
               ctaHref={contact}
               images={service.imgs as { src: string; alt: string }[]}
               reverse={service.reverse}
@@ -223,7 +224,7 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
           <div className="mt-8">
             <Link
               href={contact}
-              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1c9fce]"
+              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.ctaBtn}
               <span aria-hidden>→</span>

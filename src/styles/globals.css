@@ -71,6 +71,13 @@
   --color-sv-magenta: #e0205f;
   --color-sv-grey: #555555;
 
+  /* Accessible button colour — darker shade of brand cyan that achieves
+     4.97:1 contrast with white text (WCAG AA for normal text / buttons).
+     #25afe0 / #2bb3e0 are retained for decorative/non-text uses; this
+     token is used wherever cyan is a button background with white text. */
+  --color-sv-cyan-btn: #1478a0;
+  --color-sv-cyan-btn-hover: #116080;
+
   /* Custom container width (max-w-content) used by the Partenaires page. */
   --container-content: 1180px;
 

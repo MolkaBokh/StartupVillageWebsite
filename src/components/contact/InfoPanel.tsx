@@ -39,7 +39,7 @@ export default function InfoPanel({ lang = "fr" }: { lang?: Lang }) {
   return (
     <aside className="lg:sticky lg:top-24">
       <div className="rounded-2xl border border-black/10 p-8">
-        <h3 className="text-lg font-bold text-navy-950">{t.menzah}</h3>
+        <h2 className="text-lg font-bold text-navy-950">{t.menzah}</h2>
         <p className="mt-2 text-sm text-navy-950/70">
           {t.menzahAddr[0]}
           <br />
@@ -48,13 +48,13 @@ export default function InfoPanel({ lang = "fr" }: { lang?: Lang }) {
           {t.menzahAddr[2]}
         </p>
 
-        <h3 className="mt-6 text-lg font-bold text-navy-950">{t.charguia}</h3>
+        <h2 className="mt-6 text-lg font-bold text-navy-950">{t.charguia}</h2>
         <p className="mt-2 text-sm text-navy-950/70">{t.charguiaAddr}</p>
 
-        <h3 className="mt-6 text-lg font-bold text-navy-950">{t.phone}</h3>
+        <h2 className="mt-6 text-lg font-bold text-navy-950">{t.phone}</h2>
         <p className="mt-2 text-sm text-navy-950/70">{t.phoneVal}</p>
 
-        <h3 className="mt-6 text-lg font-bold text-navy-950">{t.email}</h3>
+        <h2 className="mt-6 text-lg font-bold text-navy-950">{t.email}</h2>
         <p className="mt-2 text-sm text-navy-950/70">contact@startupvillage.tn</p>
 
         <Button variant="primary" className="mt-8 w-full">

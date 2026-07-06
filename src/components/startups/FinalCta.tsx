@@ -29,7 +29,7 @@ export default function FinalCta({ lang = "fr" }: { lang?: Lang }) {
         <div className="mt-9">
           <Link
             href={withLang("/contact", lang)}
-            className="inline-flex items-center justify-center rounded-full bg-sv-cyan px-8 py-3.5 text-sm font-bold text-white transition hover:bg-sv-cyan/90"
+            className="inline-flex items-center justify-center rounded-full bg-sv-cyan-btn px-8 py-3.5 text-sm font-bold text-white transition hover:bg-sv-cyan-btn-hover"
           >
             {t.cta}
           </Link>

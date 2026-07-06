@@ -116,11 +116,11 @@ export default function RoomCarousel({
             <p className="text-sm font-bold uppercase tracking-wide" style={{ color: eyebrowColor }}>
               {eyebrow}
             </p>
-            <h3 className="mt-4 text-2xl font-bold text-sv-navy md:text-[26px]">{title}</h3>
+            <h2 className="mt-4 text-2xl font-bold text-sv-navy md:text-[26px]">{title}</h2>
             {subtitle && <p className="mt-2 text-lg font-bold italic text-sv-grey">{subtitle}</p>}
             <p className="mt-4 text-base leading-relaxed text-sv-grey">{body}</p>
             {ctaLabel && (
-              <Button variant="primary" href={ctaHref} className="mt-8">
+              <Button variant="primary" href={ctaHref} className="mt-8" aria-label={`${ctaLabel} — ${title}`}>
                 {ctaLabel}
               </Button>
             )}

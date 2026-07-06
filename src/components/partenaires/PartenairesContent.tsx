@@ -162,7 +162,7 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
             <div className="mt-8">
               <Link
                 href={withLang("/contact", lang)}
-                className="font-sans inline-flex items-center gap-2 rounded-full bg-sv-cyan px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1c9fce]"
+                className="font-sans inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
               >
                 {t.finalCta}
                 <span aria-hidden>→</span>
