@@ -55,17 +55,17 @@ const Arrow = () => (
 const T = {
   fr: {
     heroTitle: "L'un des plus grands espaces de coworking en Afrique !",
-    heroSubtitle: "Le village des créatifs responsables !",
-    ctaVisit: "Devenir Villageois",
+    heroSubtitle: "Le hub entrepreneurial où les idées, les talents et les projets prennent vie.",
+    ctaVisit: "Rejoindre la communauté",
     ctaDiscover: "Découvrir nos espaces",
     statsEyebrow: "Chiffres clés",
     statsTitle: "Un écosystème qui a de l'impact",
-    statLabels: ["Villageois", "Bureaux privés", "Événements mensuels", "d'espaces", "Studio d'enregistrement", "Sites : Menzah & Charguia"],
+    statLabels: ["Villageois", "Bureaux privés", "Événements annuels", "d'espaces", "Studios audio & podcast", "Sites", "Espaces de réunion, de formation et de coworking"],
     universEyebrow: "Nos univers",
     universTitle: "Nos espaces & services",
     univers: [
       { h: "Coworking & Bureaux Privés",              p: "Postes flexibles, bureaux privés et espaces de coworking pensés pour les startups et entreprises qui veulent évoluer au cœur d'un écosystème actif à Menzah comme à Charguia." },
-      { h: "Événements & Membership",                 p: "Conférences, meetups et soirées networking qui rythment la vie du village toute l'année, en salle comme en terrasse, pour multiplier les rencontres entre entrepreneurs." },
+      { h: "Événements & programmation",              p: "Conférences, meetups et soirées networking qui rythment la vie du village toute l'année, en salle comme en terrasse, pour multiplier les rencontres entre entrepreneurs." },
       { h: "Studio & Création de contenu",            p: "Un studio podcast et vidéo équipé pour produire des contenus professionnels : interviews, formations en ligne et capsules de marque, sans quitter le village." },
       { h: "Incubateur Culinaire & Catering Cochef",  p: "Cochef est l'incubateur culinaire du village : cuisine professionnelle, traiteur on-demand et espace de création pour les entrepreneurs du food." },
       { h: "Market & Co",                             p: "Un espace de vente et d'exposition dédié aux créateurs, artisans et marques locales qui souhaitent rencontrer leur public au cœur du village." },
@@ -238,12 +238,13 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
   }, []);
 
   const STAT_META = [
-    { count: "500", suffix: "+" },
-    { count: "30", suffix: "+" },
-    { count: "15", suffix: "+" },
-    { count: "1000", suffix: " m²" },
-    { count: "1", suffix: "" },
+    { count: "1000", suffix: "+" },
+    { count: "100", suffix: "+" },
+    { count: "200", suffix: "+" },
+    { count: "5000", suffix: " m²" },
+    { count: "5", suffix: "+" },
     { count: "2", suffix: "" },
+    { count: "100", suffix: "+" },
   ];
   const STAT_ICONS = [
     <svg key="0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 20v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>,
@@ -252,6 +253,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     <svg key="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 8V3h-5M3 16v5h5M21 3l-7 7M3 21l7-7" /></svg>,
     <svg key="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" /></svg>,
     <svg key="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z" /><circle cx="12" cy="10" r="3" /></svg>,
+    <svg key="6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M8 21h8M12 18v3" /></svg>,
   ];
 
   const UNIVERS_IMG = [

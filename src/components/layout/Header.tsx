@@ -69,8 +69,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-navy-950/10 bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Left — logo only */}
-        <Logo height={56} href={home} />
+        {/* Left — logo only (visually enlarged via zoom, header height unchanged) */}
+        <div className="scale-[1.3]">
+          <Logo height={56} href={home} />
+        </div>
 
         {/* Center — desktop navigation */}
         <nav
