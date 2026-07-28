@@ -177,14 +177,16 @@
 
 /* ============ Stats ============ */
 .home-page .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
   margin-top: 56px;
 }
 .home-page .stat-item {
   text-align: center;
   padding: 8px 12px;
+  flex: 0 1 calc(33.333% - 27px);
 }
 .home-page .stat-icon {
   display: inline-flex;
@@ -385,7 +387,7 @@
 }
 
 @media (max-width: 860px) {
-  .home-page .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-page .stats-grid .stat-item { flex-basis: calc(50% - 20px); }
   .home-page .univers-grid { grid-template-columns: 1fr; }
   .home-page .events-grid { grid-template-columns: 1fr; }
   .home-page .story-block,
@@ -398,7 +400,7 @@
 }
 
 @media (max-width: 480px) {
-  .home-page .stats-grid { grid-template-columns: 1fr 1fr; }
+  .home-page .stats-grid .stat-item { flex-basis: calc(50% - 20px); }
   .home-page .cta-group { flex-direction: column; width: 100%; }
   .home-page .cta-group .btn { width: 100%; text-align: center; }
 }
