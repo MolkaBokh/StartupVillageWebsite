@@ -131,178 +131,96 @@ const PROSE: Record<Lang, {
   engagement: ReactNode[];
 }> = {
   fr: {
-    intro: (
-      <>
-        <b>Startup Village</b> est un <b>espace de travail collaboratif</b> conçu pour stimuler
-        l&apos;<b>innovation</b>, la <b>créativité</b> et le <b>bien-être au travail</b>. Dans une
-        <b> ambiance conviviale et humaine</b>, il réunit une <b>communauté</b> diversifiée
-        d&apos;<b>entrepreneurs, investisseurs, médias, artistes, freelances</b> et <b>équipes hybrides</b>
-        en quête de <b>sens</b>, de <b>connexion</b> et de <b>collaboration</b>.
-      </>
-    ),
-    missionP1: (
-      <>
-        Un lieu où l&apos;on peut <b>innover, co-créer et grandir ensemble</b> dans un cadre qui valorise
-        autant <b>la qualité de vie</b> que <b>la réussite collective</b>. Ici, <b>l&apos;expérimentation
-        est une force</b>, et <b>l&apos;échec</b>, une étape précieuse vers la réussite. Chaque idée testée,
-        chaque tentative est célébrée comme une preuve de <b>courage</b>, d&apos;<b>apprentissage</b> et de
-        <b> dépassement de soi</b>.
-      </>
-    ),
-    missionP2: (
-      <>
-        Nos <b>espaces de coworking, bureaux privés, salles de réunion, studios créatifs, zones de
-        détente</b> et notre <b>warehouse modulable</b> sont conçus pour <b>stimuler la créativité</b>,
-        favoriser la collaboration et accompagner chaque projet vers son plein potentiel.
-      </>
-    ),
-    visionP1: (
-      <>
-        Chez <b>Startup Village</b>, nous encourageons une <b>culture du travail flexible et humain</b>,
-        fondée sur la <b>collaboration</b>, le <b>bien-être au travail</b>, la <b>recherche de sens</b>,
-        et l&apos;<b>impact positif</b>.
-      </>
-    ),
-    visionP2: (
-      <>
-        Notre vision est portée par l&apos;idée qu&apos;un <b>environnement de travail inspirant et bienveillant</b>
-        peut favoriser à la fois la <b>performance durable</b>, l&apos;<b>épanouissement personnel</b> et la
-        <b> création de valeur collective</b>.
-      </>
-    ),
+    intro:
+      "Startup Village est un espace de travail collaboratif conçu pour stimuler l'innovation, la créativité et le bien-être au travail. Dans une ambiance conviviale et humaine, il réunit une communauté diversifiée d'entrepreneurs, investisseurs, médias, artistes, freelances et équipes hybrides en quête de sens, de connexion et de collaboration.",
+    missionP1:
+      "Un lieu où l'on peut innover, co-créer et grandir ensemble, dans un cadre qui valorise la qualité de vie, l'expérimentation et la réussite collective. Chaque idée et chaque tentative deviennent une source d'apprentissage et de progrès.",
+    missionP2:
+      "Nos espaces de coworking, bureaux privés, salles de réunion, studios créatifs et espaces modulables sont conçus pour stimuler la créativité, favoriser la collaboration et accompagner chaque projet.",
+    visionP1:
+      "Chez Startup Village, nous encourageons une culture du travail flexible et humain, fondée sur la collaboration, le bien-être au travail, la recherche de sens, et l'impact positif.",
+    visionP2:
+      "Notre vision est portée par l'idée qu'un environnement de travail inspirant et bienveillant peut favoriser à la fois la performance durable, l'épanouissement personnel et la création de valeur collective.",
     villageois: [
-      <>Se connecter à une <b>communauté bienveillante et diverse</b></>,
-      <>Accéder à une <b>offre complète</b>&nbsp;: bureaux, coworking, studios, salles de réunion, espaces événementiels et warehouse</>,
-      <>Participer à une <b>programmation régulière et variée</b>, mêlant <b>talks inspirants</b>, <b>activités de bien-être</b>, <b>ateliers créatifs</b>, et <b>rencontres de networking</b></>,
-      <>Bénéficier d&apos;un <b>accès à l&apos;incubation et au financement</b> pour faire grandir son projet</>,
-      <>Profiter d&apos;un <b>accès à l&apos;expertise</b> via un réseau de mentors, professionnels et partenaires</>,
-      <>Être accompagné dans les <b>procédures de gestion administrative, comptable et financière</b>, avec des services de <b>domiciliation</b> adaptés</>,
-      <>Évoluer dans un <b>écosystème connecté à la recherche scientifique</b> pour innover durablement</>,
+      "Rejoindre une communauté bienveillante et diverse.",
+      "Profiter d'une offre complète : bureaux, coworking, studios et salles de réunion.",
+      "Participer à une programmation variée : talks, bien-être, ateliers et networking.",
+      "Accéder à l'incubation et au financement pour son projet.",
+      "Bénéficier d'un réseau de mentors et de partenaires.",
+      "Être accompagné dans la gestion administrative et la domiciliation.",
+      "Évoluer dans un écosystème connecté à la recherche scientifique.",
     ],
     communaute: [
-      <>Que vous soyez basé à <b>Tunis, Paris ou Berlin</b>, Startup Village vous ouvre ses portes et vous connecte à une <b>communauté dynamique, inclusive et ouverte sur le monde</b>.</>,
-      <>Nous avons le privilège d&apos;<b>accueillir des visiteurs internationaux</b> et de collaborer avec des <b>programmes venus des quatre coins du globe</b>.</>,
-      <>Conçus pour répondre aux besoins des <b>travailleurs nomades</b>, des <b>entrepreneurs internationaux</b>, des <b>équipes hybrides</b> et des <b>talents créatifs</b>, nos espaces favorisent la <b>flexibilité</b>, la <b>connexion humaine</b> et la <b>recherche de sens</b>.</>,
+      "Que vous soyez basé à Tunis, Paris ou Berlin, Startup Village vous ouvre ses portes et vous connecte à une communauté dynamique, inclusive et ouverte sur le monde.",
+      "Nous avons le privilège d'accueillir des visiteurs internationaux et de collaborer avec des programmes venus des quatre coins du globe.",
+      "Conçus pour répondre aux besoins des travailleurs nomades, des entrepreneurs internationaux, des équipes hybrides et des talents créatifs, nos espaces favorisent la flexibilité, la connexion humaine et la recherche de sens.",
     ],
     engagement: [
-      <>Au <b>Startup Village</b>, nous cultivons une ambiance <b>chaleureuse et inspirante</b>, où il fait bon <b>travailler, créer et collaborer</b>.</>,
-      <>Engagés pour un <b>impact positif</b>, nous intégrons le <b>design durable</b>, le <b>respect de l&apos;environnement</b> et le <b>bien-être au travail</b> dans chacun de nos espaces.</>,
-      <>Parce que la <b>performance naît de l&apos;équilibre</b>.</>,
+      "Au Startup Village, nous cultivons une ambiance chaleureuse et inspirante, où il fait bon travailler, créer et collaborer.",
+      "Engagés pour un impact positif, nous intégrons le design durable, le respect de l'environnement et le bien-être au travail dans chacun de nos espaces.",
+      "Parce que la performance naît de l'équilibre.",
     ],
   },
   en: {
-    intro: (
-      <>
-        <b>Startup Village</b> is a <b>collaborative workspace</b> designed to fuel
-        <b> innovation</b>, <b>creativity</b> and <b>well-being at work</b>. In a
-        <b> warm and human atmosphere</b>, it brings together a diverse <b>community</b> of
-        <b> entrepreneurs, investors, media, artists, freelancers</b> and <b>hybrid teams</b>
-        in search of <b>meaning</b>, <b>connection</b> and <b>collaboration</b>.
-      </>
-    ),
-    missionP1: (
-      <>
-        A place where you can <b>innovate, co-create and grow together</b> in a setting that values
-        <b> quality of life</b> as much as <b>collective success</b>. Here, <b>experimentation
-        is a strength</b>, and <b>failure</b> a valuable step toward success. Every idea tested,
-        every attempt is celebrated as proof of <b>courage</b>, <b>learning</b> and
-        <b> self-improvement</b>.
-      </>
-    ),
-    missionP2: (
-      <>
-        Our <b>coworking spaces, private offices, meeting rooms, creative studios, lounge
-        areas</b> and our <b>modular warehouse</b> are designed to <b>spark creativity</b>,
-        foster collaboration and help every project reach its full potential.
-      </>
-    ),
-    visionP1: (
-      <>
-        At <b>Startup Village</b>, we nurture a <b>flexible and human work culture</b>,
-        built on <b>collaboration</b>, <b>well-being at work</b>, the <b>search for meaning</b>,
-        and <b>positive impact</b>.
-      </>
-    ),
-    visionP2: (
-      <>
-        Our vision is driven by the belief that an <b>inspiring and caring work environment</b>
-        can foster <b>sustainable performance</b>, <b>personal fulfilment</b> and the
-        <b> creation of collective value</b> all at once.
-      </>
-    ),
+    intro:
+      "Startup Village is a collaborative workspace designed to fuel innovation, creativity and well-being at work. In a warm and human atmosphere, it brings together a diverse community of entrepreneurs, investors, media, artists, freelancers and hybrid teams in search of meaning, connection and collaboration.",
+    missionP1:
+      "A place where you can innovate, co-create and grow together in a setting that values quality of life as much as collective success. Here, experimentation is a strength, and failure a valuable step toward success. Every idea tested, every attempt is celebrated as proof of courage, learning and self-improvement.",
+    missionP2:
+      "Our coworking spaces, private offices, meeting rooms, creative studios, lounge areas and our modular warehouse are designed to spark creativity, foster collaboration and help every project reach its full potential.",
+    visionP1:
+      "At Startup Village, we nurture a flexible and human work culture, built on collaboration, well-being at work, the search for meaning, and positive impact.",
+    visionP2:
+      "Our vision is driven by the belief that an inspiring and caring work environment can foster sustainable performance, personal fulfilment and the creation of collective value all at once.",
     villageois: [
-      <>Connecting to a <b>caring and diverse community</b></>,
-      <>Accessing a <b>complete offering</b>&nbsp;: offices, coworking, studios, meeting rooms, event spaces and a warehouse</>,
-      <>Taking part in a <b>regular and varied programme</b>, blending <b>inspiring talks</b>, <b>well-being activities</b>, <b>creative workshops</b> and <b>networking encounters</b></>,
-      <>Benefiting from <b>access to incubation and funding</b> to grow your project</>,
-      <>Enjoying <b>access to expertise</b> through a network of mentors, professionals and partners</>,
-      <>Being supported with <b>administrative, accounting and financial management procedures</b>, including tailored <b>business domiciliation</b> services</>,
-      <>Evolving within an <b>ecosystem connected to scientific research</b> to innovate sustainably</>,
+      "Connecting to a caring and diverse community",
+      <>Accessing a complete offering&nbsp;: offices, coworking, studios, meeting rooms, event spaces and a warehouse</>,
+      "Taking part in a regular and varied programme, blending inspiring talks, well-being activities, creative workshops and networking encounters",
+      "Benefiting from access to incubation and funding to grow your project",
+      "Enjoying access to expertise through a network of mentors, professionals and partners",
+      "Being supported with administrative, accounting and financial management procedures, including tailored business domiciliation services",
+      "Evolving within an ecosystem connected to scientific research to innovate sustainably",
     ],
     communaute: [
-      <>Whether you&apos;re based in <b>Tunis, Paris or Berlin</b>, Startup Village opens its doors and connects you to a <b>dynamic, inclusive and globally open community</b>.</>,
-      <>We have the privilege of <b>welcoming international visitors</b> and collaborating with <b>programmes from around the world</b>.</>,
-      <>Designed to meet the needs of <b>digital nomads</b>, <b>international entrepreneurs</b>, <b>hybrid teams</b> and <b>creative talents</b>, our spaces foster <b>flexibility</b>, <b>human connection</b> and the <b>search for meaning</b>.</>,
+      "Whether you're based in Tunis, Paris or Berlin, Startup Village opens its doors and connects you to a dynamic, inclusive and globally open community.",
+      "We have the privilege of welcoming international visitors and collaborating with programmes from around the world.",
+      "Designed to meet the needs of digital nomads, international entrepreneurs, hybrid teams and creative talents, our spaces foster flexibility, human connection and the search for meaning.",
     ],
     engagement: [
-      <>At <b>Startup Village</b>, we cultivate a <b>warm and inspiring atmosphere</b>, a great place to <b>work, create and collaborate</b>.</>,
-      <>Committed to <b>positive impact</b>, we build <b>sustainable design</b>, <b>respect for the environment</b> and <b>well-being at work</b> into every one of our spaces.</>,
-      <>Because <b>performance is born from balance</b>.</>,
+      "At Startup Village, we cultivate a warm and inspiring atmosphere, a great place to work, create and collaborate.",
+      "Committed to positive impact, we build sustainable design, respect for the environment and well-being at work into every one of our spaces.",
+      "Because performance is born from balance.",
     ],
   },
   ar: {
-    intro: (
-      <>
-        <b>ستارتب فيليج</b> هو <b>فضاء عمل تعاوني</b> مصمَّم لتحفيز <b>الابتكار</b> و<b>الإبداع</b>
-        و<b>الرفاهية في العمل</b>. في <b>أجواء ودّية وإنسانية</b>، يجمع <b>مجتمعًا</b> متنوّعًا من
-        <b> روّاد الأعمال والمستثمرين ووسائل الإعلام والفنّانين والمستقلّين</b> و<b>الفرق الهجينة</b>
-        الباحثين عن <b>المعنى</b> و<b>التواصل</b> و<b>التعاون</b>.
-      </>
-    ),
-    missionP1: (
-      <>
-        مكان يمكنك فيه <b>الابتكار والإبداع المشترك والنموّ معًا</b> في إطار يثمّن <b>جودة الحياة</b>
-        بقدر <b>النجاح الجماعي</b>. هنا، <b>التجربة قوّة</b>، و<b>الفشل</b> خطوة ثمينة نحو النجاح.
-        كلّ فكرة تُختبَر وكلّ محاولة يُحتفى بها كدليل على <b>الشجاعة</b> و<b>التعلّم</b> و<b>تجاوز الذات</b>.
-      </>
-    ),
-    missionP2: (
-      <>
-        صُمِّمت <b>فضاءات العمل المشترك والمكاتب الخاصة وقاعات الاجتماعات والاستوديوهات الإبداعية
-        وأركان الاسترخاء</b> و<b>المستودع القابل للتعديل</b> لـ<b>تحفيز الإبداع</b> ودعم التعاون
-        ومرافقة كلّ مشروع نحو كامل إمكاناته.
-      </>
-    ),
-    visionP1: (
-      <>
-        في <b>ستارتب فيليج</b>، نشجّع <b>ثقافة عمل مرنة وإنسانية</b>، قائمة على <b>التعاون</b>
-        و<b>الرفاهية في العمل</b> و<b>البحث عن المعنى</b> و<b>الأثر الإيجابي</b>.
-      </>
-    ),
-    visionP2: (
-      <>
-        تنطلق رؤيتنا من قناعة بأنّ <b>بيئة عمل ملهمة ومراعية</b> قادرة على تحقيق <b>أداء مستدام</b>
-        و<b>ازدهار شخصي</b> و<b>خلق قيمة جماعية</b> في آنٍ واحد.
-      </>
-    ),
+    intro:
+      "ستارتب فيليج هو فضاء عمل تعاوني مصمَّم لتحفيز الابتكار والإبداع والرفاهية في العمل. في أجواء ودّية وإنسانية، يجمع مجتمعًا متنوّعًا من روّاد الأعمال والمستثمرين ووسائل الإعلام والفنّانين والمستقلّين والفرق الهجينة الباحثين عن المعنى والتواصل والتعاون.",
+    missionP1:
+      "مكان يمكنك فيه الابتكار والإبداع المشترك والنموّ معًا في إطار يثمّن جودة الحياة بقدر النجاح الجماعي. هنا، التجربة قوّة، والفشل خطوة ثمينة نحو النجاح. كلّ فكرة تُختبَر وكلّ محاولة يُحتفى بها كدليل على الشجاعة والتعلّم وتجاوز الذات.",
+    missionP2:
+      "صُمِّمت فضاءات العمل المشترك والمكاتب الخاصة وقاعات الاجتماعات والاستوديوهات الإبداعية وأركان الاسترخاء والمستودع القابل للتعديل لـتحفيز الإبداع ودعم التعاون ومرافقة كلّ مشروع نحو كامل إمكاناته.",
+    visionP1:
+      "في ستارتب فيليج، نشجّع ثقافة عمل مرنة وإنسانية، قائمة على التعاون والرفاهية في العمل والبحث عن المعنى والأثر الإيجابي.",
+    visionP2:
+      "تنطلق رؤيتنا من قناعة بأنّ بيئة عمل ملهمة ومراعية قادرة على تحقيق أداء مستدام وازدهار شخصي وخلق قيمة جماعية في آنٍ واحد.",
     villageois: [
-      <>الانتماء إلى <b>مجتمع متنوّع ومراعٍ</b></>,
-      <>الوصول إلى <b>عرض متكامل</b>&nbsp;: مكاتب، عمل مشترك، استوديوهات، قاعات اجتماعات، فضاءات للفعاليات ومستودع</>,
-      <>المشاركة في <b>برنامج منتظم ومتنوّع</b> يجمع <b>محاضرات ملهمة</b> و<b>أنشطة للرفاهية</b> و<b>ورش إبداعية</b> و<b>لقاءات تواصل</b></>,
-      <>الاستفادة من <b>الوصول إلى الاحتضان والتمويل</b> لتنمية مشروعك</>,
-      <>الاستفادة من <b>الوصول إلى الخبرة</b> عبر شبكة من المرشدين والمحترفين والشركاء</>,
-      <>المرافقة في <b>إجراءات الإدارة والمحاسبة والشؤون المالية</b>، مع خدمات <b>توطين</b> ملائمة</>,
-      <>التطوّر داخل <b>منظومة مرتبطة بالبحث العلمي</b> للابتكار بشكل مستدام</>,
+      "الانتماء إلى مجتمع متنوّع ومراعٍ",
+      <>الوصول إلى عرض متكامل&nbsp;: مكاتب، عمل مشترك، استوديوهات، قاعات اجتماعات، فضاءات للفعاليات ومستودع</>,
+      "المشاركة في برنامج منتظم ومتنوّع يجمع محاضرات ملهمة وأنشطة للرفاهية وورش إبداعية ولقاءات تواصل",
+      "الاستفادة من الوصول إلى الاحتضان والتمويل لتنمية مشروعك",
+      "الاستفادة من الوصول إلى الخبرة عبر شبكة من المرشدين والمحترفين والشركاء",
+      "المرافقة في إجراءات الإدارة والمحاسبة والشؤون المالية، مع خدمات توطين ملائمة",
+      "التطوّر داخل منظومة مرتبطة بالبحث العلمي للابتكار بشكل مستدام",
     ],
     communaute: [
-      <>سواء كنت في <b>تونس أو باريس أو برلين</b>، يفتح لك ستارتب فيليج أبوابه ويربطك بـ<b>مجتمع ديناميكي وشامل ومنفتح على العالم</b>.</>,
-      <>يشرّفنا <b>استقبال زوّار دوليين</b> والتعاون مع <b>برامج من مختلف أنحاء العالم</b>.</>,
-      <>صُمِّمت فضاءاتنا لتلبية احتياجات <b>العاملين الرُّحَّل</b> و<b>روّاد الأعمال الدوليين</b> و<b>الفرق الهجينة</b> و<b>المواهب الإبداعية</b>، فهي تعزّز <b>المرونة</b> و<b>التواصل الإنساني</b> و<b>البحث عن المعنى</b>.</>,
+      "سواء كنت في تونس أو باريس أو برلين، يفتح لك ستارتب فيليج أبوابه ويربطك بمجتمع ديناميكي وشامل ومنفتح على العالم.",
+      "يشرّفنا استقبال زوّار دوليين والتعاون مع برامج من مختلف أنحاء العالم.",
+      "صُمِّمت فضاءاتنا لتلبية احتياجات العاملين الرُّحَّل وروّاد الأعمال الدوليين والفرق الهجينة والمواهب الإبداعية، فهي تعزّز المرونة والتواصل الإنساني والبحث عن المعنى.",
     ],
     engagement: [
-      <>في <b>ستارتب فيليج</b>، نرعى أجواء <b>دافئة وملهمة</b>، حيث يطيب <b>العمل والإبداع والتعاون</b>.</>,
-      <>التزامًا منّا بـ<b>أثر إيجابي</b>، ندمج <b>التصميم المستدام</b> و<b>احترام البيئة</b> و<b>الرفاهية في العمل</b> في كلّ فضاءاتنا.</>,
-      <>لأنّ <b>الأداء يولد من التوازن</b>.</>,
+      "في ستارتب فيليج، نرعى أجواء دافئة وملهمة، حيث يطيب العمل والإبداع والتعاون.",
+      "التزامًا منّا بأثر إيجابي، ندمج التصميم المستدام واحترام البيئة والرفاهية في العمل في كلّ فضاءاتنا.",
+      "لأنّ الأداء يولد من التوازن.",
     ],
   },
 };
@@ -332,7 +250,6 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
         <img src="/assets/images/concept-hero.jpg" alt="Startup Village" loading="eager" />
         <div className="hero-caption">
           <div className="container">
-            <span className="hero-eyebrow">{t.heroEyebrow}</span>
             <h1>{t.heroTitle}</h1>
           </div>
         </div>
