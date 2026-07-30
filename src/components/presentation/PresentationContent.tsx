@@ -55,11 +55,13 @@ const T = {
       { h: "Croissance & Opportunités",            p: "Connecter les villageois aux ressources, partenaires et opportunités qui accélèrent leur développement." },
     ],
     villageoisKicker: "Un cadre de vie et de travail",
+    villageoisCta: "Devenir membre",
     villageoisTitle: "Être Villageois, c'est :",
     communauteTitle: "UNE COMMUNAUTÉ SANS FRONTIÈRES",
+    softLandingCta: "Découvrir notre offre Soft Landing",
     engagementKicker: "Notre engagement",
     engagementTitle: "Un Lieu Humain et Responsable",
-    ctaTitle: "Je rejoins l'aventure Startup Village",
+    ctaTitle: "Prêt à faire partie de l'aventure ?",
     ctaBtn: "Je rejoins l'aventure Startup Village",
   },
   en: {
@@ -83,8 +85,10 @@ const T = {
       { h: "Growth & Opportunities",                p: "Connecting villagers to the resources, partners and opportunities that accelerate their development." },
     ],
     villageoisKicker: "A place to live and to work",
+    villageoisCta: "Become a member",
     villageoisTitle: "Being a Villager means :",
     communauteTitle: "A COMMUNITY WITHOUT BORDERS",
+    softLandingCta: "Discover our Soft Landing offer",
     engagementKicker: "Our commitment",
     engagementTitle: "A Human and Responsible Place",
     ctaTitle: "I'm joining the Startup Village adventure",
@@ -111,8 +115,10 @@ const T = {
       { h: "النموّ والفرص",                  p: "ربط سكان القرية بالموارد والشركاء والفرص التي تسرّع مسيرة تطوّرهم." },
     ],
     villageoisKicker: "إطار للعيش والعمل",
+    villageoisCta: "الانضمام كعضو",
     villageoisTitle: "أن تكون من سكان القرية يعني:",
     communauteTitle: "مجتمع بلا حدود",
+    softLandingCta: "اكتشف عرض Soft Landing لدينا",
     engagementKicker: "التزامنا",
     engagementTitle: "مكان إنساني ومسؤول",
     ctaTitle: "أنضمّ إلى مغامرة ستارتب فيليج",
@@ -231,6 +237,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const prose = PROSE[lang];
   const contactHref = withLang("/contact", lang);
+  const softLandingHref = `${contactHref}?subject=${encodeURIComponent("Demande Soft Landing")}`;
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -329,6 +336,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
                 <li key={i}>{li}</li>
               ))}
             </ul>
+            <a href={contactHref} className="btn villageois-cta">{t.villageoisCta}</a>
           </div>
         </div>
       </section>
@@ -342,6 +350,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
             {prose.communaute.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
+            <a href={softLandingHref} className="btn communaute-cta">{t.softLandingCta}</a>
           </div>
         </div>
       </section>
