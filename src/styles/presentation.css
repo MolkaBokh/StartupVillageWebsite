@@ -249,7 +249,8 @@
 .presentation-page .villageois-list {
   list-style: none;
   display: grid;
-  gap: 10px;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 .presentation-page .villageois-list li {
   position: relative;
@@ -287,6 +288,7 @@
   margin-bottom: 8px;
 }
 .presentation-page .communaute .accent-bar { margin-bottom: 28px; }
+.presentation-page .communaute-cta { margin-top: 12px; }
 .presentation-page .communaute p { color: rgba(255, 255, 255, 0.88); margin-bottom: 16px; font-size: 1.06rem; }
 .presentation-page .communaute p:last-child { margin-bottom: 0; }
 
