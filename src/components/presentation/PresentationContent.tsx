@@ -91,7 +91,7 @@ const T = {
     softLandingCta: "Discover our Soft Landing offer",
     engagementKicker: "Our commitment",
     engagementTitle: "A Human and Responsible Place",
-    ctaTitle: "I'm joining the Startup Village adventure",
+    ctaTitle: "Ready to be part of the adventure?",
     ctaBtn: "I'm joining the Startup Village adventure",
   },
   ar: {
@@ -118,10 +118,10 @@ const T = {
     villageoisCta: "الانضمام كعضو",
     villageoisTitle: "أن تكون من سكان القرية يعني:",
     communauteTitle: "مجتمع بلا حدود",
-    softLandingCta: "اكتشف عرض Soft Landing لدينا",
+    softLandingCta: "اكتشف عرض الانطلاق السلس لدينا",
     engagementKicker: "التزامنا",
     engagementTitle: "مكان إنساني ومسؤول",
-    ctaTitle: "أنضمّ إلى مغامرة ستارتب فيليج",
+    ctaTitle: "مستعدّ لتكون جزءًا من المغامرة؟",
     ctaBtn: "أنضمّ إلى مغامرة ستارتب فيليج",
   },
 } as const;
@@ -171,21 +171,21 @@ const PROSE: Record<Lang, {
     intro:
       "Startup Village is a collaborative workspace designed to fuel innovation, creativity and well-being at work. In a warm and human atmosphere, it brings together a diverse community of entrepreneurs, investors, media, artists, freelancers and hybrid teams in search of meaning, connection and collaboration.",
     missionP1:
-      "A place where you can innovate, co-create and grow together in a setting that values quality of life as much as collective success. Here, experimentation is a strength, and failure a valuable step toward success. Every idea tested, every attempt is celebrated as proof of courage, learning and self-improvement.",
+      "A place to innovate, co-create and grow together, in a setting that values quality of life, experimentation and collective success. Every idea and every attempt becomes a source of learning and progress.",
     missionP2:
-      "Our coworking spaces, private offices, meeting rooms, creative studios, lounge areas and our modular warehouse are designed to spark creativity, foster collaboration and help every project reach its full potential.",
+      "Our coworking spaces, private offices, meeting rooms, creative studios and modular spaces are designed to spark creativity, foster collaboration and support every project.",
     visionP1:
       "At Startup Village, we nurture a flexible and human work culture, built on collaboration, well-being at work, the search for meaning, and positive impact.",
     visionP2:
       "Our vision is driven by the belief that an inspiring and caring work environment can foster sustainable performance, personal fulfilment and the creation of collective value all at once.",
     villageois: [
-      "Connecting to a caring and diverse community",
-      <>Accessing a complete offering&nbsp;: offices, coworking, studios, meeting rooms, event spaces and a warehouse</>,
-      "Taking part in a regular and varied programme, blending inspiring talks, well-being activities, creative workshops and networking encounters",
-      "Benefiting from access to incubation and funding to grow your project",
-      "Enjoying access to expertise through a network of mentors, professionals and partners",
-      "Being supported with administrative, accounting and financial management procedures, including tailored business domiciliation services",
-      "Evolving within an ecosystem connected to scientific research to innovate sustainably",
+      "Join a caring and diverse community.",
+      "Enjoy a complete offering: offices, coworking, studios and meeting rooms.",
+      "Take part in varied programming: talks, wellness, workshops and networking.",
+      "Access incubation and funding for your project.",
+      "Benefit from a network of mentors and partners.",
+      "Get support with administrative management and business domiciliation.",
+      "Grow within an ecosystem connected to scientific research.",
     ],
     communaute: [
       "Whether you're based in Tunis, Paris or Berlin, Startup Village opens its doors and connects you to a dynamic, inclusive and globally open community.",
@@ -202,21 +202,21 @@ const PROSE: Record<Lang, {
     intro:
       "ستارتب فيليج هو فضاء عمل تعاوني مصمَّم لتحفيز الابتكار والإبداع والرفاهية في العمل. في أجواء ودّية وإنسانية، يجمع مجتمعًا متنوّعًا من روّاد الأعمال والمستثمرين ووسائل الإعلام والفنّانين والمستقلّين والفرق الهجينة الباحثين عن المعنى والتواصل والتعاون.",
     missionP1:
-      "مكان يمكنك فيه الابتكار والإبداع المشترك والنموّ معًا في إطار يثمّن جودة الحياة بقدر النجاح الجماعي. هنا، التجربة قوّة، والفشل خطوة ثمينة نحو النجاح. كلّ فكرة تُختبَر وكلّ محاولة يُحتفى بها كدليل على الشجاعة والتعلّم وتجاوز الذات.",
+      "مكان للابتكار والإبداع المشترك والنموّ معًا، في إطار يثمّن جودة الحياة والتجربة والنجاح الجماعي. كلّ فكرة وكلّ محاولة تصبح مصدر تعلّم وتقدّم.",
     missionP2:
-      "صُمِّمت فضاءات العمل المشترك والمكاتب الخاصة وقاعات الاجتماعات والاستوديوهات الإبداعية وأركان الاسترخاء والمستودع القابل للتعديل لـتحفيز الإبداع ودعم التعاون ومرافقة كلّ مشروع نحو كامل إمكاناته.",
+      "صُمِّمت فضاءات العمل المشترك والمكاتب الخاصة وقاعات الاجتماعات والاستوديوهات الإبداعية والفضاءات القابلة للتعديل لتحفيز الإبداع ودعم التعاون ومرافقة كلّ مشروع.",
     visionP1:
       "في ستارتب فيليج، نشجّع ثقافة عمل مرنة وإنسانية، قائمة على التعاون والرفاهية في العمل والبحث عن المعنى والأثر الإيجابي.",
     visionP2:
       "تنطلق رؤيتنا من قناعة بأنّ بيئة عمل ملهمة ومراعية قادرة على تحقيق أداء مستدام وازدهار شخصي وخلق قيمة جماعية في آنٍ واحد.",
     villageois: [
-      "الانتماء إلى مجتمع متنوّع ومراعٍ",
-      <>الوصول إلى عرض متكامل&nbsp;: مكاتب، عمل مشترك، استوديوهات، قاعات اجتماعات، فضاءات للفعاليات ومستودع</>,
-      "المشاركة في برنامج منتظم ومتنوّع يجمع محاضرات ملهمة وأنشطة للرفاهية وورش إبداعية ولقاءات تواصل",
-      "الاستفادة من الوصول إلى الاحتضان والتمويل لتنمية مشروعك",
-      "الاستفادة من الوصول إلى الخبرة عبر شبكة من المرشدين والمحترفين والشركاء",
-      "المرافقة في إجراءات الإدارة والمحاسبة والشؤون المالية، مع خدمات توطين ملائمة",
-      "التطوّر داخل منظومة مرتبطة بالبحث العلمي للابتكار بشكل مستدام",
+      "الانضمام إلى مجتمع متنوّع ومتعاطف.",
+      "الاستفادة من عرض متكامل: مكاتب، عمل مشترك، استوديوهات وقاعات اجتماعات.",
+      "المشاركة في برمجة متنوّعة: محاضرات، أنشطة رفاهية، ورش وفرص تواصل.",
+      "الوصول إلى الاحتضان والتمويل لمشروعك.",
+      "الاستفادة من شبكة مرشدين وشركاء.",
+      "الحصول على مرافقة في الإدارة والتوطين.",
+      "التطوّر ضمن منظومة مرتبطة بالبحث العلمي.",
     ],
     communaute: [
       "سواء كنت في تونس أو باريس أو برلين، يفتح لك ستارتب فيليج أبوابه ويربطك بمجتمع ديناميكي وشامل ومنفتح على العالم.",
