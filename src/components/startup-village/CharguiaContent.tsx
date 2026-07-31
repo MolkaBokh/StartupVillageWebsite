@@ -31,8 +31,7 @@ const T = {
     heroBtn: "RÉSERVER UN ESPACE",
     introTitle: "Startup Village Charguia",
     introTitleSub: "L'espace hybride du e-commerce et de l'innovation",
-    introSub: "Un nouveau chapitre dans l'aventure Startup Village",
-    introP1: "Startup Village s'agrandit et choisit Charguia pour ouvrir un deuxième site, dans un emplacement stratégique au cœur de la zone industrielle, à deux pas de l'aéroport et des grands axes logistiques.",
+    introP1: "Un nouveau chapitre dans l'aventure Startup Village : nous nous agrandissons et choisissons Charguia pour ouvrir un deuxième site, au cœur de la zone industrielle, à deux pas de l'aéroport et des grands axes logistiques.",
     introP2: "Né de l'envie d'aller plus loin, ce nouveau lieu incarne notre vision d'un travail plus fluide, plus humain, et encore plus connecté au monde.",
     introP3a: "Au Startup Village Charguia, on ne vient pas juste pour travailler.",
     introP3b: "On vient pour créer, stocker, expédier, collaborer, produire… et respirer.",
@@ -56,10 +55,10 @@ const T = {
     coStorageBtn: "Je dépose mon stock",
     strip: ["Gestion optimisée des stocks", "Préparation des commandes sur place", "Suivi des mouvements et inventaires", "Appui logistique et une distribution autonome"],
     marketBtn: "Je rejoins le concept",
-    logosTitle: "Ils y sont déjà",
+    logosTitle: "Ils nous font confiance",
     villageoisTitle: "POURQUOI DEVENIR VILLAGEOIS ?",
     villageoisLead: "Devenez membre !",
-    benefits: ["Confort", "Internet haut débit", "Accès à une communauté diversifiée d'entrepreneurs et de créatifs"],
+    benefits: ["Warehouse & logistique", "Emplacement stratégique", "Accès à une communauté diversifiée d'entrepreneurs et de créatifs"],
     villageoisBtn: "Je rejoins la communauté",
   },
   en: {
@@ -67,8 +66,7 @@ const T = {
     heroBtn: "BOOK A SPACE",
     introTitle: "Startup Village Charguia",
     introTitleSub: "The hybrid hub of e-commerce and innovation",
-    introSub: "A new chapter in the Startup Village story",
-    introP1: "Startup Village is growing and has chosen Charguia to open a second site, in a strategic location at the heart of the industrial zone, just steps from the airport and major logistics routes.",
+    introP1: "A new chapter in the Startup Village story: we're expanding and choosing Charguia to open a second site, at the heart of the industrial zone, just steps from the airport and major logistics routes.",
     introP2: "Born from the desire to go further, this new place embodies our vision of work that is more fluid, more human and even more connected to the world.",
     introP3a: "At Startup Village Charguia, you don't come just to work.",
     introP3b: "You come to create, store, ship, collaborate, produce… and breathe.",
@@ -92,10 +90,10 @@ const T = {
     coStorageBtn: "I drop off my stock",
     strip: ["Optimized stock management", "On-site order preparation", "Movement tracking and inventory", "Logistics support and independent distribution"],
     marketBtn: "I'm joining the concept",
-    logosTitle: "They're already here",
+    logosTitle: "They trust us",
     villageoisTitle: "WHY BECOME A VILLAGER?",
     villageoisLead: "Become a member!",
-    benefits: ["Comfort", "High-speed internet", "Access to a diverse community of entrepreneurs and creatives"],
+    benefits: ["Warehouse & logistics", "Strategic location", "Access to a diverse community of entrepreneurs and creatives"],
     villageoisBtn: "I'm joining the community",
   },
   ar: {
@@ -103,8 +101,7 @@ const T = {
     heroBtn: "احجز فضاءً",
     introTitle: "ستارتب فيليج الشرقية",
     introTitleSub: "الفضاء الهجين للتجارة الإلكترونية والابتكار",
-    introSub: "فصل جديد في مسيرة ستارتب فيليج",
-    introP1: "يتوسّع ستارتب فيليج ويختار الشرقية لافتتاح موقع ثانٍ، في موضع استراتيجي بقلب المنطقة الصناعية، على بُعد خطوات من المطار والمحاور اللوجستية الكبرى.",
+    introP1: "فصل جديد في مسيرة ستارتب فيليج: نتوسّع ونختار الشرقية لافتتاح موقع ثانٍ، بقلب المنطقة الصناعية، على بُعد خطوات من المطار والمحاور اللوجستية الكبرى.",
     introP2: "وُلِد هذا المكان الجديد من الرغبة في المضيّ أبعد، وهو يجسّد رؤيتنا لعمل أكثر سلاسة وإنسانية وارتباطًا بالعالم.",
     introP3a: "في ستارتب فيليج الشرقية، لا تأتي للعمل فحسب.",
     introP3b: "تأتي للإبداع والتخزين والشحن والتعاون والإنتاج… والتنفّس.",
@@ -128,10 +125,10 @@ const T = {
     coStorageBtn: "أودِع مخزوني",
     strip: ["إدارة محسّنة للمخزون", "تحضير الطلبات في الموقع", "تتبّع الحركات والجرد", "دعم لوجستي وتوزيع مستقل"],
     marketBtn: "أنضمّ إلى المفهوم",
-    logosTitle: "هم هنا بالفعل",
+    logosTitle: "هم يثقون بنا",
     villageoisTitle: "لماذا تصبح من سكان القرية؟",
     villageoisLead: "كن عضوًا!",
-    benefits: ["الراحة", "إنترنت عالي السرعة", "الوصول إلى مجتمع متنوّع من روّاد الأعمال والمبدعين"],
+    benefits: ["مستودعات ولوجستيك", "موقع استراتيجي", "الوصول إلى مجتمع متنوّع من روّاد الأعمال والمبدعين"],
     villageoisBtn: "أنضمّ إلى المجتمع",
   },
 } as const;
@@ -183,7 +180,6 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
           <div className="intro-split__text">
             <h2>{t.introTitle}</h2>
             <p className="intro-split__subtitle">{t.introTitleSub}</p>
-            <p className="intro-split__eyebrow">{t.introSub}</p>
             <p>{t.introP1}</p>
             <p>{t.introP2}</p>
             <p>
@@ -317,11 +313,11 @@ export default function CharguiaContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="lead">{t.villageoisLead}</p>
           <div className="benefits">
             <div className="benefit">
-              <div className="benefit__icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 19v2M18 19v2M7 14h10a2 2 0 0 1 2 2v3H5v-3a2 2 0 0 1 2-2ZM9 14V8a3 3 0 0 1 6 0v6M9 8H7a2 2 0 0 0-2 2v2" /></svg></div>
+              <div className="benefit__icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 7.5v9l-9 5-9-5v-9l9-5 9 5Z" /><path d="M3 7.5l9 5 9-5" /><path d="M12 12.5V22" /></svg></div>
               <h3>{t.benefits[0]}</h3>
             </div>
             <div className="benefit">
-              <div className="benefit__icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0M12 20h.01" /></svg></div>
+              <div className="benefit__icon"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z" /><circle cx="12" cy="10" r="3" /></svg></div>
               <h3>{t.benefits[1]}</h3>
             </div>
             <div className="benefit">
