@@ -15,7 +15,6 @@ const T = {
     titleA: "Une Démarche Écoresponsable",
     titleB: " au Cœur du Village",
     heroText: "Le village met en place une démarche écoresponsable. Chaque villageois adopte des gestes du quotidien pour réduire son impact environnemental. Ceci implique davantage le village dans la responsabilité sociétale des entreprises (RSE).",
-    badges: ["Innovation", "Créativité", "Durabilité"],
     engagementsTitle: "Nos engagements",
     cards: [
       { h: "Économie circulaire", p: "Nous favorisons la réutilisation des matériaux et la transformation créative des ressources existantes." },
@@ -37,7 +36,6 @@ const T = {
     titleA: "An Eco-Responsible Approach",
     titleB: " at the Heart of the Village",
     heroText: "The village is putting in place an eco-responsible approach. Every villager adopts everyday habits to reduce their environmental impact, deepening the village's commitment to corporate social responsibility (CSR).",
-    badges: ["Innovation", "Creativity", "Sustainability"],
     engagementsTitle: "Our commitments",
     cards: [
       { h: "Circular economy", p: "We promote the reuse of materials and the creative transformation of existing resources." },
@@ -59,7 +57,6 @@ const T = {
     titleA: "نهج بيئي مسؤول",
     titleB: " في قلب القرية",
     heroText: "تعتمد القرية نهجًا بيئيًا مسؤولًا. يتبنّى كلّ فرد من سكان القرية عادات يومية لتقليل أثره البيئي، بما يعمّق التزام القرية بالمسؤولية المجتمعية للمؤسسات.",
-    badges: ["الابتكار", "الإبداع", "الاستدامة"],
     engagementsTitle: "التزاماتنا",
     cards: [
       { h: "الاقتصاد الدائري", p: "نشجّع إعادة استخدام المواد والتحويل الإبداعي للموارد المتاحة." },
@@ -91,16 +88,8 @@ export default function ResponsabilitesContent({ lang = "fr" }: { lang?: Lang })
         {/* SECTION 1 — HERO ÉDITORIAL */}
         <section className="hero">
           <div className="container">
-            <p className="hero__label">{t.label}</p>
-            <h1 className="hero__title">
-              {t.titleA}<br className="br-desktop" />{t.titleB}
-            </h1>
+            <h1 className="hero__title">{t.titleA}{t.titleB}</h1>
             <p className="hero__text">{t.heroText}</p>
-            <ul className="hero__badges">
-              <li className="badge badge--blue">{t.badges[0]}</li>
-              <li className="badge badge--pink">{t.badges[1]}</li>
-              <li className="badge badge--green">{t.badges[2]}</li>
-            </ul>
           </div>
         </section>
 

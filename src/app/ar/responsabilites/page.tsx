@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ResponsabilitesContent from "@/components/responsabilites/ResponsabilitesContent";
 
 export const metadata: Metadata = {
-  title: "المسؤولية المجتمعية — ستارتب فيليج",
+  title: "مسؤولية ESG — ستارتب فيليج",
   description:
     "نهج بيئي مسؤول في قلب ستارتب فيليج: الاقتصاد الدائري والفنّ المسؤول والمجتمع الملتزم.",
 };

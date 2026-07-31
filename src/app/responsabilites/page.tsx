@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ResponsabilitesContent from "@/components/responsabilites/ResponsabilitesContent";
 
 export const metadata: Metadata = {
-  title: "Responsabilités — Startup Village",
+  title: "Responsabilité ESG — Startup Village",
   description:
     "Une démarche écoresponsable au cœur du Startup Village : économie circulaire, art responsable et communauté engagée.",
 };
