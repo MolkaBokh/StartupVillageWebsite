@@ -44,7 +44,7 @@
   display: inline-block; font-family: 'Poppins'; font-weight: 700; font-size: 13px; letter-spacing: .16em;
   color: var(--magenta); background: rgba(226, 28, 87, .08); padding: 7px 16px; border-radius: 999px; margin-bottom: 14px;
 }
-.actualites-page .hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.05; color: var(--navy); max-width: 14ch; }
+.actualites-page .hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.1; color: var(--navy); max-width: 22ch; }
 .actualites-page .hero p { margin-top: 12px; max-width: 62ch; font-size: clamp(15px, 2vw, 17px); color: var(--muted); }
 .actualites-page .hero h1 .accent { color: var(--blue); }
 
@@ -107,7 +107,7 @@
 /* ===== Events ===== */
 .actualites-page .events-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 720px; }
 .actualites-page .event-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); }
-.actualites-page .event-cover { position: relative; aspect-ratio: 21/8; overflow: hidden; background: var(--soft); }
+.actualites-page .event-cover { display: block; position: relative; aspect-ratio: 21/8; overflow: hidden; background: var(--soft); }
 .actualites-page .event-cover img { width: 100%; height: 100%; object-fit: cover; }
 .actualites-page .event-cover .avail {
   position: absolute; top: 14px; right: 14px; background: var(--green); color: #fff;
