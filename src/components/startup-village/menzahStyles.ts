@@ -8,6 +8,8 @@ export const MENZAH_STYLES = `
   --maxw:1180px;
   --font-head:'Poppins',system-ui,sans-serif;
   --font-body:'Inter',system-ui,sans-serif;
+  /* Re-bind the shared Espace de Vie divider's exact green shade (see espace-de-vie.css) */
+  --color-sv-green:#6fa83c;
   font-family:var(--font-body); color:var(--ink); line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
@@ -15,6 +17,9 @@ export const MENZAH_STYLES = `
 .menzah-page img { max-width:100%; display:block; }
 .menzah-page a { color:inherit; text-decoration:none; }
 .menzah-page h1,.menzah-page h2,.menzah-page h3,.menzah-page h4 { font-family:var(--font-head); color:var(--navy); margin:0; line-height:1.15; }
+/* Shared MagentaDivider (reused from Espace de Vie) sets its own Tailwind
+   text-white styling — restore it against the blanket heading rule above. */
+.menzah-page h2.text-white { font-family:var(--font-body); color:#fff; line-height:1.2; }
 
 .menzah-page .container { width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px; }
 .menzah-page .section { padding:84px 0; }
@@ -59,12 +64,9 @@ export const MENZAH_STYLES = `
 .menzah-page .stat span { display:block; color:var(--blue); font-weight:600; font-family:var(--font-head); font-size:14px; margin-top:6px; }
 
 /* GALLERY */
-.menzah-page .gallery-band { background:var(--blue); color:#fff; text-align:center; padding:30px 0; border-radius:var(--radius-sm); }
-.menzah-page .gallery-band h2 { color:#fff; font-size:clamp(22px,3.4vw,34px); letter-spacing:.04em; font-weight:700; }
 .menzah-page .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:34px; }
 .menzah-page .gallery figure { margin:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); aspect-ratio:16/10; }
-.menzah-page .gallery img { width:100%; height:100%; object-fit:cover; border-radius:var(--radius); transition:transform .5s ease; }
-.menzah-page .gallery figure:hover img { transform:scale(1.06); }
+.menzah-page .gallery img { width:100%; height:100%; object-fit:cover; border-radius:var(--radius); }
 
 /* LOGOS */
 .menzah-page .logos { display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:center; }

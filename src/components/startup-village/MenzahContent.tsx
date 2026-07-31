@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { withLang, type Lang } from "@/config/navigation";
 import { MENZAH_STYLES } from "./menzahStyles";
+import MagentaDivider from "@/components/espace-de-vie/MagentaDivider";
 
 /**
  * Startup Village Menzah page body (bilingual). Identical markup, scoped styles,
@@ -28,8 +29,8 @@ const T = {
     heroSub: "L'écosystème de l'innovation, des médias, de l'entrepreneuriat et du Hub IA",
     heroBtn: "RÉSERVER UN ESPACE",
     introTitle: "Startup Village Menzah – Là où tout a commencé",
-    introP1: "Le 20 novembre 2021, Startup Village Menzah a ouvert ses portes, donnant naissance à un écosystème d'innovation et de co-création inédit en Tunisie. Niché dans un bâtiment historique conçu par le célèbre architecte Olivier Clément Cacoub, cet espace unique a été imaginé et transformé grâce à un travail collaboratif de 10 mois, réunissant villageois, architectes et scénographes autour d'un projet commun.",
-    introP2: "Plus qu'un simple espace de coworking à Tunis, Startup Village Menzah est un lieu de vie chaleureux, pensé pour favoriser l'émergence d'idées novatrices, le développement de projets entrepreneuriaux et l'épanouissement des talents tunisiens. Il offre un cadre stimulant pour les startups, freelances, créateurs et porteurs de projets, alliant créativité, convivialité et collaboration. Le site est entièrement accessible aux personnes à mobilité réduite (PMR), avec des accès adaptés facilitant les déplacements et l'utilisation de l'ensemble des espaces.",
+    introP1: "Le 20 novembre 2021, Startup Village Menzah a ouvert ses portes, donnant naissance à un écosystème d'innovation et de co-création unique en Tunisie. Installé dans un bâtiment emblématique imaginé par l'architecte Olivier Clément Cacoub, ce lieu est le fruit de dix mois de collaboration entre architectes, scénographes et futurs villageois.",
+    introP2: "Aujourd'hui, Startup Village Menzah est bien plus qu'un espace de coworking : c'est un lieu de vie dédié aux startups, entrepreneurs, créateurs et freelances. Pensé pour favoriser l'innovation, la collaboration et le développement des projets, il est également entièrement accessible aux personnes à mobilité réduite (PMR).",
     statsTitle: ["Un espace stratégique", "pour des usages pratiques"],
     statsP: "Ici, tout a été pensé pour accompagner les pratiques professionnelles d'aujourd'hui : hybrides, rapides et connectées.",
     stats: [
@@ -55,8 +56,8 @@ const T = {
     heroSub: "The ecosystem of innovation, media and entrepreneurship",
     heroBtn: "BOOK A SPACE",
     introTitle: "Startup Village Menzah – Where it all began",
-    introP1: "On 20 November 2021, Startup Village Menzah opened its doors, giving rise to an innovation and co-creation ecosystem unlike any other in Tunisia. Set within a historic building designed by the renowned architect Olivier Clément Cacoub, this unique space was imagined and transformed through 10 months of collaborative work, bringing together villagers, architects and set designers around a shared project.",
-    introP2: "More than just a coworking space in Tunis, Startup Village Menzah is a warm place to belong, designed to nurture the emergence of innovative ideas, the growth of entrepreneurial projects and the development of Tunisian talent. It offers a stimulating setting for startups, freelancers, creators and project leaders, blending creativity, conviviality and collaboration. The site is fully accessible to people with reduced mobility (PRM), with adapted access facilitating movement and use of all spaces.",
+    introP1: "On 20 November 2021, Startup Village Menzah opened its doors, giving rise to a one-of-a-kind innovation and co-creation ecosystem in Tunisia. Housed in an iconic building designed by architect Olivier Clément Cacoub, the space is the result of ten months of collaboration between architects, set designers and future villagers.",
+    introP2: "Today, Startup Village Menzah is far more than a coworking space: it's a home for startups, entrepreneurs, creators and freelancers. Designed to foster innovation, collaboration and project growth, it is also fully accessible to people with reduced mobility (PRM).",
     statsTitle: ["A strategic space", "for practical, everyday uses"],
     statsP: "Everything here is designed to support today's professional practices: hybrid, fast and connected.",
     stats: [
@@ -82,8 +83,8 @@ const T = {
     heroSub: "منظومة الابتكار والإعلام وريادة الأعمال",
     heroBtn: "احجز فضاءً",
     introTitle: "ستارتب فيليج المنزه – حيث بدأ كلّ شيء",
-    introP1: "في 20 نوفمبر 2021، فتح ستارتب فيليج المنزه أبوابه، ليولد منظومة للابتكار والإبداع المشترك غير مسبوقة في تونس. داخل مبنى تاريخي صمّمه المهندس المعماري الشهير أوليفييه كليمون كاكوب، وُلِد هذا الفضاء الفريد من تصوّر وتحويل استمرّا عشرة أشهر من العمل التعاوني، جمعت سكان القرية والمعماريين ومصمّمي المشاهد حول مشروع مشترك.",
-    introP2: "أكثر من مجرّد فضاء عمل مشترك في تونس، ستارتب فيليج المنزه مكان حياة دافئ، مصمَّم لاحتضان الأفكار المبتكرة وتطوير المشاريع الريادية وازدهار المواهب التونسية. يوفّر إطارًا محفّزًا للشركات الناشئة والمستقلّين والمبدعين وأصحاب المشاريع، يجمع بين الإبداع والألفة والتعاون. الموقع متاح بالكامل للأشخاص ذوي الإعاقات الحركية (PMR)، مع مداخل مهيّأة تُيسّر التنقّل واستخدام جميع الفضاءات.",
+    introP1: "في 20 نوفمبر 2021، فتح ستارتب فيليج المنزه أبوابه، ليُطلق منظومة ابتكار وإبداع مشترك فريدة من نوعها في تونس. يقع هذا الفضاء داخل مبنى مميّز صمّمه المعماري أوليفييه كليمون كاكوب، وهو ثمرة عشرة أشهر من التعاون بين المعماريين ومصمّمي المشاهد وسكان القرية المستقبليين.",
+    introP2: "اليوم، ستارتب فيليج المنزه أكثر بكثير من فضاء عمل مشترك: إنّه مكان حياة مخصّص للشركات الناشئة وروّاد الأعمال والمبدعين والمستقلّين. صُمِّم لتحفيز الابتكار والتعاون وتطوير المشاريع، وهو أيضًا متاح بالكامل للأشخاص ذوي الإعاقة الحركية (PMR).",
     statsTitle: ["فضاء استراتيجي", "لاستخدامات عملية"],
     statsP: "هنا، صُمِّم كلّ شيء لمواكبة الممارسات المهنية اليوم: هجينة وسريعة ومترابطة.",
     stats: [
@@ -177,11 +178,11 @@ export default function MenzahContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* SPACES GALLERY */}
-      <section className="section section--tight" id="startups">
+      <div id="startups">
+        <MagentaDivider title={t.galleryBand} color="green" />
+      </div>
+      <section className="section section--tight">
         <div className="container">
-          <div className="gallery-band">
-            <h2>{t.galleryBand}</h2>
-          </div>
           <div className="gallery">
             {GALLERY.map((file, i) => (
               <figure key={file}>
