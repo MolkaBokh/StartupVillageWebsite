@@ -54,8 +54,8 @@ const Arrow = () => (
 
 const T = {
   fr: {
-    heroTitle: "L'un des plus grands espaces de coworking en Afrique !",
-    heroSubtitle: "Le hub entrepreneurial où les idées, les talents et les projets prennent vie.",
+    heroTitle: "L'un des plus grands espaces dédiés à l'entrepreneuriat en Afrique !",
+    heroSubtitle: "Des espaces de coworking, des bureaux privés et des services pensés pour faire grandir les projets.",
     ctaVisit: "Rejoindre la communauté",
     ctaDiscover: "Découvrir nos espaces",
     statsEyebrow: "Chiffres clés",
@@ -95,8 +95,8 @@ const T = {
     finalCta: "Devenir Villageois",
   },
   en: {
-    heroTitle: "One of the largest coworking spaces in Africa!",
-    heroSubtitle: "The entrepreneurial hub where ideas, talent and projects come to life.",
+    heroTitle: "One of the largest spaces dedicated to entrepreneurship in Africa!",
+    heroSubtitle: "Coworking spaces, private offices and services designed to help projects grow.",
     ctaVisit: "Join the community",
     ctaDiscover: "Explore our spaces",
     statsEyebrow: "Key figures",
@@ -136,8 +136,8 @@ const T = {
     finalCta: "Become a Villager",
   },
   ar: {
-    heroTitle: "أحد أكبر فضاءات العمل المشترك في إفريقيا!",
-    heroSubtitle: "المركز الريادي حيث تُولد الأفكار وتزدهر المواهب وتنمو المشاريع.",
+    heroTitle: "أحد أكبر الفضاءات المخصّصة لريادة الأعمال في إفريقيا!",
+    heroSubtitle: "فضاءات عمل مشترك ومكاتب خاصة وخدمات مصمَّمة لمساعدة المشاريع على النمو.",
     ctaVisit: "انضم إلى المجتمع",
     ctaDiscover: "اكتشف فضاءاتنا",
     statsEyebrow: "أرقام رئيسية",
@@ -256,9 +256,9 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     <svg key="6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M8 21h8M12 18v3" /></svg>,
   ];
 
-  const UNIVERS_IMG = [
-    { src: "/assets/images/02-coworking-cothinking-space.jpg", accent: "accent-blue"   },
-    { src: "/assets/images/03-events-terrace-conference.png",   accent: "accent-yellow" },
+  const UNIVERS_IMG: { src: string; accent: string; hoverSrc?: string }[] = [
+    { src: "/assets/images/02-coworking-cothinking-space.jpg", accent: "accent-blue",   hoverSrc: "/assets/images/bureaux-privés-hover.png" },
+    { src: "/assets/images/03-events-terrace-conference.png",   accent: "accent-yellow", hoverSrc: "/assets/images/event-hover.jpg" },
     { src: "/assets/images/04-studio-podcast-content-creation.png", accent: "accent-pink" },
     { src: "/assets/images/cochef-homepage.png",                accent: "accent-green"  },
     { src: "/assets/images/market-co-homepage.png",             accent: "accent-blue"   },
@@ -314,16 +314,20 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="eyebrow center">{t.universEyebrow}</p>
           <h2 className="section-title center">{t.universTitle}</h2>
           <div className="univers-grid">
-            {t.univers.map((c, i) => (
-              <article className={`univers-card ${UNIVERS_IMG[i].accent}`} key={i}>
-                <div className="univers-media">
-                  <img src={UNIVERS_IMG[i].src} alt={c.h} loading="lazy" />
-                </div>
-                <div className="univers-body">
-                  <h3>{c.h}</h3>
-                </div>
-              </article>
-            ))}
+            {t.univers.map((c, i) => {
+              const hoverSrc = UNIVERS_IMG[i].hoverSrc;
+              return (
+                <article className={`univers-card ${UNIVERS_IMG[i].accent}${hoverSrc ? " univers-card--swap" : ""}`} key={i}>
+                  <div className={`univers-media${hoverSrc ? " has-hover" : ""}`}>
+                    <img src={UNIVERS_IMG[i].src} alt={c.h} loading="lazy" className={hoverSrc ? "img-default" : undefined} />
+                    {hoverSrc && <img src={hoverSrc} alt="" aria-hidden="true" loading="lazy" className="img-hover" />}
+                  </div>
+                  <div className="univers-body">
+                    <h3>{c.h}</h3>
+                  </div>
+                </article>
+              );
+            })}
           </div>
           <div className="section-cta center">
             <a href={href("/espace-de-vie")} className="btn btn-primary">{t.universCta}</a>
