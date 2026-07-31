@@ -58,7 +58,7 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
 
       {/* FINAL CTA */}
       <section className="bg-sv-navy">
-        <div className="mx-auto max-w-6xl px-6 py-12 text-center lg:px-8 lg:py-16">
+        <div className="mx-auto max-w-6xl px-6 py-10 text-center lg:px-8 lg:py-14">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
             {t.ctaTitle}
           </h2>

@@ -128,7 +128,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
       {
         title: "Soft Landing",
         body: "Une offre dédiée aux entrepreneurs et équipes internationales souhaitant s'implanter en Tunisie : accompagnement administratif, mise en réseau et accès immédiat à un environnement de travail clé en main. Un tremplin concret pour réussir votre installation et développer votre activité sur le marché tunisien et africain.",
-        imgs: [{ src: `${BASE}/soft-landing-placeholder.jpg`, alt: "Soft Landing" }],
+        imgs: [{ src: `${BASE}/soft-landing.png`, alt: "Soft Landing" }],
         reverse: true,
       },
       {
@@ -205,7 +205,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
       {
         title: "Soft Landing",
         body: "An offer dedicated to international entrepreneurs and teams looking to set up in Tunisia: administrative support, networking and immediate access to a turnkey work environment. A concrete springboard to a successful launch and growth across the Tunisian and African markets.",
-        imgs: [{ src: `${BASE}/soft-landing-placeholder.jpg`, alt: "Soft Landing" }],
+        imgs: [{ src: `${BASE}/soft-landing.png`, alt: "Soft Landing" }],
         reverse: true,
       },
       {
@@ -282,7 +282,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
       {
         title: "الانطلاق السلس (Soft Landing)",
         body: "عرض مخصّص لروّاد الأعمال والفرق الدولية الراغبين في الاستقرار في تونس: مرافقة إدارية وربط بالشبكات ووصول فوري إلى بيئة عمل جاهزة. نقطة انطلاق ملموسة لنجاح استقرارك وتطوير نشاطك في السوق التونسية والإفريقية.",
-        imgs: [{ src: `${BASE}/soft-landing-placeholder.jpg`, alt: "الانطلاق السلس" }],
+        imgs: [{ src: `${BASE}/soft-landing.png`, alt: "الانطلاق السلس" }],
         reverse: true,
       },
       {
