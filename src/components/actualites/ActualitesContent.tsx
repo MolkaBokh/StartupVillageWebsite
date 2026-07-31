@@ -174,10 +174,10 @@ export default function ActualitesContent({ lang = "fr" }: { lang?: Lang }) {
         <section className={`panel${activeTab === "events" ? " active" : ""}`}>
           <div className="events-grid">
             <article className="event-card">
-              <div className="event-cover">
+              <a className="event-cover" href="https://luma.com/5kycidm1" target="_blank" rel="noopener" aria-label={t.register}>
                 <img src={`${IMG}beyond-ai.png`} alt="Beyond AI: Technologies & Trends Shaping the Future of Entrepreneurship" loading="lazy" />
                 <span className="avail">{t.eventAvail}</span>
-              </div>
+              </a>
               <div className="event-body">
                 <div className="day">24 June 2026</div>
                 <h2 className="text-base font-bold text-navy-950">Beyond AI: Technologies &amp; Trends Shaping the Future of Entrepreneurship</h2>
