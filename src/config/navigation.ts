@@ -44,9 +44,9 @@ export function toLang(pathname: string, lang: Lang): string {
 }
 
 const SUBMENU_LABELS: Record<Lang, string[]> = {
-  fr: ["Présentation", "Startup Village Menzah", "Startup Village Charguia", "Responsabilités", "Partenaires"],
-  en: ["Overview", "Startup Village Menzah", "Startup Village Charguia", "Responsibility", "Partners"],
-  ar: ["نبذة", "ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "المسؤولية المجتمعية", "الشركاء"],
+  fr: ["Présentation", "Startup Village Menzah", "Startup Village Charguia", "Responsabilité ESG", "Partenaires"],
+  en: ["Overview", "Startup Village Menzah", "Startup Village Charguia", "ESG Responsibility", "Partners"],
+  ar: ["نبذة", "ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "مسؤولية ESG", "الشركاء"],
 };
 
 const SUBMENU_PATHS = [

@@ -14,26 +14,24 @@ export const RESPONSABILITES_STYLES = `
   font-family:'Plus Jakarta Sans','Inter',sans-serif; margin:0; line-height:1.12; letter-spacing:-0.02em; color:var(--sv-navy);
 }
 .responsabilites-page .container { width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:24px; }
-.responsabilites-page .br-desktop { display:none; }
 
 /* SECTION 1 — HERO ÉDITORIAL */
 .responsabilites-page .hero {
   position:relative;
-  padding:132px 0 108px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:460px;
+  padding:96px 24px;
   background-image:
-    linear-gradient(90deg, rgba(15,39,72,0.30) 0%, rgba(15,39,72,0.20) 60%, rgba(15,39,72,0.12) 100%),
+    linear-gradient(180deg, rgba(15,39,72,0.30) 0%, rgba(15,39,72,0.60) 100%),
     url('${IMG}hero.png');
   background-size:cover; background-position:center; background-repeat:no-repeat;
 }
-.responsabilites-page .hero .container { position:relative; z-index:1; }
-.responsabilites-page .hero__label { margin:0 0 22px; text-transform:uppercase; letter-spacing:0.22em; font-size:13px; font-weight:600; color:var(--sv-blue); }
-.responsabilites-page .hero__title { font-size:clamp(2.4rem, 5.4vw, 4.1rem); font-weight:800; max-width:16ch; color:#fff; }
-.responsabilites-page .hero__text { margin:28px 0 0; max-width:62ch; font-size:clamp(1.05rem, 1.6vw, 1.22rem); color:rgba(255,255,255,0.94); }
-.responsabilites-page .hero__badges { list-style:none; display:flex; flex-wrap:wrap; gap:14px; margin:40px 0 0; padding:0; }
-.responsabilites-page .badge { font-weight:600; font-size:14px; padding:9px 20px; border-radius:999px; color:#fff; }
-.responsabilites-page .badge--blue { background:var(--sv-blue); }
-.responsabilites-page .badge--pink { background:var(--sv-pink); }
-.responsabilites-page .badge--green { background:var(--sv-green); }
+.responsabilites-page .hero .container { position:relative; z-index:1; max-width:800px; margin-inline:auto; }
+.responsabilites-page .hero__title { font-size:clamp(2.25rem, 5vw, 3.5rem); font-weight:700; line-height:1.15; max-width:16ch; margin-inline:auto; color:#fff; }
+.responsabilites-page .hero__text { margin:24px auto 0; max-width:600px; font-size:clamp(1rem, 1.6vw, 1.25rem); line-height:1.6; color:rgba(255,255,255,0.94); }
 
 /* SECTION TITLE */
 .responsabilites-page .section-title { font-size:clamp(1.8rem, 3.4vw, 2.6rem); font-weight:700; margin-bottom:32px; }
@@ -73,9 +71,6 @@ export const RESPONSABILITES_STYLES = `
 .responsabilites-page .cta__button:hover { background:#116080; transform:translateY(-2px); }
 
 /* RESPONSIVE */
-@media (min-width:720px) {
-  .responsabilites-page .br-desktop { display:inline; }
-}
 @media (max-width:960px) {
   .responsabilites-page .engagements__grid { grid-template-columns:1fr; max-width:520px; }
   .responsabilites-page .realisation { grid-template-columns:1fr; gap:32px; padding:40px 0; }
