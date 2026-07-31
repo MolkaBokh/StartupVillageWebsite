@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import SupportBox from "@/components/contact/SupportBox";
 import ContactSidebar from "@/components/contact/ContactSidebar";
 import ContactForm from "@/components/contact/ContactForm";
 import MapSection from "@/components/contact/MapSection";
@@ -31,13 +30,9 @@ export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
   return (
     <div className="contact-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <section className="bg-white pt-10 pb-6 sm:pt-12">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-3 lg:px-10">
-          <div className="lg:col-span-2">
-            <h1 className="text-4xl font-extrabold leading-tight text-navy-950 sm:text-5xl">{t.title}</h1>
-            <p className="mt-4 max-w-xl text-lg text-navy-950/70">{t.intro}</p>
-          </div>
-
-          <SupportBox lang={lang} />
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <h1 className="text-4xl font-extrabold leading-tight text-navy-950 sm:text-5xl">{t.title}</h1>
+          <p className="mt-4 max-w-xl text-lg text-navy-950/70">{t.intro}</p>
         </div>
       </section>
 
