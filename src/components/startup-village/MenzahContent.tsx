@@ -41,7 +41,7 @@ const T = {
     ],
     galleryBand: "DÉCOUVREZ NOS ESPACES",
     spaceAlt: "Espace",
-    logosTitle: "Ils y sont déjà",
+    logosTitle: "Ils nous font confiance",
     polesTitle: "NOS PÔLES D'EXPERTISE",
     poles: [
       { h: "IA FIRST", p: "Startup Village rassemble l'expertise de Medianet et Saphir Consult, deux acteurs majeurs du digital avec plus de 20 ans d'expérience internationale. Cette alliance permet d'offrir un accompagnement solide et global aux porteurs de projets technologiques." },
@@ -68,7 +68,7 @@ const T = {
     ],
     galleryBand: "DISCOVER OUR SPACES",
     spaceAlt: "Space",
-    logosTitle: "They're already here",
+    logosTitle: "They trust us",
     polesTitle: "OUR AREAS OF EXPERTISE",
     poles: [
       { h: "IA FIRST", p: "Startup Village brings together the expertise of Medianet and Saphir Consult, two major digital players with over 20 years of international experience. This alliance delivers solid, end-to-end support to technology project leaders." },
@@ -95,7 +95,7 @@ const T = {
     ],
     galleryBand: "اكتشف فضاءاتنا",
     spaceAlt: "فضاء",
-    logosTitle: "هم هنا بالفعل",
+    logosTitle: "هم يثقون بنا",
     polesTitle: "أقطاب خبرتنا",
     poles: [
       { h: "IA FIRST", p: "يجمع ستارتب فيليج خبرة Medianet وSaphir Consult، وهما فاعلان رئيسيان في المجال الرقمي بأكثر من 20 عامًا من الخبرة الدولية. يتيح هذا التحالف تقديم مرافقة متينة وشاملة لأصحاب المشاريع التكنولوجية." },
