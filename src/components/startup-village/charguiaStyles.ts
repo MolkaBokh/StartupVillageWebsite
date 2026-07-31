@@ -69,8 +69,7 @@ export const CHARGUIA_STYLES = `
 .charguia-page .gallery-band h2 { color:#fff; font-size:clamp(22px,3.4vw,34px); letter-spacing:.04em; font-weight:700; }
 .charguia-page .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
 .charguia-page .gallery figure { margin:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); aspect-ratio:16 / 10; }
-.charguia-page .gallery img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-.charguia-page .gallery figure:hover img { transform:scale(1.06); }
+.charguia-page .gallery img { width:100%; height:100%; object-fit:cover; }
 
 /* CO-STORAGE */
 .charguia-page .split { display:grid; grid-template-columns:1.05fr .95fr; gap:0; align-items:stretch; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
