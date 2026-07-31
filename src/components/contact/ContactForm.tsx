@@ -35,7 +35,7 @@ const T = {
     errorText: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
     sites: ["Startup Village Menzah", "Startup Village Charguia", "Je ne sais pas encore"],
     subject: "Nouvelle demande",
-    fields: { name: "Nom complet", email: "Email", phone: "Téléphone", org: "Organisation", type: "Type de demande", site: "Site souhaité", people: "Nombre de personnes", date: "Date souhaitée", message: "Message" },
+    fields: { name: "Nom complet", email: "Email", phone: "Téléphone", org: "Organisation", type: "Type de demande", site: "Site souhaité", people: "Nombre de personnes", date: "Date souhaitée", message: "Message", profile: "Profil" },
   },
   en: {
     successTitle: "Thank you for your request!",
@@ -64,7 +64,7 @@ const T = {
     errorText: "Something went wrong while sending. Please try again.",
     sites: ["Startup Village Menzah", "Startup Village Charguia", "I don't know yet"],
     subject: "New request",
-    fields: { name: "Full name", email: "Email", phone: "Phone", org: "Organisation", type: "Request type", site: "Preferred site", people: "Number of people", date: "Preferred date", message: "Message" },
+    fields: { name: "Full name", email: "Email", phone: "Phone", org: "Organisation", type: "Request type", site: "Preferred site", people: "Number of people", date: "Preferred date", message: "Message", profile: "Profile" },
   },
   ar: {
     successTitle: "شكرًا على طلبك!",
@@ -93,7 +93,7 @@ const T = {
     errorText: "حدث خطأ أثناء الإرسال. يُرجى المحاولة مرة أخرى.",
     sites: ["ستارتب فيليج المنزه", "ستارتب فيليج الشرقية", "لا أعرف بعد"],
     subject: "طلب جديد",
-    fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", phone: "الهاتف", org: "المؤسسة", type: "نوع الطلب", site: "الموقع المفضّل", people: "عدد الأشخاص", date: "التاريخ المفضّل", message: "الرسالة" },
+    fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", phone: "الهاتف", org: "المؤسسة", type: "نوع الطلب", site: "الموقع المفضّل", people: "عدد الأشخاص", date: "التاريخ المفضّل", message: "الرسالة", profile: "الملف الشخصي" },
   },
 } as const;
 
@@ -101,9 +101,10 @@ type Props = {
   lang?: Lang;
   requestType: string;
   onRequestTypeChange: (value: string) => void;
+  selectedProfile?: string;
 };
 
-export default function ContactForm({ lang = "fr", requestType, onRequestTypeChange }: Props) {
+export default function ContactForm({ lang = "fr", requestType, onRequestTypeChange, selectedProfile = "" }: Props) {
   const t = T[lang];
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -122,7 +123,7 @@ export default function ContactForm({ lang = "fr", requestType, onRequestTypeCha
     const data = new FormData(e.currentTarget);
     const value = (key: string) => (data.get(key) ?? "").toString().trim();
     const f = t.fields;
-    const fields = [
+    const fields: { label: string; value: string }[] = [
       { label: f.name, value: value("full_name") },
       { label: f.email, value: value("email") },
       { label: f.phone, value: value("phone") },
@@ -133,6 +134,8 @@ export default function ContactForm({ lang = "fr", requestType, onRequestTypeCha
       { label: f.date, value: value("desired_date") },
       { label: f.message, value: value("message") },
     ];
+    const profileValue = value("visitor_profile");
+    if (profileValue) fields.push({ label: f.profile, value: profileValue });
 
     setError(false);
     setSending(true);
@@ -167,6 +170,7 @@ export default function ContactForm({ lang = "fr", requestType, onRequestTypeCha
 
   return (
     <form id="contact-form" onSubmit={handleSubmit} noValidate className="scroll-mt-24 space-y-12" aria-label={t.needTitle}>
+      <input type="hidden" name="visitor_profile" value={selectedProfile} />
       <div>
         <h2 id="contact-need-heading" className="text-xl font-bold text-navy-950">{t.needTitle}</h2>
         <div role="group" aria-labelledby="contact-need-heading" className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -208,6 +212,9 @@ export default function ContactForm({ lang = "fr", requestType, onRequestTypeCha
               {REQUEST_TYPES.map((r) => (
                 <option key={r.key} value={r[lang]}>{r[lang]}</option>
               ))}
+              {requestType && !REQUEST_TYPES.some((r) => r[lang] === requestType) && (
+                <option value={requestType}>{requestType}</option>
+              )}
             </Select>
           </div>
           <div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SupportBox from "@/components/contact/SupportBox";
-import ProfileFinder from "@/components/contact/ProfileFinder";
+import ContactSidebar from "@/components/contact/ContactSidebar";
 import ContactForm from "@/components/contact/ContactForm";
 import MapSection from "@/components/contact/MapSection";
 import type { Lang } from "@/config/navigation";
@@ -26,6 +26,7 @@ const T = {
 export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const [requestType, setRequestType] = useState("");
+  const [selectedProfile, setSelectedProfile] = useState("");
 
   return (
     <div className="contact-page" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -40,11 +41,24 @@ export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
-      <ProfileFinder lang={lang} onSelect={setRequestType} />
+      <section className="bg-white pb-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-3 lg:px-10">
+          <div className="lg:col-span-2">
+            <ContactForm
+              lang={lang}
+              requestType={requestType}
+              onRequestTypeChange={setRequestType}
+              selectedProfile={selectedProfile}
+            />
+          </div>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <ContactForm lang={lang} requestType={requestType} onRequestTypeChange={setRequestType} />
+          <ContactSidebar
+            lang={lang}
+            onSelectInfoRequest={(type, profile) => {
+              setRequestType(type);
+              setSelectedProfile(profile);
+            }}
+          />
         </div>
       </section>
 
