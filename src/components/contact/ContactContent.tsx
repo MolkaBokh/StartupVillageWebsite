@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import SupportBox from "@/components/contact/SupportBox";
-import InfoPanel from "@/components/contact/InfoPanel";
+import ProfileFinder from "@/components/contact/ProfileFinder";
 import ContactForm from "@/components/contact/ContactForm";
 import MapSection from "@/components/contact/MapSection";
 import type { Lang } from "@/config/navigation";
@@ -22,6 +25,8 @@ const T = {
 
 export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
+  const [requestType, setRequestType] = useState("");
+
   return (
     <div className="contact-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <section className="bg-white pt-10 pb-6 sm:pt-12">
@@ -35,13 +40,11 @@ export default function ContactContent({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
-      <section className="bg-white pb-20">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-3 lg:px-10">
-          <div className="lg:col-span-2">
-            <ContactForm lang={lang} />
-          </div>
+      <ProfileFinder lang={lang} onSelect={setRequestType} />
 
-          <InfoPanel lang={lang} />
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <ContactForm lang={lang} requestType={requestType} onRequestTypeChange={setRequestType} />
         </div>
       </section>
 

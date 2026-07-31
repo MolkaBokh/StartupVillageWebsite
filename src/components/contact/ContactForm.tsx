@@ -5,32 +5,7 @@ import { Input, Label, Select, Textarea } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import SpaceTypeCard from "@/components/contact/SpaceTypeCard";
 import type { Lang } from "@/config/navigation";
-import {
-  ClubIcon,
-  EventIcon,
-  InfoIcon,
-  MarketIcon,
-  MeetingRoomIcon,
-  OfficeIcon,
-  OtherIcon,
-  StockIcon,
-  VisitIcon,
-} from "@/components/contact/icons";
-
-const REQUEST_TYPES = [
-  { key: "visit", icon: <VisitIcon />, fr: "Demander une visite", en: "Book a visit", ar: "طلب زيارة" },
-  { key: "club", icon: <ClubIcon />, fr: "Rejoindre le Club Startup Village", en: "Join the Startup Village Club", ar: "الانضمام إلى نادي ستارتب فيليج" },
-  { key: "office", icon: <OfficeIcon />, fr: "Demander un bureau privé", en: "Request a private office", ar: "طلب مكتب خاص" },
-  { key: "room", icon: <MeetingRoomIcon />, fr: "Réserver une salle", en: "Book a room", ar: "حجز قاعة" },
-  { key: "event", icon: <EventIcon />, fr: "Organiser un événement", en: "Host an event", ar: "تنظيم فعالية" },
-  { key: "stock", icon: <StockIcon />, fr: "Déposer mon stock", en: "Drop off my stock", ar: "إيداع مخزوني" },
-  { key: "market", icon: <MarketIcon />, fr: "Intégrer Market & Co", en: "Join Market & Co", ar: "الانضمام إلى Market & Co" },
-  { key: "info", icon: <InfoIcon />, fr: "Demande d'information", en: "Request information", ar: "طلب معلومات" },
-  { key: "other", icon: <OtherIcon />, fr: "Autre", en: "Other", ar: "أخرى" },
-] as const;
-
-// URL ?type=… maps to a request-type key, pre-selected when the form opens.
-const TYPE_PARAM_KEY: Record<string, string> = { stock: "stock", market: "market" };
+import { REQUEST_TYPES, TYPE_PARAM_KEY } from "@/data/contactRequestTypes";
 
 const T = {
   fr: {
@@ -122,9 +97,14 @@ const T = {
   },
 } as const;
 
-export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
+type Props = {
+  lang?: Lang;
+  requestType: string;
+  onRequestTypeChange: (value: string) => void;
+};
+
+export default function ContactForm({ lang = "fr", requestType, onRequestTypeChange }: Props) {
   const t = T[lang];
-  const [requestType, setRequestType] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
@@ -133,7 +113,8 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
     const param = new URLSearchParams(window.location.search).get("type");
     const key = param ? TYPE_PARAM_KEY[param] : undefined;
     const match = key ? REQUEST_TYPES.find((r) => r.key === key) : undefined;
-    if (match) setRequestType(match[lang]);
+    if (match) onRequestTypeChange(match[lang]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -185,7 +166,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-12" aria-label={t.needTitle}>
+    <form id="contact-form" onSubmit={handleSubmit} noValidate className="scroll-mt-24 space-y-12" aria-label={t.needTitle}>
       <div>
         <h2 id="contact-need-heading" className="text-xl font-bold text-navy-950">{t.needTitle}</h2>
         <div role="group" aria-labelledby="contact-need-heading" className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -195,7 +176,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
               label={type[lang]}
               icon={type.icon}
               selected={requestType === type[lang]}
-              onSelect={() => setRequestType(type[lang])}
+              onSelect={() => onRequestTypeChange(type[lang])}
             />
           ))}
         </div>
@@ -222,7 +203,7 @@ export default function ContactForm({ lang = "fr" }: { lang?: Lang }) {
           </div>
           <div>
             <Label htmlFor="cf-request_type" required>{t.requestType}</Label>
-            <Select id="cf-request_type" name="request_type" required value={requestType} onChange={(e) => setRequestType(e.target.value)} aria-required="true">
+            <Select id="cf-request_type" name="request_type" required value={requestType} onChange={(e) => onRequestTypeChange(e.target.value)} aria-required="true">
               <option value="" disabled>{t.select}</option>
               {REQUEST_TYPES.map((r) => (
                 <option key={r.key} value={r[lang]}>{r[lang]}</option>
