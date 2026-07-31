@@ -52,7 +52,7 @@ export default function ServiceSection({
   }, [total, paused, reducedMotion])
 
   return (
-    <section className="bg-white py-12 md:py-16" aria-label={title}>
+    <section className="bg-white py-10 md:py-14" aria-label={title}>
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
 
