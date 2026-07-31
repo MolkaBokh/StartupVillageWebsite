@@ -12,10 +12,8 @@ import "@/styles/partenaires.css";
 
 const T = {
   fr: {
-    eyebrow: "Partenaires & Écosystème",
     title: "Un réseau qui accélère les projets",
     intro: "Entrepreneurs, investisseurs, experts, médias et institutions se rencontrent au sein d'un même écosystème pour faire avancer les idées plus vite.",
-    badges: ["Expertise", "Financement", "Accompagnement", "Visibilité"],
     wallTitle: "Un réseau construit autour de l'innovation",
     wallText: "Startup Village s'appuie sur un réseau de partenaires engagés pour accompagner les entrepreneurs dans leurs défis stratégiques, technologiques, financiers et médiatiques.",
     valueTitle: "Ce que l'écosystème apporte aux entrepreneurs",
@@ -31,10 +29,8 @@ const T = {
     heroAlt: "L'écosystème Startup Village : rencontres, événements et networking",
   },
   en: {
-    eyebrow: "Partners & Ecosystem",
     title: "A network that accelerates projects",
     intro: "Entrepreneurs, investors, experts, media and institutions meet within a single ecosystem to move ideas forward faster.",
-    badges: ["Expertise", "Funding", "Support", "Visibility"],
     wallTitle: "A network built around innovation",
     wallText: "Startup Village relies on a network of committed partners to support entrepreneurs through their strategic, technological, financial and media challenges.",
     valueTitle: "What the ecosystem brings to entrepreneurs",
@@ -50,10 +46,8 @@ const T = {
     heroAlt: "The Startup Village ecosystem: encounters, events and networking",
   },
   ar: {
-    eyebrow: "الشركاء والمنظومة",
     title: "شبكة تُسرّع المشاريع",
     intro: "يلتقي روّاد الأعمال والمستثمرون والخبراء ووسائل الإعلام والمؤسسات داخل منظومة واحدة لدفع الأفكار إلى الأمام بسرعة أكبر.",
-    badges: ["الخبرة", "التمويل", "المرافقة", "الظهور"],
     wallTitle: "شبكة مبنية حول الابتكار",
     wallText: "يعتمد ستارتب فيليج على شبكة من الشركاء الملتزمين لمرافقة روّاد الأعمال في تحدّياتهم الاستراتيجية والتكنولوجية والمالية والإعلامية.",
     valueTitle: "ما تقدّمه المنظومة لروّاد الأعمال",
@@ -70,8 +64,10 @@ const T = {
   },
 } as const;
 
-const BADGE_COLORS = ["bg-sv-cyan", "bg-sv-green", "bg-sv-yellow", "bg-sv-pink"];
 const CARD_COLORS = ["bg-sv-cyan", "bg-sv-green", "bg-sv-pink", "bg-sv-yellow"];
+
+// Grid positions (1-indexed) whose logos should appear visually larger.
+const LARGE_LOGO_INDEXES = new Set([0, 4, 5, 6, 7, 8]); // logos #1, 5, 6, 7, 8, 9
 
 export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
   const partners = getPartners();
@@ -80,40 +76,31 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
   return (
     <div className="partenaires-page bg-white" dir={lang === "ar" ? "rtl" : "ltr"}>
       <main>
-        {/* SECTION 1 — HERO IMAGE */}
-        <section className="relative isolate overflow-hidden">
+        {/* SECTION 1 — HERO IMAGE (centered, matches Offres & Services style) */}
+        <section className="relative flex min-h-[460px] w-full items-center justify-center overflow-hidden md:min-h-[580px]">
           <Image
             src="/assets/images/partenaires/hero.png"
             alt={t.heroAlt}
             fill
             priority
             sizes="100vw"
-            className="-z-10 object-cover object-center"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 -z-10 bg-sv-navy/40" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sv-navy/60 via-sv-navy/30 to-transparent" />
-
-          <div className="mx-auto max-w-content px-6 pb-16 pt-20 lg:px-8 lg:pb-20 lg:pt-28">
-            <div className="max-w-3xl">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-sv-pink drop-shadow-[0_1px_6px_rgba(15,39,72,0.6)]">
-                {t.eyebrow}
-              </span>
-              <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-[3.5rem]">
-                {t.title}
-              </h1>
-              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/85">{t.intro}</p>
-
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                {t.badges.map((label, i) => (
-                  <span
-                    key={label}
-                    className="font-sans inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/95 py-1.5 pl-3 pr-4 text-sm font-semibold text-sv-navy shadow-sm backdrop-blur"
-                  >
-                    <span className={`h-2.5 w-2.5 rounded-full ${BADGE_COLORS[i]}`} />
-                    {label}
-                  </span>
-                ))}
-              </div>
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(26,34,56,0.30) 0%, rgba(26,34,56,0.60) 100%)" }}
+          />
+          <div className="relative z-10 mx-auto max-w-[800px] px-8 text-center text-white">
+            <h1 className="text-4xl font-bold leading-tight md:text-[56px]">{t.title}</h1>
+            <p className="mx-auto mt-6 max-w-[600px] text-base leading-relaxed md:text-xl">{t.intro}</p>
+            <div className="mt-9">
+              <Link
+                href={withLang("/contact", lang)}
+                className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
+              >
+                {t.finalCta}
+                <span aria-hidden>→</span>
+              </Link>
             </div>
           </div>
         </section>
@@ -127,8 +114,8 @@ export default function PartenairesContent({ lang = "fr" }: { lang?: Lang }) {
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {partners.map((partner) => (
-                <PartnerLogo key={partner.logo} partner={partner} />
+              {partners.map((partner, i) => (
+                <PartnerLogo key={partner.logo} partner={partner} large={LARGE_LOGO_INDEXES.has(i)} />
               ))}
             </div>
           </div>
