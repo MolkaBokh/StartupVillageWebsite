@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import OfferComingSoon from "@/components/offres-services/OfferComingSoon";
 import SalleReunionFormationContent from "@/components/offres-services/SalleReunionFormationContent";
 import DomiciliationContent from "@/components/offres-services/DomiciliationContent";
+import OrganisationEvenementsContent from "@/components/offres-services/OrganisationEvenementsContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -31,6 +32,14 @@ export async function generateMetadata({
     };
   }
 
+  if (slug === "organisation-evenements") {
+    return {
+      title: "Location d'espaces événementiels à Tunis | Startup Village",
+      description:
+        "Organisez vos conférences, séminaires, panels, afterworks et événements professionnels dans des espaces modulables au cœur de Startup Village.",
+    };
+  }
+
   const title = offerTitle(slug, "fr");
   return { title: title ? `${title} | Startup Village` : "Offres & Services | Startup Village" };
 }
@@ -42,6 +51,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "domiciliation") {
     return <DomiciliationContent />;
+  }
+  if (slug === "organisation-evenements") {
+    return <OrganisationEvenementsContent />;
   }
   return <OfferComingSoon slug={slug} lang="fr" />;
 }
