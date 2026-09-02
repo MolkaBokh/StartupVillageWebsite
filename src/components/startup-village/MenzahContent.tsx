@@ -22,6 +22,9 @@ const LOGOS = [
   { file: "logo-7.png", name: "Skylight" },
   { file: "logo-8.png", name: "Keef" },
   { file: "logo-9.png", name: "Poslik" },
+  { file: "qore.jpeg", name: "Qore" },
+  { file: "techtalent.jpeg", name: "TechTalent" },
+  { file: "lysa.jpeg", name: "Lysa" },
 ];
 
 const T = {
@@ -118,7 +121,7 @@ export default function MenzahContent({ lang = "fr" }: { lang?: Lang }) {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero__bg" style={{ backgroundImage: `url('${IMG}Hero.jpg')` }} />
+        <div className="hero__bg" style={{ backgroundImage: `url('${IMG}banniere.jpg')` }} />
         <div className="hero__overlay" />
         <div className="hero__inner">
           <h1>Startup Village Menzah</h1>
