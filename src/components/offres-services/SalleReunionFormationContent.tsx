@@ -40,7 +40,7 @@ const ROOMS: Room[] = [
     ],
     equipements: ["Écran TV HDMI", "Tableau blanc", "Wi-Fi haut débit", "Climatisation", "Lumière naturelle"],
     idealPour: ["Réunion d'équipe", "Rendez-vous client", "Briefing", "Entretien professionnel", "Session de travail"],
-    img: `${BASE}/reunion-2.png`,
+    img: `${BASE}/reunion-1.png`,
     imgAlt: "Corporate Room — salle de réunion lumineuse avec vue extérieure, Startup Village",
     accent: "#25AFE0",
   },
@@ -53,7 +53,7 @@ const ROOMS: Room[] = [
     ],
     equipements: ["TV", "Tableau blanc", "Wi-Fi", "Climatisation"],
     idealPour: ["Comité de direction", "Réunion confidentielle", "Stratégie", "Négociation", "Recrutement"],
-    img: `${BASE}/reunion-1.png`,
+    img: `${BASE}/reunion-6.png`,
     imgAlt: "Salle Confidentielle — salle de réunion fermée, Startup Village",
     accent: "#E21C57",
   },
@@ -65,7 +65,7 @@ const ROOMS: Room[] = [
       "Fonctionnelle et entièrement équipée, la Salle 23 accueille aussi bien des réunions d'équipe que des formations, ateliers ou rendez-vous professionnels.",
       "Elle constitue une solution idéale pour les entreprises recherchant un espace professionnel flexible au cœur de Startup Village.",
     ],
-    img: `${BASE}/reunion-6.png`,
+    img: `${BASE}/reunion-2.png`,
     imgAlt: "Salle 23 — salle de réunion polyvalente, Startup Village",
     accent: "#6FA83C",
   },
@@ -246,14 +246,11 @@ export default function SalleReunionFormationContent() {
           <div className="mx-auto max-w-3xl text-center">
             <span aria-hidden="true" className="mx-auto mb-4 block h-1.5 w-9 rounded-full bg-sv-pink" />
             <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">Pourquoi choisir Startup Village ?</h2>
-            <p className="mt-4 text-lg font-semibold text-sv-navy/80">Parce qu'un lieu influence la qualité des échanges.</p>
+            <p className="mt-4 text-lg text-sv-navy/80">Parce qu'un lieu influence la qualité des échanges.</p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
               En choisissant Startup Village, vous profitez d'un environnement reconnu pour son dynamisme
-              entrepreneurial, où se croisent chaque année plus de <strong className="text-sv-navy">100 événements</strong>,{" "}
-              <strong className="text-sv-navy">1 000 visiteurs</strong>,{" "}
-              <strong className="text-sv-navy">50 délégations internationales</strong> représentant plus de{" "}
-              <strong className="text-sv-navy">20 pays</strong>, ainsi qu'une communauté active de plus de{" "}
-              <strong className="text-sv-navy">500 Villageois</strong>.
+              entrepreneurial, où se croisent chaque année plus de 100 événements, 1 000 visiteurs, 50 délégations
+              internationales représentant plus de 20 pays, ainsi qu'une communauté active de plus de 500 Villageois.
             </p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
               Organiser votre réunion chez Startup Village, c'est accueillir vos collaborateurs ou vos clients dans un
