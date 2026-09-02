@@ -249,8 +249,8 @@ export default function SalleReunionFormationContent() {
             <p className="mt-4 text-lg text-sv-navy/80">Parce qu'un lieu influence la qualité des échanges.</p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
               En choisissant Startup Village, vous profitez d'un environnement reconnu pour son dynamisme
-              entrepreneurial, où se croisent chaque année plus de 100 événements, 1 000 visiteurs, 50 délégations
-              internationales représentant plus de 20 pays, ainsi qu'une communauté active de plus de 500 Villageois.
+              entrepreneurial, où se croisent chaque année des événements, des visiteurs, des délégations
+              internationales, ainsi qu'une communauté active de Villageois.
             </p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
               Organiser votre réunion chez Startup Village, c'est accueillir vos collaborateurs ou vos clients dans un
@@ -368,14 +368,12 @@ export default function SalleReunionFormationContent() {
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               Demander un devis
-              <span aria-hidden>→</span>
             </Link>
             <Link
               href={contact}
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               Réserver une salle
-              <span aria-hidden>→</span>
             </Link>
           </div>
         </div>
