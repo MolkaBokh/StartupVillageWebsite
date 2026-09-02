@@ -4,6 +4,7 @@ import SalleReunionFormationContent from "@/components/offres-services/SalleReun
 import DomiciliationContent from "@/components/offres-services/DomiciliationContent";
 import OrganisationEvenementsContent from "@/components/offres-services/OrganisationEvenementsContent";
 import AccompagnementStartupsContent from "@/components/offres-services/AccompagnementStartupsContent";
+import StudiosAudiovisuelsContent from "@/components/offres-services/StudiosAudiovisuelsContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -62,6 +63,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "accompagnement-startups") {
     return <AccompagnementStartupsContent />;
+  }
+  if (slug === "studios-audiovisuels") {
+    return <StudiosAudiovisuelsContent lang="fr" />;
   }
   return <OfferComingSoon slug={slug} lang="fr" />;
 }
