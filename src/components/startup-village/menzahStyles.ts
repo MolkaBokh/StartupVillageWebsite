@@ -66,8 +66,9 @@ export const MENZAH_STYLES = `
 /* GALLERY */
 /* Tighter gap between the green "DÉCOUVREZ NOS ESPACES" banner and the
    gallery below it (banner + gallery design themselves are unchanged). */
-.menzah-page #startups + section.section--tight { padding-top:14px; }
-.menzah-page .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:34px; }
+.menzah-page #startups > section { padding-bottom:8px; }
+.menzah-page #startups + section.section--tight { padding-top:0; }
+.menzah-page .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:14px; }
 .menzah-page .gallery figure { margin:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); aspect-ratio:16/10; }
 .menzah-page .gallery img { width:100%; height:100%; object-fit:cover; border-radius:var(--radius); }
 
