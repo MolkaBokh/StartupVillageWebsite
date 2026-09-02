@@ -160,9 +160,8 @@ export default function DomiciliationContent() {
               central dans l&apos;innovation et l&apos;entrepreneuriat en Tunisie.
             </p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
-              Chaque année, notre communauté accueille plus de 100 événements, 1 000 visiteurs, 50 délégations
-              internationales représentant plus de 20 pays, ainsi qu&apos;une communauté active de plus de 500
-              villageois.
+              Chaque année, notre communauté accueille des événements, des visiteurs, des délégations
+              internationales, ainsi qu&apos;une communauté active de villageois.
             </p>
             <p className="mt-4 text-base leading-relaxed text-sv-navy/70">
               Votre entreprise bénéficie ainsi d&apos;une adresse qui inspire confiance et d&apos;un environnement
@@ -322,14 +321,12 @@ export default function DomiciliationContent() {
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               Demander un devis
-              <span aria-hidden>→</span>
             </Link>
             <Link
               href={contact}
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               Nous contacter
-              <span aria-hidden>→</span>
             </Link>
           </div>
         </div>
