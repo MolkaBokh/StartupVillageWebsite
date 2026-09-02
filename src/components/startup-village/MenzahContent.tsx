@@ -22,9 +22,9 @@ const LOGOS = [
   { file: "logo-7.png", name: "Skylight" },
   { file: "logo-8.png", name: "Keef" },
   { file: "logo-9.png", name: "Poslik" },
-  { file: "qore.jpeg", name: "Qore" },
-  { file: "techtalent.jpeg", name: "TechTalent" },
-  { file: "lysa.jpeg", name: "Lysa" },
+  { file: "qore.png", name: "Qore" },
+  { file: "techtalent.png", name: "TechTalent" },
+  { file: "lysa.png", name: "Lysa" },
 ];
 
 const T = {

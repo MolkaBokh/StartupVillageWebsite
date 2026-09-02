@@ -62,11 +62,15 @@ export const MENZAH_STYLES = `
 .menzah-page .stat__icon svg { width:100%; height:100%; stroke:var(--navy); }
 .menzah-page .stat h3 { font-size:18px; font-weight:700; }
 .menzah-page .stat span { display:block; color:var(--blue); font-weight:600; font-family:var(--font-head); font-size:14px; margin-top:6px; }
+/* Moderately reduce the empty space above the green "DÉCOUVREZ NOS ESPACES"
+   banner so it matches the (already tight) space below it, while keeping
+   breathing room between the stat cards and the banner. */
+.menzah-page #espace-vie { padding-bottom:24px; }
 
 /* GALLERY */
 /* Tighter gap between the green "DÉCOUVREZ NOS ESPACES" banner and the
    gallery below it (banner + gallery design themselves are unchanged). */
-.menzah-page #startups > section { padding-bottom:8px; }
+.menzah-page #startups > section { padding-top:16px; padding-bottom:8px; }
 .menzah-page #startups + section.section--tight { padding-top:0; }
 .menzah-page .gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:14px; }
 .menzah-page .gallery figure { margin:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); aspect-ratio:16/10; }
