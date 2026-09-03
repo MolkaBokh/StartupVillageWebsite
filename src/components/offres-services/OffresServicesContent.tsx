@@ -69,7 +69,6 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.ctaBtn}
-              <span aria-hidden>→</span>
             </Link>
           </div>
         </div>

@@ -255,7 +255,8 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
         <img
           src={`${BASE}/soft-landing.png`}
           alt={t.h1}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "65% center" }}
           loading="eager"
         />
         <div
