@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { withLang, type Lang } from "@/config/navigation";
+import ImageCarousel from "./ImageCarousel";
 
 /**
  * Dedicated "Organiser un événement" service page — replaces the generic
@@ -9,7 +10,17 @@ import { withLang, type Lang } from "@/config/navigation";
  */
 
 const BASE = "/assets/images/offres-services";
-const AVANT_PREMIERE_IMG = "/assets/images/espace-de-vie/Avant-premiere-1.png";
+const ESPACE = "/assets/images/espace-de-vie";
+
+// Reused from the Espace de Vie page carousels (Salle polyvalente / Terrasse Exchange)
+const AVANT_PREMIERE_IMGS = [
+  `${ESPACE}/Avant-premiere-1.png`,
+  `${ESPACE}/Avant-premiere-2.png`,
+  `${ESPACE}/avant-premiere-3.png`,
+  `${ESPACE}/Avant-premiere-4.png`,
+];
+const SUNSET_IMGS = [`${ESPACE}/Terrasse-3.png`, `${ESPACE}/Terrasse-4.png`, `${ESPACE}/Terrasse-5.png`];
+const SUNRISE_IMGS = [`${ESPACE}/Terrasse-1.png`, `${ESPACE}/Terrasse-2.png`];
 
 type Copy = {
   h1: string;
@@ -165,6 +176,10 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
   const contact = withLang("/contact", lang);
   const isRtl = lang === "ar";
 
+  const avantPremiereImages = AVANT_PREMIERE_IMGS.map((src, i) => ({ src, alt: `${t.avantPremiereTitle} ${i + 1}` }));
+  const sunsetImages = SUNSET_IMGS.map((src, i) => ({ src, alt: `${t.sunsetTitle} ${i + 1}` }));
+  const sunriseImages = SUNRISE_IMGS.map((src, i) => ({ src, alt: `${t.sunriseTitle} ${i + 1}` }));
+
   return (
     <div dir={isRtl ? "rtl" : "ltr"}>
       {/* 1. HERO */}
@@ -199,14 +214,7 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
 
           {/* Salle Avant-Première */}
           <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
-            <div className="relative h-[280px] w-full overflow-hidden rounded-xl md:h-[420px]">
-              <img
-                src={AVANT_PREMIERE_IMG}
-                alt={t.avantPremiereTitle}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ImageCarousel images={avantPremiereImages} title={t.avantPremiereTitle} />
             <div>
               <span aria-hidden="true" className="mb-1 block h-1.5 w-9 rounded-full bg-sv-pink" />
               <h3 className="mt-4 text-2xl font-bold text-sv-navy md:text-[28px]">{t.avantPremiereTitle}</h3>
@@ -221,11 +229,14 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
             </div>
           </div>
 
-          {/* Terrasse Sunset / Terrasse Sunrise */}
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-sv-navy/10 bg-slate-50/60 p-8">
+          {/* Terrasse Sunset */}
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
+            <div className="md:order-2">
+              <ImageCarousel images={sunsetImages} title={t.sunsetTitle} />
+            </div>
+            <div>
               <span aria-hidden="true" className="mb-1 block h-1.5 w-9 rounded-full bg-sv-blue" />
-              <h3 className="mt-4 text-2xl font-bold text-sv-navy">{t.sunsetTitle}</h3>
+              <h3 className="mt-4 text-2xl font-bold text-sv-navy md:text-[28px]">{t.sunsetTitle}</h3>
               <p className="mt-2 text-base font-semibold text-sv-navy/80">{t.sunsetSubtitle}</p>
 
               <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-sv-blue px-4 py-1.5 text-sm font-bold text-white">
@@ -244,10 +255,14 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
                 ))}
               </ul>
             </div>
+          </div>
 
-            <div className="rounded-2xl border border-sv-navy/10 bg-slate-50/60 p-8">
+          {/* Terrasse Sunrise */}
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
+            <ImageCarousel images={sunriseImages} title={t.sunriseTitle} />
+            <div>
               <span aria-hidden="true" className="mb-1 block h-1.5 w-9 rounded-full bg-sv-green" />
-              <h3 className="mt-4 text-2xl font-bold text-sv-navy">{t.sunriseTitle}</h3>
+              <h3 className="mt-4 text-2xl font-bold text-sv-navy md:text-[28px]">{t.sunriseTitle}</h3>
 
               <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-sv-green px-4 py-1.5 text-sm font-bold text-white">
                 {t.sunriseBadge}
