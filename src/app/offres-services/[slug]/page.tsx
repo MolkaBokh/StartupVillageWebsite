@@ -6,6 +6,7 @@ import OrganisationEvenementsContent from "@/components/offres-services/Organisa
 import AccompagnementStartupsContent from "@/components/offres-services/AccompagnementStartupsContent";
 import StudiosAudiovisuelsContent from "@/components/offres-services/StudiosAudiovisuelsContent";
 import IncubationContent from "@/components/offres-services/IncubationContent";
+import CochefContent from "@/components/offres-services/CochefContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -78,6 +79,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "incubation") {
     return <IncubationContent lang="fr" />;
+  }
+  if (slug === "cochef") {
+    return <CochefContent lang="fr" />;
   }
   return <OfferComingSoon slug={slug} lang="fr" />;
 }

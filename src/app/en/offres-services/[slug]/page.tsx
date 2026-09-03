@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import OfferComingSoon from "@/components/offres-services/OfferComingSoon";
 import StudiosAudiovisuelsContent from "@/components/offres-services/StudiosAudiovisuelsContent";
 import IncubationContent from "@/components/offres-services/IncubationContent";
+import CochefContent from "@/components/offres-services/CochefContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -25,6 +26,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "incubation") {
     return <IncubationContent lang="en" />;
+  }
+  if (slug === "cochef") {
+    return <CochefContent lang="en" />;
   }
   return <OfferComingSoon slug={slug} lang="en" />;
 }
