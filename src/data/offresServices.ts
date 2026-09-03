@@ -80,7 +80,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
   fr: {
     heroTitle: "Offres & Services",
     heroSubtitle: "Des espaces, services et accompagnements pensés pour répondre aux besoins des entrepreneurs, entreprises et communautés innovantes.",
-    heroCta: "Découvrir les offres",
+    heroCta: "Nous contacter",
     learnMore: "En savoir plus",
     services: [
       {
@@ -157,7 +157,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
   en: {
     heroTitle: "Offers & Services",
     heroSubtitle: "Spaces, services and support designed to meet the needs of entrepreneurs, businesses and innovative communities.",
-    heroCta: "Discover our offers",
+    heroCta: "Contact us",
     learnMore: "Learn more",
     services: [
       {
@@ -234,7 +234,7 @@ export const OFFRES_SERVICES_T: Record<Lang, PageCopy> = {
   ar: {
     heroTitle: "العروض والخدمات",
     heroSubtitle: "فضاءات وخدمات ومرافقة مصمّمة لتلبية احتياجات روّاد الأعمال والشركات والمجتمعات المبتكرة.",
-    heroCta: "اكتشف العروض",
+    heroCta: "اتصل بنا",
     learnMore: "اعرف المزيد",
     services: [
       {

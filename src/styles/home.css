@@ -153,6 +153,12 @@
 .home-page .section-light { background: var(--cream); }
 .home-page .section-cream { background: var(--cream); }
 
+/* Tighter gap between Actualités and the following La vie au village section */
+.home-page #espace-de-vie { padding-top: 48px; }
+@media (max-width: 768px) {
+  .home-page #espace-de-vie { padding-top: 28px; }
+}
+
 .home-page .eyebrow {
   font-weight: 700;
   text-transform: uppercase;

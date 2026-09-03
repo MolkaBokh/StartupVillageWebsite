@@ -27,13 +27,12 @@ export default function OffresServicesContent({ lang = "fr" }: { lang?: Lang }) 
           <h1 className="text-4xl font-bold leading-tight md:text-[56px]">{t.heroTitle}</h1>
           <p className="mx-auto mt-6 max-w-[600px] text-base leading-relaxed md:text-xl">{t.heroSubtitle}</p>
           <div className="mt-9">
-            <a
-              href="#services"
+            <Link
+              href={contact}
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.heroCta}
-              <span aria-hidden>↓</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
