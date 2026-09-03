@@ -6,7 +6,6 @@ import { withLang, type Lang } from "@/config/navigation";
 const T = {
   fr: {
     back: "Retour aux actualités",
-    badge: "IA & Tech",
     title: "Maher Lahmer à Startup Village : IA, LLM et stratégie startup en Tunisie",
     meta: ["16 Apr 2026", "Startup Village Menzah", "Lecture 4 min"],
     lead: "Startup Village a accueilli Maher Lahmer pour une rencontre dédiée à l'intelligence artificielle générative, aux grands modèles de langage (LLM) et à la manière dont les jeunes startups tunisiennes peuvent en faire un véritable levier de croissance.",
@@ -29,7 +28,6 @@ const T = {
   },
   en: {
     back: "Back to news",
-    badge: "AI & Tech",
     title: "Maher Lahmer at Startup Village: AI, LLMs and startup strategy in Tunisia",
     meta: ["16 Apr 2026", "Startup Village Menzah", "4 min read"],
     lead: "Startup Village welcomed Maher Lahmer for a session dedicated to generative artificial intelligence, large language models (LLMs) and how young Tunisian startups can turn them into a real growth lever.",
@@ -52,7 +50,6 @@ const T = {
   },
   ar: {
     back: "العودة إلى الأخبار",
-    badge: "الذكاء الاصطناعي والتقنية",
     title: "ماهر لحمر في ستارتب فيليج: الذكاء الاصطناعي ونماذج اللغة الكبيرة واستراتيجية الشركات الناشئة في تونس",
     meta: ["16 أبريل 2026", "ستارتب فيليج المنزه", "قراءة 4 دقائق"],
     lead: "استضاف ستارتب فيليج ماهر لحمر في لقاء مخصّص للذكاء الاصطناعي التوليدي ونماذج اللغة الكبيرة (LLM) وكيف يمكن للشركات الناشئة التونسية الشابة أن تجعل منها رافعة حقيقية للنموّ.",
@@ -87,7 +84,6 @@ export default function MaherLahmerContent({ lang = "fr" }: { lang?: Lang }) {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
             {t.back}
           </Link>
-          <span className="cat-badge">{t.badge}</span>
           <h1>{t.title}</h1>
           <div className="meta">
             <span>{t.meta[0]}</span><span className="sep"></span>
