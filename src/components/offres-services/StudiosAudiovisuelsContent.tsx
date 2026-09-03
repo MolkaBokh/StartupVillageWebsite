@@ -27,6 +27,7 @@ type Copy = {
   expressIdeal: string[];
   whyTitle: string;
   whyItems: string[];
+  studioBtn: string;
   ctaTitle: string;
   ctaBtn: string;
 };
@@ -48,6 +49,7 @@ const T: Record<Lang, Copy> = {
     expressIdeal: ["Voix off", "Publicités radio", "Spots audio", "Podcasts audio", "Interviews"],
     whyTitle: "Pourquoi choisir nos studios ?",
     whyItems: ["Accompagnement par des professionnels", "Production clé en main", "Matériel professionnel", "Possibilité de tournage en extérieur", "Montage et postproduction"],
+    studioBtn: "Réserver un studio",
     ctaTitle: "Donnez de la voix à votre marque.",
     ctaBtn: "Nous contacter",
   },
@@ -67,6 +69,7 @@ const T: Record<Lang, Copy> = {
     expressIdeal: ["Voice-over", "Radio advertising", "Audio spots", "Audio podcasts", "Interviews"],
     whyTitle: "Why choose our studios?",
     whyItems: ["Support from professionals", "Turnkey production", "Professional equipment", "Possibility of outdoor filming", "Editing and post-production"],
+    studioBtn: "Book a studio",
     ctaTitle: "Give your brand a voice.",
     ctaBtn: "Contact us",
   },
@@ -86,6 +89,7 @@ const T: Record<Lang, Copy> = {
     expressIdeal: ["تعليق صوتي", "إشهارات إذاعية", "فقرات صوتية", "بودكاست صوتي", "مقابلات"],
     whyTitle: "لماذا تختار استوديوهاتنا؟",
     whyItems: ["مرافقة من قبل محترفين", "إنتاج متكامل", "معدّات احترافية", "إمكانية التصوير في الخارج", "المونتاج وما بعد الإنتاج"],
+    studioBtn: "حجز استوديو",
     ctaTitle: "امنح علامتك التجارية صوتًا.",
     ctaBtn: "اتصل بنا",
   },
@@ -101,7 +105,8 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function StudiosAudiovisuelsContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contactStudio = withLang("/contact?type=studio", lang);
+  const contactInfo = withLang("/contact?type=info", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -148,6 +153,15 @@ export default function StudiosAudiovisuelsContent({ lang = "fr" }: { lang?: Lan
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6">
+                <Link
+                  href={contactStudio}
+                  className="inline-flex items-center gap-2 rounded-full bg-sv-pink px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {t.studioBtn}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -205,10 +219,16 @@ export default function StudiosAudiovisuelsContent({ lang = "fr" }: { lang?: Lan
           <h2 className="mx-auto max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
             {t.ctaTitle}
           </h2>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href={contact}
+              href={contactStudio}
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
+            >
+              {t.studioBtn}
+            </Link>
+            <Link
+              href={contactInfo}
+              className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               {t.ctaBtn}
             </Link>

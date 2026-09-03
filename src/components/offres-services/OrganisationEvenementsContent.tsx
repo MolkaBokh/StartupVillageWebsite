@@ -87,7 +87,7 @@ const T: Record<Lang, Copy> = {
       "La possibilité de bénéficier de notre partenaire culinaire",
     ],
     ctaTitle: "Organisons ensemble votre prochain événement.",
-    ctaBtn: "Demander un devis",
+    ctaBtn: "Organiser un événement",
   },
   en: {
     h1: "Bring your events to life in a place that brings together Tunisia's entrepreneurial ecosystem",
@@ -123,7 +123,7 @@ const T: Record<Lang, Copy> = {
       "The possibility of using our culinary partner",
     ],
     ctaTitle: "Let's organize your next event together.",
-    ctaBtn: "Request a quote",
+    ctaBtn: "Host an event",
   },
   ar: {
     h1: "امنحوا الحياة لفعالياتكم في مكان يجمع منظومة ريادة الأعمال التونسية",
@@ -159,7 +159,7 @@ const T: Record<Lang, Copy> = {
       "إمكانية الاستفادة من شريكنا في مجال الطهي",
     ],
     ctaTitle: "لننظّم معًا فعاليتكم القادمة.",
-    ctaBtn: "طلب عرض سعر",
+    ctaBtn: "تنظيم فعالية",
   },
 };
 
@@ -173,7 +173,7 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contact = withLang("/contact?type=event", lang);
   const isRtl = lang === "ar";
 
   const avantPremiereImages = AVANT_PREMIERE_IMGS.map((src, i) => ({ src, alt: `${t.avantPremiereTitle} ${i + 1}` }));
@@ -226,6 +226,15 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
 
               <p className="mt-4 text-base leading-relaxed text-sv-navy/70">{t.avantPremiereP1}</p>
               <p className="mt-4 text-base leading-relaxed text-sv-navy/70">{t.avantPremiereP2}</p>
+
+              <div className="mt-6">
+                <Link
+                  href={contact}
+                  className="inline-flex items-center gap-2 rounded-full bg-sv-pink px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {t.ctaBtn}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -254,6 +263,15 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6">
+                <Link
+                  href={contact}
+                  className="inline-flex items-center gap-2 rounded-full bg-sv-blue px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {t.ctaBtn}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -279,6 +297,15 @@ export default function OrganisationEvenementsContent({ lang = "fr" }: { lang?: 
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6">
+                <Link
+                  href={contact}
+                  className="inline-flex items-center gap-2 rounded-full bg-sv-green px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {t.ctaBtn}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

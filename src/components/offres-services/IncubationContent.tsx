@@ -30,6 +30,7 @@ type Copy = {
   bringIntro: string;
   bringItems: string[];
   bringClosing: string;
+  bringBtn: string;
   audienceTitle: string;
   audienceIntro: string;
   audienceItems: string[];
@@ -65,6 +66,7 @@ const T: Record<Lang, Copy> = {
     bringIntro: "Les startups incubées peuvent bénéficier de :",
     bringItems: ["Mentorat personnalisé", "Coaching entrepreneurial", "Accompagnement stratégique", "Mise en relation avec des investisseurs", "Accès à un réseau de partenaires", "Opportunités de networking", "Participation aux événements de Startup Village", "Immersion dans une communauté entrepreneuriale active"],
     bringClosing: "Notre objectif est de vous aider à prendre les bonnes décisions au bon moment et à accélérer le développement de votre projet.",
+    bringBtn: "Déposer sa candidature",
     audienceTitle: "À qui s'adresse ce programme ?",
     audienceIntro: "Notre programme d'incubation s'adresse aux :",
     audienceItems: ["Porteurs de projet", "Startups en phase de création", "Jeunes entreprises innovantes", "Entrepreneurs souhaitant structurer leur activité", "Équipes fondatrices à la recherche d'un accompagnement"],
@@ -109,6 +111,7 @@ const T: Record<Lang, Copy> = {
     bringIntro: "Incubated startups can benefit from:",
     bringItems: ["Personalized mentoring", "Entrepreneurial coaching", "Strategic support", "Introductions to investors", "Access to a network of partners", "Networking opportunities", "Participation in Startup Village events", "Immersion in an active entrepreneurial community"],
     bringClosing: "Our goal is to help you make the right decisions at the right time and accelerate the development of your project.",
+    bringBtn: "Apply now",
     audienceTitle: "Who is this program for?",
     audienceIntro: "Our incubation program is aimed at:",
     audienceItems: ["Project owners", "Startups in the creation phase", "Innovative young companies", "Entrepreneurs looking to structure their business", "Founding teams seeking support"],
@@ -153,6 +156,7 @@ const T: Record<Lang, Copy> = {
     bringIntro: "يمكن للشركات الناشئة المحتضنة الاستفادة من:",
     bringItems: ["توجيه شخصي", "تدريب على ريادة الأعمال", "مرافقة استراتيجية", "التواصل مع مستثمرين", "الوصول إلى شبكة من الشركاء", "فرص للتواصل", "المشاركة في فعاليات ستارتب فيليج", "الانغماس في مجتمع ريادي نشط"],
     bringClosing: "هدفنا هو مساعدتكم على اتخاذ القرارات الصحيحة في الوقت المناسب وتسريع تطوير مشروعكم.",
+    bringBtn: "تقديم الترشّح",
     audienceTitle: "لمن يوجَّه هذا البرنامج؟",
     audienceIntro: "يوجَّه برنامج الاحتضان لدينا إلى:",
     audienceItems: ["أصحاب المشاريع", "الشركات الناشئة في طور الإنشاء", "الشركات الشابة المبتكرة", "روّاد الأعمال الراغبين في هيكلة نشاطهم", "الفرق المؤسِّسة الباحثة عن مرافقة"],
@@ -194,7 +198,8 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contactIncubation = withLang("/contact?type=incubation", lang);
+  const contactInfo = withLang("/contact?type=info", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -221,7 +226,7 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 2. POURQUOI INTÉGRER NOTRE PROGRAMME D'INCUBATION */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
           <span aria-hidden="true" className="mx-auto mb-4 block h-1.5 w-9 rounded-full bg-sv-pink" />
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.whyJoinTitle}</h2>
@@ -232,7 +237,7 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 3. CE QUE NOUS VOUS APPORTONS */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.bringTitle}</h2>
@@ -252,11 +257,20 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
           </div>
 
           <p className="mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-sv-navy/70">{t.bringClosing}</p>
+
+          <div className="mt-8 text-center">
+            <Link
+              href={contactIncubation}
+              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
+            >
+              {t.bringBtn}
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* 4. À QUI S'ADRESSE CE PROGRAMME */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.audienceTitle}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-sv-navy/70">{t.audienceIntro}</p>
@@ -277,7 +291,7 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 5. POURQUOI STARTUP VILLAGE */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <span aria-hidden="true" className="mx-auto mb-4 block h-1.5 w-9 rounded-full bg-sv-green" />
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.whySvTitle}</h2>
@@ -300,7 +314,7 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 6. COMMENT REJOINDRE LE PROGRAMME */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.stepsTitle}</h2>
 
@@ -319,7 +333,7 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 7. FAQ */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.faqTitle}</h2>
           <div className="mt-10">
@@ -337,13 +351,13 @@ export default function IncubationContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/70">{t.ctaText}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href={contact}
+              href={contactIncubation}
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.ctaBtn1}
             </Link>
             <Link
-              href={contact}
+              href={contactInfo}
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               {t.ctaBtn2}

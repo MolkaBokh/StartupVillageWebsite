@@ -84,7 +84,7 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function AccompagnementStartupsContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contact = withLang("/contact?type=info", lang);
   const isRtl = lang === "ar";
 
   return (

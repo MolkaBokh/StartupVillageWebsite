@@ -4,9 +4,13 @@ import {
   EventIcon,
   ExpertiseIcon,
   FoodLabIcon,
+  IncubationIcon,
+  InfoIcon,
   MarketIcon,
   MeetingRoomIcon,
   OfficeIcon,
+  QuoteIcon,
+  SoftLandingIcon,
   StockIcon,
   StudioIcon,
   VisitIcon,
@@ -30,6 +34,10 @@ export const REQUEST_TYPES = [
   { key: "studio", icon: <StudioIcon />, fr: "Réserver un studio", en: "Book a studio", ar: "حجز استوديو" },
   { key: "expertise", icon: <ExpertiseIcon />, fr: "Demander une expertise", en: "Request expert advice", ar: "طلب خبرة" },
   { key: "foodlab", icon: <FoodLabIcon />, fr: "Louer le Food Lab", en: "Rent the Food Lab", ar: "استئجار Food Lab" },
+  { key: "quote", icon: <QuoteIcon />, fr: "Demander un devis", en: "Request a quote", ar: "طلب عرض سعر" },
+  { key: "info", icon: <InfoIcon />, fr: "Demande d'information", en: "Information request", ar: "طلب معلومات" },
+  { key: "incubation", icon: <IncubationIcon />, fr: "Déposer sa candidature", en: "Apply for incubation", ar: "تقديم طلب الترشّح" },
+  { key: "softlanding", icon: <SoftLandingIcon />, fr: "Soft Landing", en: "Soft Landing", ar: "Soft Landing" },
 ] as const;
 
 export type RequestTypeKey = (typeof REQUEST_TYPES)[number]["key"];
