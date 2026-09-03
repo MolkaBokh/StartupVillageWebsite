@@ -89,7 +89,7 @@ export const CHARGUIA_STYLES = `
 .charguia-page .strip .s-green { background:var(--green); }
 
 /* MARKET & CO */
-.charguia-page .market { position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-height:560px; background:url('${IMG}market-co.png') center/cover no-repeat; display:flex; align-items:center; justify-content:flex-end; }
+.charguia-page .market { position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-height:560px; background:url('${IMG}market-co-final.png') center/cover no-repeat; display:flex; align-items:center; justify-content:flex-end; }
 .charguia-page .market::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,42,74,.15), rgba(11,42,74,.05)); }
 .charguia-page .market__card { position:relative; z-index:2; margin:40px; max-width:600px; background:#fff; padding:46px 48px; border-radius:var(--radius); box-shadow:var(--shadow); }
 .charguia-page .market__card h2 { font-size:clamp(28px,3.4vw,40px); font-weight:800; }
