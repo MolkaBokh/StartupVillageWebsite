@@ -81,7 +81,7 @@ const T = {
       { h: "Des espaces qui rassemblent la communauté", p: "Expositions, œuvres et lieux de passage deviennent des points de rencontre entre villageois — l'occasion d'échanger, de collaborer et de tisser des liens au-delà du travail." },
       { h: "Conçu pour la rencontre et la collaboration", p: "Postes partagés, coins informels et espaces ouverts favorisent les échanges spontanés entre entrepreneurs, startups et créateurs qui composent le quotidien du village." },
     ],
-    lifeCta: "Devenir Villageois",
+    lifeCta: "Rejoindre la communauté",
     partnersEyebrow: "Ils nous font confiance",
     partnersTitle: "Des partenaires qui font grandir l'écosystème",
     partnersLead: "Des partenaires, médias, entreprises et acteurs de l'écosystème accompagnent Startup Village dans son développement.",
@@ -92,7 +92,7 @@ const T = {
     eventsCta: "Plus d'actualités",
     finalTitle: "Prêt à rejoindre l'écosystème Startup Village ?",
     finalText: "Rejoignez notre communauté et découvrez nos espaces, nos événements et nos services.",
-    finalCta: "Devenir Villageois",
+    finalCta: "Rejoindre la communauté",
   },
   en: {
     heroTitle: "One of the largest spaces dedicated to entrepreneurship in Africa!",
@@ -122,7 +122,7 @@ const T = {
       { h: "Spaces that bring the community together", p: "Exhibitions, artworks and shared passageways become meeting points between villagers — a chance to exchange, collaborate and build bonds beyond work." },
       { h: "Designed for connection and collaboration", p: "Shared desks, informal corners and open spaces encourage spontaneous exchanges between the entrepreneurs, startups and creators who make up daily village life." },
     ],
-    lifeCta: "Become a Villager",
+    lifeCta: "Join the community",
     partnersEyebrow: "They trust us",
     partnersTitle: "Partners who help the ecosystem grow",
     partnersLead: "Partners, media, companies and ecosystem players support Startup Village in its development.",
@@ -133,7 +133,7 @@ const T = {
     eventsCta: "More news",
     finalTitle: "Ready to join the Startup Village ecosystem?",
     finalText: "Join our community and discover our spaces, events and services.",
-    finalCta: "Become a Villager",
+    finalCta: "Join the community",
   },
   ar: {
     heroTitle: "أحد أكبر الفضاءات المخصّصة لريادة الأعمال في إفريقيا!",
@@ -163,7 +163,7 @@ const T = {
       { h: "فضاءات تجمع المجتمع", p: "تتحوّل المعارض والأعمال الفنية وممرّات المرور إلى نقاط لقاء بين سكان القرية — فرصة للتبادل والتعاون ونسج العلاقات إلى ما هو أبعد من العمل." },
       { h: "مصمَّمة للقاء والتعاون", p: "مكاتب مشتركة وزوايا غير رسمية وفضاءات مفتوحة تشجّع على التبادل العفوي بين روّاد الأعمال والشركات الناشئة والمبدعين الذين يصنعون الحياة اليومية للقرية." },
     ],
-    lifeCta: "كن من سكان القرية",
+    lifeCta: "انضم إلى المجتمع",
     partnersEyebrow: "هم يثقون بنا",
     partnersTitle: "شركاء يساهمون في نمو المنظومة",
     partnersLead: "شركاء ووسائل إعلام وشركات وفاعلون في المنظومة يرافقون ستارتب فيليج في مسيرة تطوّرها.",
@@ -174,7 +174,7 @@ const T = {
     eventsCta: "المزيد من الأخبار",
     finalTitle: "هل أنت مستعدّ للانضمام إلى منظومة ستارتب فيليج؟",
     finalText: "انضم إلى مجتمعنا واكتشف فضاءاتنا وفعالياتنا وخدماتنا.",
-    finalCta: "كن من سكان القرية",
+    finalCta: "انضم إلى المجتمع",
   },
 } as const;
 
