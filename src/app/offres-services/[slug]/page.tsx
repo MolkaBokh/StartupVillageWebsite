@@ -74,16 +74,16 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (slug === "salles-reunion-formation") {
-    return <SalleReunionFormationContent />;
+    return <SalleReunionFormationContent lang="fr" />;
   }
   if (slug === "domiciliation") {
-    return <DomiciliationContent />;
+    return <DomiciliationContent lang="fr" />;
   }
   if (slug === "organisation-evenements") {
-    return <OrganisationEvenementsContent />;
+    return <OrganisationEvenementsContent lang="fr" />;
   }
   if (slug === "accompagnement-startups") {
-    return <AccompagnementStartupsContent />;
+    return <AccompagnementStartupsContent lang="fr" />;
   }
   if (slug === "studios-audiovisuels") {
     return <StudiosAudiovisuelsContent lang="fr" />;
