@@ -55,7 +55,7 @@ const Arrow = () => (
 const T = {
   fr: {
     heroTitle: "L'un des plus grands espaces de coworking entrepreneurial en Afrique",
-    heroSubtitle: "Startup Village est un espace de coworking à Tunis, en Tunisie, dédié aux startups et entrepreneurs, au cœur d'un écosystème entrepreneurial dynamique.",
+    heroSubtitle: "Startup Village propose des espaces de coworking, des bureaux privés et des services pensés pour faire grandir les projets des entrepreneurs.",
     ctaVisit: "Rejoindre la communauté",
     ctaDiscover: "Découvrir nos espaces",
     statsEyebrow: "Chiffres clés",
@@ -96,7 +96,7 @@ const T = {
   },
   en: {
     heroTitle: "One of the largest entrepreneurial coworking spaces in Africa",
-    heroSubtitle: "Startup Village is a coworking space in Tunis, Tunisia, built for startups and entrepreneurs at the heart of a thriving entrepreneurial ecosystem.",
+    heroSubtitle: "Startup Village offers coworking spaces, private offices and services designed to help entrepreneurs' projects grow.",
     ctaVisit: "Join the community",
     ctaDiscover: "Explore our spaces",
     statsEyebrow: "Key figures",
@@ -137,7 +137,7 @@ const T = {
   },
   ar: {
     heroTitle: "أحد أكبر فضاءات العمل المشترك الريادي في إفريقيا",
-    heroSubtitle: "ستارتب فيليج هو فضاء عمل مشترك في تونس العاصمة، الجمهورية التونسية، مخصّص للشركات الناشئة وروّاد الأعمال في قلب منظومة ريادية نشطة.",
+    heroSubtitle: "يقدّم ستارتب فيليج فضاءات عمل مشترك ومكاتب خاصة وخدمات مصمَّمة لمساعدة مشاريع روّاد الأعمال على النمو.",
     ctaVisit: "انضم إلى المجتمع",
     ctaDiscover: "اكتشف فضاءاتنا",
     statsEyebrow: "أرقام رئيسية",
