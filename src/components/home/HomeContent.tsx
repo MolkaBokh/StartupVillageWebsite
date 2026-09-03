@@ -54,10 +54,10 @@ const Arrow = () => (
 
 const T = {
   fr: {
-    heroTitle: "L'un des plus grands espaces de coworking entrepreneurial en Afrique",
-    heroSubtitle: "Startup Village propose des espaces de coworking, des bureaux privés et des services pensés pour faire grandir les projets des entrepreneurs.",
+    heroTitle: "Un des plus grands espaces de coworking entrepreneurial en Afrique",
+    heroSubtitle: "Startup Village propose des espaces de coworking, des bureaux privés et des services pensés pour accompagner la croissance des startups, entreprises, équipes, organisations et entrepreneurs.",
     ctaVisit: "Rejoindre la communauté",
-    ctaDiscover: "Découvrir nos espaces",
+    ctaDiscover: "Découvrir nos offres",
     statsEyebrow: "Chiffres clés",
     statsTitle: "Un écosystème qui a de l'impact",
     statLabels: ["Villageois", "Bureaux privés", "Événements annuels", "d'espaces", "Studios audio & podcast", "Sites", "Espaces de réunion, de formation et de coworking"],
@@ -96,9 +96,9 @@ const T = {
   },
   en: {
     heroTitle: "One of the largest entrepreneurial coworking spaces in Africa",
-    heroSubtitle: "Startup Village offers coworking spaces, private offices and services designed to help entrepreneurs' projects grow.",
+    heroSubtitle: "Startup Village offers coworking spaces, private offices and services designed to support the growth of startups, companies, teams, organizations and entrepreneurs.",
     ctaVisit: "Join the community",
-    ctaDiscover: "Explore our spaces",
+    ctaDiscover: "Discover our offers",
     statsEyebrow: "Key figures",
     statsTitle: "An ecosystem that makes an impact",
     statLabels: ["Villagers", "Private offices", "Annual events", "of space", "Audio & podcast studios", "Sites", "Meeting, training & coworking spaces"],
@@ -137,9 +137,9 @@ const T = {
   },
   ar: {
     heroTitle: "أحد أكبر فضاءات العمل المشترك الريادي في إفريقيا",
-    heroSubtitle: "يقدّم ستارتب فيليج فضاءات عمل مشترك ومكاتب خاصة وخدمات مصمَّمة لمساعدة مشاريع روّاد الأعمال على النمو.",
+    heroSubtitle: "يقدّم ستارتب فيليج فضاءات عمل مشترك ومكاتب خاصة وخدمات مصمَّمة لدعم نمو الشركات الناشئة والشركات والفرق والمنظمات وروّاد الأعمال.",
     ctaVisit: "انضم إلى المجتمع",
-    ctaDiscover: "اكتشف فضاءاتنا",
+    ctaDiscover: "اكتشف عروضنا",
     statsEyebrow: "أرقام رئيسية",
     statsTitle: "منظومة ذات أثر حقيقي",
     statLabels: ["سكان القرية", "مكاتب خاصة", "فعاليات سنوية", "من المساحات", "استوديوهات صوت وبودكاست", "مواقع", "فضاءات اجتماعات وتكوين وعمل مشترك"],
@@ -286,7 +286,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="hero-subtitle">{t.heroSubtitle}</p>
           <div className="cta-group">
             <a href={href("/contact")} className="btn btn-primary">{t.ctaVisit}</a>
-            <a href={href("/espace-de-vie")} className="btn btn-ghost">{t.ctaDiscover}</a>
+            <a href={href("/offres-services")} className="btn btn-ghost">{t.ctaDiscover}</a>
           </div>
         </div>
       </section>

@@ -73,7 +73,7 @@ export const CHARGUIA_STYLES = `
 
 /* CO-STORAGE */
 .charguia-page .split { display:grid; grid-template-columns:1.05fr .95fr; gap:0; align-items:stretch; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
-.charguia-page .split__media { position:relative; min-height:520px; background:url('${IMG}co-storage-final-charguia.png') center/cover no-repeat; }
+.charguia-page .split__media { position:relative; min-height:520px; background:url('${IMG}charguia-final-costorage.png') center/cover no-repeat; }
 .charguia-page .split__body { background:var(--navy); color:#fff; padding:56px 52px; display:flex; flex-direction:column; justify-content:center; }
 .charguia-page .split__body h2 { color:#fff; font-size:clamp(28px,3.6vw,40px); font-weight:800; letter-spacing:.02em; }
 .charguia-page .split__body .sub { color:var(--blue); font-family:var(--font-head); font-weight:600; font-size:18px; margin:14px 0 22px; }

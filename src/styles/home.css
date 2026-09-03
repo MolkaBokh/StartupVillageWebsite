@@ -184,12 +184,16 @@
 .home-page .section-cta { margin-top: 48px; }
 
 /* ============ Stats ============ */
+.home-page .stats-section { padding: 64px 0; }
+@media (max-width: 768px) {
+  .home-page .stats-section { padding: 40px 0; }
+}
 .home-page .stats-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  margin-top: 56px;
+  margin-top: 36px;
 }
 .home-page .stat-item {
   text-align: center;
