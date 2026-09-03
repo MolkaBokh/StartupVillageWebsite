@@ -273,23 +273,7 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
-      {/* 3. NOTRE MISSION */}
-      <section className="split">
-        <div className="container">
-          <div className="media-col">
-            <img src="/assets/images/notre-mission.png" alt={t.missionTitle} loading="lazy" />
-          </div>
-          <div className="text-col">
-            <span className="kicker">{t.missionKicker}</span>
-            <h2>{t.missionTitle}</h2>
-            <h3>{t.missionLead}</h3>
-            <p>{prose.missionP1}</p>
-            <p>{prose.missionP2}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. NOTRE VISION */}
+      {/* 3. NOTRE VISION */}
       <section className="split alt">
         <div className="container">
           <div className="text-col">
@@ -301,6 +285,22 @@ export default function PresentationContent({ lang = "fr" }: { lang?: Lang }) {
           </div>
           <div className="media-col">
             <img src="/assets/images/notre-vision.png" alt={t.visionTitle} loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. NOTRE MISSION */}
+      <section className="split">
+        <div className="container">
+          <div className="media-col">
+            <img src="/assets/images/notre-mission.png" alt={t.missionTitle} loading="lazy" />
+          </div>
+          <div className="text-col">
+            <span className="kicker">{t.missionKicker}</span>
+            <h2>{t.missionTitle}</h2>
+            <h3>{t.missionLead}</h3>
+            <p>{prose.missionP1}</p>
+            <p>{prose.missionP2}</p>
           </div>
         </div>
       </section>
