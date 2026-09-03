@@ -54,8 +54,8 @@ const Arrow = () => (
 
 const T = {
   fr: {
-    heroTitle: "L'un des plus grands espaces dédiés à l'entrepreneuriat en Afrique !",
-    heroSubtitle: "Des espaces de coworking, des bureaux privés et des services pensés pour faire grandir les projets.",
+    heroTitle: "L'un des plus grands espaces de coworking entrepreneurial en Afrique",
+    heroSubtitle: "Startup Village est un espace de coworking à Tunis, en Tunisie, dédié aux startups et entrepreneurs, au cœur d'un écosystème entrepreneurial dynamique.",
     ctaVisit: "Rejoindre la communauté",
     ctaDiscover: "Découvrir nos espaces",
     statsEyebrow: "Chiffres clés",
@@ -95,8 +95,8 @@ const T = {
     finalCta: "Rejoindre la communauté",
   },
   en: {
-    heroTitle: "One of the largest spaces dedicated to entrepreneurship in Africa!",
-    heroSubtitle: "Coworking spaces, private offices and services designed to help projects grow.",
+    heroTitle: "One of the largest entrepreneurial coworking spaces in Africa",
+    heroSubtitle: "Startup Village is a coworking space in Tunis, Tunisia, built for startups and entrepreneurs at the heart of a thriving entrepreneurial ecosystem.",
     ctaVisit: "Join the community",
     ctaDiscover: "Explore our spaces",
     statsEyebrow: "Key figures",
@@ -136,8 +136,8 @@ const T = {
     finalCta: "Join the community",
   },
   ar: {
-    heroTitle: "أحد أكبر الفضاءات المخصّصة لريادة الأعمال في إفريقيا!",
-    heroSubtitle: "فضاءات عمل مشترك ومكاتب خاصة وخدمات مصمَّمة لمساعدة المشاريع على النمو.",
+    heroTitle: "أحد أكبر فضاءات العمل المشترك الريادي في إفريقيا",
+    heroSubtitle: "ستارتب فيليج هو فضاء عمل مشترك في تونس العاصمة، الجمهورية التونسية، مخصّص للشركات الناشئة وروّاد الأعمال في قلب منظومة ريادية نشطة.",
     ctaVisit: "انضم إلى المجتمع",
     ctaDiscover: "اكتشف فضاءاتنا",
     statsEyebrow: "أرقام رئيسية",
@@ -241,7 +241,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
     { count: "1000", suffix: "+" },
     { count: "100", suffix: "+" },
     { count: "200", suffix: "+" },
-    { count: "5000", suffix: " m²" },
+    { count: "5000", suffix: " m²+" },
     { count: "5", suffix: "+" },
     { count: "2", suffix: "" },
     { count: "100", suffix: "+" },
@@ -335,43 +335,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
         </div>
       </section>
 
-      {/* 4. LA VIE AU VILLAGE */}
-      <section className="section section-cream" id="espace-de-vie">
-        <div className="container">
-          <p className="eyebrow center">{t.lifeEyebrow}</p>
-          <h2 className="section-title center">{t.lifeTitle}</h2>
-
-          {t.stories.map((s, i) => (
-            <div className={`story-block${i === 1 ? " reverse" : ""}`} key={i}>
-              <div className="story-media">
-                <img src={STORY_IMG[i]} alt={s.h} loading="lazy" />
-              </div>
-              <div className="story-text">
-                <h3>{s.h}</h3>
-                <p>{s.p}</p>
-              </div>
-            </div>
-          ))}
-
-          <div className="section-cta center">
-            <a href={href("/contact")} className="btn btn-primary">{t.lifeCta}</a>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. ILS NOUS FONT CONFIANCE */}
-      <section className="section section-white">
-        <div className="container">
-          <p className="eyebrow center">{t.partnersEyebrow}</p>
-          <h2 className="section-title center">{t.partnersTitle}</h2>
-          <p className="section-lead center">{t.partnersLead}</p>
-          <div className="partners-logo-wrap">
-            <img src="/assets/images/partenaires-new.jpeg" alt={t.partnersEyebrow} loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      {/* 6. ACTUALITÉS — article cards with category filters */}
+      {/* 4. ACTUALITÉS — article cards with category filters */}
       <section className="section section-cream" id="actualites">
         <div className="container">
           <p className="eyebrow">{t.eventsEyebrow}</p>
@@ -402,6 +366,42 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
 
           <div className="section-cta center">
             <a href={href("/actualites")} className="btn btn-primary">{t.eventsCta}</a>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. LA VIE AU VILLAGE */}
+      <section className="section section-cream" id="espace-de-vie">
+        <div className="container">
+          <p className="eyebrow center">{t.lifeEyebrow}</p>
+          <h2 className="section-title center">{t.lifeTitle}</h2>
+
+          {t.stories.map((s, i) => (
+            <div className={`story-block${i === 1 ? " reverse" : ""}`} key={i}>
+              <div className="story-media">
+                <img src={STORY_IMG[i]} alt={s.h} loading="lazy" />
+              </div>
+              <div className="story-text">
+                <h3>{s.h}</h3>
+                <p>{s.p}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="section-cta center">
+            <a href={href("/contact")} className="btn btn-primary">{t.lifeCta}</a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ILS NOUS FONT CONFIANCE */}
+      <section className="section section-white">
+        <div className="container">
+          <p className="eyebrow center">{t.partnersEyebrow}</p>
+          <h2 className="section-title center">{t.partnersTitle}</h2>
+          <p className="section-lead center">{t.partnersLead}</p>
+          <div className="partners-logo-wrap">
+            <img src="/assets/images/partenaires-new.jpeg" alt={t.partnersEyebrow} loading="lazy" />
           </div>
         </div>
       </section>
