@@ -9,6 +9,7 @@ import IncubationContent from "@/components/offres-services/IncubationContent";
 import CochefContent from "@/components/offres-services/CochefContent";
 import CoStorageContent from "@/components/offres-services/CoStorageContent";
 import MarketCoContent from "@/components/offres-services/MarketCoContent";
+import SoftLandingContent from "@/components/offres-services/SoftLandingContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -58,6 +59,14 @@ export async function generateMetadata({
     };
   }
 
+  if (slug === "soft-landing") {
+    return {
+      title: "Soft Landing en Tunisie | Accompagnement des startups & entreprises",
+      description:
+        "Implantez votre startup ou entreprise en Tunisie avec notre programme Soft Landing : accompagnement local, espaces de travail, réseau, partenaires et accès à l'écosystème entrepreneurial.",
+    };
+  }
+
   const title = offerTitle(slug, "fr");
   return { title: title ? `${title} | Startup Village` : "Offres & Services | Startup Village" };
 }
@@ -90,6 +99,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "louer-stand-exposition") {
     return <MarketCoContent lang="fr" />;
+  }
+  if (slug === "soft-landing") {
+    return <SoftLandingContent lang="fr" />;
   }
   return <OfferComingSoon slug={slug} lang="fr" />;
 }

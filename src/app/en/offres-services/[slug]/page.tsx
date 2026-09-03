@@ -5,6 +5,7 @@ import IncubationContent from "@/components/offres-services/IncubationContent";
 import CochefContent from "@/components/offres-services/CochefContent";
 import CoStorageContent from "@/components/offres-services/CoStorageContent";
 import MarketCoContent from "@/components/offres-services/MarketCoContent";
+import SoftLandingContent from "@/components/offres-services/SoftLandingContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -37,6 +38,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "louer-stand-exposition") {
     return <MarketCoContent lang="en" />;
+  }
+  if (slug === "soft-landing") {
+    return <SoftLandingContent lang="en" />;
   }
   return <OfferComingSoon slug={slug} lang="en" />;
 }
