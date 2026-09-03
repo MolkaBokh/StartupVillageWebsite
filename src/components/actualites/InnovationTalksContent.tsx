@@ -6,7 +6,6 @@ import { withLang, type Lang } from "@/config/navigation";
 const T = {
   fr: {
     back: "Retour aux actualités",
-    badge: "Entrepreneuriat",
     title: "Innovation Talks : Italie–Tunisie, construire l'innovation ensemble",
     meta: ["Mai 2026", "Startup Village", "Lecture 3 min"],
     subtitle:
@@ -22,7 +21,6 @@ const T = {
   },
   en: {
     back: "Back to news",
-    badge: "Entrepreneurship",
     title: "Innovation Talks: Italy–Tunisia, building innovation together",
     meta: ["May 2026", "Startup Village", "3 min read"],
     subtitle:
@@ -38,7 +36,6 @@ const T = {
   },
   ar: {
     back: "العودة إلى الأخبار",
-    badge: "ريادة الأعمال",
     title: "Innovation Talks: إيطاليا–تونس، نبني الابتكار معًا",
     meta: ["مايو 2026", "ستارتب فيليج", "قراءة 3 دقائق"],
     subtitle:
@@ -66,7 +63,6 @@ export default function InnovationTalksContent({ lang = "fr" }: { lang?: Lang })
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
             {t.back}
           </Link>
-          <span className="cat-badge">{t.badge}</span>
           <h1>{t.title}</h1>
           <div className="meta">
             <span>{t.meta[0]}</span><span className="sep"></span>
