@@ -24,8 +24,6 @@ import {
 const T = {
   fr: {
     contact: "Contact",
-    phone: "Téléphone",
-    email: "Email",
     maps: "Voir sur Google Maps",
     newsletter: "Newsletter",
     newsletterText: "Recevez les actualités du village directement dans votre boîte mail.",
@@ -36,8 +34,6 @@ const T = {
   },
   en: {
     contact: "Contact",
-    phone: "Phone",
-    email: "Email",
     maps: "View on Google Maps",
     newsletter: "Newsletter",
     newsletterText: "Get the latest village news delivered straight to your inbox.",
@@ -48,8 +44,6 @@ const T = {
   },
   ar: {
     contact: "اتصل بنا",
-    phone: "الهاتف",
-    email: "البريد الإلكتروني",
     maps: "عرض على خرائط Google",
     newsletter: "النشرة البريدية",
     newsletterText: "تابع آخر أخبار القرية مباشرة في بريدك الإلكتروني.",
@@ -93,12 +87,6 @@ export default function Footer() {
             <p>Immeuble Essadi Tour C-D, Mezzanine</p>
             <p>10 Décembre, Av. Habib Bourguiba</p>
             <p>Tunis 1004</p>
-            <p className="font-semibold">{t.phone}</p>
-            <p>
-              <Link href="tel:+21620953953" className="text-white hover:text-primary-400">
-                +216 20 953 953
-              </Link>
-            </p>
             <Link
               href="https://maps.app.goo.gl/uHsWdk464XSp1oXU7"
               target="_blank"
@@ -112,12 +100,6 @@ export default function Footer() {
           <div className="space-y-1 text-sm leading-relaxed text-white">
             <p className="font-semibold">Startup Village Charguia</p>
             <p>28 Rue 8612, 1035 Charguia, Tunis</p>
-            <p className="font-semibold">{t.phone}</p>
-            <p>
-              <Link href="tel:+21698798027" className="text-white hover:text-primary-400">
-                +216 98 798 027
-              </Link>
-            </p>
             <Link
               href="https://maps.app.goo.gl/ZHzpDADjBXtsDvAV6"
               target="_blank"
@@ -129,7 +111,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-1 text-sm leading-relaxed text-white">
-            <p className="font-semibold">{t.email}</p>
+            <p className="font-semibold">{t.contact}</p>
+            <p>
+              <Link href="tel:+21620953953" className="text-white hover:text-primary-400">
+                +216 20 953 953
+              </Link>
+            </p>
             <p>
               <Link
                 href="mailto:contact@startupvillage.tn"
@@ -190,7 +177,15 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/20 px-6 py-5 text-center text-sm text-white">
-        © 2026 Medianet
+        © 2026{" "}
+        <Link
+          href="https://www.medianet-group.com/fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-primary-400"
+        >
+          MEDIANET
+        </Link>
       </div>
     </footer>
   );
