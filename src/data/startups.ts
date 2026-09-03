@@ -30,4 +30,12 @@ export const startups: Startup[] = [
   { name: "SRT", logo: "srt.png" },
   { name: "Ukla", logo: "ukla.png" },
   { name: "Word Flow", logo: "wordflow.png" },
+  { name: "Misk", logo: "misk.jpg" },
+  { name: "Nexflow", logo: "nexflow.png" },
+  { name: "Takt", logo: "takt.webp" },
+  { name: "Best Tech System", logo: "best-tech-system.jpg" },
+  { name: "Design Lab", logo: "design-lab.jpg" },
+  { name: "Lysa", logo: "lysa.png" },
+  { name: "Qore", logo: "qore.png" },
+  { name: "TechTalent", logo: "techtalent.png" },
 ];
