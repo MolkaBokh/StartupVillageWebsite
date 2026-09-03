@@ -5,6 +5,7 @@ import DomiciliationContent from "@/components/offres-services/DomiciliationCont
 import OrganisationEvenementsContent from "@/components/offres-services/OrganisationEvenementsContent";
 import AccompagnementStartupsContent from "@/components/offres-services/AccompagnementStartupsContent";
 import StudiosAudiovisuelsContent from "@/components/offres-services/StudiosAudiovisuelsContent";
+import IncubationContent from "@/components/offres-services/IncubationContent";
 import { SERVICE_SLUGS, offerTitle } from "@/data/offresServices";
 
 export function generateStaticParams() {
@@ -46,6 +47,14 @@ export async function generateMetadata({
     return { title: "Accompagnement des startups et entrepreneurs | Startup Village" };
   }
 
+  if (slug === "incubation") {
+    return {
+      title: "Incubation de Startups en Tunisie | Startup Village & MEDIANET Incubator",
+      description:
+        "Bénéficiez d'un accompagnement à l'incubation avec Startup Village et MEDIANET Incubator. Mentorat, coaching, réseau de partenaires et accompagnement entrepreneurial pour accélérer votre startup.",
+    };
+  }
+
   const title = offerTitle(slug, "fr");
   return { title: title ? `${title} | Startup Village` : "Offres & Services | Startup Village" };
 }
@@ -66,6 +75,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
   if (slug === "studios-audiovisuels") {
     return <StudiosAudiovisuelsContent lang="fr" />;
+  }
+  if (slug === "incubation") {
+    return <IncubationContent lang="fr" />;
   }
   return <OfferComingSoon slug={slug} lang="fr" />;
 }
