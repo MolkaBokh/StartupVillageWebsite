@@ -355,12 +355,16 @@ function RoomCard({
   capacityLabel,
   equipLabel,
   idealLabel,
+  ctaLabel,
+  ctaHref,
 }: {
   room: Room;
   reverse: boolean;
   capacityLabel: string;
   equipLabel: string;
   idealLabel: string;
+  ctaLabel: string;
+  ctaHref: string;
 }) {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
@@ -417,6 +421,16 @@ function RoomCard({
             </div>
           </div>
         )}
+
+        <div className="mt-6">
+          <Link
+            href={ctaHref}
+            className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            style={{ background: room.accent }}
+          >
+            {ctaLabel}
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -425,6 +439,7 @@ function RoomCard({
 export default function SalleReunionFormationContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const contact = withLang("/contact", lang);
+  const contactRoom = withLang("/contact?type=room", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -485,6 +500,8 @@ export default function SalleReunionFormationContent({ lang = "fr" }: { lang?: L
                 capacityLabel={t.capacityLabel}
                 equipLabel={t.equipLabel}
                 idealLabel={t.idealLabel}
+                ctaLabel={t.ctaBtn2}
+                ctaHref={contactRoom}
               />
             </div>
           </section>

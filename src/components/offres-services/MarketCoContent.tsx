@@ -17,6 +17,7 @@ type Copy = {
   heroP3: string;
   whyTitle: string;
   whyItems: string[];
+  whyBtn: string;
   audienceTitle: string;
   audienceItems: string[];
   stepsTitle: string;
@@ -39,6 +40,7 @@ const T: Record<Lang, Copy> = {
       "Partagez un espace avec d'autres marques et créateurs.",
       "Bénéficiez d'une rotation régulière pour mettre en avant de nouveaux produits.",
     ],
+    whyBtn: "Louer un stand d'exposition",
     audienceTitle: "Pour qui ?",
     audienceItems: ["Artisans", "Créateurs", "Marques locales", "Startups", "Producteurs", "Petites entreprises", "Entrepreneurs souhaitant valider leur offre"],
     stepsTitle: "Comment ça fonctionne ?",
@@ -64,6 +66,7 @@ const T: Record<Lang, Copy> = {
       "Share a space with other brands and creators.",
       "Benefit from regular rotation to showcase new products.",
     ],
+    whyBtn: "Rent an exhibition stand",
     audienceTitle: "Who is it for?",
     audienceItems: ["Artisans", "Creators", "Local brands", "Startups", "Producers", "Small businesses", "Entrepreneurs looking to validate their offer"],
     stepsTitle: "How does it work?",
@@ -89,6 +92,7 @@ const T: Record<Lang, Copy> = {
       "شاركوا فضاءً مع علامات ومبدعين آخرين.",
       "استفيدوا من تناوب منتظم لإبراز منتجات جديدة.",
     ],
+    whyBtn: "استئجار جناح عرض",
     audienceTitle: "لمن هذا موجَّه؟",
     audienceItems: ["حرفيون", "مبدعون", "علامات محلية", "شركات ناشئة", "منتجون", "مؤسسات صغيرة", "روّاد أعمال راغبون في اختبار عرضهم"],
     stepsTitle: "كيف يعمل؟",
@@ -114,6 +118,7 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 export default function MarketCoContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
   const contact = withLang("/contact", lang);
+  const contactStandExpo = withLang("/contact?type=standexpo", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -139,7 +144,7 @@ export default function MarketCoContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 2. POURQUOI MARKET & CO */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.whyTitle}</h2>
 
@@ -153,11 +158,20 @@ export default function MarketCoContent({ lang = "fr" }: { lang?: Lang }) {
               </div>
             ))}
           </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href={contactStandExpo}
+              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
+            >
+              {t.whyBtn}
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* 3. POUR QUI */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.audienceTitle}</h2>
           <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -174,7 +188,7 @@ export default function MarketCoContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 4. COMMENT ÇA FONCTIONNE */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.stepsTitle}</h2>
 

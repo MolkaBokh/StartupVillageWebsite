@@ -35,7 +35,7 @@ const T: Record<Lang, Copy> = {
     audienceTitle: "Pour qui ?",
     audienceItems: ["Food startups", "Traiteurs", "Chefs", "Pâtissiers", "Marques alimentaires"],
     ctaTitle: "Faites grandir votre projet culinaire.",
-    ctaBtn: "Nous contacter",
+    ctaBtn: "Louer le Food Lab",
   },
   en: {
     h1: "Grow your culinary business in a professional environment",
@@ -47,7 +47,7 @@ const T: Record<Lang, Copy> = {
     audienceTitle: "Who is it for?",
     audienceItems: ["Food startups", "Caterers", "Chefs", "Pastry chefs", "Food brands"],
     ctaTitle: "Grow your culinary project.",
-    ctaBtn: "Contact us",
+    ctaBtn: "Rent the Food Lab",
   },
   ar: {
     h1: "طوّر نشاطك في مجال الطهي ضمن بيئة احترافية",
@@ -59,7 +59,7 @@ const T: Record<Lang, Copy> = {
     audienceTitle: "لمن هذا موجَّه؟",
     audienceItems: ["شركات ناشئة في مجال الغذاء", "مورّدو تموين", "طهاة", "حلوانيون", "علامات غذائية"],
     ctaTitle: "نمِّ مشروعك في مجال الطهي.",
-    ctaBtn: "اتصل بنا",
+    ctaBtn: "استئجار Food Lab",
   },
 };
 
@@ -73,7 +73,7 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function CochefContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contact = withLang("/contact?type=foodlab", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -99,7 +99,7 @@ export default function CochefContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 2. CE QUE NOUS PROPOSONS */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.offerTitle}</h2>
 
@@ -117,7 +117,7 @@ export default function CochefContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 3. POUR QUI */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.audienceTitle}</h2>
           <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">

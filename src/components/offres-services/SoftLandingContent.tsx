@@ -32,6 +32,7 @@ type Copy = {
   bringTitle: string;
   bringIntro: string;
   bringItems: Item[];
+  bringBtn: string;
   gatewayTitle: string;
   gatewayP1: string;
   gatewayIntro: string;
@@ -74,6 +75,7 @@ const T: Record<Lang, Copy> = {
       { title: "Des opportunités de networking", text: "Participez à des événements, rencontres et activités organisés au sein de Startup Village pour commencer à construire votre réseau local." },
       { title: "Un accompagnement vers les bons partenaires", text: "Selon vos besoins, nous pouvons vous orienter vers les ressources et partenaires pertinents pour les différentes étapes de votre implantation." },
     ],
+    bringBtn: "Soft Landing",
     gatewayTitle: "Une porte d'entrée vers l'écosystème entrepreneurial tunisien",
     gatewayP1: "Startup Village est naturellement positionné comme un point de rencontre entre les acteurs locaux et internationaux.",
     gatewayIntro: "Chaque année, nous accueillons :",
@@ -135,6 +137,7 @@ const T: Record<Lang, Copy> = {
       { title: "Networking opportunities", text: "Take part in events, meetings and activities organized within Startup Village to start building your local network." },
       { title: "Guidance toward the right partners", text: "Depending on your needs, we can direct you to the relevant resources and partners for the different stages of your establishment." },
     ],
+    bringBtn: "Soft Landing",
     gatewayTitle: "A gateway to the Tunisian entrepreneurial ecosystem",
     gatewayP1: "Startup Village is naturally positioned as a meeting point between local and international stakeholders.",
     gatewayIntro: "Every year, we welcome:",
@@ -196,6 +199,7 @@ const T: Record<Lang, Copy> = {
       { title: "فرص للتواصل", text: "شاركوا في فعاليات ولقاءات وأنشطة منظَّمة داخل ستارتب فيليج للبدء في بناء شبكتكم المحلّية." },
       { title: "مرافقة نحو الشركاء المناسبين", text: "حسب احتياجاتكم، يمكننا توجيهكم نحو الموارد والشركاء المناسبين لمختلف مراحل تموقعكم." },
     ],
+    bringBtn: "Soft Landing",
     gatewayTitle: "بوّابة نحو المنظومة الريادية التونسية",
     gatewayP1: "يتموقع ستارتب فيليج بشكل طبيعي كنقطة لقاء بين الفاعلين المحلّيين والدوليين.",
     gatewayIntro: "نستقبل كلّ سنة:",
@@ -245,7 +249,9 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contactSoftLanding = withLang("/contact?type=softlanding", lang);
+  const contactQuote = withLang("/contact?type=quote", lang);
+  const contactInfo = withLang("/contact?type=info", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -273,7 +279,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 2. QU'EST-CE QUE LE SOFT LANDING */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
           <span aria-hidden="true" className="mx-auto mb-4 block h-1.5 w-9 rounded-full bg-sv-pink" />
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.whatTitle}</h2>
@@ -284,7 +290,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 3. POURQUOI CHOISIR LA TUNISIE */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.whyTunisiaTitle}</h2>
           <p className="mt-4 text-base leading-relaxed text-sv-navy/70">{t.whyTunisiaP1}</p>
@@ -294,7 +300,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 4. CE QUE STARTUP VILLAGE PEUT VOUS APPORTER */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.bringTitle}</h2>
@@ -309,11 +315,20 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
               </div>
             ))}
           </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href={contactSoftLanding}
+              className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
+            >
+              {t.bringBtn}
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* 5. UNE PORTE D'ENTRÉE VERS L'ÉCOSYSTÈME */}
-      <section className="bg-sv-navy py-16 md:py-20">
+      <section className="bg-sv-navy py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-white md:text-4xl">{t.gatewayTitle}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">{t.gatewayP1}</p>
@@ -332,7 +347,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 6. POUR QUI */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <h2 className="text-3xl font-bold text-sv-navy md:text-4xl">{t.audienceTitle}</h2>
           <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -349,7 +364,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 7. UN PARCOURS ADAPTÉ À VOTRE PROJET */}
-      <section className="bg-slate-50/60 py-16 md:py-20">
+      <section className="bg-slate-50/60 py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.journeyTitle}</h2>
 
@@ -368,7 +383,7 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
       </section>
 
       {/* 8. FAQ */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <h2 className="text-center text-3xl font-bold text-sv-navy md:text-4xl">{t.faqTitle}</h2>
           <div className="mt-10">
@@ -386,13 +401,13 @@ export default function SoftLandingContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/70">{t.ctaText}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href={contact}
+              href={contactQuote}
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.ctaBtn1}
             </Link>
             <Link
-              href={contact}
+              href={contactInfo}
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               {t.ctaBtn2}

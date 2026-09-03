@@ -147,6 +147,46 @@ export function CreatorIcon({ className = base }: IconProps) {
   );
 }
 
+export function QuoteIcon({ className = base }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M6 3h9l4 4v14H6z" strokeLinejoin="round" />
+      <path d="M15 3v4h4" strokeLinejoin="round" />
+      <path d="M9 12.5h6M9 16h6M9 9h3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function InfoIcon({ className = base }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 11v6" strokeLinecap="round" />
+      <circle cx="12" cy="7.75" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IncubationIcon({ className = base }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 2.5c3 1.7 4.5 5 4.5 8.5 0 2-.6 3.8-1.6 5.3L12 19l-2.9-2.7C8.1 14.8 7.5 13 7.5 11c0-3.5 1.5-6.8 4.5-8.5Z" strokeLinejoin="round" />
+      <circle cx="12" cy="10" r="1.6" />
+      <path d="M8.5 16 6 21M15.5 16 18 21" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SoftLandingIcon({ className = base }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 3v13" strokeLinecap="round" />
+      <path d="M7 12l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 20h16" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function InstitutionIcon({ className = base }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

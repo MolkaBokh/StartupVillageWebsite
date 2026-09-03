@@ -31,7 +31,7 @@ const T: Record<Lang, Copy> = {
     benefitsTitle: "Les avantages",
     benefitsItems: ["Location au m²", "Gestion du stock", "Logistique", "Solution flexible", "Accessible à toutes les entreprises"],
     ctaTitle: "Optimisez votre logistique.",
-    ctaBtn: "Nous contacter",
+    ctaBtn: "Déposer mon stock",
   },
   en: {
     h1: "Storage & Click & Collect",
@@ -41,7 +41,7 @@ const T: Record<Lang, Copy> = {
     benefitsTitle: "The benefits",
     benefitsItems: ["Rental by m²", "Stock management", "Logistics", "Flexible solution", "Accessible to all businesses"],
     ctaTitle: "Optimize your logistics.",
-    ctaBtn: "Contact us",
+    ctaBtn: "Drop off my stock",
   },
   ar: {
     h1: "التخزين و Click & Collect",
@@ -51,7 +51,7 @@ const T: Record<Lang, Copy> = {
     benefitsTitle: "المزايا",
     benefitsItems: ["كراء بالمتر المربّع", "إدارة المخزون", "اللوجستيك", "حلّ مرن", "في متناول جميع الشركات"],
     ctaTitle: "حسِّنوا لوجستيّاتكم.",
-    ctaBtn: "اتصل بنا",
+    ctaBtn: "إيداع مخزوني",
   },
 };
 
@@ -65,7 +65,7 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function CoStorageContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contact = withLang("/contact?type=stock", lang);
   const isRtl = lang === "ar";
 
   return (

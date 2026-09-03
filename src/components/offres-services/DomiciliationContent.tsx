@@ -290,7 +290,8 @@ function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 export default function DomiciliationContent({ lang = "fr" }: { lang?: Lang }) {
   const t = T[lang];
-  const contact = withLang("/contact", lang);
+  const contactQuote = withLang("/contact?type=quote", lang);
+  const contactInfo = withLang("/contact?type=info", lang);
   const isRtl = lang === "ar";
 
   return (
@@ -451,13 +452,13 @@ export default function DomiciliationContent({ lang = "fr" }: { lang?: Lang }) {
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/70">{t.ctaText}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href={contact}
+              href={contactQuote}
               className="inline-flex items-center gap-2 rounded-full bg-sv-cyan-btn px-7 py-3.5 text-base font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-sv-cyan-btn-hover"
             >
               {t.ctaBtn1}
             </Link>
             <Link
-              href={contact}
+              href={contactInfo}
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-bold text-white transition hover:border-white hover:bg-white/10"
             >
               {t.ctaBtn2}

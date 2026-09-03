@@ -5,7 +5,7 @@ import { Input, Label, Select, Textarea } from "@/components/ui/Field";
 import { Button } from "@/components/ui/Button";
 import SpaceTypeCard from "@/components/contact/SpaceTypeCard";
 import type { Lang } from "@/config/navigation";
-import { REQUEST_TYPES, TYPE_PARAM_KEY } from "@/data/contactRequestTypes";
+import { REQUEST_TYPES, TYPE_PARAM_KEY, type RequestTypeKey } from "@/data/contactRequestTypes";
 
 const T = {
   fr: {
@@ -112,7 +112,8 @@ export default function ContactForm({ lang = "fr", requestType, onRequestTypeCha
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get("type");
-    const key = param ? TYPE_PARAM_KEY[param] : undefined;
+    const isRequestTypeKey = (v: string): v is RequestTypeKey => REQUEST_TYPES.some((r) => r.key === v);
+    const key = param ? TYPE_PARAM_KEY[param] ?? (isRequestTypeKey(param) ? param : undefined) : undefined;
     const match = key ? REQUEST_TYPES.find((r) => r.key === key) : undefined;
     if (match) onRequestTypeChange(match[lang]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
