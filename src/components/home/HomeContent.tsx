@@ -366,7 +366,7 @@ export default function HomeContent({ lang = "fr" }: { lang?: Lang }) {
           <h2 className="section-title center">{t.partnersTitle}</h2>
           <p className="section-lead center">{t.partnersLead}</p>
           <div className="partners-logo-wrap">
-            <img src="/assets/images/09-partners-logo-wall.png" alt={t.partnersEyebrow} loading="lazy" />
+            <img src="/assets/images/partenaires-new.jpeg" alt={t.partnersEyebrow} loading="lazy" />
           </div>
         </div>
       </section>

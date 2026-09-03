@@ -23,6 +23,11 @@ const LOGOS = [
   { file: "it-grow.png", name: "I.T Grow" },
   { file: "kamioun.png", name: "Kamioun" },
   { file: "open-work.png", name: "Open Work" },
+  { file: "misk.jpg", name: "Misk" },
+  { file: "nexflow.png", name: "Nexflow" },
+  { file: "takt.webp", name: "Takt" },
+  { file: "best-tech-system.jpg", name: "Best Tech System" },
+  { file: "design-lab.jpg", name: "Design Lab" },
 ];
 
 const T = {
